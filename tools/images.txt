@@ -1,0 +1,11 @@
+# Obrazy narzędzi. freeze_images.sh pobiera je i zapisuje skróty (digest) w images.lock.
+# Po zamrożeniu wszystkie skany używają wyłącznie wersji z images.lock.
+trivy=aquasec/trivy:latest
+grype=anchore/grype:latest
+osv-scanner=ghcr.io/google/osv-scanner:latest
+dependency-check=owasp/dependency-check:latest
+node=node:lts-bookworm
+python312=python:3.12-slim-bookworm
+python310=python:3.10-slim-bookworm
+python38=python:3.8-slim-bookworm
+maven=maven:3-eclipse-temurin-21

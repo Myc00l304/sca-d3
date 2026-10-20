@@ -1,0 +1,7 @@
+pilot/data/
+pilot/cache/
+.venv/
+__pycache__/
+d1/projects_s1/*/*/*/F2/
+d3/cache/
+d3/projects/*/*/*/F2/
