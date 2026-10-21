@@ -1,0 +1,2 @@
+pl.thesis.d1:d1-case:jar:1.0.0
+\- org.a2aproject.sdk:a2a-java-sdk-parent:jar:1.2.0.Final:compile

@@ -1,0 +1,23 @@
+pl.thesis.d1:d1-case:jar:1.0.0
+\- org.a2aproject.sdk:a2a-java-sdk-server-common:jar:1.2.0.Final:compile
+   +- org.a2aproject.sdk:a2a-java-sdk-spec:jar:1.2.0.Final:compile
+   |  +- org.a2aproject.sdk:a2a-java-sdk-common:jar:1.2.0.Final:compile
+   |  \- com.google.code.gson:gson:jar:2.14.0:compile
+   |     \- com.google.errorprone:error_prone_annotations:jar:2.48.0:compile
+   +- org.a2aproject.sdk:a2a-java-sdk-jsonrpc-common:jar:1.2.0.Final:compile
+   +- org.a2aproject.sdk:a2a-java-sdk-spec-grpc:jar:1.2.0.Final:compile
+   |  +- com.google.protobuf:protobuf-java:jar:4.35.0:compile
+   |  \- com.google.api.grpc:proto-google-common-protos:jar:2.71.0:compile
+   +- org.a2aproject.sdk:a2a-java-sdk-http-client:jar:1.2.0.Final:compile
+   |  \- com.google.protobuf:protobuf-java-util:jar:4.35.0:compile
+   |     \- com.google.code.findbugs:jsr305:jar:3.0.2:runtime
+   +- org.a2aproject.sdk:a2a-java-sdk-client-transport-jsonrpc:jar:1.2.0.Final:compile
+   |  \- org.a2aproject.sdk:a2a-java-sdk-client-transport-spi:jar:1.2.0.Final:compile
+   +- io.smallrye.reactive:mutiny-zero:jar:1.1.1:compile
+   +- jakarta.enterprise:jakarta.enterprise.cdi-api:jar:4.1.0:compile
+   |  +- jakarta.enterprise:jakarta.enterprise.lang-model:jar:4.1.0:compile
+   |  +- jakarta.annotation:jakarta.annotation-api:jar:3.0.0:compile
+   |  +- jakarta.el:jakarta.el-api:jar:6.0.0:compile
+   |  \- jakarta.interceptor:jakarta.interceptor-api:jar:2.2.0:compile
+   +- jakarta.inject:jakarta.inject-api:jar:2.0.1:compile
+   \- org.slf4j:slf4j-api:jar:2.0.18:compile

@@ -1,0 +1,88 @@
+{
+ "GHSA-44qr-rrjg-2cqq": {
+  "dependency-check": "2026-10-21",
+  "grype": "2026-10-21",
+  "npm-audit": "2026-10-21",
+  "osv-scanner": "2026-10-21",
+  "trivy": "2026-10-21"
+ },
+ "GHSA-4fpj-g9jf-9rgg": {
+  "grype": "2026-10-21",
+  "osv-scanner": "2026-10-21",
+  "trivy": "2026-10-21"
+ },
+ "GHSA-6prh-2h8m-c8cw": {
+  "dependency-check": "2026-10-21",
+  "grype": "2026-10-21",
+  "npm-audit": "2026-10-21",
+  "osv-scanner": "2026-10-21",
+  "trivy": "2026-10-21"
+ },
+ "GHSA-9xw5-w5jj-pvcg": {
+  "grype": "2026-10-21",
+  "osv-scanner": "2026-10-21",
+  "pip-audit": "2026-10-21",
+  "trivy": "2026-10-21"
+ },
+ "GHSA-c6hw-5grf-ff96": {
+  "grype": "2026-10-21",
+  "osv-scanner": "2026-10-21",
+  "pip-audit": "2026-10-21",
+  "trivy": "2026-10-21"
+ },
+ "GHSA-f9xw-jh8m-3mwq": {
+  "grype": "2026-10-21",
+  "osv-scanner": "2026-10-21",
+  "pip-audit": "2026-10-21",
+  "trivy": "2026-10-21"
+ },
+ "GHSA-jm63-cq47-j5jp": {
+  "dependency-check": "2026-10-21",
+  "grype": "2026-10-21",
+  "npm-audit": "2026-10-21",
+  "osv-scanner": "2026-10-21",
+  "trivy": "2026-10-21"
+ },
+ "GHSA-q3jh-wrc6-jgq8": {
+  "dependency-check": "2026-10-21",
+  "grype": "2026-10-21",
+  "npm-audit": "2026-10-21",
+  "osv-scanner": "2026-10-21",
+  "trivy": "2026-10-21"
+ },
+ "GHSA-q78c-5jjq-57g8": {
+  "grype": "2026-10-21",
+  "osv-scanner": "2026-10-21",
+  "trivy": "2026-10-21"
+ },
+ "GHSA-qhcq-9pm2-c9w9": {
+  "dependency-check": "2026-10-21",
+  "grype": "2026-10-21",
+  "npm-audit": "2026-10-21",
+  "osv-scanner": "2026-10-21",
+  "trivy": "2026-10-21"
+ },
+ "GHSA-qw47-mcm5-934w": {
+  "grype": "2026-10-21",
+  "osv-scanner": "2026-10-21",
+  "trivy": "2026-10-21"
+ },
+ "GHSA-rv4m-xm3f-3ccq": {
+  "grype": "2026-10-21",
+  "osv-scanner": "2026-10-21",
+  "pip-audit": "2026-10-21",
+  "trivy": "2026-10-21"
+ },
+ "GHSA-vx6w-vv9f-6gvg": {
+  "grype": "2026-10-21",
+  "osv-scanner": "2026-10-21",
+  "pip-audit": "2026-10-21",
+  "trivy": "2026-10-21"
+ },
+ "GHSA-x32g-jvvm-4725": {
+  "grype": "2026-10-21",
+  "osv-scanner": "2026-10-21",
+  "trivy": "2026-10-21"
+ },
+ "_last_run": "2026-10-21"
+}

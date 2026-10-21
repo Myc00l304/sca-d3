@@ -1,0 +1,6 @@
+{
+  "ok": false,
+  "stage": "copy",
+  "reason": "artifact_not_jar",
+  "stderr": "[ERROR] Failed to execute goal on project d1-case: Could not resolve dependencies for project pl.thesis.d1:d1-case:jar:1.0.0\n[ERROR] dependency: org.a2aproject.sdk:a2a-java-sdk-parent:jar:1.2.0.Final (compile)\n[ERROR] \tCould not find artifact org.a2aproject.sdk:a2a-java-sdk-parent:jar:1.2.0.Final in central (https://repo.maven.apache.org/maven2)\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException\n"
+}
