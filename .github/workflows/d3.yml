@@ -18,30 +18,43 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -r pilot/requirements.txt
-      - name: Pamięć podręczna baz narzędzi i repozytoriów pakietów
-        uses: actions/cache@v4
+      - run: |
+          pip install -r pilot/requirements.txt
+          sudo apt-get install -y zstd
+      - name: Odtworzenie pamięci podręcznej (bazy narzędzi, repozytoria pakietów)
+        uses: actions/cache/restore@v4
         with:
           path: ~/.cache/sca-thesis
           key: sca-cache-${{ github.run_id }}
           restore-keys: sca-cache-
       - name: Obrazy narzędzi (wersje z images.lock)
         run: tools/pull_locked.sh
-      - name: Aktualizacja baz podatności
+      - name: Baza Dependency-Check (pierwsze uruchomienie z wydania dc-data)
+        run: tools/fetch_dc_data.sh "${{ github.repository }}"
+      - name: Aktualizacja baz Trivy i Grype
+        run: tools/update_dbs.sh
+      - name: Aktualizacja bazy Dependency-Check (błąd nie przerywa serii)
+        continue-on-error: true
+        timeout-minutes: 60
         env:
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
-        run: |
-          tools/update_dbs.sh
-          tools/dc_update.sh
+        run: tools/dc_update.sh
       - name: Seria dzienna D3
         env:
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+          SCA_OFFLINE_DC: "1"
         run: python3 d3/d3_daily.py
+      - name: Zapis pamięci podręcznej
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: ~/.cache/sca-thesis
+          key: sca-cache-${{ github.run_id }}
       - name: Zapis wyników
         if: always()
         run: |
           git config user.name "d3-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add d3/data d3/projects
+          git add -A d3/ || true
           git commit -m "D3: seria $(date -u +%F)" || echo "brak zmian"
           git push

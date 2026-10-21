@@ -44,7 +44,7 @@ case "$tool" in
     : "${NVD_API_KEY:?Ustaw zmienną NVD_API_KEY}"
     docker run "${common[@]}" -v "$out:/out" -v "$CACHE_ROOT/dc-data:/usr/share/dependency-check/data" \
       "$img" --scan /src --format JSON --out /out --project case --enableExperimental \
-      --nvdApiKey "$NVD_API_KEY" ${SCA_OFFLINE:+--noupdate} > "$log" 2>&1
+      --nvdApiKey "$NVD_API_KEY" ${SCA_OFFLINE:+--noupdate} ${SCA_OFFLINE_DC:+--noupdate} > "$log" 2>&1
     code=$?
     [[ -f "$out/dependency-check-report.json" ]] && mv "$out/dependency-check-report.json" "$raw" ;;
   npm-audit)
