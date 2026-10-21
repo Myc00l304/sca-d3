@@ -73,6 +73,18 @@ def append_jsonl(path: Path, rows: list[dict]):
 
 # --------------------------------------------------------------------------- kohorta dnia
 
+MAX_PER_CLUSTER_TOTAL = 3
+
+
+def cluster_of(eco: str, pkg: str) -> str:
+    """Projekt, z którego pochodzi pakiet: Maven groupId, npm zakres lub nazwa, PyPI nazwa."""
+    if eco == "Maven":
+        return f"Maven:{pkg.split(':', 1)[0].lower()}"
+    if eco == "npm":
+        return f"npm:{pkg.split('/', 1)[0].lower() if pkg.startswith('@') else pkg.lower()}"
+    return f"PyPI:{ev.norm_pkg('PyPI', pkg)}"
+
+
 def pick_version(eco: str, aff: dict, session: requests.Session) -> str | None:
     """Najwyższa stabilna wersja z rejestru objęta zakresem porady."""
     pairs = [p for rng in aff.get("ranges") or [] if rng.get("type") in ("ECOSYSTEM", "SEMVER")
@@ -95,10 +107,12 @@ def pick_version(eco: str, aff: dict, session: requests.Session) -> str | None:
 
 
 def new_cohort(run_date: str, per_eco: int, window_days: int, dumps: Path,
-               tracked_ids: set[str], session: requests.Session) -> list[dict]:
+               tracked_ids: set[str], session: requests.Session,
+               cluster_counts: dict[str, int]) -> list[dict]:
     cutoff = now_utc() - dt.timedelta(days=window_days)
     rng = random.Random(f"d3-{run_date}")
     cohort = []
+    used_today: set[str] = set()
     for eco in ECOS:
         recs = pw.load_records(pw.download_dump(eco, dumps, refresh=True))
         cands = []
@@ -117,6 +131,9 @@ def new_cohort(run_date: str, per_eco: int, window_days: int, dumps: Path,
             if added >= per_eco:
                 break
             aff = rng.choice(affs)
+            cl = cluster_of(eco, aff["package"]["name"])
+            if cl in used_today or cluster_counts.get(cl, 0) >= MAX_PER_CLUSTER_TOTAL:
+                continue
             version = pick_version(eco, aff, session)
             if not version:
                 continue
@@ -130,10 +147,13 @@ def new_cohort(run_date: str, per_eco: int, window_days: int, dumps: Path,
             if not res.get("ok"):
                 continue
             tracked_ids |= {r["id"].upper(), *[a.upper() for a in r.get("aliases") or []]}
+            used_today.add(cl)
+            cluster_counts[cl] = cluster_counts.get(cl, 0) + 1
             cohort.append({"advisory": r["id"], "aliases": r.get("aliases") or [],
                            "ecosystem": eco, "package": pkg, "version": version,
                            "published": r["published"], "added_run": run_date,
-                           "project": f"{eco}/{key}", "f2": base.joinpath("F2").exists()})
+                           "project": f"{eco}/{key}", "f2": base.joinpath("F2").exists(),
+                           "cluster": cl})
             added += 1
     return cohort
 
@@ -153,7 +173,7 @@ def ensure_f2(c: dict) -> None:
             shutil.move(str(t2), str(base / "F2"))
 
 
-def scan_one(tool: str, src: Path) -> tuple[dict, dict | None]:
+def scan_one(tool: str, src: Path) -> tuple[dict, dict | None, str]:
     with tempfile.TemporaryDirectory() as tmp:
         subprocess.run([str(ROOT / "tools" / "scan.sh"), tool, str(src), tmp],
                        capture_output=True, text=True, timeout=1800)
@@ -162,7 +182,10 @@ def scan_one(tool: str, src: Path) -> tuple[dict, dict | None]:
             data = json.loads((Path(tmp) / f"{tool}.json").read_text())
         except Exception:  # noqa: BLE001
             data = None
-    return meta, data
+        log_path = Path(tmp) / f"{tool}.log"
+        log_tail = "\n".join(log_path.read_text(errors="replace").splitlines()[-20:]) \
+            if log_path.exists() else ""
+    return meta, data, log_tail
 
 
 def main():
@@ -188,7 +211,12 @@ def main():
     session.headers["User-Agent"] = pw.USER_AGENT
     if not args.no_new:
         tracked = {i.upper() for c in cohort for i in [c["advisory"], *c["aliases"]]}
-        new = new_cohort(run_date, args.per_ecosystem, args.window_days, dumps, tracked, session)
+        counts: dict[str, int] = {}
+        for c in cohort:
+            cl = c.get("cluster") or cluster_of(c["ecosystem"], c["package"])
+            counts[cl] = counts.get(cl, 0) + 1
+        new = new_cohort(run_date, args.per_ecosystem, args.window_days, dumps, tracked,
+                         session, counts)
         append_jsonl(cohort_path, new)
         cohort += new
         print(f"[d3] nowa kohorta: {len(new)} porad", file=sys.stderr)
@@ -214,7 +242,7 @@ def main():
             src = PROJ / c["project"] / "pos" / form
             if not src.exists():
                 continue
-            meta, data = scan_one(tool, src)
+            meta, data, log_tail = scan_one(tool, src)
             ok = data is not None and meta["exit_code"] in ev.OK_CODES[tool]
             if tool == "osv-scanner" and meta["exit_code"] == 128:
                 data, ok = {"results": []}, True
@@ -227,7 +255,8 @@ def main():
             rows.append({"run_date": run_date, "advisory": c["advisory"], "ecosystem": eco,
                          "tool": tool, "form": form, "status": "ok" if ok else "error",
                          "detected": detected, "exit_code": meta["exit_code"],
-                         "wall_seconds": meta["wall_seconds"], "age_days": age})
+                         "wall_seconds": meta["wall_seconds"], "age_days": age,
+                         **({"log_tail": log_tail} if not ok else {})})
             if detected:
                 st[tool] = run_date
     append_jsonl(det_path, rows)
