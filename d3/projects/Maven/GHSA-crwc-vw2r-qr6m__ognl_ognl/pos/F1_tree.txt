@@ -1,0 +1,3 @@
+pl.thesis.d1:d1-case:jar:1.0.0
+\- ognl:ognl:jar:3.4.12:compile
+   \- org.javassist:javassist:jar:3.32.0-GA:compile

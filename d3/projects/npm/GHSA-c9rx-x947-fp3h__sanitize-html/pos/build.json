@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "packages": 17,
+  "tree": {
+    "dayjs": "1.11.23",
+    "deepmerge": "4.3.1",
+    "dom-serializer": "3.1.1",
+    "domelementtype": "3.0.0",
+    "domhandler": "6.0.1",
+    "domutils": "4.0.2",
+    "entities": "8.1.0",
+    "escape-string-regexp": "4.0.0",
+    "htmlparser2": "12.0.0",
+    "is-plain-object": "5.1.0",
+    "launder": "1.7.2",
+    "nanoid": "3.3.20",
+    "parse-srcset": "1.0.2",
+    "picocolors": "1.1.1",
+    "postcss": "8.5.31",
+    "sanitize-html": "2.18.0",
+    "source-map-js": "1.2.2"
+  }
+}

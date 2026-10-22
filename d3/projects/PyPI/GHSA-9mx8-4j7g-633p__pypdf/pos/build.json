@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "python": "python312",
+  "resolution": "full",
+  "f2": true,
+  "packages": 1,
+  "tree": {
+    "pypdf": "6.20.0"
+  }
+}

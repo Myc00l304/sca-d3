@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "packages": 2,
+  "tree": {
+    "ognl:ognl": "3.4.12",
+    "org.javassist:javassist": "3.32.0-GA"
+  },
+  "jars": [
+    "javassist-3.32.0-GA.jar",
+    "ognl-3.4.12.jar"
+  ]
+}
