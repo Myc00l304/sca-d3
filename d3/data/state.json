@@ -1,4 +1,18 @@
 {
+ "GHSA-374f-7chj-9948": {
+  "dependency-check": "2026-10-23",
+  "grype": "2026-10-23",
+  "npm-audit": "2026-10-23",
+  "osv-scanner": "2026-10-23",
+  "trivy": "2026-10-23"
+ },
+ "GHSA-389g-gv7q-r4x8": {
+  "dependency-check": "2026-10-23",
+  "grype": "2026-10-23",
+  "npm-audit": "2026-10-23",
+  "osv-scanner": "2026-10-23",
+  "trivy": "2026-10-23"
+ },
  "GHSA-44qr-rrjg-2cqq": {
   "dependency-check": "2026-10-21",
   "grype": "2026-10-21",
@@ -10,6 +24,12 @@
   "grype": "2026-10-21",
   "osv-scanner": "2026-10-21",
   "trivy": "2026-10-21"
+ },
+ "GHSA-5hx5-vpf9-5wcv": {
+  "grype": "2026-10-23",
+  "osv-scanner": "2026-10-23",
+  "pip-audit": "2026-10-23",
+  "trivy": "2026-10-23"
  },
  "GHSA-5m22-7pfq-vp65": {
   "dependency-check": "2026-10-22",
@@ -55,6 +75,12 @@
   "osv-scanner": "2026-10-21",
   "pip-audit": "2026-10-21",
   "trivy": "2026-10-21"
+ },
+ "GHSA-c978-59m8-c77v": {
+  "grype": "2026-10-23",
+  "osv-scanner": "2026-10-23",
+  "pip-audit": "2026-10-23",
+  "trivy": "2026-10-23"
  },
  "GHSA-c9rx-x947-fp3h": {
   "dependency-check": "2026-10-22",
@@ -106,12 +132,32 @@
   "pip-audit": "2026-10-22",
   "trivy": "2026-10-22"
  },
+ "GHSA-jjm6-p2m9-9w4x": {
+  "dependency-check": "2026-10-23",
+  "grype": "2026-10-23",
+  "npm-audit": "2026-10-23",
+  "osv-scanner": "2026-10-23",
+  "trivy": "2026-10-23"
+ },
  "GHSA-jm63-cq47-j5jp": {
   "dependency-check": "2026-10-21",
   "grype": "2026-10-21",
   "npm-audit": "2026-10-21",
   "osv-scanner": "2026-10-21",
   "trivy": "2026-10-21"
+ },
+ "GHSA-p458-7748-mcp3": {
+  "dependency-check": "2026-10-23",
+  "grype": "2026-10-23",
+  "npm-audit": "2026-10-23",
+  "osv-scanner": "2026-10-23",
+  "trivy": "2026-10-23"
+ },
+ "GHSA-pqxq-w44r-73xw": {
+  "grype": "2026-10-23",
+  "osv-scanner": "2026-10-23",
+  "pip-audit": "2026-10-23",
+  "trivy": "2026-10-23"
  },
  "GHSA-q3jh-wrc6-jgq8": {
   "dependency-check": "2026-10-21",
@@ -137,11 +183,24 @@
   "osv-scanner": "2026-10-21",
   "trivy": "2026-10-21"
  },
+ "GHSA-rqgm-cfrp-4hx8": {
+  "dependency-check": "2026-10-23",
+  "grype": "2026-10-23",
+  "npm-audit": "2026-10-23",
+  "osv-scanner": "2026-10-23",
+  "trivy": "2026-10-23"
+ },
  "GHSA-rv4m-xm3f-3ccq": {
   "grype": "2026-10-21",
   "osv-scanner": "2026-10-21",
   "pip-audit": "2026-10-21",
   "trivy": "2026-10-21"
+ },
+ "GHSA-vj8h-fx38-h3vc": {
+  "grype": "2026-10-23",
+  "osv-scanner": "2026-10-23",
+  "pip-audit": "2026-10-23",
+  "trivy": "2026-10-23"
  },
  "GHSA-vx6w-vv9f-6gvg": {
   "grype": "2026-10-21",
@@ -154,5 +213,11 @@
   "osv-scanner": "2026-10-21",
   "trivy": "2026-10-21"
  },
- "_last_run": "2026-10-22"
+ "GHSA-xw6w-gcfp-cf8m": {
+  "grype": "2026-10-23",
+  "osv-scanner": "2026-10-23",
+  "pip-audit": "2026-10-23",
+  "trivy": "2026-10-23"
+ },
+ "_last_run": "2026-10-23"
 }

@@ -1,0 +1,85 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/00/15/b92b4e1d88d02c6eff9733c9eea21846ab435cc4d813d84ccc5d335955df/graphql_core-3.2.11-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=0b3e35ff41e9adba53021ab0cef475eb18f57c7f53f0f2ca55567fbf3c537ea0",
+          "hashes": {
+            "sha256": "0b3e35ff41e9adba53021ab0cef475eb18f57c7f53f0f2ca55567fbf3c537ea0"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "graphql-core",
+        "version": "3.2.11",
+        "dynamic": [
+          "author",
+          "author-email",
+          "classifier",
+          "description",
+          "description-content-type",
+          "home-page",
+          "keywords",
+          "license",
+          "license-file",
+          "requires-dist",
+          "requires-python",
+          "summary"
+        ],
+        "summary": "GraphQL implementation for Python, a port of GraphQL.js, the JavaScript reference implementation for GraphQL.",
+        "description": "# GraphQL-core 3\n\nGraphQL-core 3 is a Python 3.7+ port of [GraphQL.js](https://github.com/graphql/graphql-js),\nthe JavaScript reference implementation for [GraphQL](https://graphql.org/),\na query language for APIs created by Facebook.\n\n[![PyPI version](https://badge.fury.io/py/graphql-core.svg)](https://badge.fury.io/py/graphql-core)\n[![Documentation Status](https://readthedocs.org/projects/graphql-core-3/badge/)](https://graphql-core-3.readthedocs.io)\n![Test Status](https://github.com/graphql-python/graphql-core/actions/workflows/test.yml/badge.svg)\n![Lint Status](https://github.com/graphql-python/graphql-core/actions/workflows/lint.yml/badge.svg)\n[![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)\n\nThe current version 3.2.11 of GraphQL-core is up-to-date with GraphQL.js version 16.14.1.\n\nAn extensive test suite with over 2500 unit tests and 100% coverage comprises a\nreplication of the complete test suite of GraphQL.js, making sure this port is\nreliable and compatible with GraphQL.js.\n\nNote that for various reasons, GraphQL-core does not use SemVer like GraphQL.js.\nChanges in the major version of GraphQL.js are reflected in the minor version of\nGraphQL-core instead. This means there can be breaking changes in the API\nwhen the minor version changes, and only patch releases are fully backward compatible.\nTherefore, we recommend using something like `~= 3.2.0` as the version specifier\nwhen including GraphQL-core as a dependency.\n\n\n## Documentation\n\nA more detailed documentation for GraphQL-core 3 can be found at\n[graphql-core-3.readthedocs.io](https://graphql-core-3.readthedocs.io/).\n\nThe documentation for GraphQL.js can be found at [graphql.org/graphql-js/](https://graphql.org/graphql-js/).\n\nThe documentation for GraphQL itself can be found at [graphql.org](https://graphql.org/).\n\nThere will be also [blog articles](https://cito.github.io/tags/graphql/) with more usage\nexamples.\n\n\n## Getting started\n\nA general overview of GraphQL is available in the\n[README](https://github.com/graphql/graphql-spec/blob/main/README.md) for the\n[Specification for GraphQL](https://github.com/graphql/graphql-spec). That overview\ndescribes a simple set of GraphQL examples that exist as [tests](tests) in this\nrepository. A good way to get started with this repository is to walk through that\nREADME and the corresponding tests in parallel.\n\n\n## Installation\n\nGraphQL-core 3 can be installed from PyPI using the built-in pip command:\n\n    python -m pip install graphql-core\n\nYou can also use [poetry](https://github.com/python-poetry/poetry) for installation\nin a virtual environment:\n\n    poetry install\n\n\n## Usage\n\nGraphQL-core provides two important capabilities: building a type schema and\nserving queries against that type schema.\n\nFirst, build a GraphQL type schema which maps to your codebase:\n\n```python\nfrom graphql import (\n    GraphQLSchema, GraphQLObjectType, GraphQLField, GraphQLString)\n\nschema = GraphQLSchema(\n    query=GraphQLObjectType(\n        name='RootQueryType',\n        fields={\n            'hello': GraphQLField(\n                GraphQLString,\n                resolve=lambda obj, info: 'world')\n        }))\n```\n\nThis defines a simple schema, with one type and one field, that resolves to a fixed\nvalue. The `resolve` function can return a value, a co-routine object or a list of\nthese. It takes two positional arguments; the first one provides the root or the\nresolved parent field, the second one provides a `GraphQLResolveInfo` object which\ncontains information about the execution state of the query, including a `context`\nattribute holding per-request state such as authentication information or database\nsession. Any GraphQL arguments are passed to the `resolve` functions as individual\nkeyword arguments.\n\nNote that the signature of the resolver functions is a bit different in GraphQL.js,\nwhere the context is passed separately and arguments are passed as a single object.\nAlso note that GraphQL fields must be passed as a `GraphQLField` object explicitly.\nSimilarly, GraphQL arguments must be passed as `GraphQLArgument` objects.\n\nA more complex example is included in the top-level [tests](tests) directory.\n\nThen, serve the result of a query against that type schema.\n\n```python\nfrom graphql import graphql_sync\n\nsource = '{ hello }'\n\nprint(graphql_sync(schema, source))\n```\n\nThis runs a query fetching the one field defined, and then prints the result:\n\n```python\nExecutionResult(data={'hello': 'world'}, errors=None)\n```\n\nThe `graphql_sync` function will first ensure the query is syntactically and\nsemantically valid before executing it, reporting errors otherwise.\n\n```python\nfrom graphql import graphql_sync\n\nsource = '{ BoyHowdy }'\n\nprint(graphql_sync(schema, source))\n```\n\nBecause we queried a non-existing field, we will get the following result:\n\n```python\nExecutionResult(data=None, errors=[GraphQLError(\n    \"Cannot query field 'BoyHowdy' on type 'RootQueryType'.\",\n    locations=[SourceLocation(line=1, column=3)])])\n```\n\nThe `graphql_sync` function assumes that all resolvers return values synchronously. By\nusing coroutines as resolvers, you can also create results in an asynchronous fashion\nwith the `graphql` function.\n\n```python\nimport asyncio\nfrom graphql import (\n    graphql, GraphQLSchema, GraphQLObjectType, GraphQLField, GraphQLString)\n\n\nasync def resolve_hello(obj, info):\n    await asyncio.sleep(3)\n    return 'world'\n\nschema = GraphQLSchema(\n    query=GraphQLObjectType(\n        name='RootQueryType',\n        fields={\n            'hello': GraphQLField(\n                GraphQLString,\n                resolve=resolve_hello)\n        }))\n\n\nasync def main():\n    query = '{ hello }'\n    print('Fetching the result...')\n    result = await graphql(schema, query)\n    print(result)\n\n\nasyncio.run(main())\n```\n\n\n## Goals and restrictions\n\nGraphQL-core tries to reproduce the code of the reference implementation GraphQL.js\nin Python as closely as possible and to stay up-to-date with the latest development of\nGraphQL.js.\n\nGraphQL-core 3 (formerly known as GraphQL-core-next) has been created as a modern\nalternative to [GraphQL-core 2](https://github.com/graphql-python/graphql-core-legacy),\na prior work by Syrus Akbary, based on an older version of GraphQL.js and also\ntargeting older Python versions. Some parts of GraphQL-core 3 have been inspired by\nGraphQL-core 2 or directly taken over with only slight modifications, but most of the\ncode has been re-implemented from scratch, replicating the latest code in GraphQL.js\nvery closely and adding type hints for Python.\n\nDesign goals for the GraphQL-core 3 library were:\n\n* to be a simple, cruft-free, state-of-the-art GraphQL implementation for current\n  Python versions\n* to be very close to the GraphQL.js reference implementation, while still providing\n  a Pythonic API and code style\n* to make extensive use of Python type hints, similar to how GraphQL.js used Flow\n  (and is now using TypeScript)\n* to use [black](https://github.com/ambv/black) to achieve a consistent code style\n  while saving time and mental energy for more important matters\n* to replicate the complete Mocha-based test suite of GraphQL.js\n  using [pytest](https://docs.pytest.org/)\n  with [pytest-describe](https://pypi.org/project/pytest-describe/)\n\nSome restrictions (mostly in line with the design goals):\n\n* requires Python 3.7 or newer\n* does not support some already deprecated methods and options of GraphQL.js\n* supports asynchronous operations only via async.io\n  (does not support the additional executors in GraphQL-core)\n\nNote that meanwhile we are using the amazing [ruff](https://docs.astral.sh/ruff/) tool\nto both format and check the code of GraphQL-core 3,\nin addition to using [mypy](https://mypy-lang.org/) as type checker.\n\n\n## Integration with other libraries and roadmap\n\n* [Graphene](http://graphene-python.org/) is a more high-level framework for building\n  GraphQL APIs in Python, and there is already a whole ecosystem of libraries, server\n  integrations and tools built on top of Graphene. Most of this Graphene ecosystem has\n  also been created by Syrus Akbary, who meanwhile has handed over the maintenance\n  and future development to members of the GraphQL-Python community.\n\n  Graphene 3 is now using Graphql-core 3 as core library for much of the heavy lifting.\n\n* [Ariadne](https://github.com/mirumee/ariadne) is a Python library for implementing\n  GraphQL servers using schema-first approach created by Mirumee Software.\n\n  Ariadne is also using GraphQL-core 3 as its GraphQL implementation.\n\n* [Strawberry](https://github.com/strawberry-graphql/strawberry), created by Patrick\n  Arminio, is a new GraphQL library for Python 3, inspired by dataclasses,\n  that is also using GraphQL-core 3 as underpinning.\n\n\n## Changelog\n\nChanges are tracked as\n[GitHub releases](https://github.com/graphql-python/graphql-core/releases).\n\n\n## Credits and history\n\nThe GraphQL-core 3 library\n\n* has been created and is maintained by Christoph Zwerschke\n* uses ideas and code from GraphQL-core 2, a prior work by Syrus Akbary\n* is a Python port of GraphQL.js which has been developed by Lee Byron and others\n  at Facebook, Inc. and is now maintained\n  by the [GraphQL foundation](https://gql.foundation/join/)\n\nPlease watch the recording of Lee Byron's short keynote on the\n[history of GraphQL](https://www.youtube.com/watch?v=VjHWkBr3tjI)\nat the open source leadership summit 2019 to better understand\nhow and why GraphQL was created at Facebook and then became open sourced\nand ported to many different programming languages.\n\n\n## License\n\nGraphQL-core 3 is\n[MIT-licensed](./LICENSE),\njust like GraphQL.js.\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "graphql"
+        ],
+        "home_page": "https://github.com/graphql-python/graphql-core",
+        "author": "Christoph Zwerschke",
+        "author_email": "cito@online.de",
+        "license": "MIT license",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Topic :: Software Development :: Libraries",
+          "License :: OSI Approved :: MIT License",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14"
+        ],
+        "requires_dist": [
+          "typing-extensions<5,>=4.7; python_version < \"3.10\""
+        ],
+        "requires_python": ">=3.7,<4"
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "6.17.0-1022-azure",
+    "platform_system": "Linux",
+    "platform_version": "#22-Ubuntu SMP Mon Jul 27 17:24:03 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}
