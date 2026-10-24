@@ -1,0 +1,217 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/fa/48/f36d233ce749d1bb880cb5e6f8bb171dc2effabc7435c31da604d831b3ec/gitpython-3.2.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=bd70c5ec05cd2b797423e7eb312147d2458d3cca92085888fba2213f85905537",
+          "hashes": {
+            "sha256": "bd70c5ec05cd2b797423e7eb312147d2458d3cca92085888fba2213f85905537"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "GitPython",
+        "version": "3.2.0",
+        "dynamic": [
+          "license",
+          "license-file"
+        ],
+        "summary": "GitPython is a Python library used to interact with Git repositories",
+        "description": "![Python package](https://github.com/gitpython-developers/GitPython/workflows/Python%20package/badge.svg)\n[![Documentation Status](https://readthedocs.org/projects/gitpython/badge/?version=stable)](https://readthedocs.org/projects/gitpython/?badge=stable)\n[![Packaging status](https://repology.org/badge/tiny-repos/python:gitpython.svg)](https://repology.org/metapackage/python:gitpython/versions)\n\n## [Gitoxide](https://github.com/Byron/gitoxide): A peek into the future…\n\nI started working on GitPython in 2009, back in the days when Python was 'my thing' and I had great plans with it.\nOf course, back in the days, I didn't really know what I was doing and this shows in many places. Somewhat similar to\nPython this happens to be 'good enough', but at the same time is deeply flawed and broken beyond repair.\n\nBy now, GitPython is widely used and I am sure there is a good reason for that, it's something to be proud of and happy about.\nThe community is maintaining the software and is keeping it relevant for which I am absolutely grateful. For the time to come I am happy to continue maintaining GitPython, remaining hopeful that one day it won't be needed anymore.\n\nMore than 15 years after my first meeting with 'git' I am still in excited about it, and am happy to finally have the tools and\nprobably the skills to scratch that itch of mine: implement `git` in a way that makes tool creation a piece of cake for most.\n\nIf you like the idea and want to learn more, please head over to [gitoxide](https://github.com/Byron/gitoxide), an\nimplementation of 'git' in [Rust](https://www.rust-lang.org).\n\n*(Please note that `gitoxide` is not currently available for use in Python, and that Rust is required.)*\n\n## GitPython\n\nGitPython is a python library used to interact with git repositories, high-level like git-porcelain,\nor low-level like git-plumbing.\n\nIt provides abstractions of git objects for easy access of repository data often backed by calling the `git`\ncommand-line program.\n\n### DEVELOPMENT STATUS\n\nThis project is in **maintenance mode**, which means that\n\n- …there will be no feature development, unless these are contributed\n- …there will be no bug fixes, unless they are relevant to the safety of users, or contributed\n- …issues will be responded to with waiting times of up to a month\n\nThe project is open to contributions of all kinds, as well as new maintainers.\n\n### REQUIREMENTS\n\nGitPython needs the `git` executable to be installed on the system and available in your\n`PATH` for most operations. If it is not in your `PATH`, you can help GitPython find it\nby setting the `GIT_PYTHON_GIT_EXECUTABLE=<path/to/git>` environment variable.\n\n- Git (1.7.x or newer)\n- Python >= 3.8\n\nThe list of dependencies are listed in [`./requirements.txt`](https://github.com/gitpython-developers/GitPython/blob/main/requirements.txt) and [`./test-requirements.txt`](https://github.com/gitpython-developers/GitPython/blob/main/test-requirements.txt).\nThe installer takes care of installing them for you.\n\n### INSTALL\n\nGitPython and its required package dependencies can be installed in any of the following ways, all of which should typically be done in a [virtual environment](https://docs.python.org/3/tutorial/venv.html).\n\n#### From PyPI\n\nTo obtain and install a copy [from PyPI](https://pypi.org/project/GitPython/), run:\n\n```sh\npip install GitPython\n```\n\n(A distribution package can also be downloaded for manual installation at [the PyPI page](https://pypi.org/project/GitPython/).)\n\n#### From downloaded source code\n\nIf you have downloaded the source code, run this from inside the unpacked `GitPython` directory:\n\n```sh\npip install .\n```\n\n#### By cloning the source code repository\n\nTo clone the [the GitHub repository](https://github.com/gitpython-developers/GitPython) from source to work on the code, you can do it like so:\n\n```sh\ngit clone https://github.com/gitpython-developers/GitPython\ncd GitPython\n./init-tests-after-clone.sh\n```\n\nOn Windows, `./init-tests-after-clone.sh` can be run in a Git Bash shell.\n\nIf you are cloning [your own fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks), then replace the above `git clone` command with one that gives the URL of your fork. Or use this [`gh`](https://cli.github.com/) command (assuming you have `gh` and your fork is called `GitPython`):\n\n```sh\ngh repo clone GitPython\n```\n\nHaving cloned the repo, create and activate your [virtual environment](https://docs.python.org/3/tutorial/venv.html).\n\nThen make an [editable install](https://pip.pypa.io/en/stable/topics/local-project-installs/#editable-installs):\n\n```sh\npip install -e \".[test]\"\n```\n\nIn the less common case that you do not want to install test dependencies, `pip install -e .` can be used instead.\n\n#### With editable *dependencies* (not preferred, and rarely needed)\n\nGitPython, [gitdb](gitdb), and [smmap](smmap) live in this repository as independently packaged projects. To work on all three at once, install each one editably in the same virtual environment:\n\n```sh\npip install -e smmap -e gitdb -e \".[test]\"\n```\n\nYou can use `pip list` to check which packages are installed editably and which are installed normally.\n\nTo reiterate, this approach should only rarely be used. For most development it is preferable to allow the gitdb and smmap dependencices to be retrieved automatically from PyPI in their latest stable packaged versions.\n\n### Limitations\n\n#### Leakage of System Resources\n\nGitPython is not suited for long-running processes (like daemons) as it tends to\nleak system resources. It was written in a time where destructors (as implemented\nin the `__del__` method) still ran deterministically.\n\nIn case you still want to use it in such a context, you will want to search the\ncodebase for `__del__` implementations and call these yourself when you see fit.\n\nAnother way assure proper cleanup of resources is to factor out GitPython into a\nseparate process which can be dropped periodically.\n\n#### Windows support\n\nSee [Issue #525](https://github.com/gitpython-developers/GitPython/issues/525).\n\n### RUNNING TESTS\n\n_Important_: Right after cloning this repository, please be sure to have executed\nthe `./init-tests-after-clone.sh` script in the repository root. Otherwise\nyou will encounter test failures.\n\n#### Install test dependencies\n\nEnsure testing libraries are installed. This is taken care of already if you installed with:\n\n```sh\npip install -e \".[test]\"\n```\n\nIf you had installed with a command like `pip install -e .` instead, you can still run\nthe above command to add the testing dependencies.\n\n#### Test commands\n\nTo test, run:\n\n```sh\npytest\n```\n\nTo lint, and apply some linting fixes as well as automatic code formatting, run:\n\n```sh\npre-commit run --all-files\n```\n\nThis includes the linting and autoformatting done by Ruff, as well as some other checks.\n\nTo typecheck, run:\n\n```sh\nmypy\n```\n\n#### CI (and tox)\n\nStyle and formatting checks, and running tests on all the different supported Python versions, will be performed:\n\n- Upon submitting a pull request.\n- On each push, *if* you have a fork with GitHub Actions enabled.\n- Locally, if you run [`tox`](https://tox.wiki/) (this skips any Python versions you don't have installed).\n\n#### Configuration files\n\nSpecific tools are all configured in the [`./pyproject.toml`](https://github.com/gitpython-developers/GitPython/blob/main/pyproject.toml) file:\n\n- `pytest` (test runner)\n- `coverage.py` (code coverage)\n- `ruff` (linter and formatter)\n- `mypy` (type checker)\n\nOrchestration tools:\n\n- Configuration for `pre-commit` is in the [`./.pre-commit-config.yaml`](https://github.com/gitpython-developers/GitPython/blob/main/.pre-commit-config.yaml) file.\n- Configuration for `tox` is in [`./tox.ini`](https://github.com/gitpython-developers/GitPython/blob/main/tox.ini).\n- Configuration for GitHub Actions (CI) is in files inside [`./.github/workflows/`](https://github.com/gitpython-developers/GitPython/tree/main/.github/workflows).\n\n### Contributions\n\nPlease have a look at the [contributions file][contributing].\n\n### INFRASTRUCTURE\n\n- [User Documentation](http://gitpython.readthedocs.org)\n- [Questions and Answers](http://stackexchange.com/filters/167317/gitpython)\n- Please post on Stack Overflow and use the `gitpython` tag\n- [Issue Tracker](https://github.com/gitpython-developers/GitPython/issues)\n  - Post reproducible bugs and feature requests as a new issue.\n    Please be sure to provide the following information if posting bugs:\n    - GitPython version (e.g. `import git; git.__version__`)\n    - Python version (e.g. `python --version`)\n    - The encountered stack-trace, if applicable\n    - Enough information to allow reproducing the issue\n\n### How to make a new release\n\n1. Update/verify the **version** in the [`VERSION`](https://github.com/gitpython-developers/GitPython/blob/main/VERSION) file.\n2. Update/verify that the [`doc/source/changes.rst`](https://github.com/gitpython-developers/GitPython/blob/main/doc/source/changes.rst) changelog file was updated. It should include a link to the forthcoming release page: `https://github.com/gitpython-developers/GitPython/releases/tag/<version>`\n3. Commit everything.\n4. Run `git tag -s <version>` to tag the version in Git.\n5. _Optionally_ create and activate a [virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment). (Then the next step can install `build` and `twine`.)\n6. Run `make release`.\n7. Go to [GitHub Releases](https://github.com/gitpython-developers/GitPython/releases) and publish a new one with the recently pushed tag. Generate the changelog.\n\n### Projects using GitPython\n\n- [PyDriller](https://github.com/ishepard/pydriller)\n- [Kivy Designer](https://github.com/kivy/kivy-designer)\n- [Prowl](https://github.com/nettitude/Prowl)\n- [Python Taint](https://github.com/python-security/pyt)\n- [Buster](https://github.com/axitkhurana/buster)\n- [git-ftp](https://github.com/ezyang/git-ftp)\n- [Git-Pandas](https://github.com/wdm0006/git-pandas)\n- [PyGitUp](https://github.com/msiemens/PyGitUp)\n- [PyJFuzz](https://github.com/mseclab/PyJFuzz)\n- [Loki](https://github.com/Neo23x0/Loki)\n- [Omniwallet](https://github.com/OmniLayer/omniwallet)\n- [GitViper](https://github.com/BeayemX/GitViper)\n- [Git Gud](https://github.com/bthayer2365/git-gud)\n\n### LICENSE\n\n[3-Clause BSD License](https://opensource.org/license/bsd-3-clause/), also known as the New BSD License. See the [LICENSE file][license].\n\nOne file exclusively used for fuzz testing is subject to [a separate license, detailed here](https://github.com/gitpython-developers/GitPython/blob/main/fuzzing/README.md#license).\nThis file is not included in the wheel or sdist packages published by the maintainers of GitPython.\n\n[contributing]: https://github.com/gitpython-developers/GitPython/blob/main/CONTRIBUTING.md\n[license]: https://github.com/gitpython-developers/GitPython/blob/main/LICENSE\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "git"
+        ],
+        "author_email": "Sebastian Thiel <byronimo@gmail.com>, Michael Trier <mtrier@gmail.com>",
+        "license": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE",
+          "AUTHORS"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Operating System :: POSIX",
+          "Operating System :: Microsoft :: Windows",
+          "Operating System :: MacOS :: MacOS X",
+          "Typing :: Typed",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15"
+        ],
+        "requires_dist": [
+          "gitdb<5,>=4.0.1",
+          "typing-extensions>=3.10.0.2; python_version < \"3.10\"",
+          "coverage[toml]; extra == \"test\"",
+          "basedpyright==1.39.9; (python_version >= \"3.9\" and sys_platform != \"cygwin\") and extra == \"test\"",
+          "ddt!=1.4.3,>=1.1.1; extra == \"test\"",
+          "mock; extra == \"test\"",
+          "mypy==1.18.2; python_version >= \"3.9\" and extra == \"test\"",
+          "pre-commit; extra == \"test\"",
+          "pytest>=7.3.1; extra == \"test\"",
+          "pytest-cov; extra == \"test\"",
+          "pytest-instafail; extra == \"test\"",
+          "pytest-mock; extra == \"test\"",
+          "pytest-sugar; extra == \"test\"",
+          "typing-extensions; python_version < \"3.11\" and extra == \"test\""
+        ],
+        "requires_python": ">=3.8",
+        "project_url": [
+          "Source code, https://github.com/gitpython-developers/GitPython",
+          "Documentation, https://gitpython.readthedocs.io/en/stable/"
+        ],
+        "provides_extra": [
+          "test"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/a0/61/5c78b91c3143ed5c14207f463aecfc8f9dbb5092fb2869baf37c273b2705/gitdb-4.0.12-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=67073e15955400952c6565cc3e707c554a4eea2e428946f7a4c162fab9bd9bcf",
+          "hashes": {
+            "sha256": "67073e15955400952c6565cc3e707c554a4eea2e428946f7a4c162fab9bd9bcf"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.1",
+        "name": "gitdb",
+        "version": "4.0.12",
+        "summary": "Git Object Database",
+        "description": "GitDB is a pure-Python git object database\n",
+        "home_page": "https://github.com/gitpython-developers/gitdb",
+        "author": "Sebastian Thiel",
+        "author_email": "byronimo@gmail.com",
+        "license": "BSD License",
+        "license_file": [
+          "LICENSE",
+          "AUTHORS"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
+          "Operating System :: POSIX",
+          "Operating System :: Microsoft :: Windows",
+          "Operating System :: MacOS :: MacOS X",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3 :: Only"
+        ],
+        "requires_dist": [
+          "smmap<6,>=3.0.1"
+        ],
+        "requires_python": ">=3.7"
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/c1/d4/59e74daffcb57a07668852eeeb6035af9f32cbfd7a1d2511f17d2fe6a738/smmap-5.0.3-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=c106e05d5a61449cf6ba9a1e650227ecfb141590d2a98412103ff35d89fc7b2f",
+          "hashes": {
+            "sha256": "c106e05d5a61449cf6ba9a1e650227ecfb141590d2a98412103ff35d89fc7b2f"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "smmap",
+        "version": "5.0.3",
+        "dynamic": [
+          "author",
+          "author-email",
+          "classifier",
+          "description",
+          "description-content-type",
+          "home-page",
+          "license",
+          "license-file",
+          "platform",
+          "requires-python",
+          "summary"
+        ],
+        "platform": [
+          "any"
+        ],
+        "summary": "A pure Python implementation of a sliding window memory map manager",
+        "description": "## Motivation\n\nWhen reading from many possibly large files in a fashion similar to random access, it is usually the fastest and most efficient to use memory maps.\n\nAlthough memory maps have many advantages, they represent a very limited system resource as every map uses one file descriptor, whose amount is limited per process. On 32 bit systems, the amount of memory you can have mapped at a time is naturally limited to theoretical 4GB of memory, which may not be enough for some applications.\n\n\n## Limitations\n\n* **System resources (file-handles) are likely to be leaked!** This is due to the library authors reliance on a deterministic `__del__()` destructor.\n* The memory access is read-only by design.\n\n\n## Overview\n\n![Python package](https://github.com/gitpython-developers/smmap/workflows/Python%20package/badge.svg)\n\nSmmap wraps an interface around mmap and tracks the mapped files as well as the amount of clients who use it. If the system runs out of resources, or if a memory limit is reached, it will automatically unload unused maps to allow continued operation.\n\nTo allow processing large files even on 32 bit systems, it allows only portions of the file to be mapped. Once the user reads beyond the mapped region, smmap will automatically map the next required region, unloading unused regions using a LRU algorithm.\n\nAlthough the library can be used most efficiently with its native interface, a Buffer implementation is provided to hide these details behind a simple string-like interface.\n\nFor performance critical 64 bit applications, a simplified version of memory mapping is provided which always maps the whole file, but still provides the benefit of unloading unused mappings on demand.\n\n\n\n## Prerequisites\n\n* Python 3.7+\n* OSX, Windows or Linux\n\nThe package was tested on all of the previously mentioned configurations.\n\n## Installing smmap\n\n[![Documentation Status](https://readthedocs.org/projects/smmap/badge/?version=latest)](https://readthedocs.org/projects/smmap/?badge=latest)\n\nIts easiest to install smmap using the [pip](http://www.pip-installer.org/en/latest) program:\n\n```bash\n$ pip install smmap\n```\n\nAs the command will install smmap in your respective python distribution, you will most likely need root permissions to authorize the required changes.\n\nIf you have downloaded the source archive, the package can be installed by running the `setup.py` script:\n\n```bash\n$ python setup.py install\n```\n\nIt is advised to have a look at the **Usage Guide** for a brief introduction on the different database implementations.\n\n\n\n## Homepage and Links\n\nThe project is home on github at https://github.com/gitpython-developers/smmap .\n\nThe latest source can be cloned from github as well:\n\n* git://github.com/gitpython-developers/smmap.git\n\n\nFor support, please use the git-python mailing list:\n\n* http://groups.google.com/group/git-python\n\n\nIssues can be filed on github:\n\n* https://github.com/gitpython-developers/smmap/issues\n\nA link to the pypi page related to this repository:\n\n* https://pypi.org/project/smmap/\n\n\n## License Information\n\n*smmap* is licensed under the New BSD License.\n\n",
+        "description_content_type": "text/markdown",
+        "home_page": "https://github.com/gitpython-developers/smmap",
+        "author": "Sebastian Thiel",
+        "author_email": "byronimo@gmail.com",
+        "license": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
+          "Operating System :: POSIX",
+          "Operating System :: Microsoft :: Windows",
+          "Operating System :: MacOS :: MacOS X",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3 :: Only"
+        ],
+        "requires_python": ">=3.7"
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "6.17.0-1022-azure",
+    "platform_system": "Linux",
+    "platform_version": "#22-Ubuntu SMP Mon Jul 27 17:24:03 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}

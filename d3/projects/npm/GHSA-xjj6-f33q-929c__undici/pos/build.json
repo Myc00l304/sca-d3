@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "packages": 1,
+  "tree": {
+    "undici": "8.12.1"
+  }
+}

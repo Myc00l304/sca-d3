@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "python": "python312",
+  "resolution": "full",
+  "f2": true,
+  "packages": 2,
+  "tree": {
+    "opentelemetry-api": "1.45.0",
+    "typing_extensions": "4.16.0"
+  }
+}
