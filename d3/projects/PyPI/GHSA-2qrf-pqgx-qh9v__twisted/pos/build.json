@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "python": "python312",
+  "resolution": "full",
+  "f2": true,
+  "packages": 10,
+  "tree": {
+    "Automat": "25.4.16",
+    "Incremental": "24.11.0",
+    "Twisted": "26.4.0",
+    "attrs": "26.1.0",
+    "constantly": "23.10.4",
+    "hyperlink": "21.0.0",
+    "idna": "3.20",
+    "packaging": "26.3",
+    "typing_extensions": "4.16.0",
+    "zope.interface": "8.7"
+  }
+}

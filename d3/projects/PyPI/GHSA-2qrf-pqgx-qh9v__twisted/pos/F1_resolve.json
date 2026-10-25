@@ -1,0 +1,765 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/a6/57/bcf4e2370dd218c9aa68a9140a65d86729c73f1d529f7e94786c2766fc72/twisted-26.4.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=dc25ea0ebf6511c24f03232ee9f4afa54b291c5d897990e3a39cc4d14a1ef4c0",
+          "hashes": {
+            "sha256": "dc25ea0ebf6511c24f03232ee9f4afa54b291c5d897990e3a39cc4d14a1ef4c0"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "Twisted",
+        "version": "26.4.0",
+        "summary": "An asynchronous networking framework written in Python",
+        "description": "Twisted\n#######\n\n|gitter|_\n|rtd|_\n|pypi|_\n|ci|_\n\nFor information on changes in this release, see the `NEWS <https://github.com/twisted/twisted/blob/trunk/NEWS.rst>`_ file.\n\n\nSponsors\n--------\n\nTwisted is an MIT-licensed open source project with its ongoing development made possible entirely by the support of community and these awesome sponsors.\nIf you'd like to join them, please consider `sponsoring Twisted's <https://docs.twisted.org/en/latest/development/sponsorship.html>`_ development.\n\n|thinkst|_\n\n|sftpplus|_\n\n\nWhat is this?\n-------------\n\nTwisted is a Python event-based framework for internet applications.\nIt includes modules for many different purposes, including the following:\n\n- ``twisted.web``: HTTP clients and servers, HTML templating, and a WSGI server\n- ``twisted.conch``: SSHv2 and Telnet clients and servers and terminal emulators\n- ``twisted.words``: Clients and servers for IRC, XMPP, and other IM protocols\n- ``twisted.mail``: IMAPv4, POP3, SMTP clients and servers\n- ``twisted.positioning``: Tools for communicating with NMEA-compatible GPS receivers\n- ``twisted.names``: DNS client and tools for making your own DNS servers\n- ``twisted.trial``: A unit testing framework that integrates well with Twisted-based code.\n\nTwisted supports all major system event loops -- ``select`` (all platforms), ``poll`` (most POSIX platforms), ``epoll`` (Linux), ``kqueue`` (FreeBSD, macOS), IOCP (Windows), and various GUI event loops (GTK+2/3, Qt, wxWidgets).\nThird-party reactors can plug into Twisted, and provide support for additional event loops.\n\n\nInstalling\n----------\n\nTo install the latest version of Twisted using pip::\n\n  $ pip install twisted\n\nAdditional instructions for installing this software are in `the installation instructions <https://docs.twisted.org/en/latest/installation.html>`_.\n\n\nDocumentation and Support\n-------------------------\n\nTwisted's documentation is available from the `Twisted Matrix Read The Docs website <https://docs.twisted.org/>`_.\nThis documentation contains how-tos, code examples, and an API reference.\n\nHelp is also available on the `Twisted mailing list <https://mail.python.org/mailman3/lists/twisted.python.org/>`_.\n\nThere is also an IRC channel, ``#twisted``,\non the `Libera.Chat <https://libera.chat/>`_ network.\nA web client is available at `web.libera.chat <https://web.libera.chat/>`_.\n\n\nUnit Tests\n----------\n\nTwisted has a comprehensive test suite, which can be run by ``tox``::\n\n  $ tox -l                       # to view all test environments\n  $ tox -e nocov                 # to run all the tests without coverage\n  $ tox -e withcov               # to run all the tests with coverage\n  $ tox -e alldeps-withcov-posix # install all dependencies, run tests with coverage on POSIX platform\n\n\nYou can test running the test suite under the different reactors with the ``TWISTED_REACTOR`` environment variable::\n\n  $ env TWISTED_REACTOR=epoll tox -e alldeps-withcov-posix\n\nSome of these tests may fail if you:\n\n* don't have the dependencies required for a particular subsystem installed,\n* have a firewall blocking some ports (or things like Multicast, which Linux NAT has shown itself to do), or\n* run them as root.\n\n\nStatic Code Checkers\n--------------------\n\nYou can ensure that code complies to Twisted `coding standards <https://docs.twisted.org/en/latest/development/coding-standard.html>`_::\n\n  $ tox -e lint   # run pre-commit to check coding stanards\n  $ tox -e mypy   # run MyPy static type checker to check for type errors\n\nOr, for speed, use pre-commit directly::\n\n  $ pipx run pre-commit run\n\n\nCopyright\n---------\n\nAll of the code in this distribution is Copyright (c) 2001-2026 Twisted Matrix Laboratories.\n\nTwisted is made available under the MIT license.\nThe included `LICENSE <https://github.com/twisted/twisted/blob/trunk/LICENSE>`_ file describes this in detail.\n\n\nWarranty\n--------\n\n  THIS SOFTWARE IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER\n  EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES\n  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS\n  TO THE USE OF THIS SOFTWARE IS WITH YOU.\n\n  IN NO EVENT WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY\n  AND/OR REDISTRIBUTE THE LIBRARY, BE LIABLE TO YOU FOR ANY DAMAGES, EVEN IF\n  SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH\n  DAMAGES.\n\nAgain, see the included `LICENSE <https://github.com/twisted/twisted/blob/trunk/LICENSE>`_ file for specific legal details.\n\n\n.. |pypi| image:: https://img.shields.io/pypi/v/twisted.svg\n.. _pypi: https://pypi.python.org/pypi/twisted\n\n.. |gitter| image:: https://img.shields.io/gitter/room/twisted/twisted.svg\n.. _gitter: https://gitter.im/twisted/twisted\n\n.. |ci| image:: https://github.com/twisted/twisted/actions/workflows/test.yaml/badge.svg\n.. _ci: https://github.com/twisted/twisted\n\n.. |rtd| image:: https://readthedocs.org/projects/twisted/badge/?version=latest&style=flat\n.. _rtd: https://docs.twistedmatrix.com\n\n.. |thinkst| image:: https://github.com/user-attachments/assets/a5b52432-2d18-4d91-a3c9-772fb2e02781\n    :alt: Thinkst Canary\n.. _thinkst: https://thinkst.com/\n\n.. |sftpplus| image:: https://github.com/user-attachments/assets/5f585316-c7e8-4ef1-8fbb-923f0756ceed\n    :alt: SFTPPlus\n.. _sftpplus: https://www.sftpplus.com/\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Twisted Matrix Community <twisted@python.org>",
+        "license": "MIT License",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13"
+        ],
+        "requires_dist": [
+          "attrs>=22.2.0",
+          "automat>=24.8.0",
+          "constantly>=15.1",
+          "hyperlink>=17.1.1",
+          "incremental>=24.7.0",
+          "typing-extensions>=4.2.0",
+          "zope-interface>=5",
+          "appdirs>=1.4.0; extra == 'all-non-platform'",
+          "bcrypt>=3.2.1; extra == 'all-non-platform'",
+          "cryptography>=38; extra == 'all-non-platform'",
+          "cython-test-exception-raiser<2,>=1.0.2; extra == 'all-non-platform'",
+          "h2<5.0,>=3.2; extra == 'all-non-platform'",
+          "httpx[http2]>=0.27; extra == 'all-non-platform'",
+          "hypothesis>=6.56; extra == 'all-non-platform'",
+          "idna>=2.4; extra == 'all-non-platform'",
+          "priority<2.0,>=1.1.0; extra == 'all-non-platform'",
+          "pyhamcrest>=2; extra == 'all-non-platform'",
+          "pyopenssl>=25.2.0; extra == 'all-non-platform'",
+          "pyserial>=3.0; extra == 'all-non-platform'",
+          "pywin32!=226; (platform_system == 'Windows') and extra == 'all-non-platform'",
+          "service-identity>=18.1.0; extra == 'all-non-platform'",
+          "wsproto; extra == 'all-non-platform'",
+          "appdirs>=1.4.0; extra == 'conch'",
+          "bcrypt>=3.2.1; extra == 'conch'",
+          "cryptography>=38; extra == 'conch'",
+          "coverage~=7.5; extra == 'dev'",
+          "cython-test-exception-raiser<2,>=1.0.2; extra == 'dev'",
+          "httpx[http2]>=0.27; extra == 'dev'",
+          "hypothesis>=6.56; extra == 'dev'",
+          "pydoctor~=25.4.0; extra == 'dev'",
+          "pyflakes~=2.2; extra == 'dev'",
+          "pyhamcrest>=2; extra == 'dev'",
+          "python-subunit~=1.4; extra == 'dev'",
+          "sphinx-rtd-theme~=1.3; extra == 'dev'",
+          "sphinx<7,>=6; extra == 'dev'",
+          "towncrier~=23.6; extra == 'dev'",
+          "twistedchecker~=0.7; extra == 'dev'",
+          "pydoctor~=25.4.0; extra == 'dev-release'",
+          "sphinx-rtd-theme~=1.3; extra == 'dev-release'",
+          "sphinx<7,>=6; extra == 'dev-release'",
+          "towncrier~=23.6; extra == 'dev-release'",
+          "appdirs>=1.4.0; extra == 'gtk-platform'",
+          "bcrypt>=3.2.1; extra == 'gtk-platform'",
+          "cryptography>=38; extra == 'gtk-platform'",
+          "cython-test-exception-raiser<2,>=1.0.2; extra == 'gtk-platform'",
+          "h2<5.0,>=3.2; extra == 'gtk-platform'",
+          "httpx[http2]>=0.27; extra == 'gtk-platform'",
+          "hypothesis>=6.56; extra == 'gtk-platform'",
+          "idna>=2.4; extra == 'gtk-platform'",
+          "priority<2.0,>=1.1.0; extra == 'gtk-platform'",
+          "pygobject; (python_version >= '3.10') and extra == 'gtk-platform'",
+          "pygobject<3.52.1; (python_version < '3.10') and extra == 'gtk-platform'",
+          "pyhamcrest>=2; extra == 'gtk-platform'",
+          "pyopenssl>=25.2.0; extra == 'gtk-platform'",
+          "pyserial>=3.0; extra == 'gtk-platform'",
+          "pywin32!=226; (platform_system == 'Windows') and extra == 'gtk-platform'",
+          "service-identity>=18.1.0; extra == 'gtk-platform'",
+          "wsproto; extra == 'gtk-platform'",
+          "h2<5.0,>=3.2; extra == 'http2'",
+          "priority<2.0,>=1.1.0; extra == 'http2'",
+          "appdirs>=1.4.0; extra == 'macos-platform'",
+          "bcrypt>=3.2.1; extra == 'macos-platform'",
+          "cryptography>=38; extra == 'macos-platform'",
+          "cython-test-exception-raiser<2,>=1.0.2; extra == 'macos-platform'",
+          "h2<5.0,>=3.2; extra == 'macos-platform'",
+          "httpx[http2]>=0.27; extra == 'macos-platform'",
+          "hypothesis>=6.56; extra == 'macos-platform'",
+          "idna>=2.4; extra == 'macos-platform'",
+          "priority<2.0,>=1.1.0; extra == 'macos-platform'",
+          "pyhamcrest>=2; extra == 'macos-platform'",
+          "pyobjc-core>=12; (python_version >= '3.10') and extra == 'macos-platform'",
+          "pyobjc-framework-cfnetwork>=12; (python_version >= '3.10') and extra == 'macos-platform'",
+          "pyobjc-framework-cocoa>=12; (python_version >= '3.10') and extra == 'macos-platform'",
+          "pyopenssl>=25.2.0; extra == 'macos-platform'",
+          "pyserial>=3.0; extra == 'macos-platform'",
+          "pywin32!=226; (platform_system == 'Windows') and extra == 'macos-platform'",
+          "service-identity>=18.1.0; extra == 'macos-platform'",
+          "wsproto; extra == 'macos-platform'",
+          "appdirs>=1.4.0; extra == 'mypy'",
+          "bcrypt>=3.2.1; extra == 'mypy'",
+          "coverage~=7.5; extra == 'mypy'",
+          "cryptography>=38; extra == 'mypy'",
+          "cython-test-exception-raiser<2,>=1.0.2; extra == 'mypy'",
+          "h2<5.0,>=3.2; extra == 'mypy'",
+          "httpx[http2]>=0.27; extra == 'mypy'",
+          "hypothesis>=6.56; extra == 'mypy'",
+          "idna>=2.4; extra == 'mypy'",
+          "mypy-zope==1.0.14; extra == 'mypy'",
+          "mypy==1.19.1; extra == 'mypy'",
+          "priority<2.0,>=1.1.0; extra == 'mypy'",
+          "pydoctor~=25.4.0; extra == 'mypy'",
+          "pyflakes~=2.2; extra == 'mypy'",
+          "pyhamcrest>=2; extra == 'mypy'",
+          "pyopenssl>=25.2.0; extra == 'mypy'",
+          "pyserial>=3.0; extra == 'mypy'",
+          "python-subunit~=1.4; extra == 'mypy'",
+          "pywin32!=226; (platform_system == 'Windows') and extra == 'mypy'",
+          "service-identity>=18.1.0; extra == 'mypy'",
+          "sphinx-rtd-theme~=1.3; extra == 'mypy'",
+          "sphinx<7,>=6; extra == 'mypy'",
+          "towncrier~=23.6; extra == 'mypy'",
+          "twistedchecker~=0.7; extra == 'mypy'",
+          "types-pyopenssl; extra == 'mypy'",
+          "types-setuptools; extra == 'mypy'",
+          "wsproto; extra == 'mypy'",
+          "appdirs>=1.4.0; extra == 'osx-platform'",
+          "bcrypt>=3.2.1; extra == 'osx-platform'",
+          "cryptography>=38; extra == 'osx-platform'",
+          "cython-test-exception-raiser<2,>=1.0.2; extra == 'osx-platform'",
+          "h2<5.0,>=3.2; extra == 'osx-platform'",
+          "httpx[http2]>=0.27; extra == 'osx-platform'",
+          "hypothesis>=6.56; extra == 'osx-platform'",
+          "idna>=2.4; extra == 'osx-platform'",
+          "priority<2.0,>=1.1.0; extra == 'osx-platform'",
+          "pyhamcrest>=2; extra == 'osx-platform'",
+          "pyobjc-core>=12; (python_version >= '3.10') and extra == 'osx-platform'",
+          "pyobjc-framework-cfnetwork>=12; (python_version >= '3.10') and extra == 'osx-platform'",
+          "pyobjc-framework-cocoa>=12; (python_version >= '3.10') and extra == 'osx-platform'",
+          "pyopenssl>=25.2.0; extra == 'osx-platform'",
+          "pyserial>=3.0; extra == 'osx-platform'",
+          "pywin32!=226; (platform_system == 'Windows') and extra == 'osx-platform'",
+          "service-identity>=18.1.0; extra == 'osx-platform'",
+          "wsproto; extra == 'osx-platform'",
+          "pyserial>=3.0; extra == 'serial'",
+          "pywin32!=226; (platform_system == 'Windows') and extra == 'serial'",
+          "cython-test-exception-raiser<2,>=1.0.2; extra == 'test'",
+          "httpx[http2]>=0.27; extra == 'test'",
+          "hypothesis>=6.56; extra == 'test'",
+          "pyhamcrest>=2; extra == 'test'",
+          "idna>=2.4; extra == 'tls'",
+          "pyopenssl>=25.2.0; extra == 'tls'",
+          "service-identity>=18.1.0; extra == 'tls'",
+          "wsproto; extra == 'websocket'",
+          "appdirs>=1.4.0; extra == 'windows-platform'",
+          "bcrypt>=3.2.1; extra == 'windows-platform'",
+          "cryptography>=38; extra == 'windows-platform'",
+          "cython-test-exception-raiser<2,>=1.0.2; extra == 'windows-platform'",
+          "h2<5.0,>=3.2; extra == 'windows-platform'",
+          "httpx[http2]>=0.27; extra == 'windows-platform'",
+          "hypothesis>=6.56; extra == 'windows-platform'",
+          "idna>=2.4; extra == 'windows-platform'",
+          "priority<2.0,>=1.1.0; extra == 'windows-platform'",
+          "pyhamcrest>=2; extra == 'windows-platform'",
+          "pyopenssl>=25.2.0; extra == 'windows-platform'",
+          "pyserial>=3.0; extra == 'windows-platform'",
+          "pywin32!=226; extra == 'windows-platform'",
+          "pywin32!=226; (platform_system == 'Windows') and extra == 'windows-platform'",
+          "service-identity>=18.1.0; extra == 'windows-platform'",
+          "twisted-iocpsupport>=1.0.2; extra == 'windows-platform'",
+          "wsproto; extra == 'windows-platform'"
+        ],
+        "requires_python": ">=3.9.12",
+        "project_url": [
+          "Changelog, https://github.com/twisted/twisted/blob/HEAD/NEWS.rst",
+          "Documentation, https://docs.twisted.org/",
+          "Homepage, https://twisted.org/",
+          "Issues, https://github.com/twisted/twisted/issues",
+          "Source, https://github.com/twisted/twisted",
+          "Funding-PSF, https://psfmember.org/civicrm/contribute/transact/?reset=1&id=44",
+          "Funding-GitHub, https://github.com/sponsors/twisted"
+        ],
+        "provides_extra": [
+          "all-non-platform",
+          "all_non_platform",
+          "conch",
+          "dev",
+          "dev-release",
+          "dev_release",
+          "gtk-platform",
+          "gtk_platform",
+          "http2",
+          "macos-platform",
+          "macos_platform",
+          "mypy",
+          "osx-platform",
+          "osx_platform",
+          "serial",
+          "test",
+          "tls",
+          "websocket",
+          "windows-platform",
+          "windows_platform"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+          "hashes": {
+            "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "attrs",
+        "version": "26.1.0",
+        "summary": "Classes Without Boilerplate",
+        "description": "<p align=\"center\">\n  <a href=\"https://www.attrs.org/\">\n    <img src=\"https://raw.githubusercontent.com/python-attrs/attrs/main/docs/_static/attrs_logo.svg\" width=\"35%\" alt=\"attrs\" />\n  </a>\n</p>\n\n\n*attrs* is the Python package that will bring back the **joy** of **writing classes** by relieving you from the drudgery of implementing object protocols (aka [dunder methods](https://www.attrs.org/en/latest/glossary.html#term-dunder-methods)).\nTrusted by NASA for [Mars missions since 2020](https://github.com/readme/featured/nasa-ingenuity-helicopter)!\n\nIts main goal is to help you to write **concise** and **correct** software without slowing down your code.\n\n\n## Sponsors\n\n*attrs* would not be possible without our [amazing sponsors](https://github.com/sponsors/hynek).\nEspecially those generously supporting us at the *The Organization* tier and higher:\n\n<!-- sponsor-break-begin -->\n\n<p align=\"center\">\n\n<!-- [[[cog\nimport pathlib, tomllib\n\nfor sponsor in tomllib.loads(pathlib.Path(\"pyproject.toml\").read_text())[\"tool\"][\"sponcon\"][\"sponsors\"]:\n      print(f'<a href=\"{sponsor[\"url\"]}\"><img title=\"{sponsor[\"title\"]}\" src=\"https://www.attrs.org/en/26.1.0/_static/sponsors/{sponsor[\"img\"]}\" width=\"190\" /></a>')\n]]] -->\n<a href=\"https://www.variomedia.de/\"><img title=\"Variomedia AG\" src=\"https://www.attrs.org/en/26.1.0/_static/sponsors/Variomedia.svg\" width=\"190\" /></a>\n<a href=\"https://tidelift.com/?utm_source=lifter&utm_medium=referral&utm_campaign=hynek\"><img title=\"Tidelift\" src=\"https://www.attrs.org/en/26.1.0/_static/sponsors/Tidelift.svg\" width=\"190\" /></a>\n<a href=\"https://kraken.tech/\"><img title=\"Kraken Tech\" src=\"https://www.attrs.org/en/26.1.0/_static/sponsors/Kraken.svg\" width=\"190\" /></a>\n<a href=\"https://privacy-solutions.org/\"><img title=\"Privacy Solutions\" src=\"https://www.attrs.org/en/26.1.0/_static/sponsors/Privacy-Solutions.svg\" width=\"190\" /></a>\n<a href=\"https://filepreviews.io/\"><img title=\"FilePreviews\" src=\"https://www.attrs.org/en/26.1.0/_static/sponsors/FilePreviews.svg\" width=\"190\" /></a>\n<a href=\"https://www.testmuai.com/?utm_medium=sponsor&utm_source=structlog\"><img title=\"TestMu AI\" src=\"https://www.attrs.org/en/26.1.0/_static/sponsors/TestMu-AI.svg\" width=\"190\" /></a>\n<a href=\"https://polar.sh/\"><img title=\"Polar\" src=\"https://www.attrs.org/en/26.1.0/_static/sponsors/Polar.svg\" width=\"190\" /></a>\n<!-- [[[end]]] -->\n\n</p>\n\n<!-- sponsor-break-end -->\n\n<p align=\"center\">\n   <strong>Please consider <a href=\"https://github.com/sponsors/hynek\">joining them</a> to help make <em>attrs</em>’s maintenance more sustainable!</strong>\n</p>\n\n<!-- teaser-end -->\n\n## Example\n\n*attrs* gives you a class decorator and a way to declaratively define the attributes on that class:\n\n<!-- code-begin -->\n\n```pycon\n>>> from attrs import asdict, define, make_class, Factory\n\n>>> @define\n... class SomeClass:\n...     a_number: int = 42\n...     list_of_numbers: list[int] = Factory(list)\n...\n...     def hard_math(self, another_number):\n...         return self.a_number + sum(self.list_of_numbers) * another_number\n\n\n>>> sc = SomeClass(1, [1, 2, 3])\n>>> sc\nSomeClass(a_number=1, list_of_numbers=[1, 2, 3])\n\n>>> sc.hard_math(3)\n19\n>>> sc == SomeClass(1, [1, 2, 3])\nTrue\n>>> sc != SomeClass(2, [3, 2, 1])\nTrue\n\n>>> asdict(sc)\n{'a_number': 1, 'list_of_numbers': [1, 2, 3]}\n\n>>> SomeClass()\nSomeClass(a_number=42, list_of_numbers=[])\n\n>>> C = make_class(\"C\", [\"a\", \"b\"])\n>>> C(\"foo\", \"bar\")\nC(a='foo', b='bar')\n```\n\nAfter *declaring* your attributes, *attrs* gives you:\n\n- a concise and explicit overview of the class's attributes,\n- a nice human-readable `__repr__`,\n- equality-checking methods,\n- an initializer,\n- and much more,\n\n*without* writing dull boilerplate code again and again and *without* runtime performance penalties.\n\n---\n\nThis example uses *attrs*'s modern APIs that have been introduced in version 20.1.0, and the *attrs* package import name that has been added in version 21.3.0.\nThe classic APIs (`@attr.s`, `attr.ib`, plus their serious-business aliases) and the `attr` package import name will remain **indefinitely**.\n\nCheck out [*On The Core API Names*](https://www.attrs.org/en/latest/names.html) for an in-depth explanation!\n\n\n### Hate Type Annotations!?\n\nNo problem!\nTypes are entirely **optional** with *attrs*.\nSimply assign `attrs.field()` to the attributes instead of annotating them with types:\n\n```python\nfrom attrs import define, field\n\n@define\nclass SomeClass:\n    a_number = field(default=42)\n    list_of_numbers = field(factory=list)\n```\n\n\n## Data Classes\n\nOn the tin, *attrs* might remind you of `dataclasses` (and indeed, `dataclasses` [are a descendant](https://hynek.me/articles/import-attrs/) of *attrs*).\nIn practice it does a lot more and is more flexible.\nFor instance, it allows you to define [special handling of NumPy arrays for equality checks](https://www.attrs.org/en/stable/comparison.html#customization), allows more ways to [plug into the initialization process](https://www.attrs.org/en/stable/init.html#hooking-yourself-into-initialization), has a replacement for `__init_subclass__`, and allows for stepping through the generated methods using a debugger.\n\nFor more details, please refer to our [comparison page](https://www.attrs.org/en/stable/why.html#data-classes), but generally speaking, we are more likely to commit crimes against nature to make things work that one would expect to work, but that are quite complicated in practice.\n\n\n## Project Information\n\n- [**Changelog**](https://www.attrs.org/en/stable/changelog.html)\n- [**Documentation**](https://www.attrs.org/)\n- [**PyPI**](https://pypi.org/project/attrs/)\n- [**Source Code**](https://github.com/python-attrs/attrs)\n- [**Contributing**](https://github.com/python-attrs/attrs/blob/main/.github/CONTRIBUTING.md)\n- [**Third-party Extensions**](https://github.com/python-attrs/attrs/wiki/Extensions-to-attrs)\n- **Get Help**: use the `python-attrs` tag on [Stack Overflow](https://stackoverflow.com/questions/tagged/python-attrs)\n\n\n### *attrs* for Enterprise\n\nAvailable as part of the [Tidelift Subscription](https://tidelift.com/?utm_source=lifter&utm_medium=referral&utm_campaign=hynek).\n\nThe maintainers of *attrs* and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source packages you use to build your applications.\nSave time, reduce risk, and improve code health, while paying the maintainers of the exact packages you use.\n\n## Release Information\n\n### Backwards-incompatible Changes\n\n- Field aliases are now resolved *before* calling `field_transformer`, so transformers receive fully populated `Attribute` objects with usable `alias` values instead of `None`.\n  The new `Attribute.alias_is_default` flag indicates whether the alias was auto-generated (`True`) or explicitly set by the user (`False`).\n  [#1509](https://github.com/python-attrs/attrs/issues/1509)\n\n\n### Changes\n\n- Fix type annotations for `attrs.validators.optional()`, so it no longer rejects tuples with more than one validator.\n  [#1496](https://github.com/python-attrs/attrs/issues/1496)\n- The `attrs.validators.disabled()` contextmanager can now be nested.\n  [#1513](https://github.com/python-attrs/attrs/issues/1513)\n- Frozen classes can set `on_setattr=attrs.setters.NO_OP` in addition to `None`.\n  [#1515](https://github.com/python-attrs/attrs/issues/1515)\n- It's now possible to pass *attrs* **instances** in addition to *attrs* **classes** to `attrs.fields()`.\n  [#1529](https://github.com/python-attrs/attrs/issues/1529)\n\n\n\n---\n\n[Full changelog →](https://www.attrs.org/en/stable/changelog.html)\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "attribute",
+          "boilerplate",
+          "class"
+        ],
+        "author_email": "Hynek Schlawack <hs@ox.cx>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Typing :: Typed"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Documentation, https://www.attrs.org/",
+          "Changelog, https://www.attrs.org/en/stable/changelog.html",
+          "GitHub, https://github.com/python-attrs/attrs",
+          "Funding, https://github.com/sponsors/hynek",
+          "Tidelift, https://tidelift.com/subscription/pkg/pypi-attrs?utm_source=pypi-attrs&utm_medium=pypi"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/02/ff/1175b0b7371e46244032d43a56862d0af455823b5280a50c63d99cc50f18/automat-25.4.16-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=04e9bce696a8d5671ee698005af6e5a9fa15354140a87f4870744604dcdd3ba1",
+          "hashes": {
+            "sha256": "04e9bce696a8d5671ee698005af6e5a9fa15354140a87f4870744604dcdd3ba1"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "Automat",
+        "version": "25.4.16",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "Self-service finite-state machines for the programmer on the go.",
+        "description": "# Automat #\n\n[![Documentation Status](https://readthedocs.org/projects/automat/badge/?version=latest)](http://automat.readthedocs.io/en/latest/)\n[![Build Status](https://github.com/glyph/automat/actions/workflows/ci.yml/badge.svg?branch=trunk)](https://github.com/glyph/automat/actions/workflows/ci.yml?query=branch%3Atrunk)\n[![Coverage Status](http://codecov.io/github/glyph/automat/coverage.svg?branch=trunk)](http://codecov.io/github/glyph/automat?branch=trunk)\n\n## Self-service finite-state machines for the programmer on the go. ##\n\nAutomat is a library for concise, idiomatic Python expression of finite-state\nautomata (particularly deterministic finite-state transducers).\n\nRead more here, or on [Read the Docs](https://automat.readthedocs.io/), or watch the following videos for an overview and presentation\n\n### Why use state machines? ###\n\nSometimes you have to create an object whose behavior varies with its state,\nbut still wishes to present a consistent interface to its callers.\n\nFor example, let's say you're writing the software for a coffee machine.  It\nhas a lid that can be opened or closed, a chamber for water, a chamber for\ncoffee beans, and a button for \"brew\".\n\nThere are a number of possible states for the coffee machine.  It might or\nmight not have water.  It might or might not have beans.  The lid might be open\nor closed.  The \"brew\" button should only actually attempt to brew coffee in\none of these configurations, and the \"open lid\" button should only work if the\ncoffee is not, in fact, brewing.\n\nWith diligence and attention to detail, you can implement this correctly using\na collection of attributes on an object; `hasWater`, `hasBeans`, `isLidOpen`\nand so on.  However, you have to keep all these attributes consistent.  As the\ncoffee maker becomes more complex - perhaps you add an additional chamber for\nflavorings so you can make hazelnut coffee, for example - you have to keep\nadding more and more checks and more and more reasoning about which\ncombinations of states are allowed.\n\nRather than adding tedious `if` checks to every single method to make sure that\neach of these flags are exactly what you expect, you can use a state machine to\nensure that if your code runs at all, it will be run with all the required\nvalues initialized, because they have to be called in the order you declare\nthem.\n\nYou can read about state machines and their advantages for Python programmers\nin more detail [in this excellent article by Jean-Paul\nCalderone](https://web.archive.org/web/20160507053658/https://clusterhq.com/2013/12/05/what-is-a-state-machine/).\n\n### What makes Automat different? ###\n\nThere are\n[dozens of libraries on PyPI implementing state machines](https://pypi.org/search/?q=finite+state+machine).\nSo it behooves me to say why yet another one would be a good idea.\n\nAutomat is designed around this principle: while organizing your code around\nstate machines is a good idea, your callers don't, and shouldn't have to, care\nthat you've done so.  In Python, the \"input\" to a stateful system is a method\ncall; the \"output\" may be a method call, if you need to invoke a side effect,\nor a return value, if you are just performing a computation in memory.  Most\nother state-machine libraries require you to explicitly create an input object,\nprovide that object to a generic \"input\" method, and then receive results,\nsometimes in terms of that library's interfaces and sometimes in terms of\nclasses you define yourself.\n\nFor example, a snippet of the coffee-machine example above might be implemented\nas follows in naive Python:\n\n```python\nclass CoffeeMachine(object):\n    def brewButton(self) -> None:\n        if self.hasWater and self.hasBeans and not self.isLidOpen:\n            self.heatTheHeatingElement()\n            # ...\n```\n\nWith Automat, you'd begin with a `typing.Protocol` that describes all of your\ninputs:\n\n```python\nfrom typing import Protocol\n\nclass CoffeeBrewer(Protocol):\n    def brewButton(self) -> None:\n        \"The user pressed the 'brew' button.\"\n    def putInBeans(self) -> None:\n        \"The user put in some beans.\"\n```\n\nWe'll then need a concrete class to contain the shared core of state shared\namong the different states:\n\n```python\nfrom dataclasses import dataclass\n\n@dataclass\nclass BrewerCore:\n    heatingElement: HeatingElement\n```\n\nNext, we need to describe our state machine, including all of our states.  For\nsimplicity's sake let's say that the only two states are `noBeans` and\n`haveBeans`:\n\n```python\nfrom automat import TypeMachineBuilder\n\nbuilder = TypeMachineBuilder(CoffeeBrewer, BrewerCore)\nnoBeans = builder.state(\"noBeans\")\nhaveBeans = builder.state(\"haveBeans\")\n```\n\nNext we can describe a simple transition; when we put in beans, we move to the\n`haveBeans` state, with no other behavior.\n\n```python\n# When we don't have beans, upon putting in beans, we will then have beans\nnoBeans.upon(CoffeeBrewer.putInBeans).to(haveBeans).returns(None)\n```\n\nAnd then another transition that we describe with a decorator, one that *does*\nhave some behavior, that needs to heat up the heating element to brew the\ncoffee:\n\n```python\n@haveBeans.upon(CoffeeBrewer.brewButton).to(noBeans)\ndef heatUp(inputs: CoffeeBrewer, core: BrewerCore) -> None:\n    \"\"\"\n    When we have beans, upon pressing the brew button, we will then not have\n    beans any more (as they have been entered into the brewing chamber) and\n    our output will be heating the heating element.\n    \"\"\"\n    print(\"Brewing the coffee...\")\n    core.heatingElement.turnOn()\n```\n\nThen we finalize the state machine by building it, which gives us a callable\nthat takes a `BrewerCore` and returns a synthetic `CoffeeBrewer`\n\n```python\nnewCoffeeMachine = builder.build()\n```\n\n```python\n>>> coffee = newCoffeeMachine(BrewerCore(HeatingElement()))\n>>> machine.putInBeans()\n>>> machine.brewButton()\nBrewing the coffee...\n```\n\nAll of the *inputs* are provided by calling them like methods, all of the\n*output behaviors* are automatically invoked when they are produced according\nto the outputs specified to `upon` and all of the states are simply opaque\ntokens.\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "fsm",
+          "state machine",
+          "automata"
+        ],
+        "author_email": "Glyph <code@glyph.im>",
+        "license": "Copyright (c) 2014\nRackspace\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\"Software\"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\nLIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\nWITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Typing :: Typed"
+        ],
+        "requires_dist": [
+          "typing_extensions; python_version < \"3.10\"",
+          "graphviz>0.5.1; extra == \"visualize\"",
+          "Twisted>=16.1.1; extra == \"visualize\""
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Documentation, https://automat.readthedocs.io/",
+          "Source, https://github.com/glyph/automat/"
+        ],
+        "provides_extra": [
+          "visualize"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/b8/40/c199d095151addf69efdb4b9ca3a4f20f70e20508d6222bffb9b76f58573/constantly-23.10.4-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=3fd9b4d1c3dc1ec9757f3c52aef7e53ad9323dbe39f51dfd4c43853b68dfa3f9",
+          "hashes": {
+            "sha256": "3fd9b4d1c3dc1ec9757f3c52aef7e53ad9323dbe39f51dfd4c43853b68dfa3f9"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.1",
+        "name": "constantly",
+        "version": "23.10.4",
+        "summary": "Symbolic constants in Python",
+        "description": "Constantly\n==========\n\nA library that provides symbolic constant support.  It includes collections and\nconstants with text, numeric, and bit flag values.  Originally\n``twisted.python.constants`` from the `Twisted <https://twistedmatrix.com/>`_\nproject.\n\n\nInstalling\n----------\n\nconstantly is available in `PyPI <https://pypi.org/project/constantly/>`_, and\ncan be installed via pip::\n\n  $ pip install constantly\n\n\nDocumentation\n-------------------------\n\nDocumentation is available at `<https://constantly.readthedocs.io/en/latest/>`_.\n\n\nTests\n-----\n\nTo run tests::\n\n    $ tox\n\nThis will run tests on Python 2.7, 3.3, 3.4, and PyPy, as well as doing\ncoverage and pyflakes checks.\n",
+        "description_content_type": "text/x-rst",
+        "keywords": [
+          "constants",
+          "enum",
+          "twisted"
+        ],
+        "maintainer": "Twisted Matrix Labs Developers",
+        "license": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Software Development :: Libraries :: Python Modules"
+        ],
+        "requires_python": ">=3.8",
+        "project_url": [
+          "Homepage, https://github.com/twisted/constantly"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/6e/aa/8caf6a0a3e62863cbb9dab27135660acba46903b703e224f14f447e57934/hyperlink-21.0.0-py2.py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=e6b14c37ecb73e89c77d78cdb4c2cc8f3fb59a885c5b3f819ff4ed80f25af1b4",
+          "hashes": {
+            "sha256": "e6b14c37ecb73e89c77d78cdb4c2cc8f3fb59a885c5b3f819ff4ed80f25af1b4"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.1",
+        "name": "hyperlink",
+        "version": "21.0.0",
+        "platform": [
+          "any"
+        ],
+        "summary": "A featureful, immutable, and correct URL for Python.",
+        "description": "The humble, but powerful, URL runs everything around us. Chances\nare you've used several just to read this text.\n\nHyperlink is a featureful, pure-Python implementation of the URL, with\nan emphasis on correctness. MIT licensed.\n\nSee the docs at http://hyperlink.readthedocs.io.\n\n\n",
+        "home_page": "https://github.com/python-hyper/hyperlink",
+        "author": "Mahmoud Hashemi and Glyph Lefkowitz",
+        "author_email": "mahmoud@hatnote.com",
+        "license": "MIT",
+        "classifier": [
+          "Topic :: Utilities",
+          "Intended Audience :: Developers",
+          "Topic :: Software Development :: Libraries",
+          "Development Status :: 5 - Production/Stable",
+          "Programming Language :: Python :: 2",
+          "Programming Language :: Python :: 2.6",
+          "Programming Language :: Python :: 2.7",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.4",
+          "Programming Language :: Python :: 3.5",
+          "Programming Language :: Python :: 3.6",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "License :: OSI Approved :: MIT License"
+        ],
+        "requires_dist": [
+          "idna (>=2.5)",
+          "typing ; python_version < \"3.5\""
+        ],
+        "requires_python": ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/1d/55/0f4df2a44053867ea9cbea73fc588b03c55605cd695cee0a3d86f0029cb2/incremental-24.11.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=a34450716b1c4341fe6676a0598e88a39e04189f4dce5dc96f656e040baa10b3",
+          "hashes": {
+            "sha256": "a34450716b1c4341fe6676a0598e88a39e04189f4dce5dc96f656e040baa10b3"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "Incremental",
+        "version": "24.11.0",
+        "summary": "A CalVer version manager that supports the future.",
+        "description": "Incremental\n===========\n\n|pypi|\n|calver|\n|gha|\n|coverage|\n\nIncremental is a `CalVer <https://calver.org/>`_ version manager supports the future.\n\nAPI documentation can be found `here <https://twisted.org/incremental/docs/>`_.\nNarrative documentation follows.\n\n.. contents::\n\nTheory of Operation\n-------------------\n\n- A version number has the form YY.MM.PATCH.\n- If your project is named \"Shrubbery\", its code is found in ``shrubbery/`` or ``src/shrubbery/``.\n- Incremental stores your project's version number in ``{src/}shrubbery/_version.py``.\n- To update the version, run ``incremental update Shrubbery``, passing ``--rc`` and/or ``--patch`` as appropriate (see `Updating`_, below).\n- Changing the version also updates any `indeterminate versions`_ in your codebase, like \"Shrubbery NEXT\", so you can reference the upcoming release in documentation.\n  That's how Incremental supports the future.\n\n\nQuick Start\n-----------\n\nUsing setuptools\n~~~~~~~~~~~~~~~~\n\nAdd Incremental to your ``pyproject.toml``:\n\n.. code-block:: toml\n\n    [build-system]\n    requires = [\n        \"setuptools\",\n        \"incremental>=24.7.2\",  # ← Add incremental as a build dependency\n    ]\n    build-backend = \"setuptools.build_meta\"\n\n    [project]\n    name = \"<projectname>\"\n    dynamic = [\"version\"]       # ← Mark the version dynamic\n    dependencies = [\n        \"incremental>=24.7.2\",  # ← Depend on incremental at runtime\n    ]\n    # ...\n\n    [tool.incremental]          # ← Activate Incremental's setuptools plugin\n\nIt's fine if the ``[tool.incremental]`` table is empty, but it must be present.\n\nRemove any ``[project] version =`` entry and any ``[tool.setuptools.dynamic] version =`` entry.\n\nNext, `initialize the project`_.\n\nUsing Hatchling\n~~~~~~~~~~~~~~~\n\nIf you're using `Hatchling <https://hatch.pypa.io/>`_ to package your project,\nactivate Incremental's Hatchling plugin by altering your ``pyproject.toml``:\n\n.. code:: toml\n\n    [build-system]\n    requires = [\n        \"hatchling\",\n        \"incremental>=24.7.2\",  # ← Add incremental as a build dependency\n    ]\n    build-backend = \"hatchling.build\"\n\n    [project]\n    name = \"<projectname>\"\n    dynamic = [\"version\"]       # ← Mark the version dynamic\n    dependencies = [\n        \"incremental>=24.7.2\",  # ← Depend on incremental at runtime\n    ]\n    # ...\n\n    [tool.hatch.version]\n    source = \"incremental\"      # ← Activate Incremental's Hatchling plugin\n\nIncremental can be configured as usual in an optional ``[tool.incremental]`` table.\n\nThe ``hatch version`` command will report the Incremental-managed version.\nUse the ``incremental update`` command to change the version (setting it with ``hatch version`` is not supported).\n\nNext, `initialize the project`_.\n\n\nUsing ``setup.py``\n~~~~~~~~~~~~~~~~~~\n\nIncremental may be used from ``setup.py`` instead of ``pyproject.toml``.\nAdd this to your ``setup()`` call, removing any other versioning arguments:\n\n.. code:: python\n\n   setup(\n       use_incremental=True,\n       setup_requires=['incremental'],\n       install_requires=['incremental'], # along with any other install dependencies\n       ...\n   }\n\nThen `initialize the project`_.\n\n\nInitialize the project\n~~~~~~~~~~~~~~~~~~~~~~\n\nInstall Incremental to your local environment with ``pipx install incremental``.\nThen run ``incremental update <projectname> --create``.\nIt will create a file in your package named ``_version.py`` like this:\n\n.. code:: python\n\n   from incremental import Version\n\n   __version__ = Version(\"<projectname>\", 24, 1, 0)\n   __all__ = [\"__version__\"]\n\n\nSubsequent installations of your project will then use Incremental for versioning.\n\n\nRuntime integration\n~~~~~~~~~~~~~~~~~~~\n\nYou may expose the ``incremental.Version`` from ``_version.py`` in your package's API.\nTo do so, add to your root package's ``__init__.py``:\n\n.. code:: python\n\n   from ._version import __version__\n\n.. note::\n\n    Providing a ``__version__`` attribute is falling out of fashion following the introduction of `importlib.metadata.version() <https://docs.python.org/3/library/importlib.metadata.html#distribution-versions>`_ in Python 3.6, which can retrieve an installed package's version.\n\nIf you don't expose this object publicly, nor make use of it within your package,\nthen there is no need to depend on Incremental at runtime.\nYou can remove it from your project's ``dependencies`` array (or, in ``setup.py``, from ``install_requires``).\n\n\nIncremental Versions\n--------------------\n\n``incremental.Version`` is a class that represents a version of a given project.\nIt is made up of the following elements (which are given during instantiation):\n\n- ``package`` (required), the name of the package this ``Version`` represents.\n- ``major``, ``minor``, ``micro`` (all required), the X.Y.Z of your project's ``Version``.\n- ``release_candidate`` (optional), set to 0 or higher to mark this ``Version`` being of a release candidate (also sometimes called a \"prerelease\").\n- ``post`` (optional), set to 0 or higher to mark this ``Version`` as a postrelease.\n- ``dev`` (optional), set to 0 or higher to mark this ``Version`` as a development release.\n\nYou can extract a PEP-440 compatible version string by using the ``.public()`` method, which returns a ``str`` containing the full version. This is the version you should provide to users, or publicly use. An example output would be ``\"13.2.0\"``, ``\"17.1.2dev1\"``, or ``\"18.8.0rc2\"``.\n\nCalling ``repr()`` with a ``Version`` will give a Python-source-code representation of it, and calling ``str()`` on a ``Version`` produces a string like ``'[Incremental, version 16.10.1]'``.\n\n\nUpdating\n--------\n\nIncremental includes a tool to automate updating your Incremental-using project's version called ``incremental``.\nIt updates the ``_version.py`` file and automatically updates some uses of Incremental versions from an indeterminate version to the current one.\nIt requires ``click`` from PyPI.\n\n``incremental update <projectname>`` will perform updates on that package.\nThe commands that can be given after that determine what the next version is.\n\n- ``--newversion=<version>``, to set the project version to a fully-specified version (like 1.2.3, or 17.1.0dev1).\n- ``--rc``, to set the project version to ``<year-2000>.<month>.0rc1`` if the current version is not a release candidate, or bump the release candidate number by 1 if it is.\n- ``--dev``, to set the project development release number to 0 if it is not a development release, or bump the development release number by 1 if it is.\n- ``--patch``, to increment the patch number of the release. This will also reset the release candidate number, pass ``--rc`` at the same time to increment the patch number and make it a release candidate.\n- ``--post``, to set the project postrelease number to 0 if it is not a postrelease, or bump the postrelease number by 1 if it is. This will also reset the release candidate and development release numbers.\n\nIf you give no arguments, it will strip the release candidate number, making it a \"full release\".\n\nIndeterminate Versions\n----------------------\n\nIncremental supports \"indeterminate\" versions, as a stand-in for the next \"full\" version. This can be used when the version which will be displayed to the end-user is unknown (for example \"introduced in\" or \"deprecated in\"). Incremental supports the following indeterminate versions:\n\n- ``Version(\"<projectname>\", \"NEXT\", 0, 0)``\n- ``<projectname> NEXT``\n\nWhen you run ``incremental update <projectname> --rc``, these will be updated to real versions (assuming the target final version is 17.1.0):\n\n- ``Version(\"<projectname>\", 17, 1, 0, release_candidate=1)``\n- ``<projectname> 17.1.0rc1``\n\nOnce the final version is made, it will become:\n\n- ``Version(\"<projectname>\", 17, 1, 0)``\n- ``<projectname> 17.1.0``\n\n\n.. |pypi| image:: http://img.shields.io/pypi/v/incremental.svg\n    :alt: PyPI\n    :target: https://pypi.org/project/incremental/\n\n.. |calver| image:: https://img.shields.io/badge/calver-YY.MM.MICRO-22bfda.svg\n    :alt: calver: YY.MM.MICRO\n    :target: https://calver.org/\n\n.. |gha| image:: https://github.com/twisted/incremental/actions/workflows/tests.yaml/badge.svg\n    :alt: Tests\n    :target: https://github.com/twisted/incremental/actions/workflows/tests.yaml\n\n.. |coverage| image:: https://img.shields.io/badge/Coverage-100%25-green\n    :alt: Coverage: 100%\n",
+        "description_content_type": "text/x-rst",
+        "maintainer_email": "Amber Brown <hawkowl@twistedmatrix.com>, Tom Most <twm@freecog.net>",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Framework :: Hatch",
+          "Framework :: Setuptools Plugin",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14"
+        ],
+        "requires_dist": [
+          "packaging>=17.0",
+          "tomli; python_version < '3.11'"
+        ],
+        "requires_python": ">=3.8",
+        "project_url": [
+          "Homepage, https://github.com/twisted/incremental",
+          "Documentation, https://twisted.org/incremental/docs/",
+          "Issues, https://github.com/twisted/incremental/issues",
+          "Changelog, https://github.com/twisted/incremental/blob/trunk/NEWS.rst"
+        ],
+        "provides_extra": [
+          "scripts"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+          "hashes": {
+            "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "typing_extensions",
+        "version": "4.16.0",
+        "summary": "Backported and Experimental Type Hints for Python 3.9+",
+        "description": "# Typing Extensions\n\n[![Chat at https://gitter.im/python/typing](https://badges.gitter.im/python/typing.svg)](https://gitter.im/python/typing)\n\n[Documentation](https://typing-extensions.readthedocs.io/en/latest/#) –\n[PyPI](https://pypi.org/project/typing-extensions/)\n\n## Overview\n\nThe `typing_extensions` module serves two related purposes:\n\n- Enable use of new type system features on older Python versions. For example,\n  `typing.TypeGuard` is new in Python 3.10, but `typing_extensions` allows\n  users on previous Python versions to use it too.\n- Enable experimentation with new type system PEPs before they are accepted and\n  added to the `typing` module.\n\n`typing_extensions` is treated specially by static type checkers such as\nmypy and pyright. Objects defined in `typing_extensions` are treated the same\nway as equivalent forms in `typing`.\n\n`typing_extensions` uses\n[Semantic Versioning](https://semver.org/). The\nmajor version will be incremented only for backwards-incompatible changes.\nTherefore, it's safe to depend\non `typing_extensions` like this: `typing_extensions ~=x.y`,\nwhere `x.y` is the first version that includes all features you need.\n[This](https://packaging.python.org/en/latest/specifications/version-specifiers/#compatible-release)\nis equivalent to `typing_extensions >=x.y, <(x+1)`. Do not depend on `~= x.y.z`\nunless you really know what you're doing; that defeats the purpose of\nsemantic versioning.\n\n## Included items\n\nSee [the documentation](https://typing-extensions.readthedocs.io/en/latest/#) for a\ncomplete listing of module contents.\n\n## Contributing\n\nSee [CONTRIBUTING.md](https://github.com/python/typing_extensions/blob/main/CONTRIBUTING.md)\nfor how to contribute to `typing_extensions`.\n\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "annotations",
+          "backport",
+          "checker",
+          "checking",
+          "function",
+          "hinting",
+          "hints",
+          "type",
+          "typechecking",
+          "typehinting",
+          "typehints",
+          "typing"
+        ],
+        "author_email": "\"Guido van Rossum, Jukka Lehtosalo, Łukasz Langa, Michael Lee\" <levkivskyi@gmail.com>",
+        "license_expression": "PSF-2.0",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Topic :: Software Development"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Bug Tracker, https://github.com/python/typing_extensions/issues",
+          "Changes, https://github.com/python/typing_extensions/blob/main/CHANGELOG.md",
+          "Documentation, https://typing-extensions.readthedocs.io/",
+          "Home, https://github.com/python/typing_extensions",
+          "Q & A, https://github.com/python/typing/discussions",
+          "Repository, https://github.com/python/typing_extensions"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/54/af/0eddc2dd0fcfa3da3a6256c4f58278729076c77296b6f00567b03718026d/zope_interface-8.7-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl",
+        "archive_info": {
+          "hash": "sha256=90aef6e0a9924af18f60528895f2fc50cb634191939d65b10a96d9ced05030b5",
+          "hashes": {
+            "sha256": "90aef6e0a9924af18f60528895f2fc50cb634191939d65b10a96d9ced05030b5"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "zope.interface",
+        "version": "8.7",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "Interfaces for Python",
+        "description": "====================\n ``zope.interface``\n====================\n\n.. image:: https://img.shields.io/pypi/v/zope.interface.svg\n    :target: https://pypi.python.org/pypi/zope.interface/\n    :alt: Latest Version\n\n.. image:: https://img.shields.io/pypi/pyversions/zope.interface.svg\n        :target: https://pypi.org/project/zope.interface/\n        :alt: Supported Python versions\n\n.. image:: https://github.com/zopefoundation/zope.interface/actions/workflows/tests.yml/badge.svg\n        :target: https://github.com/zopefoundation/zope.interface/actions/workflows/tests.yml\n\n.. image:: https://readthedocs.org/projects/zopeinterface/badge/?version=latest\n        :target: https://zopeinterface.readthedocs.io/en/latest/\n        :alt: Documentation Status\n\nThis package is intended to be independently reusable in any Python\nproject. It is maintained by the `Zope Toolkit project\n<https://zopetoolkit.readthedocs.io/>`_.\n\nThis package provides an implementation of \"object interfaces\" for Python.\nInterfaces are a mechanism for labeling objects as conforming to a given\nAPI or contract. So, this package can be considered as implementation of\nthe `Design By Contract`_ methodology support in Python.\n\n.. _Design By Contract: http://en.wikipedia.org/wiki/Design_by_contract\n\nFor detailed documentation, please see https://zopeinterface.readthedocs.io/en/latest/\n\nChange log\n==========\n\n8.7 (2026-10-15)\n----------------\n\n- Release Python 3.15 binary wheels.\n\n- Fix free-threaded (no-GIL) data races in the C lookup caches.  Concurrent\n  ``lookup()`` and ``changed()`` calls could crash while cache fields were\n  being replaced.  Their lifetimes are now guarded by a critical section on\n  Python 3.13+. Also affects GIL builds.\n  (`#380 <https://github.com/zopefoundation/zope.interface/issues/380>`_)\n\n- Fix reference leaks in the C optimizations when the lazy import of\n  ``zope.interface.declarations`` fails partway through.\n  (`#363 <https://github.com/zopefoundation/zope.interface/issues/363>`_)\n\n- Drop support for Python 3.10.\n\n- Remove the C optimizations' code path for static types, which was only\n  used on Python < 3.11.\n  (`#394 <https://github.com/zopefoundation/zope.interface/pull/394>`_)\n\n\n8.6 (2026-08-20)\n----------------\n\n- Add support for Python 3.15.\n\n\n8.5 (2026-05-26)\n----------------\n\n- Build and upload free-threaded (``cp314t``, ``cp315t``) wheels for all\n  platforms.\n  Expand CI testing for free-threaded Python 3.14t from Linux-only to all\n  platforms (macOS, Windows), and add 3.15t CI.\n  See `issue 374 <https://github.com/zopefoundation/zope.interface/issues/374>`_.\n\n- Replace all remaining ``PyDict_GetItem()`` calls in the C extension with\n  exception-safe alternatives (``PyDict_Contains``, ``PyDict_GetItemWithError``).\n  ``PyDict_GetItem`` silently swallows exceptions from ``__hash__``/``__eq__``,\n  causing ``isOrExtends()`` to return ``False`` instead of raising ``TypeError``\n  for unhashable objects. Also use ``PyType_GetDict()`` on Python 3.13+ for\n  free-threading safety when accessing the type dict.\n  See `issue 357 <https://github.com/zopefoundation/zope.interface/issues/357>`_.\n\n8.4 (2026-04-25)\n----------------\n\n- Add support for automatically building and publishing Windows/ARM64 wheels.\n\n\n8.3 (2026-04-10)\n----------------\n\n- Add support for free-threaded Python 3.14t: declare ``Py_mod_gil_not_used``\n  in C extension, replace borrowed-reference ``PyDict_GetItem()`` with\n  strong-reference ``PyDict_GetItemRef()`` in cache lookups, and use\n  ``Py_TYPE()`` macro instead of direct ``ob_type`` struct access.\n\n- Add CI testing for free-threaded Python 3.14t (Linux).\n\n- Guard 4 unprotected ``PyErr_Clear()`` calls in the C extension with\n  ``PyErr_ExceptionMatches`` checks, matching the pattern already used at 7\n  other sites in the same file. Without the guard, ``KeyboardInterrupt``,\n  ``MemoryError``, and ``SystemExit`` are silently swallowed in\n  ``implementedBy`` and ``providedBy``.\n  See `issue 358 <https://github.com/zopefoundation/zope.interface/issues/358>`_.\n\n\n8.2 (2026-01-09)\n----------------\n\n- Move all supported package metadata into ``pyproject.toml``.\n\n- Ignore ``__annotate_func__`` added in Python 3.14b1.\n\n\n8.1.1 (2025-11-15)\n------------------\n\n- Fix the GitHub workflow for publishing wheels, which failed for Linux/arm64.\n  (`#348 <https://github.com/zopefoundation/zope.interface/issues/348>`_)\n\n\n8.1 (2025-11-10)\n----------------\n\n- Drop support for Python 3.9.\n\n- Add support for Python 3.14.\n\n\n8.0.1 (2025-09-25)\n------------------\n\n- Make tests resilient against different ways of calling them.\n\n- Remove run-time dependency on ``setuptools``.\n\n\n8.0 (2025-09-12)\n----------------\n\n- Replace ``pkg_resources`` namespace with PEP 420 native namespace.\n\n- Drop support for Python 3.8.\n\n- Allow using newer ``setuptools`` version.\n  (`#333 <https://github.com/zopefoundation/zope.interface/issues/333>`_)\n\n\n7.2 (2024-11-28)\n----------------\n\n- Add preliminary support for Python 3.14a2, this means that\n  ``.common.builtins.IByteString`` and ``.common.collections.IByteString`` are\n  no longer available from this Python version onwards as Python 3.14 dropped\n  ``collections.abc.ByteString``.\n\n\n7.1.1 (2024-10-23)\n------------------\n\n- Fix segmentation faults in `weakrefobject.c` on Python 3.12 and 3.13.\n  (`#323 <https://github.com/zopefoundation/zope.interface/issues/323>`_)\n\n\n7.1.0 (2024-10-10)\n------------------\n\n- Declare support for Python 3.13.\n\n- Fix segmentation faults on Python 3.13.\n  (`#323 <https://github.com/zopefoundation/zope.interface/issues/323>`_)\n\n\n7.0.3 (2024-08-27)\n------------------\n\n- Fix `Assertion 'memb->type -- T_PYSSIZET' failed.` for Python < 3.12.\n  (`#319 <https://github.com/zopefoundation/zope.interface/issues/319>`_)\n\n\n7.0.2 (2024-08-26)\n------------------\n\n- Fix reference-counting bug in C module initialization (broken in 7.0).\n  (`#316 <https://github.com/zopefoundation/zope.interface/issues/316>`_)\n\n\n7.0.1 (2024-08-06)\n------------------\n\n- Fix subclassability of ``ObjectSpecificationDescriptor`` (broken in 7.0).\n  (`#312 <https://github.com/zopefoundation/zope.interface/issues/312>`_)\n\n\n7.0 (2024-08-06)\n----------------\n\n- Enable heap-based types (PEP 384) for Python >= 3.11.\n\n- Adopt multi-phase module initialization (PEP 489).\n\n- Drop support for Python 3.7.\n\n\n6.4.post2 (2024-05-24)\n----------------------\n\n- Publish missing Windows wheels, second attempt.\n  (`#295 <https://github.com/zopefoundation/zope.interface/issues/295>`_)\n\n\n6.4.post1 (2024-05-23)\n----------------------\n\n- Publish missing Windows wheels.\n  (`#295 <https://github.com/zopefoundation/zope.interface/issues/295>`_)\n\n\n6.4.post0 (2024-05-22)\n----------------------\n\n- The sdist of version 6.4 was uploaded to PyPI as\n  ``zope_interface-6.4.tar.gz`` instead of ``zope.interface-6.4-py2.tar.gz``\n  which cannot be installed by ``zc.buildout``.  This release is a re-release\n  of version 6.4 with the correct sdist name.\n  (`#298 <https://github.com/zopefoundation/zope.interface/issues/298>`_)\n\n\n6.4 (2024-05-15)\n----------------\n\n- Adjust for incompatible changes in Python 3.13b1.\n  (`#292 <https://github.com/zopefoundation/zope.interface/issues/292>`_)\n\n- Build windows wheels on GHA.\n\n\n6.3 (2024-04-12)\n----------------\n\n- Add preliminary support for Python 3.13 as of 3.13a6.\n\n\n6.2 (2024-02-16)\n----------------\n\n- Add preliminary support for Python 3.13 as of 3.13a3.\n\n- Add support to use the pipe (``|``) syntax for ``typing.Union``.\n  (`#280 <https://github.com/zopefoundation/zope.interface/issues/280>`_)\n\n\n6.1 (2023-10-05)\n----------------\n\n- Build Linux binary wheels for Python 3.12.\n\n- Add support for Python 3.12.\n\n- Fix building of the docs for non-final versions.\n\n\n6.0 (2023-03-17)\n----------------\n\n- Build Linux binary wheels for Python 3.11.\n\n- Drop support for Python 2.7, 3.5, 3.6.\n\n- Fix test deprecation warning on Python 3.11.\n\n- Add preliminary support for Python 3.12 as of 3.12a5.\n\n- Drop:\n\n    + `zope.interface.implements`\n    + `zope.interface.implementsOnly`\n    + `zope.interface.classProvides`\n\n\n5.5.2 (2022-11-17)\n------------------\n\n- Add support for building arm64 wheels on macOS.\n\n\n5.5.1 (2022-11-03)\n------------------\n\n- Add support for final Python 3.11 release.\n\n\n5.5.0 (2022-10-10)\n------------------\n\n- Add support for Python 3.10 and 3.11 (as of 3.11.0rc2).\n\n- Add missing Trove classifier showing support for Python 3.9.\n\n- Add some more entries to ``zope.interface.interfaces.__all__``.\n\n- Disable unsafe math optimizations in C code.  See `pull request 262\n  <https://github.com/zopefoundation/zope.interface/pull/262>`_.\n\n\n5.4.0 (2021-04-15)\n------------------\n\n- Make the C implementation of the ``__providedBy__`` descriptor stop\n  ignoring all errors raised when accessing the instance's\n  ``__provides__``. Now it behaves like the Python version and only\n  catches ``AttributeError``. The previous behaviour could lead to\n  crashing the interpreter in cases of recursion and errors. See\n  `issue 239 <https://github.com/zopefoundation/zope.interface/issues>`_.\n\n- Update the ``repr()`` and ``str()`` of various objects to be shorter\n  and more informative. In many cases, the ``repr()`` is now something\n  that can be evaluated to produce an equal object. For example, what\n  was previously printed as ``<implementedBy builtins.list>`` is now\n  shown as ``classImplements(list, IMutableSequence, IIterable)``. See\n  `issue 236 <https://github.com/zopefoundation/zope.interface/issues/236>`_.\n\n- Make ``Declaration.__add__`` (as in ``implementedBy(Cls) +\n  ISomething``) try harder to preserve a consistent resolution order\n  when the two arguments share overlapping pieces of the interface\n  inheritance hierarchy. Previously, the right hand side was always\n  put at the end of the resolution order, which could easily produce\n  invalid orders. See `issue 193\n  <https://github.com/zopefoundation/zope.interface/issues/193>`_.\n\n\n5.3.0 (2020-03-21)\n------------------\n\n- No changes from 5.3.0a1\n\n\n5.3.0a1 (2021-03-18)\n--------------------\n\n- Improve the repr of ``zope.interface.Provides`` to remove ambiguity\n  about what is being provided. This is especially helpful diagnosing\n  IRO issues.\n\n- Allow subclasses of ``BaseAdapterRegistry`` (including\n  ``AdapterRegistry`` and ``VerifyingAdapterRegistry``) to have\n  control over the data structures. This allows persistent\n  implementations such as those based on ZODB to choose more scalable\n  options (e.g., BTrees instead of dicts). See `issue 224\n  <https://github.com/zopefoundation/zope.interface/issues/224>`_.\n\n- Fix a reference counting issue in ``BaseAdapterRegistry`` that could\n  lead to references to interfaces being kept around even when all\n  utilities/adapters/subscribers providing that interface have been\n  removed. This is mostly an issue for persistent implementations.\n  Note that this only corrects the issue moving forward, it does not\n  solve any already corrupted reference counts. See `issue 227\n  <https://github.com/zopefoundation/zope.interface/issues/227>`_.\n\n- Add the method ``BaseAdapterRegistry.rebuild()``. This can be used\n  to fix the reference counting issue mentioned above, as well as to\n  update the data structures when custom data types have changed.\n\n- Add the interface method ``IAdapterRegistry.subscribed()`` and\n  implementation ``BaseAdapterRegistry.subscribed()`` for querying\n  directly registered subscribers. See `issue 230\n  <https://github.com/zopefoundation/zope.interface/issues/230>`_.\n\n- Add the maintenance method\n  ``Components.rebuildUtilityRegistryFromLocalCache()``. Most users\n  will not need this, but it can be useful if the ``Components.utilities``\n  registry is suspected to be out of sync with the ``Components``\n  object itself (this might happen to persistent ``Components``\n  implementations in the face of bugs).\n\n- Fix the ``Provides`` and ``ClassProvides`` descriptors to stop\n  allowing redundant interfaces (those already implemented by the\n  underlying class or meta class) to produce an inconsistent\n  resolution order. This is similar to the change in ``@implementer``\n  in 5.1.0, and resolves inconsistent resolution orders with\n  ``zope.proxy`` and ``zope.location``. See `issue 207\n  <https://github.com/zopefoundation/zope.interface/issues/207>`_.\n\n\n5.2.0 (2020-11-05)\n------------------\n\n- Add documentation section ``Persistency and Equality``\n  (`#218 <https://github.com/zopefoundation/zope.interface/issues/218>`_).\n\n- Create arm64 wheels.\n\n- Add support for Python 3.9.\n\n\n5.1.2 (2020-10-01)\n------------------\n\n- Make sure to call each invariant only once when validating invariants.\n  Previously, invariants could be called multiple times because when an\n  invariant is defined in an interface, it's found by in all interfaces\n  inheriting from that interface.  See `pull request 215\n  <https://github.com/zopefoundation/zope.interface/pull/215/>`_.\n\n\n5.1.1 (2020-09-30)\n------------------\n\n- Fix the method definitions of ``IAdapterRegistry.subscribe``,\n  ``subscriptions`` and ``subscribers``. Previously, they all were\n  defined to accept a ``name`` keyword argument, but subscribers have\n  no names and the implementation of that interface did not accept\n  that argument. See `issue 208\n  <https://github.com/zopefoundation/zope.interface/issues/208>`_.\n\n- Fix a potential reference leak in the C optimizations. Previously,\n  applications that dynamically created unique ``Specification``\n  objects (e.g., used ``@implementer`` on dynamic classes) could\n  notice a growth of small objects over time leading to increased\n  garbage collection times. See `issue 216\n  <https://github.com/zopefoundation/zope.interface/issues/216>`_.\n\n  .. caution::\n\n     This leak could prevent interfaces used as the bases of\n     other interfaces from being garbage collected. Those interfaces\n     will now be collected.\n\n     One way in which this would manifest was that ``weakref.ref``\n     objects (and things built upon them, like\n     ``Weak[Key|Value]Dictionary``) would continue to have access to\n     the original object even if there were no other visible\n     references to Python and the original object *should* have been\n     collected. This could be especially problematic for the\n     ``WeakKeyDictionary`` when combined with dynamic or local\n     (created in the scope of a function) interfaces, since interfaces\n     are hashed based just on their name and module name. See the\n     linked issue for an example of a resulting ``KeyError``.\n\n     Note that such potential errors are not new, they are just once\n     again a possibility.\n\n\n5.1.0 (2020-04-08)\n------------------\n\n- Make ``@implementer(*iface)`` and ``classImplements(cls, *iface)``\n  ignore redundant interfaces. If the class already implements an\n  interface through inheritance, it is no longer redeclared\n  specifically for *cls*. This solves many instances of inconsistent\n  resolution orders, while still allowing the interface to be declared\n  for readability and maintenance purposes. See `issue 199\n  <https://github.com/zopefoundation/zope.interface/issues/199>`_.\n\n- Remove all bare ``except:`` statements. Previously, when accessing\n  special attributes such as ``__provides__``, ``__providedBy__``,\n  ``__class__`` and ``__conform__``, this package wrapped such access\n  in a bare ``except:`` statement, meaning that many errors could pass\n  silently; typically this would result in a fallback path being taken\n  and sometimes (like with ``providedBy()``) the result would be\n  non-sensical. This is especially true when those attributes are\n  implemented with descriptors. Now, only ``AttributeError`` is\n  caught. This makes errors more obvious.\n\n  Obviously, this means that some exceptions will be propagated\n  differently than before. In particular, ``RuntimeError`` raised by\n  Acquisition in the case of circular containment will now be\n  propagated. Previously, when adapting such a broken object, a\n  ``TypeError`` would be the common result, but now it will be a more\n  informative ``RuntimeError``.\n\n  In addition, ZODB errors like ``POSKeyError`` could now be\n  propagated where previously they would ignored by this package.\n\n  See `issue 200 <https://github.com/zopefoundation/zope.interface/issues/200>`_.\n\n- Require that the second argument (*bases*) to ``InterfaceClass`` is\n  a tuple. This only matters when directly using ``InterfaceClass`` to\n  create new interfaces dynamically. Previously, an individual\n  interface was allowed, but did not work correctly. Now it is\n  consistent with ``type`` and requires a tuple.\n\n- Let interfaces define custom ``__adapt__`` methods. This implements\n  the other side of the :pep:`246` adaptation protocol: objects being\n  adapted could already implement ``__conform__`` if they know about\n  the interface, and now interfaces can implement ``__adapt__`` if\n  they know about particular objects. There is no performance penalty\n  for interfaces that do not supply custom ``__adapt__`` methods.\n\n  This includes the ability to add new methods, or override existing\n  interface methods using the new ``@interfacemethod`` decorator.\n\n  See `issue 3 <https://github.com/zopefoundation/zope.interface/issues/3>`_.\n\n- Make the internal singleton object returned by APIs like\n  ``implementedBy`` and ``directlyProvidedBy`` for objects that\n  implement or provide no interfaces more immutable. Previously an\n  internal cache could be mutated. See `issue 204\n  <https://github.com/zopefoundation/zope.interface/issues/204>`_.\n\n\n5.0.2 (2020-03-30)\n------------------\n\n- Ensure that objects that implement no interfaces (such as direct\n  subclasses of ``object``) still include ``Interface`` itself in\n  their ``__iro___`` and ``__sro___``. This fixes adapter registry\n  lookups for such objects when the adapter is registered for\n  ``Interface``. See `issue 197\n  <https://github.com/zopefoundation/zope.interface/issues/197>`_.\n\n\n5.0.1 (2020-03-21)\n------------------\n\n- Ensure the resolution order for ``InterfaceClass`` is consistent.\n  See `issue 192 <https://github.com/zopefoundation/zope.interface/issues/192>`_.\n\n- Ensure the resolution order for ``collections.OrderedDict`` is\n  consistent on CPython 2. (It was already consistent on Python 3 and PyPy).\n\n- Fix the handling of the ``ZOPE_INTERFACE_STRICT_IRO`` environment\n  variable. Previously, ``ZOPE_INTERFACE_STRICT_RO`` was read, in\n  contrast with the documentation. See `issue 194\n  <https://github.com/zopefoundation/zope.interface/issues/194>`_.\n\n\n5.0.0 (2020-03-19)\n------------------\n\n- Make an internal singleton object returned by APIs like\n  ``implementedBy`` and ``directlyProvidedBy`` immutable. Previously,\n  it was fully mutable and allowed changing its ``__bases___``. That\n  could potentially lead to wrong results in pathological corner\n  cases. See `issue 158\n  <https://github.com/zopefoundation/zope.interface/issues/158>`_.\n\n- Support the ``PURE_PYTHON`` environment variable at runtime instead\n  of just at wheel build time. A value of 0 forces the C extensions to\n  be used (even on PyPy) failing if they aren't present. Any other\n  value forces the Python implementation to be used, ignoring the C\n  extensions. See `PR 151 <https://github.com/zopefoundation/zope.interface/pull/151>`_.\n\n- Cache the result of ``__hash__`` method in ``InterfaceClass`` as a\n  speed optimization. The method is called very often (i.e several\n  hundred thousand times during Plone 5.2 startup). Because the hash value never\n  changes it can be cached. This improves test performance from 0.614s\n  down to 0.575s (1.07x faster). In a real world Plone case a reindex\n  index came down from 402s to 320s (1.26x faster). See `PR 156\n  <https://github.com/zopefoundation/zope.interface/pull/156>`_.\n\n- Change the C classes ``SpecificationBase`` and its subclass\n  ``ClassProvidesBase`` to store implementation attributes in their structures\n  instead of their instance dictionaries. This eliminates the use of\n  an undocumented private C API function, and helps make some\n  instances require less memory. See `PR 154 <https://github.com/zopefoundation/zope.interface/pull/154>`_.\n\n- Reduce memory usage in other ways based on observations of usage\n  patterns in Zope (3) and Plone code bases.\n\n  - Specifications with no dependents are common (more than 50%) so\n    avoid allocating a ``WeakKeyDictionary`` unless we need it.\n  - Likewise, tagged values are relatively rare, so don't allocate a\n    dictionary to hold them until they are used.\n  - Use ``__slots___`` or the C equivalent ``tp_members`` in more\n    common places. Note that this removes the ability to set arbitrary\n    instance variables on certain objects.\n    See `PR 155 <https://github.com/zopefoundation/zope.interface/pull/155>`_.\n\n  The changes in this release resulted in a 7% memory reduction after\n  loading about 6,000 modules that define about 2,200 interfaces.\n\n  .. caution::\n\n     Details of many private attributes have changed, and external use\n     of those private attributes may break. In particular, the\n     lifetime and default value of ``_v_attrs`` has changed.\n\n- Remove support for hashing uninitialized interfaces. This could only\n  be done by subclassing ``InterfaceClass``. This has generated a\n  warning since it was first added in 2011 (3.6.5). Please call the\n  ``InterfaceClass`` constructor or otherwise set the appropriate\n  fields in your subclass before attempting to hash or sort it. See\n  `issue 157 <https://github.com/zopefoundation/zope.interface/issues/157>`_.\n\n- Remove unneeded override of the ``__hash__`` method from\n  ``zope.interface.declarations.Implements``. Watching a reindex index\n  process in ZCatalog with on a Py-Spy after 10k samples the time for\n  ``.adapter._lookup`` was reduced from 27.5s to 18.8s (~1.5x faster).\n  Overall reindex index time shrunk from 369s to 293s (1.26x faster).\n  See `PR 161\n  <https://github.com/zopefoundation/zope.interface/pull/161>`_.\n\n- Make the Python implementation closer to the C implementation by\n  ignoring all exceptions, not just ``AttributeError``, during (parts\n  of) interface adaptation. See `issue 163\n  <https://github.com/zopefoundation/zope.interface/issues/163>`_.\n\n- Micro-optimization in ``.adapter._lookup`` , ``.adapter._lookupAll``\n  and ``.adapter._subscriptions``: By loading ``components.get`` into\n  a local variable before entering the loop a bytcode \"LOAD_FAST 0\n  (components)\" in the loop can be eliminated. In Plone, while running\n  all tests, average speedup of the \"owntime\" of ``_lookup`` is ~5x.\n  See `PR 167\n  <https://github.com/zopefoundation/zope.interface/pull/167>`_.\n\n- Add ``__all__`` declarations to all modules. This helps tools that\n  do auto-completion and documentation and results in less cluttered\n  results. Wildcard (\"*\") are not recommended and may be affected. See\n  `issue 153\n  <https://github.com/zopefoundation/zope.interface/issues/153>`_.\n\n- Fix ``verifyClass`` and ``verifyObject`` for builtin types like\n  ``dict`` that have methods taking an optional, unnamed argument with\n  no default value like ``dict.pop``. On PyPy3, the verification is\n  strict, but on PyPy2 (as on all versions of CPython) those methods\n  cannot be verified and are ignored. See `issue 118\n  <https://github.com/zopefoundation/zope.interface/issues/118>`_.\n\n- Update the common interfaces ``IEnumerableMapping``,\n  ``IExtendedReadMapping``, ``IExtendedWriteMapping``,\n  ``IReadSequence`` and ``IUniqueMemberWriteSequence`` to no longer\n  require methods that were removed from Python 3 on Python 3, such as\n  ``__setslice___``. Now, ``dict``, ``list`` and ``tuple`` properly\n  verify as ``IFullMapping``, ``ISequence`` and ``IReadSequence,``\n  respectively on all versions of Python.\n\n- Add human-readable ``__str___`` and ``__repr___`` to ``Attribute``\n  and ``Method``. These contain the name of the defining interface\n  and the attribute. For methods, it also includes the signature.\n\n- Change the error strings raised by ``verifyObject`` and\n  ``verifyClass``. They now include more human-readable information\n  and exclude extraneous lines and spaces. See `issue 170\n  <https://github.com/zopefoundation/zope.interface/issues/170>`_.\n\n  .. caution:: This will break consumers (such as doctests) that\n               depended on the exact error messages.\n\n- Make ``verifyObject`` and ``verifyClass`` report all errors, if the\n  candidate object has multiple detectable violations. Previously they\n  reported only the first error. See `issue\n  <https://github.com/zopefoundation/zope.interface/issues/171>`_.\n\n  Like the above, this will break consumers depending on the exact\n  output of error messages if more than one error is present.\n\n- Add ``zope.interface.common.collections``,\n  ``zope.interface.common.numbers``, and ``zope.interface.common.io``.\n  These modules define interfaces based on the ABCs defined in the\n  standard library ``collections.abc``, ``numbers`` and ``io``\n  modules, respectively. Importing these modules will make the\n  standard library concrete classes that are registered with those\n  ABCs declare the appropriate interface. See `issue 138\n  <https://github.com/zopefoundation/zope.interface/issues/138>`_.\n\n- Add ``zope.interface.common.builtins``. This module defines\n  interfaces of common builtin types, such as ``ITextString`` and\n  ``IByteString``, ``IDict``, etc. These interfaces extend the\n  appropriate interfaces from ``collections`` and ``numbers``, and the\n  standard library classes implement them after importing this module.\n  This is intended as a replacement for third-party packages like\n  `dolmen.builtins <https://pypi.org/project/dolmen.builtins/>`_.\n  See `issue 138 <https://github.com/zopefoundation/zope.interface/issues/138>`_.\n\n- Make ``providedBy()`` and ``implementedBy()`` respect ``super``\n  objects. For instance, if class ``Derived`` implements ``IDerived``\n  and extends ``Base`` which in turn implements ``IBase``, then\n  ``providedBy(super(Derived, derived))`` will return ``[IBase]``.\n  Previously it would have returned ``[IDerived]`` (in general, it\n  would previously have returned whatever would have been returned\n  without ``super``).\n\n  Along with this change, adapter registries will unpack ``super``\n  objects into their ``__self___`` before passing it to the factory.\n  Together, this means that ``component.getAdapter(super(Derived,\n  self), ITarget)`` is now meaningful.\n\n  See `issue 11 <https://github.com/zopefoundation/zope.interface/issues/11>`_.\n\n- Fix a potential interpreter crash in the low-level adapter\n  registry lookup functions. See issue 11.\n\n- Adopt Python's standard `C3 resolution order\n  <https://www.python.org/download/releases/2.3/mro/>`_ to compute the\n  ``__iro__`` and ``__sro__`` of interfaces, with tweaks to support\n  additional cases that are common in interfaces but disallowed for\n  Python classes. Previously, an ad-hoc ordering that made no\n  particular guarantees was used.\n\n  This has many beneficial properties, including the fact that base\n  interface and base classes tend to appear near the end of the\n  resolution order instead of the beginning. The resolution order in\n  general should be more predictable and consistent.\n\n  .. caution::\n     In some cases, especially with complex interface inheritance\n     trees or when manually providing or implementing interfaces, the\n     resulting IRO may be quite different. This may affect adapter\n     lookup.\n\n  The C3 order enforces some constraints in order to be able to\n  guarantee a sensible ordering. Older versions of zope.interface did\n  not impose similar constraints, so it was possible to create\n  interfaces and declarations that are inconsistent with the C3\n  constraints. In that event, zope.interface will still produce a\n  resolution order equal to the old order, but it won't be guaranteed\n  to be fully C3 compliant. In the future, strict enforcement of C3\n  order may be the default.\n\n  A set of environment variables and module constants allows\n  controlling several aspects of this new behaviour. It is possible to\n  request warnings about inconsistent resolution orders encountered,\n  and even to forbid them. Differences between the C3 resolution order\n  and the previous order can be logged, and, in extreme cases, the\n  previous order can still be used (this ability will be removed in\n  the future). For details, see the documentation for\n  ``zope.interface.ro``.\n\n- Make inherited tagged values in interfaces respect the resolution\n  order (``__iro__``), as method and attribute lookup does. Previously\n  tagged values could give inconsistent results. See `issue 190\n  <https://github.com/zopefoundation/zope.interface/issues/190>`_.\n\n- Add ``getDirectTaggedValue`` (and related methods) to interfaces to\n  allow accessing tagged values irrespective of inheritance. See\n  `issue 190\n  <https://github.com/zopefoundation/zope.interface/issues/190>`_.\n\n- Ensure that ``Interface`` is always the last item in the ``__iro__``\n  and ``__sro__``. This is usually the case, but if classes that do\n  not implement any interfaces are part of a class inheritance\n  hierarchy, ``Interface`` could be assigned too high a priority.\n  See `issue 8 <https://github.com/zopefoundation/zope.interface/issues/8>`_.\n\n- Implement sorting, equality, and hashing in C for ``Interface``\n  objects. In micro benchmarks, this makes those operations 40% to 80%\n  faster. This translates to a 20% speed up in querying adapters.\n\n  Note that this changes certain implementation details. In\n  particular, ``InterfaceClass`` now has a non-default metaclass, and\n  it is enforced that ``__module__`` in instances of\n  ``InterfaceClass`` is read-only.\n\n  See `PR 183 <https://github.com/zopefoundation/zope.interface/pull/183>`_.\n\n\n4.7.2 (2020-03-10)\n------------------\n\n- Remove deprecated use of setuptools features.  See `issue 30\n  <https://github.com/zopefoundation/zope.interface/issues/30>`_.\n\n\n4.7.1 (2019-11-11)\n------------------\n\n- Use Python 3 syntax in the documentation.  See `issue 119\n  <https://github.com/zopefoundation/zope.interface/issues/119>`_.\n\n\n4.7.0 (2019-11-11)\n------------------\n\n- Drop support for Python 3.4.\n\n- Change ``queryTaggedValue``, ``getTaggedValue``,\n  ``getTaggedValueTags`` in interfaces. They now include inherited\n  values by following ``__bases__``. See `PR 144\n  <https://github.com/zopefoundation/zope.interface/pull/144>`_.\n\n  .. caution:: This may be a breaking change.\n\n- Add support for Python 3.8.\n\n\n4.6.0 (2018-10-23)\n------------------\n\n- Add support for Python 3.7\n\n- Fix ``verifyObject`` for class objects with staticmethods on\n  Python 3. See `issue 126\n  <https://github.com/zopefoundation/zope.interface/issues/126>`_.\n\n\n4.5.0 (2018-04-19)\n------------------\n\n- Drop support for 3.3, avoid accidental dependence breakage via setup.py.\n  See `PR 110 <https://github.com/zopefoundation/zope.interface/pull/110>`_.\n- Allow registering and unregistering instance methods as listeners.\n  See `issue 12 <https://github.com/zopefoundation/zope.interface/issues/12>`_\n  and `PR 102 <https://github.com/zopefoundation/zope.interface/pull/102>`_.\n- Synchronize and simplify zope/__init__.py. See `issue 114\n  <https://github.com/zopefoundation/zope.interface/issues/114>`_\n\n\n4.4.3 (2017-09-22)\n------------------\n\n- Avoid exceptions when the ``__annotations__`` attribute is added to\n  interface definitions with Python 3.x type hints. See `issue 98\n  <https://github.com/zopefoundation/zope.interface/issues/98>`_.\n- Fix the possibility of a rare crash in the C extension when\n  deallocating items. See `issue 100\n  <https://github.com/zopefoundation/zope.interface/issues/100>`_.\n\n\n4.4.2 (2017-06-14)\n------------------\n\n- Fix a regression storing\n  ``zope.component.persistentregistry.PersistentRegistry`` instances.\n  See `issue 85 <https://github.com/zopefoundation/zope.interface/issues/85>`_.\n\n- Fix a regression that could lead to the utility registration cache\n  of ``Components`` getting out of sync. See `issue 93\n  <https://github.com/zopefoundation/zope.interface/issues/93>`_.\n\n\n4.4.1 (2017-05-13)\n------------------\n\n- Simplify the caching of utility-registration data. In addition to\n  simplification, avoids spurious test failures when checking for\n  leaks in tests with persistent registries. See `pull 84\n  <https://github.com/zopefoundation/zope.interface/pull/84>`_.\n\n- Raise ``ValueError`` when non-text names are passed to adapter registry\n  methods:  prevents corruption of lookup caches.\n\n\n4.4.0 (2017-04-21)\n------------------\n\n- Avoid a warning from the C compiler.\n  (https://github.com/zopefoundation/zope.interface/issues/71)\n\n- Add support for Python 3.6.\n\n\n4.3.3 (2016-12-13)\n------------------\n\n- Correct typos and ReST formatting errors in documentation.\n\n- Add API documentation for the adapter registry.\n\n- Ensure that the ``LICENSE.txt`` file is included in built wheels.\n\n- Fix C optimizations broken on Py3k.  See the Python bug at:\n  http://bugs.python.org/issue15657\n  (https://github.com/zopefoundation/zope.interface/issues/60)\n\n\n4.3.2 (2016-09-05)\n------------------\n\n- Fix equality testing of ``implementedBy`` objects and proxies.\n  (https://github.com/zopefoundation/zope.interface/issues/55)\n\n\n4.3.1 (2016-08-31)\n------------------\n\n- Support Components subclasses that are not hashable.\n  (https://github.com/zopefoundation/zope.interface/issues/53)\n\n\n4.3.0 (2016-08-31)\n------------------\n\n- Add the ability to sort the objects returned by ``implementedBy``.\n  This is compatible with the way interface classes sort so they can\n  be used together in ordered containers like BTrees.\n  (https://github.com/zopefoundation/zope.interface/issues/42)\n\n- Make ``setuptools`` a hard dependency of ``setup.py``.\n  (https://github.com/zopefoundation/zope.interface/issues/13)\n\n- Change a linear algorithm (O(n)) in ``Components.registerUtility`` and\n  ``Components.unregisterUtility`` into a dictionary lookup (O(1)) for\n  hashable components. This substantially improves the time taken to\n  manipulate utilities in large registries at the cost of some\n  additional memory usage. (https://github.com/zopefoundation/zope.interface/issues/46)\n\n\n4.2.0 (2016-06-10)\n------------------\n\n- Add support for Python 3.5\n\n- Drop support for Python 2.6 and 3.2.\n\n\n4.1.3 (2015-10-05)\n------------------\n\n- Fix installation without a C compiler on Python 3.5\n  (https://github.com/zopefoundation/zope.interface/issues/24).\n\n\n4.1.2 (2014-12-27)\n------------------\n\n- Add support for PyPy3.\n\n- Remove unittest assertions deprecated in Python3.x.\n\n- Add ``zope.interface.document.asReStructuredText``, which formats the\n  generated text for an interface using ReST double-backtick markers.\n\n\n4.1.1 (2014-03-19)\n------------------\n\n- Add support for Python 3.4.\n\n\n4.1.0 (2014-02-05)\n------------------\n\n- Update ``boostrap.py`` to version 2.2.\n\n- Add ``@named(name)`` declaration, that specifies the component name, so it\n  does not have to be passed in during registration.\n\n\n4.0.5 (2013-02-28)\n------------------\n\n- Fix a bug where a decorated method caused false positive failures on\n  ``verifyClass()``.\n\n\n4.0.4 (2013-02-21)\n------------------\n\n- Fix a bug that was revealed by porting zope.traversing. During a loop, the\n  loop body modified a weakref dict causing a ``RuntimeError`` error.\n\n\n4.0.3 (2012-12-31)\n------------------\n\n- Fleshed out PyPI Trove classifiers.\n\n\n4.0.2 (2012-11-21)\n------------------\n\n- Add support for Python 3.3.\n\n- Restored ability to install the package in the absence of ``setuptools``.\n\n- LP #1055223:  Fix test which depended on dictionary order and failed randomly\n  in Python 3.3.\n\n\n4.0.1 (2012-05-22)\n------------------\n\n- Drop explicit ``DeprecationWarnings`` for \"class advice\" APIS (these\n  APIs are still deprecated under Python 2.x, and still raise an exception\n  under Python 3.x, but no longer cause a warning to be emitted under\n  Python 2.x).\n\n\n4.0.0 (2012-05-16)\n------------------\n\n- Automated build of Sphinx HTML docs and running doctest snippets via tox.\n\n- Deprecate the \"class advice\" APIs from ``zope.interface.declarations``:\n  ``implements``, ``implementsOnly``, and ``classProvides``.  In their place,\n  prefer the equivalent class decorators: ``@implementer``,\n  ``@implementer_only``, and ``@provider``.  Code which uses the deprecated\n  APIs will not work as expected under Py3k.\n\n- Remove use of '2to3' and associated fixers when installing under Py3k.\n  The code is now in a \"compatible subset\" which supports Python 2.6, 2.7,\n  and 3.2, including PyPy 1.8 (the version compatible with the 2.7 language\n  spec).\n\n- Drop explicit support for Python 2.4 / 2.5 / 3.1.\n\n- Add support for PyPy.\n\n- Add support for continuous integration using ``tox`` and ``jenkins``.\n\n- Add 'setup.py dev' alias (runs ``setup.py develop`` plus installs\n  ``nose`` and ``coverage``).\n\n- Add 'setup.py docs' alias (installs ``Sphinx`` and dependencies).\n\n- Replace all unittest coverage previously accomplished via doctests with\n  unittests.  The doctests have been moved into a ``docs`` section, managed\n  as a Sphinx collection.\n\n- LP #910987:  Ensure that the semantics of the ``lookup`` method of\n  ``zope.interface.adapter.LookupBase`` are the same in both the C and\n  Python implementations.\n\n- LP #900906:  Avoid exceptions due to tne new ``__qualname__`` attribute\n  added in Python 3.3 (see PEP 3155 for rationale).  Thanks to Antoine\n  Pitrou for the patch.\n\n\n3.8.0 (2011-09-22)\n------------------\n\n- New module ``zope.interface.registry``.  This is code moved from\n  ``zope.component.registry`` which implements a basic nonperistent component\n  registry as ``zope.interface.registry.Components``.  This class was moved\n  from ``zope.component`` to make porting systems (such as Pyramid) that rely\n  only on a basic component registry to Python 3 possible without needing to\n  port the entirety of the ``zope.component`` package.  Backwards\n  compatibility import shims have been left behind in ``zope.component``, so\n  this change will not break any existing code.\n\n- New ``tests_require`` dependency: ``zope.event`` to test events sent by\n  Components implementation.  The ``zope.interface`` package does not have a\n  hard dependency on ``zope.event``, but if ``zope.event`` is importable, it\n  will send component registration events when methods of an instance of\n  ``zope.interface.registry.Components`` are called.\n\n- New interfaces added to support ``zope.interface.registry.Components``\n  addition: ``ComponentLookupError``, ``Invalid``, ``IObjectEvent``,\n  ``ObjectEvent``, ``IComponentLookup``, ``IRegistration``,\n  ``IUtilityRegistration``, ``IAdapterRegistration``,\n  ``ISubscriptionAdapterRegistration``, ``IHandlerRegistration``,\n  ``IRegistrationEvent``, ``RegistrationEvent``, ``IRegistered``,\n  ``Registered``, ``IUnregistered``, ``Unregistered``,\n  ``IComponentRegistry``, and ``IComponents``.\n\n- No longer Python 2.4 compatible (tested under 2.5, 2.6, 2.7, and 3.2).\n\n\n3.7.0 (2011-08-13)\n------------------\n\n- Move changes from 3.6.2 - 3.6.5 to a new 3.7.x release line.\n\n\n3.6.7 (2011-08-20)\n------------------\n\n- Fix sporadic failures on x86-64 platforms in tests of rich comparisons\n  of interfaces.\n\n\n3.6.6 (2011-08-13)\n------------------\n\n- LP #570942:  Now correctly compare interfaces  from different modules but\n  with the same names.\n\n  N.B.: This is a less intrusive / destabilizing fix than the one applied in\n  3.6.3:  we only fix the underlying cmp-alike function, rather than adding\n  the other \"rich comparison\" functions.\n\n- Revert to software as released with 3.6.1 for \"stable\" 3.6 release branch.\n\n\n3.6.5 (2011-08-11)\n------------------\n\n- LP #811792:  work around buggy behavior in some subclasses of\n  ``zope.interface.interface.InterfaceClass``, which invoke ``__hash__``\n  before initializing ``__module__`` and ``__name__``.  The workaround\n  returns a fixed constant hash in such cases, and issues a ``UserWarning``.\n\n- LP #804832:  Under PyPy, ``zope.interface`` should not build its C\n  extension.  Also, prevent attempting to build it under Jython.\n\n- Add a tox.ini for easier xplatform testing.\n\n- Fix testing deprecation warnings issued when tested under Py3K.\n\n\n3.6.4 (2011-07-04)\n------------------\n\n- LP 804951:  InterfaceClass instances were unhashable under Python 3.x.\n\n\n3.6.3 (2011-05-26)\n------------------\n\n- LP #570942:  Now correctly compare interfaces  from different modules but\n  with the same names.\n\n\n3.6.2 (2011-05-17)\n------------------\n\n- Moved detailed documentation out-of-line from PyPI page, linking instead to\n  http://docs.zope.org/zope.interface .\n\n- Fixes for small issues when running tests under Python 3.2 using\n  ``zope.testrunner``.\n\n- LP # 675064:  Specify return value type for C optimizations module init\n  under Python 3:  undeclared value caused warnings, and segfaults on some\n  64 bit architectures.\n\n- setup.py now raises RuntimeError if you don't have Distutils installed when\n  running under Python 3.\n\n\n3.6.1 (2010-05-03)\n------------------\n\n- A non-ASCII character in the changelog made 3.6.0 uninstallable on\n  Python 3 systems with another default encoding than UTF-8.\n\n- Fix compiler warnings under GCC 4.3.3.\n\n\n3.6.0 (2010-04-29)\n------------------\n\n- LP #185974:  Clear the cache used by ``Specificaton.get`` inside\n  ``Specification.changed``.  Thanks to Jacob Holm for the patch.\n\n- Add support for Python 3.1. Contributors:\n\n    Lennart Regebro\n    Martin v Loewis\n    Thomas Lotze\n    Wolfgang Schnerring\n\n  The 3.1 support is completely backwards compatible. However, the implements\n  syntax used under Python 2.X does not work under 3.X, since it depends on\n  how metaclasses are implemented and this has changed. Instead it now supports\n  a decorator syntax (also under Python 2.X)::\n\n    class Foo:\n        implements(IFoo)\n        ...\n\n  can now also be written::\n\n    @implementer(IFoo):\n    class Foo:\n        ...\n\n  There are 2to3 fixers available to do this change automatically in the\n  zope.fixers package.\n\n- Python 2.3 is no longer supported.\n\n\n3.5.4 (2009-12-23)\n------------------\n\n- Use the standard Python doctest module instead of zope.testing.doctest, which\n  has been deprecated.\n\n\n3.5.3 (2009-12-08)\n------------------\n\n- Fix an edge case: make providedBy() work when a class has '__provides__' in\n  its __slots__ (see http://thread.gmane.org/gmane.comp.web.zope.devel/22490)\n\n\n3.5.2 (2009-07-01)\n------------------\n\n- BaseAdapterRegistry.unregister, unsubscribe: Remove empty portions of\n  the data structures when something is removed.  This avoids leaving\n  references to global objects (interfaces) that may be slated for\n  removal from the calling application.\n\n\n3.5.1 (2009-03-18)\n------------------\n\n- verifyObject: use getattr instead of hasattr to test for object attributes\n  in order to let exceptions other than AttributeError raised by properties\n  propagate to the caller\n\n- Add Sphinx-based documentation building to the package buildout\n  configuration. Use the ``bin/docs`` command after buildout.\n\n- Improve package description a bit. Unify changelog entries formatting.\n\n- Change package's mailing list address to zope-dev at zope.org as\n  zope3-dev at zope.org is now retired.\n\n\n3.5.0 (2008-10-26)\n------------------\n\n- Fix declaration of _zope_interface_coptimizations, it's not a top level\n  package.\n\n- Add a DocTestSuite for odd.py module, so their tests are run.\n\n- Allow to bootstrap on Jython.\n\n- Fix https://bugs.launchpad.net/zope3/3.3/+bug/98388: ISpecification\n  was missing a declaration for __iro__.\n\n- Add optional code optimizations support, which allows the building\n  of C code optimizations to fail (Jython).\n\n- Replace `_flatten` with a non-recursive implementation, effectively making\n  it 3x faster.\n\n\n3.4.1 (2007-10-02)\n------------------\n\n- Fix a setup bug that prevented installation from source on systems\n  without setuptools.\n\n\n3.4.0 (2007-07-19)\n------------------\n\n- Final release for 3.4.0.\n\n\n3.4.0b3 (2007-05-22)\n--------------------\n\n\n- When checking whether an object is already registered, use identity\n  comparison, to allow adding registering with picky custom comparison methods.\n\n\n3.3.0.1 (2007-01-03)\n--------------------\n\n- Made a reference to OverflowWarning, which disappeared in Python\n  2.5, conditional.\n\n\n3.3.0 (2007/01/03)\n------------------\n\nNew Features\n------------\n\n- Refactor the adapter-lookup algorithim to make it much simpler and faster.\n\n  Also, implement more of the adapter-lookup logic in C, making\n  debugging of application code easier, since there is less\n  infrastructre code to step through.\n\n- Treat objects without interface declarations as if they\n  declared that they provide ``zope.interface.Interface``.\n\n- Add a number of richer new adapter-registration interfaces\n  that provide greater control and introspection.\n\n- Add a new interface decorator to zope.interface that allows the\n  setting of tagged values on an interface at definition time (see\n  zope.interface.taggedValue).\n\nBug Fixes\n---------\n\n- A bug in multi-adapter lookup sometimes caused incorrect adapters to\n  be returned.\n\n\n3.2.0.2 (2006-04-15)\n--------------------\n\n- Fix packaging bug:  'package_dir' must be a *relative* path.\n\n\n3.2.0.1 (2006-04-14)\n--------------------\n\n- Packaging change:  suppress inclusion of 'setup.cfg' in 'sdist' builds.\n\n\n3.2.0 (2006-01-05)\n------------------\n\n- Corresponds to the version of the zope.interface package shipped as part of\n  the Zope 3.2.0 release.\n\n\n3.1.0 (2005-10-03)\n------------------\n\n- Corresponds to the version of the zope.interface package shipped as part of\n  the Zope 3.1.0 release.\n\n- Made attribute resolution order consistent with component lookup order,\n  i.e. new-style class MRO semantics.\n\n- Deprecate 'isImplementedBy' and 'isImplementedByInstancesOf' APIs in\n  favor of 'implementedBy' and 'providedBy'.\n\n\n3.0.1 (2005-07-27)\n------------------\n\n- Corresponds to the version of the zope.interface package shipped as part of\n  the Zope X3.0.1 release.\n\n- Fix a bug reported by James Knight, which caused adapter registries\n  to fail occasionally to reflect declaration changes.\n\n\n3.0.0 (2004-11-07)\n------------------\n\n- Corresponds to the version of the zope.interface package shipped as part of\n  the Zope X3.0.0 release.\n",
+        "description_content_type": "text/x-rst",
+        "keywords": [
+          "interface",
+          "components",
+          "plugins"
+        ],
+        "author_email": "Zope Foundation and contributors <zope-dev@zope.dev>",
+        "maintainer_email": "Plone Foundation and contributors <zope-dev@zope.dev>",
+        "license_expression": "ZPL-2.1",
+        "license_file": [
+          "LICENSE.txt"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy"
+        ],
+        "requires_dist": [
+          "Sphinx; extra == \"docs\"",
+          "repoze.sphinx.autointerface; extra == \"docs\"",
+          "furo; extra == \"docs\"",
+          "coverage[toml]; extra == \"test\"",
+          "zope.event; extra == \"test\"",
+          "zope.testing; extra == \"test\"",
+          "coverage[toml]; extra == \"testing\"",
+          "zope.event; extra == \"testing\"",
+          "zope.testing; extra == \"testing\""
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "Documentation, https://zopeinterface.readthedocs.io",
+          "Issues, https://github.com/zopefoundation/zope.interface/issues",
+          "Source, https://github.com/zopefoundation/zope.interface",
+          "Changelog, https://github.com/zopefoundation/zope.interface/blob/master/CHANGES.rst"
+        ],
+        "provides_extra": [
+          "docs",
+          "test",
+          "testing"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+          "hashes": {
+            "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "idna",
+        "version": "3.20",
+        "summary": "Internationalized Domain Names in Applications (IDNA)",
+        "description": "# Internationalized Domain Names in Applications (IDNA)\n\nSupport for [Internationalized Domain Names in Applications\n(IDNA)](https://tools.ietf.org/html/rfc5891) and [Unicode IDNA\nCompatibility Processing](https://unicode.org/reports/tr46/). It\nsupersedes the standard library's `encodings.idna`, which only\nimplements the 2003 specification, offering broader script coverage and\nlimiting domains with known security vulnerabilities.\n\n## Usage\n\nPackage may be installed from [PyPI](https://pypi.org/project/idna/) via\nthe typical methods (e.g. `python3 -m pip install idna`)\n\nFor typical usage, the `encode` and `decode` functions will take a\ndomain name argument and perform a conversion to ASCII-compatible encoding\n(known as A-labels), or to Unicode strings (known as U-labels)\nrespectively.\n\n```pycon\n>>> import idna\n>>> idna.encode('ドメイン.テスト')\nb'xn--eckwd4c7c.xn--zckzah'\n>>> print(idna.decode('xn--eckwd4c7c.xn--zckzah'))\nドメイン.テスト\n```\n\nConversions can be applied at a per-label basis using the `ulabel` or\n`alabel` functions for specialized use cases.\n\n\n### Compatibility Mapping (UTS #46)\n\nThis library provides support for [Unicode IDNA Compatibility\nProcessing](https://unicode.org/reports/tr46/) which normalizes input from\ndifferent potential ways a user may input a domain prior to performing the IDNA\nconversion operations. This functionality, known as a\n[mapping](https://tools.ietf.org/html/rfc5895), is considered by the\nspecification to be a local user-interface issue distinct from IDNA\nconversion functionality.\n\nFor example, \"Königsgäßchen\" is not a permissible label as capital letters\nare not allowed. UTS #46 will convert this into lower case prior to applying\nthe IDNA conversion.\n\n```pycon\n>>> import idna\n>>> idna.encode('Königsgäßchen')\n...\nidna.core.InvalidCodepoint: Codepoint U+004B at position 1 of 'Königsgäßchen' not allowed\n>>> idna.encode('Königsgäßchen', uts46=True)\nb'xn--knigsgchen-b4a3dun'\n>>> idna.decode('xn--knigsgchen-b4a3dun')\n'königsgäßchen'\n```\n\nWhen performing a decode operation for display purposes, `decode()`\naccepts a `display=True` argument that leaves any `xn--` label that\nfails to decode unchanged. This is useful for user interface display\nwhere a domain is in use, the A-label form can be presented when it\nis not a valid IDN.\n\n\n## Exceptions\n\nAll errors raised during conversion derive from the `idna.IDNAError`\nbase class. The more specific exceptions are:\n\n* `idna.IDNABidiError` — raised when a label contains an illegal\n  combination of left-to-right and right-to-left characters.\n* `idna.InvalidCodepoint` — raised when a label contains a codepoint\n  that is INVALID for IDNA.\n* `idna.InvalidCodepointContext` — raised when a CONTEXTO or CONTEXTJ\n  codepoint appears in a position whose contextual requirements are\n  not satisfied.\n\nExceptions carry machine-readable attributes so that applications do\nnot need to parse the message: `code` is a short, stable identifier\nfor the rule that failed (such as `disallowed_codepoint` or\n`label_too_long`); and, when the failure can be attributed to a\nparticular character, `text` (the label or domain being validated),\n`codepoint` (the offending codepoint as an integer) and `position`\nare set. \n\n\n## Command-line tool\n\nThe package supports command-line usage to convert domain names\nbetween their Unicode and ASCII-compatible forms. It can be run either\nas a module (`python3 -m idna`) or, once installed (such as with `uv\ntool` or `pipx`), via the `idna` script:\n\n```bash\n$ uv tool install idna\n$ idna xn--e1afmkfd.xn--p1ai\nпример.рф\n$ idna пример.рф\nxn--e1afmkfd.xn--p1ai\n```\n\nMode can be specified with `-e`/`--encode` or `-d`/`--decode`, otherwise\nit will be chosen automatically based on the first input. Multiple\ndomains can be supplied either as arguments or through standard input.\nUTS #46 mapping is applied by default, which lets the tool accept\ninputs that aren't strictly valid IDNA 2008 by normalising them first,\npass `--strict` to disable UTS #46.\n\nConversion failures are reported on stderr together with the\noffending input; processing continues with the remaining domains and\nthe tool exits with a non-zero status if any conversion failed.\n\n\n## Additional Notes\n\n* **Python version support**. This library supports Python 3.9 and higher.\n  As this library serves as a low-level toolkit for a variety of\n  applications, we strive to support all versions of Python that are\n  not beyond end-of-life. Free-threaded Python is also supported,\n  as the library holds no mutable global state the functions can be\n  called concurrently from multiple threads.\n\n* **Unicode version**. The IDNA and UTS #46 lookup tables are generated\n  from a specific Unicode release. Some Unicode data depends on the\n  running Python's `unicodedata` module, so on an older Python a\n  character new to Unicode may be rejected as unknown even if this\n  library knows about it.\n\n* **Emoji**. It is an occasional request to support emoji domains in\n  this library. Encoding of symbols like emoji is expressly prohibited by\n  the IDNA technical standard, and emoji domains are broadly phased\n  out across the domain industry due to associated security risks.\n\n* **Regenerating lookup tables**. The IDNA and UTS #46 functionality\n  relies upon pre-calculated lookup tables, generated using the\n  `idna-data` script in [`tools/`](tools/README.md).\n\n",
+        "description_content_type": "text/markdown",
+        "author_email": "Kim Davies <kim+pypi@gumleaf.org>",
+        "license_expression": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE.md"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Intended Audience :: System Administrators",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Internet :: Name Service (DNS)",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          "Topic :: Utilities"
+        ],
+        "requires_dist": [
+          "ruff >= 0.16.0 ; extra == \"all\"",
+          "mypy >= 1.11.2 ; extra == \"all\"",
+          "ty >= 0.0.37 ; extra == \"all\"",
+          "pytest >= 8.3.2 ; extra == \"all\"",
+          "hypothesis >= 6.141.1 ; extra == \"all\"",
+          "coverage >= 7.10.0 ; extra == \"all\""
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Changelog, https://github.com/kjd/idna/blob/master/HISTORY.md",
+          "Issue tracker, https://github.com/kjd/idna/issues",
+          "Source, https://github.com/kjd/idna"
+        ],
+        "provides_extra": [
+          "all"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+          "hashes": {
+            "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "packaging",
+        "version": "26.3",
+        "summary": "Core utilities for Python packages",
+        "description": "packaging\n=========\n\n.. start-intro\n\nReusable core utilities for various Python Packaging\n`interoperability specifications <https://packaging.python.org/specifications/>`_.\n\nThis library provides utilities that implement the interoperability\nspecifications which have clearly one correct behaviour (eg: :pep:`440`)\nor benefit greatly from having a single shared implementation (eg: :pep:`425`).\n\n.. end-intro\n\nThe ``packaging`` project includes the following: version handling, specifiers,\nmarkers, requirements, tags, metadata, lockfiles, utilities.\n\nDocumentation\n-------------\n\nThe `documentation`_ provides information and the API for the following:\n\n- Version Handling\n- Specifiers\n- Markers\n- Licenses\n- Requirements\n- Metadata\n- Tags\n- Lockfiles (pylock)\n- Direct URL helpers\n- Dependency groups\n- Errors\n- Utilities\n\nInstallation\n------------\n\nUse ``pip`` to install these utilities::\n\n    pip install packaging\n\nThe ``packaging`` library uses calendar-based versioning (``YY.N``).\n\nDiscussion\n----------\n\nIf you run into bugs, you can file them in our `issue tracker`_.\n\nYou can also join discussions on `GitHub Discussions`_ to ask questions or get involved.\n\n.. _`documentation`: https://packaging.pypa.io/\n.. _`issue tracker`: https://github.com/pypa/packaging/issues\n.. _`GitHub Discussions`: https://github.com/pypa/packaging/discussions\n\n\nCode of Conduct\n---------------\n\nEveryone interacting in the packaging project's codebases, issue trackers, chat\nrooms, and mailing lists is expected to follow the `PSF Code of Conduct`_.\n\n.. _PSF Code of Conduct: https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md\n\nContributing\n------------\n\nThe ``CONTRIBUTING.rst`` file outlines how to contribute to this project as\nwell as how to report a potential security issue. The documentation for this\nproject also covers information about `project development`_ and `security`_.\n\n.. _`project development`: https://packaging.pypa.io/en/latest/development/\n.. _`security`: https://packaging.pypa.io/en/latest/security/\n\nProject History\n---------------\n\nPlease review the ``CHANGELOG.rst`` file or the `Changelog documentation`_ for\nrecent changes and project history.\n\n.. _`Changelog documentation`: https://packaging.pypa.io/en/latest/changelog/\n\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Donald Stufft <donald@stufft.io>",
+        "license_expression": "Apache-2.0 OR BSD-2-Clause",
+        "license_file": [
+          "LICENSE",
+          "LICENSE.APACHE",
+          "LICENSE.BSD"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Programming Language :: Python :: Free Threading :: 4 - Resilient",
+          "Typing :: Typed"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Documentation, https://packaging.pypa.io/",
+          "Source, https://github.com/pypa/packaging"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "6.17.0-1022-azure",
+    "platform_system": "Linux",
+    "platform_version": "#22-Ubuntu SMP Mon Jul 27 17:24:03 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}

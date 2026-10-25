@@ -1,0 +1,383 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/14/01/cd63b97dd556293e1c74d76053936d9cef11a28eac605c735ae9f0ee324f/virtualenv-21.14.8-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=d2a347fdbc1a65e33c2c5e84dc767b4a3538a25749536a752744d4fe1f71c37a",
+          "hashes": {
+            "sha256": "d2a347fdbc1a65e33c2c5e84dc767b4a3538a25749536a752744d4fe1f71c37a"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "virtualenv",
+        "version": "21.14.8",
+        "summary": "Virtual Python Environment builder",
+        "description": "# virtualenv\n\n[![PyPI](https://img.shields.io/pypi/v/virtualenv?style=flat-square)](https://pypi.org/project/virtualenv)\n[![PyPI - Implementation](https://img.shields.io/pypi/implementation/virtualenv?style=flat-square)](https://pypi.org/project/virtualenv)\n[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/virtualenv?style=flat-square)](https://pypi.org/project/virtualenv)\n[![Documentation](https://readthedocs.org/projects/virtualenv/badge/?version=latest&style=flat-square)](https://virtualenv.pypa.io)\n[![Discord](https://img.shields.io/discord/803025117553754132)](https://discord.gg/pypa)\n[![Downloads](https://static.pepy.tech/badge/virtualenv/month)](https://pepy.tech/project/virtualenv)\n[![PyPI - License](https://img.shields.io/pypi/l/virtualenv?style=flat-square)](https://opensource.org/licenses/MIT)\n[![check](https://github.com/pypa/virtualenv/actions/workflows/check.yaml/badge.svg)](https://github.com/pypa/virtualenv/actions/workflows/check.yaml)\n[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/pypa/virtualenv/badge)](https://scorecard.dev/viewer/?uri=github.com/pypa/virtualenv)\n[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/14689/badge)](https://www.bestpractices.dev/projects/14689)\n\nA tool for creating isolated `virtual` python environments.\n\n- [Installation](https://virtualenv.pypa.io/en/latest/how-to/install.html)\n- [Documentation](https://virtualenv.pypa.io)\n- [Changelog](https://virtualenv.pypa.io/en/latest/changelog.html)\n- [Issues](https://github.com/pypa/virtualenv/issues)\n- [PyPI](https://pypi.org/project/virtualenv)\n- [Github](https://github.com/pypa/virtualenv)\n\n## Code of Conduct\n\nEveryone interacting in the virtualenv project's codebases, issue trackers, chat rooms, and mailing lists is expected to\nfollow the [PSF Code of Conduct](https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md).\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "environments",
+          "isolated",
+          "virtual"
+        ],
+        "maintainer_email": "Bernat Gabor <gaborjbernat@gmail.com>, Rahul Devikar <rahuldevikar5512@gmail.com>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE",
+          "THIRD-PARTY-NOTICES.md"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: MacOS :: MacOS X",
+          "Operating System :: Microsoft :: Windows",
+          "Operating System :: POSIX",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Software Development :: Libraries",
+          "Topic :: Software Development :: Testing",
+          "Topic :: Utilities"
+        ],
+        "requires_dist": [
+          "distlib<1,>=0.4.3",
+          "filelock<5,>=3.24.2; python_version >= '3.10'",
+          "filelock<=3.19.1,>=3.19.1; python_version < '3.10'",
+          "packaging>=26.3",
+          "platformdirs<5,>=4.4",
+          "python-discovery>=1.6.1",
+          "typing-extensions>=4.16; python_version < '3.11'"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "thanks.dev, https://thanks.dev/u/gh/gaborbernat",
+          "Changelog, https://virtualenv.pypa.io/en/latest/changelog.html",
+          "Documentation, https://virtualenv.pypa.io",
+          "Funding, https://github.com/sponsors/gaborbernat",
+          "Homepage, https://github.com/pypa/virtualenv",
+          "Source, https://github.com/pypa/virtualenv",
+          "Tidelift, https://tidelift.com/funding/github/pypi/virtualenv",
+          "Tracker, https://github.com/pypa/virtualenv/issues"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/c1/2b/238f02a4927fa2e27aa995371d240a468b52e42eae44a678434aff736b38/distlib-0.4.4-py2.py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=cf09d55b1e85a89576b036aeb71550bfd68320f3f21761ca329eadadad918638",
+          "hashes": {
+            "sha256": "cf09d55b1e85a89576b036aeb71550bfd68320f3f21761ca329eadadad918638"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "distlib",
+        "version": "0.4.4",
+        "dynamic": [
+          "license-file"
+        ],
+        "platform": [
+          "any"
+        ],
+        "summary": "Distribution utilities",
+        "description": "|badge1| |badge2|\n\n.. |badge1| image:: https://img.shields.io/github/actions/workflow/status/pypa/distlib/package-tests.yml\n   :alt: GitHub Workflow Status (with event)\n\n.. |badge2| image:: https://img.shields.io/codecov/c/github/pypa/distlib\n   :target: https://app.codecov.io/gh/pypa/distlib\n   :alt: GitHub coverage status\n\nWhat is it?\n-----------\n\nDistlib is a library which implements low-level functions that relate to\npackaging and distribution of Python software. It is intended to be used as the\nbasis for third-party packaging tools. The documentation is available at\n\nhttps://distlib.readthedocs.io/\n\nMain features\n-------------\n\nDistlib currently offers the following features:\n\n* The package ``distlib.database``, which implements a database of installed\n  distributions, as defined by :pep:`376`, and distribution dependency graph\n  logic. Support is also provided for non-installed distributions (i.e.\n  distributions registered with metadata on an index like PyPI), including\n  the ability to scan for dependencies and building dependency graphs.\n* The package ``distlib.index``, which implements an interface to perform\n  operations on an index, such as registering a project, uploading a\n  distribution or uploading documentation. Support is included for verifying\n  SSL connections (with domain matching) and signing/verifying packages using\n  GnuPG.\n* The package ``distlib.metadata``, which implements distribution metadata as\n  defined by :pep:`643`, :pep:`566`, :pep:`345`, :pep:`314` and :pep:`241`.\n* The package ``distlib.markers``, which implements environment markers as\n  defined by :pep:`508`.\n* The package ``distlib.manifest``, which implements lists of files used\n  in packaging source distributions.\n* The package ``distlib.locators``, which allows finding distributions, whether\n  on PyPI (XML-RPC or via the \"simple\" interface), local directories or some\n  other source.\n* The package ``distlib.resources``, which allows access to data files stored\n  in Python packages, both in the file system and in .zip files.\n* The package ``distlib.scripts``, which allows installing of scripts with\n  adjustment of shebang lines and support for native Windows executable\n  launchers.\n* The package ``distlib.version``, which implements version specifiers as\n  defined by :pep:`440`, but also support for working with \"legacy\" versions and\n  semantic versions.\n* The package ``distlib.wheel``, which provides support for building and\n  installing from the Wheel format for binary distributions (see :pep:`427`).\n* The package ``distlib.util``, which contains miscellaneous functions and\n  classes which are useful in packaging, but which do not fit neatly into\n  one of the other packages in ``distlib``.* The package implements enhanced\n  globbing functionality such as the ability to use ``**`` in patterns to\n  specify recursing into subdirectories.\n\n\nPython version and platform compatibility\n-----------------------------------------\n\nDistlib is intended to be used on and is tested on Python versions 2.7 and 3.6 or later,\npypy-2.7 and pypy3 on Linux, Windows, and macOS.\n\nProject status\n--------------\n\nThe project has reached a mature status in its development: there is a comprehensive\ntest suite and it has been exercised on Windows, Ubuntu and macOS. The project is used\nby well-known projects such as `pip <https://pypi.org/pypi/pip>`_ and `caniusepython3\n<https://pypi.org/pypi/caniusepython3>`_.\n\nThis project was migrated from Mercurial to Git and from BitBucket to GitHub, and\nalthough all information of importance has been retained across the migration, some\ncommit references in issues and issue comments may have become invalid.\n\nCode of Conduct\n---------------\n\nEveryone interacting in the distlib project's codebases, issue trackers, chat\nrooms, and mailing lists is expected to follow the `PyPA Code of Conduct`_.\n\n.. _PyPA Code of Conduct: https://www.pypa.io/en/latest/code-of-conduct/\n",
+        "home_page": "https://github.com/pypa/distlib",
+        "author": "Vinay Sajip",
+        "author_email": "vinay_sajip@red-dove.com",
+        "license": "PSF-2.0",
+        "license_file": [
+          "LICENSE.txt"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: Python Software Foundation License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 2",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 2.7",
+          "Programming Language :: Python :: 3.6",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Topic :: Software Development"
+        ],
+        "project_url": [
+          "Documentation, https://distlib.readthedocs.io/",
+          "Source, https://github.com/pypa/distlib",
+          "Tracker, https://github.com/pypa/distlib/issues"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/e0/1b/5e74289a1878e666bb4b65fe5805a04cafcac2aa5f519ef1ead67ef91c56/filelock-4.2.4-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=301241438c57936ef93f4243a94f2559022268bfcf9b375a9a72eb0f8db8358e",
+          "hashes": {
+            "sha256": "301241438c57936ef93f4243a94f2559022268bfcf9b375a9a72eb0f8db8358e"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "filelock",
+        "version": "4.2.4",
+        "summary": "A platform independent file lock.",
+        "description": "# filelock\n\n[![PyPI](https://img.shields.io/pypi/v/filelock)](https://pypi.org/project/filelock/)\n[![Supported Python versions](https://img.shields.io/pypi/pyversions/filelock.svg)](https://pypi.org/project/filelock/)\n[![Documentation status](https://readthedocs.org/projects/py-filelock/badge/?version=latest)](https://py-filelock.readthedocs.io/en/latest/?badge=latest)\n[![Downloads](https://static.pepy.tech/badge/filelock/month)](https://pepy.tech/project/filelock)\n[![check](https://github.com/tox-dev/py-filelock/actions/workflows/check.yaml/badge.svg)](https://github.com/tox-dev/py-filelock/actions/workflows/check.yaml)\n\nFor more information checkout the [official documentation](https://py-filelock.readthedocs.io/en/latest/index.html).\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "application",
+          "cache",
+          "directory",
+          "log",
+          "user"
+        ],
+        "maintainer_email": "Bernát Gábor <gaborjbernat@gmail.com>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Topic :: Internet",
+          "Topic :: Software Development :: Libraries",
+          "Topic :: System"
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "Documentation, https://py-filelock.readthedocs.io",
+          "Homepage, https://github.com/tox-dev/py-filelock",
+          "Source, https://github.com/tox-dev/py-filelock",
+          "Tracker, https://github.com/tox-dev/py-filelock/issues"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+          "hashes": {
+            "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "packaging",
+        "version": "26.3",
+        "summary": "Core utilities for Python packages",
+        "description": "packaging\n=========\n\n.. start-intro\n\nReusable core utilities for various Python Packaging\n`interoperability specifications <https://packaging.python.org/specifications/>`_.\n\nThis library provides utilities that implement the interoperability\nspecifications which have clearly one correct behaviour (eg: :pep:`440`)\nor benefit greatly from having a single shared implementation (eg: :pep:`425`).\n\n.. end-intro\n\nThe ``packaging`` project includes the following: version handling, specifiers,\nmarkers, requirements, tags, metadata, lockfiles, utilities.\n\nDocumentation\n-------------\n\nThe `documentation`_ provides information and the API for the following:\n\n- Version Handling\n- Specifiers\n- Markers\n- Licenses\n- Requirements\n- Metadata\n- Tags\n- Lockfiles (pylock)\n- Direct URL helpers\n- Dependency groups\n- Errors\n- Utilities\n\nInstallation\n------------\n\nUse ``pip`` to install these utilities::\n\n    pip install packaging\n\nThe ``packaging`` library uses calendar-based versioning (``YY.N``).\n\nDiscussion\n----------\n\nIf you run into bugs, you can file them in our `issue tracker`_.\n\nYou can also join discussions on `GitHub Discussions`_ to ask questions or get involved.\n\n.. _`documentation`: https://packaging.pypa.io/\n.. _`issue tracker`: https://github.com/pypa/packaging/issues\n.. _`GitHub Discussions`: https://github.com/pypa/packaging/discussions\n\n\nCode of Conduct\n---------------\n\nEveryone interacting in the packaging project's codebases, issue trackers, chat\nrooms, and mailing lists is expected to follow the `PSF Code of Conduct`_.\n\n.. _PSF Code of Conduct: https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md\n\nContributing\n------------\n\nThe ``CONTRIBUTING.rst`` file outlines how to contribute to this project as\nwell as how to report a potential security issue. The documentation for this\nproject also covers information about `project development`_ and `security`_.\n\n.. _`project development`: https://packaging.pypa.io/en/latest/development/\n.. _`security`: https://packaging.pypa.io/en/latest/security/\n\nProject History\n---------------\n\nPlease review the ``CHANGELOG.rst`` file or the `Changelog documentation`_ for\nrecent changes and project history.\n\n.. _`Changelog documentation`: https://packaging.pypa.io/en/latest/changelog/\n\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Donald Stufft <donald@stufft.io>",
+        "license_expression": "Apache-2.0 OR BSD-2-Clause",
+        "license_file": [
+          "LICENSE",
+          "LICENSE.APACHE",
+          "LICENSE.BSD"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Programming Language :: Python :: Free Threading :: 4 - Resilient",
+          "Typing :: Typed"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Documentation, https://packaging.pypa.io/",
+          "Source, https://github.com/pypa/packaging"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/6c/8a/1d8cb3842909dc193a73835adedf412e32e18f8ffd59f43983949622fe6f/platformdirs-4.13.5-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=53d3ec4280b815c1e0b02edad7f9ee8fda1ba9c0865dd9c2e6e63849ce82fc1e",
+          "hashes": {
+            "sha256": "53d3ec4280b815c1e0b02edad7f9ee8fda1ba9c0865dd9c2e6e63849ce82fc1e"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "platformdirs",
+        "version": "4.13.5",
+        "summary": "A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`.",
+        "description": "# platformdirs\n\n[![PyPI version](https://badge.fury.io/py/platformdirs.svg)](https://badge.fury.io/py/platformdirs)\n[![Python versions](https://img.shields.io/pypi/pyversions/platformdirs.svg)](https://pypi.python.org/pypi/platformdirs/)\n[![CI](https://github.com/tox-dev/platformdirs/actions/workflows/check.yaml/badge.svg)](https://github.com/platformdirs/platformdirs/actions)\n[![Downloads](https://static.pepy.tech/badge/platformdirs/month)](https://pepy.tech/project/platformdirs)\n\nA Python package for determining platform-specific directories (e.g. user data, config, cache, logs). Handles the\ndifferences between macOS, Windows, Linux/Unix, Android, and iOS so you don't have to.\n\n## Quick start\n\n```python\nfrom platformdirs import PlatformDirs\n\ndirs = PlatformDirs(\"MyApp\", \"MyCompany\")\ndirs.user_data_dir  # ~/.local/share/MyApp (Linux)\ndirs.user_config_dir  # ~/.config/MyApp (Linux)\ndirs.user_cache_dir  # ~/.cache/MyApp (Linux)\ndirs.user_state_dir  # ~/.local/state/MyApp (Linux)\ndirs.user_log_dir  # ~/.local/state/MyApp/log (Linux)\ndirs.user_documents_dir  # ~/Documents\ndirs.user_downloads_dir  # ~/Downloads\ndirs.user_runtime_dir  # /run/user/<uid>/MyApp (Linux)\n```\n\nFor Path objects instead of strings:\n\n```python\nfrom platformdirs import PlatformDirs\n\ndirs = PlatformDirs(\"MyApp\", \"MyCompany\")\ndirs.user_data_path  # pathlib.Path('~/.local/share/MyApp')\ndirs.user_config_path  # pathlib.Path('~/.config/MyApp')\n```\n\nConvenience functions for quick access:\n\n```python\nfrom platformdirs import user_data_dir, user_config_path\n\nuser_data_dir(\"MyApp\", \"MyCompany\")  # returns str\nuser_config_path(\"MyApp\", \"MyCompany\")  # returns pathlib.Path\n```\n\n## Directory types\n\n**Application directories** — scoped to your app name and version:\n\n- **Data**: Persistent application data (`user_data_dir`, `site_data_dir`)\n- **Config**: Configuration files and settings (`user_config_dir`, `site_config_dir`)\n- **Preference**: User preferences, distinct from config on macOS (`user_preference_dir`)\n- **Cache**: Cached data that can be regenerated (`user_cache_dir`, `site_cache_dir`)\n- **State**: Non-essential runtime state like window positions (`user_state_dir`, `site_state_dir`)\n- **Logs**: Log files (`user_log_dir`, `site_log_dir`)\n- **Runtime**: Runtime files like sockets and PIDs (`user_runtime_dir`, `site_runtime_dir`)\n\nApp dirs have both `user_*` (per-user, writable) and `site_*` (system-wide, read-only) variants where applicable.\n\n**User media directories** — standard user-facing folders, not scoped to app name:\n\n- **Documents** (`user_documents_dir`), **Downloads** (`user_downloads_dir`)\n- **Pictures** (`user_pictures_dir`), **Videos** (`user_videos_dir`), **Music** (`user_music_dir`)\n- **Desktop** (`user_desktop_dir`), **Projects** (`user_projects_dir`)\n- **Public share** (`user_publicshare_dir`), **Templates** (`user_templates_dir`)\n- **Fonts** (`user_fonts_dir`) — user-writable font installation directory\n- **Executable** (`user_bin_dir`, `site_bin_dir`), **Applications** (`user_applications_dir`, `site_applications_dir`)\n\n## Documentation\n\nFull documentation is available at [platformdirs.readthedocs.io](https://platformdirs.readthedocs.io):\n\n- **[Getting started tutorial](https://platformdirs.readthedocs.io/en/latest/tutorial.html)** -- learn core concepts\n  through real-world examples\n- **[How-to guides](https://platformdirs.readthedocs.io/en/latest/howto.html)** -- recipes for common tasks and\n  platform-specific tips\n- **[API reference](https://platformdirs.readthedocs.io/en/latest/api.html)** -- complete list of functions and classes\n- **[Platform details](https://platformdirs.readthedocs.io/en/latest/platforms.html)** -- default paths for each\n  operating system\n\nContributions are welcome! See [CONTRIBUTING.md](https://github.com/tox-dev/platformdirs/blob/main/CONTRIBUTING.md) for\ndetails.\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "appdirs",
+          "application",
+          "cache",
+          "directory",
+          "log",
+          "user"
+        ],
+        "maintainer_email": "Bernát Gábor <gaborjbernat@gmail.com>, Julian Berman <Julian@GrayVines.com>, Ofek Lev <oss@ofek.dev>, Ronny Pfannschmidt <opensource@ronnypfannschmidt.de>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Software Development :: Libraries :: Python Modules"
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "Changelog, https://platformdirs.readthedocs.io/en/latest/changelog.html",
+          "Documentation, https://platformdirs.readthedocs.io",
+          "Homepage, https://github.com/tox-dev/platformdirs",
+          "Source, https://github.com/tox-dev/platformdirs",
+          "Tracker, https://github.com/tox-dev/platformdirs/issues"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/60/91/1aa70d3dfcab0dbcf88a2cbc3bce7f7c69562287a90216e617eaa4937e25/python_discovery-1.6.4-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=530179cc51a1816d512b15635b3dc931295ae12efb183783ad31190a5d425d2b",
+          "hashes": {
+            "sha256": "530179cc51a1816d512b15635b3dc931295ae12efb183783ad31190a5d425d2b"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "python-discovery",
+        "version": "1.6.4",
+        "summary": "Python interpreter discovery",
+        "description": "# [`python-discovery`](https://python-discovery.readthedocs.io/en/latest/)\n\n[![PyPI](https://img.shields.io/pypi/v/python-discovery?style=flat-square)](https://pypi.org/project/python-discovery/)\n[![Supported Python versions](https://img.shields.io/pypi/pyversions/python-discovery.svg)](https://pypi.org/project/python-discovery/)\n[![Downloads](https://static.pepy.tech/badge/python-discovery/month)](https://pepy.tech/project/python-discovery)\n[![check](https://github.com/tox-dev/python-discovery/actions/workflows/check.yaml/badge.svg)](https://github.com/tox-dev/python-discovery/actions/workflows/check.yaml)\n[![Documentation Status](https://readthedocs.org/projects/python-discovery/badge/?version=latest)](https://python-discovery.readthedocs.io/en/latest/?badge=latest)\n\n## What is python-discovery?\n\n`python-discovery` is a library for discovering Python interpreters installed on your machine. You may have multiple\nPython versions from system packages, [pyenv](https://github.com/pyenv/pyenv), [mise](https://mise.jdx.dev/),\n[asdf](https://asdf-vm.com/), [uv](https://docs.astral.sh/uv/), or the Windows registry (PEP 514). This library finds\nthe right one for you.\n\nGive it a requirement like `python3.12` or `>=3.11,<3.13`, and it searches all known locations, verifies each candidate,\nand returns detailed metadata about the match. Results are cached to disk so repeated lookups are fast.\n\nThe library runs on Python 3.9+ and discovers interpreters as old as Python 3.6; anything older is skipped with a\nwarning naming the version it found.\n\n## Usage\n\n```python\nfrom pathlib import Path\n\nfrom python_discovery import DiskCache, get_interpreter\n\ncache = DiskCache(root=Path(\"~/.cache/python-discovery\").expanduser())\nresult = get_interpreter(\"python3.12\", cache=cache)\nif result is not None:\n    print(result.executable)  # /usr/bin/python3.12\n    print(result.implementation)  # CPython\n    print(result.version_info[:3])  # (3, 12, 1)\n```\n\nThe `get_interpreter()` function accepts various specification formats:\n\n- Absolute path: `/usr/bin/python3.12`\n- Version: `3.12`\n- Implementation prefix: `cpython3.12`\n- [Version specifier](https://packaging.python.org/en/latest/specifications/version-specifiers/): `>=3.10`,\n  `>=3.11,<3.13`\n\n## Documentation\n\nFull documentation is available at [python-discovery.readthedocs.io](https://python-discovery.readthedocs.io/en/latest/)\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "discovery",
+          "interpreter",
+          "python"
+        ],
+        "maintainer_email": "Bernát Gábor <gaborjbernat@gmail.com>",
+        "license": "Permission is hereby granted, free of charge, to any person obtaining a\ncopy of this software and associated documentation files (the\n\"Software\"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be included\nin all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\nOR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\nTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\nSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: MacOS :: MacOS X",
+          "Operating System :: Microsoft :: Windows",
+          "Operating System :: POSIX",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Topic :: Software Development :: Libraries",
+          "Topic :: Utilities"
+        ],
+        "requires_dist": [
+          "filelock>=3.16.1"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Changelog, https://github.com/tox-dev/python-discovery/releases",
+          "Documentation, https://python-discovery.readthedocs.io",
+          "Homepage, https://github.com/tox-dev/python-discovery",
+          "Source, https://github.com/tox-dev/python-discovery",
+          "Tracker, https://github.com/tox-dev/python-discovery/issues"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "6.17.0-1022-azure",
+    "platform_system": "Linux",
+    "platform_version": "#22-Ubuntu SMP Mon Jul 27 17:24:03 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}

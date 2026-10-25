@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "python": "python312",
+  "resolution": "full",
+  "f2": true,
+  "packages": 4,
+  "tree": {
+    "Django": "6.1.2",
+    "asgiref": "3.13.0",
+    "djangorestframework": "3.18.1",
+    "sqlparse": "0.6.0"
+  }
+}

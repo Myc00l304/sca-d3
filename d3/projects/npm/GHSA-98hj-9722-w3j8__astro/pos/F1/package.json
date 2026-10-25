@@ -1,0 +1,9 @@
+{
+  "name": "d1-case",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Projekt testowy D1 (praca magisterska, badanie narz\u0119dzi SCA)",
+  "dependencies": {
+    "astro": "7.3.1"
+  }
+}
