@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "packages": 1,
+  "tree": {
+    "fast-uri": "2.4.7"
+  }
+}

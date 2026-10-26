@@ -1,0 +1,17 @@
+Pygments==2.21.0
+annotated-types==0.8.0
+dnspython==2.9.0
+email-validator==2.3.0
+fastmcp-slim==4.1.1
+idna==3.20
+markdown-it-py==4.2.0
+mcp-types==2.3.0
+mdurl==0.1.2
+platformdirs==4.13.5
+pydantic==2.14.1
+pydantic-settings==2.16.1
+pydantic_core==2.50.1
+python-dotenv==1.2.4
+rich==15.0.0
+typing-inspection==0.4.4
+typing_extensions==4.16.0

@@ -1,0 +1,78 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/2a/7f/a946aa4f8752b37102b41e64dca18a1976ac705c3a0d1dfe74d820a02552/mistune-3.2.1-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=78cdb0ba5e938053ccf63651b352508d2efa9411dc8810bfb05f2dc5140c0048",
+          "hashes": {
+            "sha256": "78cdb0ba5e938053ccf63651b352508d2efa9411dc8810bfb05f2dc5140c0048"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "mistune",
+        "version": "3.2.1",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "A sane and fast Markdown parser with useful plugins and renderers",
+        "description": "Mistune v3\n==========\n\nA fast yet powerful Python Markdown parser with renderers and plugins.\n\nOverview\n--------\n\nConvert Markdown to HTML with ease:\n\n.. code-block:: python\n\n    import mistune\n    mistune.html(your_markdown_text)\n\nUseful Links\n------------\n\n1. GitHub: https://github.com/lepture/mistune\n2. Docs: https://mistune.lepture.com/\n\nLicense\n-------\n\nMistune is licensed under BSD. Please see LICENSE for licensing details.\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Hsiaoming Yang <me@lepture.com>",
+        "license": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 4 - Beta",
+          "Environment :: Console",
+          "Environment :: Web Environment",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Text Processing :: Markup"
+        ],
+        "requires_dist": [
+          "typing-extensions; python_version < \"3.11\""
+        ],
+        "requires_python": ">=3.8",
+        "project_url": [
+          "Documentation, https://mistune.lepture.com/",
+          "Source, https://github.com/lepture/mistune",
+          "Donate, https://github.com/sponsors/lepture"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "6.17.0-1022-azure",
+    "platform_system": "Linux",
+    "platform_version": "#22-Ubuntu SMP Mon Jul 27 17:24:03 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}
