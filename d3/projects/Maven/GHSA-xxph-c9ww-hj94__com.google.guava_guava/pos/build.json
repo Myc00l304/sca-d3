@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "packages": 6,
+  "tree": {
+    "com.google.guava:guava": "33.7.1-jre",
+    "com.google.guava:failureaccess": "1.0.3",
+    "com.google.guava:listenablefuture": "9999.0-empty-to-avoid-conflict-with-guava",
+    "org.jspecify:jspecify": "1.0.1",
+    "com.google.errorprone:error_prone_annotations": "2.50.0",
+    "com.google.j2objc:j2objc-annotations": "3.1"
+  },
+  "jars": [
+    "error_prone_annotations-2.50.0.jar",
+    "failureaccess-1.0.3.jar",
+    "guava-33.7.1-jre.jar",
+    "j2objc-annotations-3.1.jar",
+    "jspecify-1.0.1.jar",
+    "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "python": "python312",
+  "resolution": "full",
+  "f2": true,
+  "packages": 4,
+  "tree": {
+    "defusedxml": "0.7.1",
+    "fonttools": "4.68.0",
+    "fpdf2": "2.8.7",
+    "pillow": "13.0.0"
+  }
+}

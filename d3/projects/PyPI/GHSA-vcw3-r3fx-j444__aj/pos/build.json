@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "python": null,
+  "resolution": "direct_only",
+  "f2": false,
+  "packages": 1,
+  "tree": {
+    "aj": "2.2.12"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/41/f0/29f591bea185616cf417645ac03bd3ad9b317483ad8572160e325f7fe777/msgpack-1.2.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+        "archive_info": {
+          "hash": "sha256=77c2e018417dc1d66f235e383877ee885b60ade9d29e494dd581e08af2cb1923",
+          "hashes": {
+            "sha256": "77c2e018417dc1d66f235e383877ee885b60ade9d29e494dd581e08af2cb1923"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "msgpack",
+        "version": "1.2.2",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "MessagePack serializer",
+        "description": "# MessagePack for Python\n\n[![Build Status](https://github.com/msgpack/msgpack-python/actions/workflows/wheel.yml/badge.svg)](https://github.com/msgpack/msgpack-python/actions/workflows/wheel.yml)\n[![Documentation Status](https://readthedocs.org/projects/msgpack-python/badge/?version=latest)](https://msgpack-python.readthedocs.io/en/latest/?badge=latest)\n\n## What is this?\n\n[MessagePack](https://msgpack.org/) is an efficient binary serialization format.\nIt lets you exchange data among multiple languages like JSON.\nBut it's faster and smaller.\nThis package provides CPython bindings for reading and writing MessagePack data.\n\n## Install\n\n```\n$ pip install msgpack\n```\n\n### Pure Python implementation\n\nThe extension module in msgpack (`msgpack._cmsgpack`) does not support PyPy.\n\nBut msgpack provides a pure Python implementation (`msgpack.fallback`) for PyPy.\n\n\n### Windows\n\nIf you can't use a binary distribution, you need to install Visual Studio\nor the Windows SDK on Windows.\nWithout the extension, the pure Python implementation on CPython runs slowly.\n\n\n## How to use\n\n### One-shot pack & unpack\n\nUse `packb` for packing and `unpackb` for unpacking.\nmsgpack provides `dumps` and `loads` as aliases for compatibility with\n`json` and `pickle`.\n\n`pack` and `dump` pack to a file-like object.\n`unpack` and `load` unpack from a file-like object.\n\n```pycon\n>>> import msgpack\n>>> msgpack.packb([1, 2, 3])\n'\\x93\\x01\\x02\\x03'\n>>> msgpack.unpackb(_)\n[1, 2, 3]\n```\n\nRead the docstring for options.\n\n\n### Streaming unpacking\n\n`Unpacker` is a \"streaming unpacker\". It unpacks multiple objects from one\nstream (or from bytes provided through its `feed` method).\n\n```py\nimport msgpack\nfrom io import BytesIO\n\nbuf = BytesIO()\nfor i in range(100):\n   buf.write(msgpack.packb(i))\n\nbuf.seek(0)\n\nunpacker = msgpack.Unpacker(buf)\nfor unpacked in unpacker:\n    print(unpacked)\n```\n\n> [!IMPORTANT]\n> If `Unpacker.unpack()` stops with an exception other than `OutOfData`, that `Unpacker` cannot be reused.\n> Create a new `Unpacker` when reading another stream.\n\n\n### Packing/unpacking of custom data types\n\nIt is also possible to pack/unpack custom data types. Here is an example for\n`datetime.datetime`.\n\n```py\nimport datetime\nimport msgpack\n\nuseful_dict = {\n    \"id\": 1,\n    \"created\": datetime.datetime.now(),\n}\n\ndef decode_datetime(obj):\n    if '__datetime__' in obj:\n        obj = datetime.datetime.strptime(obj[\"as_str\"], \"%Y%m%dT%H:%M:%S.%f\")\n    return obj\n\ndef encode_datetime(obj):\n    if isinstance(obj, datetime.datetime):\n        return {'__datetime__': True, 'as_str': obj.strftime(\"%Y%m%dT%H:%M:%S.%f\")}\n    return obj\n\n\npacked_dict = msgpack.packb(useful_dict, default=encode_datetime)\nthis_dict_again = msgpack.unpackb(packed_dict, object_hook=decode_datetime)\n```\n\n`Unpacker`'s `object_hook` callback receives a dict; the\n`object_pairs_hook` callback may instead be used to receive a list of\nkey-value pairs.\n\nNOTE: msgpack can encode datetime with tzinfo into standard ext type for now.\nSee `datetime` option in `Packer` docstring.\n\n\n### Extended types\n\nIt is also possible to pack/unpack custom data types using the **ext** type.\n\n```pycon\n>>> import msgpack\n>>> import array\n>>> def default(obj):\n...     if isinstance(obj, array.array) and obj.typecode == 'd':\n...         return msgpack.ExtType(42, obj.tobytes())\n...     raise TypeError(\"Unknown type: %r\" % (obj,))\n...\n>>> def ext_hook(code, data):\n...     if code == 42:\n...         a = array.array('d')\n...         a.frombytes(data)\n...         return a\n...     return msgpack.ExtType(code, data)\n...\n>>> data = array.array('d', [1.2, 3.4])\n>>> packed = msgpack.packb(data, default=default)\n>>> unpacked = msgpack.unpackb(packed, ext_hook=ext_hook)\n>>> data == unpacked\nTrue\n```\n\n\n### Advanced unpacking control\n\nAs an alternative to iteration, `Unpacker` objects provide `unpack`,\n`skip`, `read_array_header`, and `read_map_header` methods. The former two\nread an entire message from the stream, respectively deserializing and returning\nthe result, or ignoring it. The latter two methods return the number of elements\nin the upcoming container, so that each element in an array, or key-value pair\nin a map, can be unpacked or skipped individually.\n\n\n## Notes\n\n### String and binary types in the old MessagePack spec\n\nEarly versions of msgpack didn't distinguish string and binary types.\nThe type for representing both string and binary types was named **raw**.\n\nYou can pack into and unpack from this old spec using `use_bin_type=False`\nand `raw=True` options.\n\n```pycon\n>>> import msgpack\n>>> msgpack.unpackb(msgpack.packb([b'spam', 'eggs'], use_bin_type=False), raw=True)\n[b'spam', b'eggs']\n>>> msgpack.unpackb(msgpack.packb([b'spam', 'eggs'], use_bin_type=True), raw=False)\n[b'spam', 'eggs']\n```\n\n### ext type\n\nTo use the **ext** type, pass a `msgpack.ExtType` object to the packer.\n\n```pycon\n>>> import msgpack\n>>> packed = msgpack.packb(msgpack.ExtType(42, b'xyzzy'))\n>>> msgpack.unpackb(packed)\nExtType(code=42, data='xyzzy')\n```\n\nYou can use it with `default` and `ext_hook`. See below.\n\n\n### Security\n\nWhen unpacking data received from an unreliable source, msgpack provides\ntwo security options.\n\n`max_buffer_size` (default: `100*1024*1024`) limits the internal buffer size.\nIt is also used to limit preallocated list sizes.\n\n`strict_map_key` (default: `True`) limits the type of map keys to bytes and str.\nWhile the MessagePack spec doesn't limit map key types,\nthere is a risk of a hash DoS.\nIf you need to support other types for map keys, use `strict_map_key=False`.\n\n\n### Performance tips\n\nCPython's GC starts when the number of allocated objects grows.\nThis means unpacking may trigger unnecessary GC.\nYou can use `gc.disable()` when unpacking a large message.\n\nA list is the default sequence type in Python.\nHowever, a tuple is lighter than a list.\nYou can use `use_list=False` while unpacking when performance is important.\n\n\n## Major breaking changes in the history\n\n### msgpack 0.5\n\nThe package name on PyPI was changed from `msgpack-python` to `msgpack` in 0.5.\n\nWhen upgrading from msgpack-0.4 or earlier, do `pip uninstall msgpack-python` before\n`pip install -U msgpack`.\n\n\n### msgpack 1.0\n\n* Python 2 support\n\n  * The extension module no longer supports Python 2.\n    The pure Python implementation (`msgpack.fallback`) is used for Python 2.\n\n  * msgpack 1.0.6 drops official support of Python 2.7, as pip and\n    GitHub Action \"setup-python\" no longer supports Python 2.7.\n\n* Packer\n\n  * Packer uses `use_bin_type=True` by default.\n    Bytes are encoded in the bin type in MessagePack.\n  * The `encoding` option is removed. UTF-8 is always used.\n\n* Unpacker\n\n  * Unpacker uses `raw=False` by default. It assumes str values are valid UTF-8 strings\n    and decodes them to Python str (Unicode) objects.\n  * `encoding` option is removed.  You can use `raw=True` to support old format (e.g. unpack into bytes, not str).\n  * The default value of `max_buffer_size` is changed from 0 to 100 MiB to avoid DoS attacks.\n    You need to pass `max_buffer_size=0` if you have large but safe data.\n  * The default value of `strict_map_key` is changed to True to avoid hash DoS.\n    You need to pass `strict_map_key=False` if you have data that contain map keys\n    whose type is neither bytes nor str.\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "msgpack",
+          "messagepack",
+          "serializer",
+          "serialization",
+          "binary"
+        ],
+        "author_email": "Inada Naoki <songofacandy@gmail.com>",
+        "license_expression": "Apache-2.0",
+        "license_file": [
+          "COPYING"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Operating System :: OS Independent",
+          "Topic :: File Formats",
+          "Intended Audience :: Developers",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Homepage, https://msgpack.org/",
+          "Documentation, https://msgpack-python.readthedocs.io/",
+          "Repository, https://github.com/msgpack/msgpack-python/",
+          "Tracker, https://github.com/msgpack/msgpack-python/issues",
+          "Changelog, https://github.com/msgpack/msgpack-python/blob/main/CHANGELOG.md"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "7.0.0-1017-azure",
+    "platform_system": "Linux",
+    "platform_version": "#17~24.04.1-Ubuntu SMP PREEMPT Thu Sep 24 18:46:57 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "packages": 3,
+  "tree": {
+    "@modelcontextprotocol/core": "2.0.0",
+    "@modelcontextprotocol/server": "2.0.0",
+    "zod": "4.6.7"
+  }
+}

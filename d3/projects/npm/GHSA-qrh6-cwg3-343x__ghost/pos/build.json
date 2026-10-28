@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "stage": "lock",
+  "stderr": "npm error code ENOENT\nnpm error syscall open\nnpm error path /p/node_modules/ghost/components/tryghost-i18n-0.0.0.tgz\nnpm error errno -2\nnpm error enoent ENOENT: no such file or directory, open '/p/node_modules/ghost/components/tryghost-i18n-0.0.0.tgz'\nnpm error enoent This is related to npm not being able to find a file.\nnpm error enoent\nnpm error A complete log of this run can be found in: /tmp/.npm/_logs/2026-10-28T11_25_15_639Z-debug-0.log\n"
+}

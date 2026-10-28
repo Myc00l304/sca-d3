@@ -1,0 +1,2 @@
+pl.thesis.d1:d1-case:jar:1.0.0
+\- org.xerial.snappy:snappy-java:jar:1.1.10.8:compile
