@@ -1,0 +1,315 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/b8/c6/6f124bcfbbfb20fba22c939b4e43a06dccfc0e1ca20e5634ca573cb1e271/authlib-1.8.0-py2.py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=88aebbd9af6757e14e912d5dc007ae1dc1f3e27e3b2152ce7c552ee2c3b3c121",
+          "hashes": {
+            "sha256": "88aebbd9af6757e14e912d5dc007ae1dc1f3e27e3b2152ce7c552ee2c3b3c121"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "Authlib",
+        "version": "1.8.0",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "The ultimate Python library in building OAuth and OpenID Connect servers and clients.",
+        "description": "<div align=\"center\">\n\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/_static/dark-logo.svg\" />\n  <img alt=\"Authlib\" src=\"docs/_static/light-logo.svg\" height=\"68\" />\n</picture>\n\n[![Build Status](https://github.com/authlib/authlib/workflows/tests/badge.svg)](https://github.com/authlib/authlib/actions)\n[![PyPI version](https://img.shields.io/pypi/v/authlib.svg)](https://pypi.org/project/authlib)\n[![conda-forge version](https://img.shields.io/conda/v/conda-forge/authlib.svg?label=conda-forge&colorB=0090ff)](https://anaconda.org/conda-forge/authlib)\n[![PyPI Downloads](https://static.pepy.tech/badge/authlib/month)](https://pepy.tech/projects/authlib)\n[![Code Coverage](https://codecov.io/gh/authlib/authlib/graph/badge.svg?token=OWTdxAIsPI)](https://codecov.io/gh/authlib/authlib)\n[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=authlib_authlib&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=authlib_authlib)\n\n</div>\n\nThe ultimate Python library in building OAuth and OpenID Connect servers.\nJWS, JWK, JWA, JWT are included.\n\nAuthlib is compatible with Python3.10+.\n\n## Migrations\n\nAuthlib will deprecate `authlib.jose` module, please read:\n\n- [Migrating from `authlib.jose` to `joserfc`](https://jose.authlib.org/en/dev/migrations/authlib/)\n\n## Sponsors\n\n<table>\n<tr>\n<td><img align=\"middle\" width=\"48\" src=\"https://cdn.auth0.com/website/website/favicons/auth0-favicon.svg\"></td>\n<td>If you want to quickly add secure token-based authentication to Python projects, feel free to check Auth0's Python SDK and free plan at <a href=\"https://auth0.com/overview?utm_source=GHsponsor&utm_medium=GHsponsor&utm_campaign=authlib&utm_content=auth\">auth0.com/overview</a>.</td>\n</tr>\n<tr>\n<td><img align=\"middle\" width=\"48\" src=\"https://typlog.com/assets/icon-white.svg\"></td>\n<td>A blogging and podcast hosting platform with minimal design but powerful features. Host your blog and Podcast with <a href=\"https://typlog.com/\">Typlog.com</a>.\n</td>\n</tr>\n</table>\n\n[**Fund Authlib to access additional features**](https://docs.authlib.org/en/stable/community/funding.html)\n\n## Features\n\nGeneric, spec-compliant implementation to build clients and providers:\n\n- [The OAuth 1.0 Protocol](https://docs.authlib.org/en/stable/oauth1/index.html)\n  - [RFC5849: The OAuth 1.0 Protocol](https://docs.authlib.org/en/stable/oauth1/specs/rfc5849.html)\n- [The OAuth 2.0 Authorization Framework](https://docs.authlib.org/en/stable/oauth2/index.html)\n  - [RFC6749: The OAuth 2.0 Authorization Framework](https://docs.authlib.org/en/stable/oauth2/specs/rfc6749.html)\n  - [RFC6750: The OAuth 2.0 Authorization Framework: Bearer Token Usage](https://docs.authlib.org/en/stable/oauth2/specs/rfc6750.html)\n  - [RFC7009: OAuth 2.0 Token Revocation](https://docs.authlib.org/en/stable/oauth2/specs/rfc7009.html)\n  - [RFC7523: JWT Profile for OAuth 2.0 Client Authentication and Authorization Grants](https://docs.authlib.org/en/stable/oauth2/specs/rfc7523.html)\n  - [RFC7591: OAuth 2.0 Dynamic Client Registration Protocol](https://docs.authlib.org/en/stable/oauth2/specs/rfc7591.html)\n  - [RFC7592: OAuth 2.0 Dynamic Client Registration Management Protocol](https://docs.authlib.org/en/stable/oauth2/specs/rfc7592.html)\n  - [RFC7636: Proof Key for Code Exchange by OAuth Public Clients](https://docs.authlib.org/en/stable/oauth2/specs/rfc7636.html)\n  - [RFC7662: OAuth 2.0 Token Introspection](https://docs.authlib.org/en/stable/oauth2/specs/rfc7662.html)\n  - [RFC8414: OAuth 2.0 Authorization Server Metadata](https://docs.authlib.org/en/stable/oauth2/specs/rfc8414.html)\n  - [RFC8628: OAuth 2.0 Device Authorization Grant](https://docs.authlib.org/en/stable/oauth2/specs/rfc8628.html)\n  - [RFC9068: JSON Web Token (JWT) Profile for OAuth 2.0 Access Tokens](https://docs.authlib.org/en/stable/oauth2/specs/rfc9068.html)\n  - [RFC9101: The OAuth 2.0 Authorization Framework: JWT-Secured Authorization Request (JAR)](https://docs.authlib.org/en/stable/oauth2/specs/rfc9101.html)\n  - [RFC9207: OAuth 2.0 Authorization Server Issuer Identification](https://docs.authlib.org/en/stable/oauth2/specs/rfc9207.html)\n- [Javascript Object Signing and Encryption](https://docs.authlib.org/en/stable/jose/index.html)\n  - [RFC7515: JSON Web Signature](https://docs.authlib.org/en/stable/jose/jws.html)\n  - [RFC7516: JSON Web Encryption](https://docs.authlib.org/en/stable/jose/jwe.html)\n  - [RFC7517: JSON Web Key](https://docs.authlib.org/en/stable/jose/jwk.html)\n  - [RFC7518: JSON Web Algorithms](https://docs.authlib.org/en/stable/jose/specs/rfc7518.html)\n  - [RFC7519: JSON Web Token](https://docs.authlib.org/en/stable/jose/jwt.html)\n  - [RFC7638: JSON Web Key (JWK) Thumbprint](https://docs.authlib.org/en/stable/jose/specs/rfc7638.html)\n  - [ ] RFC7797: JSON Web Signature (JWS) Unencoded Payload Option\n  - [RFC8037: ECDH in JWS and JWE](https://docs.authlib.org/en/stable/jose/specs/rfc8037.html)\n  - [ ] draft-madden-jose-ecdh-1pu-04: Public Key Authenticated Encryption for JOSE: ECDH-1PU\n- [OpenID Connect 1.0](https://docs.authlib.org/en/stable/oauth2/specs/oidc.html)\n  - [x] OpenID Connect Core 1.0\n  - [x] OpenID Connect Discovery 1.0\n  - [x] OpenID Connect Dynamic Client Registration 1.0\n  - [x] [OpenID Connect RP-Initiated Logout 1.0](https://openid.net/specs/openid-connect-rpinitiated-1_0.html)\n\nConnect third party OAuth providers with Authlib built-in client integrations:\n\n- Requests\n  - [OAuth1Session](https://docs.authlib.org/en/stable/oauth1/client/http/requests.html)\n  - [OAuth2Session](https://docs.authlib.org/en/stable/oauth2/client/http/requests.html#requests-oauth-2-0)\n  - [OpenID Connect](https://docs.authlib.org/en/stable/oauth2/client/http/requests.html#requests-openid-connect)\n  - [AssertionSession](https://docs.authlib.org/en/stable/oauth2/client/http/requests.html#requests-service-account)\n- HTTPX\n  - [AsyncOAuth1Client](https://docs.authlib.org/en/stable/oauth1/client/http/httpx.html)\n  - [AsyncOAuth2Client](https://docs.authlib.org/en/stable/oauth2/client/http/httpx.html#httpx-oauth-2-0)\n  - [OpenID Connect](https://docs.authlib.org/en/stable/oauth2/client/http/httpx.html#httpx-oauth-2-0)\n  - [AsyncAssertionClient](https://docs.authlib.org/en/stable/oauth2/client/http/httpx.html#async-service-account)\n- [Flask OAuth Client](https://docs.authlib.org/en/stable/oauth2/client/web/flask.html)\n- [Django OAuth Client](https://docs.authlib.org/en/stable/oauth2/client/web/django.html)\n- [Starlette OAuth Client](https://docs.authlib.org/en/stable/oauth2/client/web/starlette.html)\n- [FastAPI OAuth Client](https://docs.authlib.org/en/stable/oauth2/client/web/fastapi.html)\n\nBuild your own OAuth 1.0, OAuth 2.0, and OpenID Connect providers:\n\n- Flask\n  - [Flask OAuth 1.0 Provider](https://docs.authlib.org/en/stable/oauth1/provider/flask/index.html)\n  - [Flask OAuth 2.0 Provider](https://docs.authlib.org/en/stable/oauth2/authorization-server/flask/index.html)\n  - [Flask OpenID Connect 1.0 Provider](https://docs.authlib.org/en/stable/oauth2/authorization-server/flask/openid-connect.html)\n- Django\n  - [Django OAuth 1.0 Provider](https://docs.authlib.org/en/stable/oauth1/provider/django/index.html)\n  - [Django OAuth 2.0 Provider](https://docs.authlib.org/en/stable/oauth2/authorization-server/django/index.html)\n  - [Django OpenID Connect 1.0 Provider](https://docs.authlib.org/en/stable/oauth2/authorization-server/django/openid-connect.html)\n\n## Useful Links\n\n1. Homepage: <https://authlib.org/>.\n2. Documentation: <https://docs.authlib.org/>.\n3. Purchase Commercial License: <https://authlib.org/plans>.\n4. Blog: <https://blog.authlib.org/>.\n5. Twitter: <https://twitter.com/authlib>.\n6. StackOverflow: <https://stackoverflow.com/questions/tagged/authlib>.\n7. Other Repositories: <https://github.com/authlib>.\n8. Subscribe Tidelift: [https://tidelift.com/subscription/pkg/pypi-authlib](https://tidelift.com/subscription/pkg/pypi-authlib?utm_source=pypi-authlib&utm_medium=referral&utm_campaign=links).\n\n## Security Reporting\n\nIf you found security bugs, please do not send a public issue or patch.\nYou can send me email at <me@lepture.com>. Attachment with patch is welcome.\nMy PGP Key fingerprint is:\n\n```\n72F8 E895 A70C EBDF 4F2A DFE0 7E55 E3E0 118B 2B4C\n```\n\nOr, you can use the [Tidelift security contact](https://tidelift.com/security).\nTidelift will coordinate the fix and disclosure.\n\n## License\n\nAuthlib offers two licenses:\n\n1. BSD LICENSE\n2. COMMERCIAL-LICENSE\n\nAny project, open or closed source, can use the BSD license.\nIf your company needs commercial support, you can purchase a commercial license at\n[Authlib Plans](https://authlib.org/plans). You can find more information at\n<https://authlib.org/support>.\n",
+        "description_content_type": "text/markdown",
+        "author_email": "Hsiaoming Yang <me@lepture.com>",
+        "license": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Environment :: Web Environment",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Security",
+          "Topic :: Security :: Cryptography",
+          "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+          "Topic :: Internet :: WWW/HTTP :: WSGI :: Application"
+        ],
+        "requires_dist": [
+          "cryptography>=45.0.1",
+          "joserfc>=1.6.1"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Documentation, https://docs.authlib.org/",
+          "Purchase, https://authlib.org/plans",
+          "Issues, https://github.com/authlib/authlib/issues",
+          "Source, https://github.com/authlib/authlib",
+          "Donate, https://github.com/sponsors/lepture",
+          "Blog, https://blog.authlib.org/"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/d3/69/2c833a049475e0a3444e94c7d0aca0aa51d166374a449b09e92ac98138de/cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl",
+        "archive_info": {
+          "hash": "sha256=9dab55f57c74c3cad24c323bacbbd04be4705ba6eb0d92e920b1fc4837ed5079",
+          "hashes": {
+            "sha256": "9dab55f57c74c3cad24c323bacbbd04be4705ba6eb0d92e920b1fc4837ed5079"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "cryptography",
+        "version": "50.0.2",
+        "summary": "cryptography is a package which provides cryptographic recipes and primitives to Python developers.",
+        "description": "pyca/cryptography\n=================\n\n.. image:: https://img.shields.io/pypi/v/cryptography.svg\n    :target: https://pypi.org/project/cryptography/\n    :alt: Latest Version\n\n.. image:: https://readthedocs.org/projects/cryptography/badge/?version=latest\n    :target: https://cryptography.io\n    :alt: Latest Docs\n\n.. image:: https://github.com/pyca/cryptography/actions/workflows/ci.yml/badge.svg\n    :target: https://github.com/pyca/cryptography/actions/workflows/ci.yml?query=branch%3Amain\n\n``cryptography`` is a package which provides cryptographic recipes and\nprimitives to Python developers. Our goal is for it to be your \"cryptographic\nstandard library\". It supports Python 3.9+ and PyPy3 7.3.11+.\n\n``cryptography`` includes both high level recipes and low level interfaces to\ncommon cryptographic algorithms such as symmetric ciphers, message digests, and\nkey derivation functions. For example, to encrypt something with\n``cryptography``'s high level symmetric encryption recipe:\n\n.. code-block:: pycon\n\n    >>> from cryptography.fernet import Fernet\n    >>> # Put this somewhere safe!\n    >>> key = Fernet.generate_key()\n    >>> f = Fernet(key)\n    >>> token = f.encrypt(b\"A really secret message. Not for prying eyes.\")\n    >>> token\n    b'...'\n    >>> f.decrypt(token)\n    b'A really secret message. Not for prying eyes.'\n\nYou can find more information in the `documentation`_.\n\nYou can install ``cryptography`` with:\n\n.. code-block:: console\n\n    $ pip install cryptography\n\nFor full details see `the installation documentation`_.\n\nDiscussion\n~~~~~~~~~~\n\nIf you run into bugs, you can file them in our `issue tracker`_.\n\nWe maintain a `cryptography-dev`_ mailing list for development discussion.\n\nYou can also join ``#pyca`` on ``irc.libera.chat`` to ask questions or get\ninvolved.\n\nSecurity\n~~~~~~~~\n\nNeed to report a security issue? Please consult our `security reporting`_\ndocumentation.\n\n\n.. _`documentation`: https://cryptography.io/\n.. _`the installation documentation`: https://cryptography.io/en/latest/installation/\n.. _`issue tracker`: https://github.com/pyca/cryptography/issues\n.. _`cryptography-dev`: https://mail.python.org/mailman/listinfo/cryptography-dev\n.. _`security reporting`: https://cryptography.io/en/latest/security/\n\n",
+        "description_content_type": "text/x-rst; charset=UTF-8",
+        "author_email": "The Python Cryptographic Authority and individual contributors <cryptography-dev@python.org>",
+        "license_expression": "Apache-2.0 OR BSD-3-Clause",
+        "license_file": [
+          "LICENSE",
+          "LICENSE.APACHE",
+          "LICENSE.BSD"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Natural Language :: English",
+          "Operating System :: MacOS :: MacOS X",
+          "Operating System :: POSIX",
+          "Operating System :: POSIX :: BSD",
+          "Operating System :: POSIX :: Linux",
+          "Operating System :: Microsoft :: Windows",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Programming Language :: Python :: Free Threading :: 3 - Stable",
+          "Topic :: Security :: Cryptography"
+        ],
+        "requires_dist": [
+          "cffi>=2.0.0 ; platform_python_implementation != 'PyPy'",
+          "typing-extensions>=4.13.2 ; python_full_version < '3.11'",
+          "bcrypt>=3.1.5 ; extra == 'ssh'"
+        ],
+        "requires_python": ">=3.9, !=3.9.0, !=3.9.1",
+        "project_url": [
+          "changelog, https://cryptography.io/en/latest/changelog/",
+          "documentation, https://cryptography.io/",
+          "homepage, https://github.com/pyca/cryptography",
+          "issues, https://github.com/pyca/cryptography/issues",
+          "source, https://github.com/pyca/cryptography/"
+        ],
+        "provides_extra": [
+          "ssh"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/df/9f/934db284aa22f37af59708e382903860d4b81329c137b1b0ed2745daeb65/joserfc-1.7.7-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=06979cfbab78bc802f14c0358f32969826cc26720e13cb38926ffdc86bc0cb2c",
+          "hashes": {
+            "sha256": "06979cfbab78bc802f14c0358f32969826cc26720e13cb38926ffdc86bc0cb2c"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "joserfc",
+        "version": "1.7.7",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "The ultimate Python library for JOSE RFCs, including JWS, JWE, JWK, JWA, JWT",
+        "description": "JOSE RFC\n========\n\n``joserfc`` is a Python library that provides a comprehensive implementation of several\nessential JSON Object Signing and Encryption (JOSE) standards.\n\nThis package contains implementation of:\n\n- RFC7515: JSON Web Signature\n- RFC7516: JSON Web Encryption\n- RFC7517: JSON Web Key\n- RFC7518: JSON Web Algorithms\n- RFC7519: JSON Web Token\n- RFC7520: Examples of Protecting Content Using JSON Object Signing and Encryption\n- RFC7638: JSON Web Key (JWK) Thumbprint\n- RFC7797: JSON Web Signature (JWS) Unencoded Payload Option\n- RFC8037: OKP Key and EdDSA algorithm\n- RFC8812: ES256K algorithm\n- RFC9278: JWK Thumbprint URI\n- RFC9864: ``Ed25519`` and ``Ed448`` algorithms\n\nAnd draft RFCs implementation of:\n\n- draft-ietf-jose-deprecate-none-rsa15-02\n- draft-amringer-jose-chacha-02\n- draft-madden-jose-ecdh-1pu-04\n\nUsage\n-----\n\nA quick and simple JWT encoding and decoding would look something like this:\n\n.. code-block:: python\n\n    >>> from joserfc import jwt, jwk\n    >>> key = jwk.import_key(\"your-secret-key\", \"oct\")\n    >>> encoded_jwt = jwt.encode({\"alg\": \"HS256\"}, {\"k\": \"value\"}, key)\n    >>> encoded_jwt\n    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJrIjoidmFsdWUifQ._M8ViO_GK6TnZ9G9eqdlS7IpNWzhoGwaYYDQ3hEwwmA'\n    >>> token = jwt.decode(encoded_jwt, key)\n    >>> token.header\n    {'alg': 'HS256', 'typ': 'JWT'}\n    >>> token.claims\n    {'key': 'value'}\n    >>> claims_requests = jwt.JWTClaimsRegistry()\n    >>> claims_requests.validate(token.claims)\n\nUseful Links\n------------\n\n1. GitHub: https://github.com/authlib/joserfc\n2. Docs: https://jose.authlib.org/en/\n\nLicense\n-------\n\nLicensed under BSD. Please see LICENSE for licensing details.\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Hsiaoming Yang <me@lepture.com>",
+        "license": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Environment :: Web Environment",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Security",
+          "Topic :: Security :: Cryptography"
+        ],
+        "requires_dist": [
+          "cryptography>=45.0.1",
+          "pycryptodome; extra == \"drafts\""
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Documentation, https://jose.authlib.org/",
+          "Source, https://github.com/authlib/joserfc",
+          "Funding, https://github.com/sponsors/authlib",
+          "Blog, https://blog.authlib.org/"
+        ],
+        "provides_extra": [
+          "drafts"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/b1/db/dceb9dd5b231e1da801793f8acc9f3c52a7e1afe40bb1aae37e02b0faad5/cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+        "archive_info": {
+          "hash": "sha256=c1453022f490d2459a11819d83ad1d586e9ff65a12ac3e705ffebd46d3685dcf",
+          "hashes": {
+            "sha256": "c1453022f490d2459a11819d83ad1d586e9ff65a12ac3e705ffebd46d3685dcf"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "cffi",
+        "version": "2.1.1",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "Foreign Function Interface for Python calling C code.",
+        "description": "[![GitHub Actions Status](https://github.com/python-cffi/cffi/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/python-cffi/cffi/actions/workflows/ci.yaml?query=branch%3Amain++)\n[![PyPI version](https://img.shields.io/pypi/v/cffi.svg)](https://pypi.org/project/cffi)\n[![Read the Docs](https://img.shields.io/badge/docs-latest-blue.svg)][Documentation]\n\n\nCFFI\n====\n\nForeign Function Interface for Python calling C code.\n\nPlease see the [Documentation] or uncompiled in the `doc/` subdirectory.\n\nDownload\n--------\n\n[Download page](https://github.com/python-cffi/cffi/releases)\n\nSource Code\n-----------\n\nSource code is publicly available on\n[GitHub](https://github.com/python-cffi/cffi).\n\nContact\n-------\n\n[Mailing list](https://groups.google.com/forum/#!forum/python-cffi)\n\nTesting/development tips\n------------------------\n\nAfter `git clone` or `wget && tar`, we will get a directory called `cffi` or `cffi-x.x.x`. We call it `repo-directory`. To run tests under CPython, run the following in the `repo-directory`:\n\n    pip install pytest\n    pip install -e .  # editable install of CFFI for local development\n    pytest src/c/ testing/\n\n[Documentation]: http://cffi.readthedocs.org/\n",
+        "description_content_type": "text/markdown",
+        "author": "Armin Rigo, Maciej Fijalkowski",
+        "maintainer": "Matt Davis, Matt Clay",
+        "license_expression": "MIT-0",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Free Threading :: 2 - Beta",
+          "Programming Language :: Python :: Implementation :: CPython"
+        ],
+        "requires_dist": [
+          "pycparser; implementation_name != \"PyPy\""
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Documentation, https://cffi.readthedocs.io/",
+          "Changelog, https://cffi.readthedocs.io/en/latest/whatsnew.html",
+          "Download, https://github.com/python-cffi/cffi/releases",
+          "Contact, https://groups.google.com/forum/#!forum/python-cffi",
+          "Source Code, https://github.com/python-cffi/cffi",
+          "Issue Tracker, https://github.com/python-cffi/cffi/issues"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/b6/ae/315bbeee126a769cbde43cf4908acb4b40408d8bf8bbf334dd7368d8dadf/pycparser-3.12-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e",
+          "hashes": {
+            "sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "pycparser",
+        "version": "3.12",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "C parser in Python",
+        "description": "=========\npycparser\n=========\n\n\n.. image:: https://github.com/eliben/pycparser/workflows/pycparser-tests/badge.svg\n  :align: center\n  :target: https://github.com/eliben/pycparser/actions\n\n----\n\n.. contents::\n    :backlinks: none\n\n.. sectnum::\n\nIntroduction\n============\n\nWhat is pycparser?\n------------------\n\n**pycparser** is a parser for the C language, written in pure Python. It is a\nmodule designed to be easily integrated into applications that need to parse\nC source code.\n\nWhat is it good for?\n--------------------\n\nAnything that needs C code to be parsed. The following are some uses for\n**pycparser**, taken from real user reports:\n\n* C code obfuscator\n* Front-end for various specialized C compilers\n* Static code checker\n* Automatic unit-test discovery\n* Adding specialized extensions to the C language\n\nOne of the most popular uses of **pycparser** is in the `cffi\n<https://cffi.readthedocs.io/en/latest/>`_ library, which uses it to parse the\ndeclarations of C functions and types in order to auto-generate FFIs.\n\n**pycparser** is unique in the sense that it's written in pure Python - a very\nhigh level language that's easy to experiment with and tweak. To people familiar\nwith Lex and Yacc, **pycparser**'s code will be simple to understand. It also\nhas no external dependencies (except for a Python interpreter), making it very\nsimple to install and deploy.\n\nWhich version of C does pycparser support?\n------------------------------------------\n\n**pycparser** aims to support the full C11 language, including earlier\nrevisions like C99.\n\nC23 support is conditional on a ``dialect=\"c23\"`` setting, since this revision\nintroduces new keywords like ``bool`` that would conflict with existing C code\nif not handled properly.\n\n**pycparser** supports very few GCC extensions, but it's fairly easy to set\nthings up so that it parses code with a lot of GCC-isms successfully. See the\n`FAQ <https://github.com/eliben/pycparser/wiki/FAQ>`_ for more details.\n\nWhat grammar does pycparser follow?\n-----------------------------------\n\n**pycparser** very closely follows the C grammar provided in Annex A of the C99\nstandard (ISO/IEC 9899).\n\nHow is pycparser licensed?\n--------------------------\n\n`BSD license <https://github.com/eliben/pycparser/blob/main/LICENSE>`_.\n\nContact details\n---------------\n\nFor reporting problems with **pycparser** or submitting feature requests, please\nopen an `issue <https://github.com/eliben/pycparser/issues>`_, or submit a\npull request.\n\n\nInstalling\n==========\n\nPrerequisites\n-------------\n\n**pycparser** is being tested with modern versions of Python on\nLinux, macOS and Windows. See `the CI dashboard <https://github.com/eliben/pycparser/actions/workflows/ci.yml>`__\nfor details.\n\n**pycparser** has no external dependencies.\n\nInstallation process\n--------------------\n\nThe recommended way to install **pycparser** is with ``pip``::\n\n    > pip install pycparser\n\nUsing\n=====\n\nInteraction with the C preprocessor\n-----------------------------------\n\nIn order to be compilable, C code must be preprocessed by the C preprocessor -\n``cpp``. A compatible ``cpp`` handles preprocessing directives like ``#include`` and\n``#define``, removes comments, and performs other minor tasks that prepare the C\ncode for compilation.\n\nFor all but the most trivial snippets of C code **pycparser**, like a C\ncompiler, must receive preprocessed C code in order to function correctly. If\nyou import the top-level ``parse_file`` function from the **pycparser** package,\nit will interact with ``cpp`` for you, as long as it's in your PATH, or you\nprovide a path to it.\n\nNote also that you can use ``gcc -E`` or ``clang -E`` instead of ``cpp``. See\nthe ``using_gcc_E_libc.py`` example for more details. Windows users can download\nand install a binary build of Clang for Windows `from this website\n<http://llvm.org/releases/download.html>`_.\n\nWhat about the standard C library headers?\n------------------------------------------\n\nC code almost always ``#include``\\s various header files from the standard C\nlibrary, like ``stdio.h``. While (with some effort) **pycparser** can be made to\nparse the standard headers from any C compiler, it's much simpler to use the\nprovided \"fake\" standard includes for C11 in ``utils/fake_libc_include``. These\nare standard C header files that contain only the bare necessities to allow\nvalid parsing of the files that use them. As a bonus, since they're minimal, it\ncan significantly improve the performance of parsing large C files.\n\nThe key point to understand here is that **pycparser** doesn't really care about\nthe semantics of types. It only needs to know whether some token encountered in\nthe source is a previously defined type. This is essential in order to be able\nto parse C correctly.\n\nSee `this blog post\n<https://eli.thegreenplace.net/2015/on-parsing-c-type-declarations-and-fake-headers>`_\nfor more details.\n\nNote that the fake headers are not included in the ``pip`` package nor installed\nvia the package build (`#224 <https://github.com/eliben/pycparser/issues/224>`_).\n\nBasic usage\n-----------\n\nTake a look at the |examples|_ directory of the distribution for a few examples\nof using **pycparser**. These should be enough to get you started. Please note\nthat most realistic C code samples would require running the C preprocessor\nbefore passing the code to **pycparser**; see the previous sections for more\ndetails.\n\nFor example, to parse C23 source with a preprocessor that supports ``-std=c23``::\n\n    from pycparser import CParser, parse_file\n\n    ast = parse_file(\n        \"example.c\",\n        use_cpp=True,\n        cpp_args=[\"-std=c23\"],\n        parser=CParser(dialect=\"c23\"),\n    )\n\nThe parser's dialect does not configure the external preprocessor; select its\nlanguage mode separately through ``cpp_args``.\n\n.. |examples| replace:: ``examples``\n.. _examples: examples\n\n\nAdvanced usage\n--------------\n\nThe public interface of **pycparser** is well documented with comments in\n``pycparser/c_parser.py``. For a detailed overview of the various AST nodes\ncreated by the parser, see ``pycparser/_c_ast.cfg``.\n\nThe root node is a ``FileAST``, whose ``ext`` attribute is a list of top-level\ndeclarations and function definitions. Explore nodes through their named fields,\nand use ``show()`` on a subtree to inspect just that part of the AST::\n\n    from pycparser import CParser\n\n    ast = CParser().parse(\"int x; int f(void) { return x; }\")\n    print(len(ast.ext))  # 2\n    func = ast.ext[1]\n    func.body.show()\n\nFor generic exploration, call ``children()`` to get a tuple of ``(field_name,\nchild_node)`` pairs for the immediate children. The tuple supports length and\nindexing directly::\n\n    children = func.children()\n    print(len(children))  # 2: decl and body\n    name, child = children[0]\n    print(name)  # decl\n    child.show()\n\nIterating over a node directly (``for child in node``) yields just the child\nnodes, without their names. For a guided walkthrough, see\n`examples/explore_ast.py <examples/explore_ast.py>`_; for recursive traversal,\nsee the ``NodeVisitor`` example in `examples/func_defs.py <examples/func_defs.py>`_.\n\nThere's also a `FAQ available here <https://github.com/eliben/pycparser/wiki/FAQ>`_.\nIn any case, you can always drop me an `email <eliben@gmail.com>`_ for help.\n\n\nModifying\n=========\n\nThere are a few points to keep in mind when modifying **pycparser**:\n\n* The code for **pycparser**'s AST nodes is automatically generated from a\n  configuration file - ``_c_ast.cfg``, by ``_ast_gen.py``. If you modify the AST\n  configuration or the generator, run ``make regen-ast`` from the repository\n  root to re-generate ``pycparser/c_ast.py`` and run ``make format``.\n* Read the docstring in the constructor of the ``CParser`` class for details\n  on configuration and compatibility arguments.\n\n\nPackage contents\n================\n\nOnce you unzip the ``pycparser`` package, you'll see the following files and\ndirectories:\n\nREADME.rst:\n  This README file.\n\nLICENSE:\n  The pycparser license\n\nsetup.py:\n  Legacy installation script (build metadata lives in ``pyproject.toml``).\n\npyproject.toml:\n  Package metadata and build configuration.\n\nexamples/:\n  A directory with some examples of using **pycparser**\n\npycparser/:\n  The **pycparser** module source code.\n\ntests/:\n  Unit tests.\n\nutils/fake_libc_include:\n  Minimal standard C library include files that should allow to parse any C code.\n  Note that these headers now include C11 code, so they may not work when the\n  preprocessor is configured to an earlier C standard (like ``-std=c99``).\n\nutils/internal/:\n  Internal utilities for my own use. You probably don't need them.\n\n\nContributors\n============\n\nSome people have contributed to **pycparser** by opening issues on bugs they've\nfound and/or submitting patches. The list of contributors is in the CONTRIBUTORS\nfile in the source distribution. After **pycparser** moved to Github I stopped\nupdating this list because Github does a much better job at tracking\ncontributions.\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Eli Bendersky <eliben@gmail.com>",
+        "maintainer_email": "Eli Bendersky <eliben@gmail.com>",
+        "license_expression": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15"
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "Homepage, https://github.com/eliben/pycparser"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "7.0.0-1017-azure",
+    "platform_system": "Linux",
+    "platform_version": "#17~24.04.1-Ubuntu SMP PREEMPT Thu Sep 24 18:46:57 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}

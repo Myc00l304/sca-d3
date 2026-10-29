@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "packages": 1,
+  "tree": {
+    "org.xerial.snappy:snappy-java": "1.1.10.8"
+  },
+  "jars": [
+    "snappy-java-1.1.10.8.jar"
+  ]
+}

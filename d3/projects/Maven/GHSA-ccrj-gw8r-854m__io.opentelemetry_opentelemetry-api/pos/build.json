@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "packages": 3,
+  "tree": {
+    "io.opentelemetry:opentelemetry-api": "1.66.0",
+    "io.opentelemetry:opentelemetry-context": "1.66.0",
+    "io.opentelemetry:opentelemetry-common": "1.66.0"
+  },
+  "jars": [
+    "opentelemetry-api-1.66.0.jar",
+    "opentelemetry-common-1.66.0.jar",
+    "opentelemetry-context-1.66.0.jar"
+  ]
+}

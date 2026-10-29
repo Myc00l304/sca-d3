@@ -1,0 +1,76 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/60/33/df6d7d04854a58619f8349a51e3edb138324130a7562b0bb21f115bb940f/tornado-6.5.10-cp39-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+        "archive_info": {
+          "hash": "sha256=bdf942448169e5336451d0494d7e3d81cfa726d5aa312affdc4682dd62a62f6d",
+          "hashes": {
+            "sha256": "bdf942448169e5336451d0494d7e3d81cfa726d5aa312affdc4682dd62a62f6d"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "tornado",
+        "version": "6.5.10",
+        "dynamic": [
+          "author",
+          "author-email",
+          "classifier",
+          "description",
+          "description-content-type",
+          "home-page",
+          "license",
+          "license-file",
+          "project-url",
+          "requires-python",
+          "summary"
+        ],
+        "summary": "Tornado is a Python web framework and asynchronous networking library, originally developed at FriendFeed.",
+        "description": "Tornado Web Server\n==================\n\n.. image:: https://badges.gitter.im/Join%20Chat.svg\n   :alt: Join the chat at https://gitter.im/tornadoweb/tornado\n   :target: https://gitter.im/tornadoweb/tornado?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge\n\n`Tornado <http://www.tornadoweb.org>`_ is a Python web framework and\nasynchronous networking library, originally developed at `FriendFeed\n<http://friendfeed.com>`_.  By using non-blocking network I/O, Tornado\ncan scale to tens of thousands of open connections, making it ideal for\n`long polling <http://en.wikipedia.org/wiki/Push_technology#Long_Polling>`_,\n`WebSockets <http://en.wikipedia.org/wiki/WebSocket>`_, and other\napplications that require a long-lived connection to each user.\n\nHello, world\n------------\n\nHere is a simple \"Hello, world\" example web app for Tornado:\n\n.. code-block:: python\n\n    import asyncio\n    import tornado\n\n    class MainHandler(tornado.web.RequestHandler):\n        def get(self):\n            self.write(\"Hello, world\")\n\n    def make_app():\n        return tornado.web.Application([\n            (r\"/\", MainHandler),\n        ])\n\n    async def main():\n        app = make_app()\n        app.listen(8888)\n        await asyncio.Event().wait()\n\n    if __name__ == \"__main__\":\n        asyncio.run(main())\n\nThis example does not use any of Tornado's asynchronous features; for\nthat see this `simple chat room\n<https://github.com/tornadoweb/tornado/tree/stable/demos/chat>`_.\n\nDocumentation\n-------------\n\nDocumentation and links to additional resources are available at\nhttps://www.tornadoweb.org\n",
+        "description_content_type": "text/x-rst",
+        "home_page": "http://www.tornadoweb.org/",
+        "author": "Facebook",
+        "author_email": "python-tornado@googlegroups.com",
+        "license": "Apache-2.0",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "License :: OSI Approved :: Apache Software License",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy"
+        ],
+        "requires_python": ">= 3.9",
+        "project_url": [
+          "Source, https://github.com/tornadoweb/tornado"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "7.0.0-1017-azure",
+    "platform_system": "Linux",
+    "platform_version": "#17~24.04.1-Ubuntu SMP PREEMPT Thu Sep 24 18:46:57 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}
