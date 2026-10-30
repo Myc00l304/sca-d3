@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "packages": 1,
+  "tree": {
+    "highcharts": "13.0.2"
+  }
+}

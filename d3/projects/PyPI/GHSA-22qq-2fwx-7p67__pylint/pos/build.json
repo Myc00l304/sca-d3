@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "python": "python312",
+  "resolution": "full",
+  "f2": true,
+  "packages": 8,
+  "tree": {
+    "astroid": "4.0.4",
+    "dill": "0.4.1",
+    "isort": "9.0.2",
+    "mccabe": "0.7.0",
+    "mypy_extensions": "1.1.0",
+    "platformdirs": "4.14.0",
+    "pylint": "4.0.8",
+    "tomlkit": "0.15.2"
+  }
+}

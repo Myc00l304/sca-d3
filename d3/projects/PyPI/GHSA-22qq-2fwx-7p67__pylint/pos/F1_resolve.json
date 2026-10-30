@@ -1,0 +1,502 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/2b/ea/9b601859afa055afe659ffe55abdfed6e5f17e17a840d9cd61c54ac89c02/pylint-4.0.8-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=3341c08c0aabaa4adc71516de0969f3ba5c692b56c75af4dcb4d242823fbe363",
+          "hashes": {
+            "sha256": "3341c08c0aabaa4adc71516de0969f3ba5c692b56c75af4dcb4d242823fbe363"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "pylint",
+        "version": "4.0.8",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "python code static checker",
+        "description": "`Pylint`_\n=========\n\n.. _`Pylint`: https://pylint.readthedocs.io/\n\n.. This is used inside the doc to recover the start of the introduction\n\n.. image:: https://github.com/pylint-dev/pylint/actions/workflows/tests.yaml/badge.svg?branch=main\n    :target: https://github.com/pylint-dev/pylint/actions\n\n.. image:: https://codecov.io/gh/pylint-dev/pylint/branch/main/graph/badge.svg?token=ZETEzayrfk\n    :target: https://codecov.io/gh/pylint-dev/pylint\n\n.. image:: https://img.shields.io/pypi/v/pylint.svg\n    :alt: PyPI Package version\n    :target: https://pypi.python.org/pypi/pylint\n\n.. image:: https://readthedocs.org/projects/pylint/badge/?version=latest\n    :target: https://pylint.readthedocs.io/en/latest/?badge=latest\n    :alt: Documentation Status\n\n.. image:: https://img.shields.io/badge/code%20style-black-000000.svg\n    :target: https://github.com/ambv/black\n\n.. image:: https://img.shields.io/badge/linting-pylint-yellowgreen\n    :target: https://github.com/pylint-dev/pylint\n\n.. image:: https://results.pre-commit.ci/badge/github/pylint-dev/pylint/main.svg\n   :target: https://results.pre-commit.ci/latest/github/pylint-dev/pylint/main\n   :alt: pre-commit.ci status\n\n.. image:: https://bestpractices.coreinfrastructure.org/projects/6328/badge\n   :target: https://bestpractices.coreinfrastructure.org/projects/6328\n   :alt: CII Best Practices\n\n.. image:: https://img.shields.io/ossf-scorecard/github.com/PyCQA/pylint?label=openssf%20scorecard&style=flat\n   :target: https://api.securityscorecards.dev/projects/github.com/PyCQA/pylint\n   :alt: OpenSSF Scorecard\n\n.. image:: https://img.shields.io/discord/825463413634891776.svg\n   :target: https://discord.gg/qYxpadCgkx\n   :alt: Discord\n\nWhat is Pylint?\n---------------\n\nPylint is a `static code analyser`_ for Python 2 or 3. The latest version supports Python\n3.10.0 and above.\n\n.. _`static code analyser`: https://en.wikipedia.org/wiki/Static_code_analysis\n\nPylint analyses your code without actually running it. It checks for errors, enforces a\ncoding standard, looks for `code smells`_, and can make suggestions about how the code\ncould be refactored.\n\n.. _`code smells`: https://martinfowler.com/bliki/CodeSmell.html\n\nInstall\n-------\n\n.. This is used inside the doc to recover the start of the short text for installation\n\nFor command line use, pylint is installed with::\n\n    pip install pylint\n\nOr if you want to also check spelling with ``enchant`` (you might need to\n`install the enchant C library <https://pyenchant.github.io/pyenchant/install.html#installing-the-enchant-c-library>`_):\n\n.. code-block:: sh\n\n   pip install pylint[spelling]\n\nIt can also be integrated in most editors or IDEs. More information can be found\n`in the documentation`_.\n\n.. _in the documentation: https://pylint.readthedocs.io/en/latest/user_guide/installation/index.html\n\n.. This is used inside the doc to recover the end of the short text for installation\n\nWhat differentiates Pylint?\n---------------------------\n\nPylint is not trusting your typing and is inferring the actual values of nodes (for a\nstart because there was no typing when pylint started off) using its internal code\nrepresentation (astroid). If your code is ``import logging as argparse``, Pylint\ncan check and know that ``argparse.error(...)`` is in fact a logging call and not an\nargparse call. This makes pylint slower, but it also lets pylint find more issues if\nyour code is not fully typed.\n\n    [inference] is the killer feature that keeps us using [pylint] in our project despite how painfully slow it is.\n    - `Realist pylint user`_, 2022\n\n.. _`Realist pylint user`: https://github.com/charliermarsh/ruff/issues/970#issuecomment-1381067064\n\npylint, not afraid of being a little slower than it already is, is also a lot more thorough than other linters.\nThere are more checks, including some opinionated ones that are deactivated by default\nbut can be enabled using configuration.\n\nHow to use pylint\n-----------------\n\nPylint isn't smarter than you: it may warn you about things that you have\nconscientiously done or check for some things that you don't care about.\nDuring adoption, especially in a legacy project where pylint was never enforced,\nit's best to start with the ``--errors-only`` flag, then disable\nconvention and refactor messages with ``--disable=C,R`` and progressively\nre-evaluate and re-enable messages as your priorities evolve.\n\nPylint is highly configurable and permits to write plugins in order to add your\nown checks (for example, for internal libraries or an internal rule). Pylint also has an\necosystem of existing plugins for popular frameworks and third-party libraries.\n\n.. note::\n\n    Pylint supports the Python standard library out of the box. Third-party\n    libraries are not always supported, so a plugin might be needed. A good place\n    to start is ``PyPI`` which often returns a plugin by searching for\n    ``pylint <library>``. `pylint-pydantic`_, `pylint-django`_ and\n    `pylint-sonarjson`_ are examples of such plugins. More information about plugins\n    and how to load them can be found at `plugins`_.\n\n.. _`plugins`: https://pylint.readthedocs.io/en/latest/development_guide/how_tos/plugins.html#plugins\n.. _`pylint-pydantic`: https://pypi.org/project/pylint-pydantic\n.. _`pylint-django`: https://github.com/pylint-dev/pylint-django\n.. _`pylint-sonarjson`: https://github.com/cnescatlab/pylint-sonarjson-catlab\n\nAdvised linters alongside pylint\n--------------------------------\n\nProjects that you might want to use alongside pylint include ruff_ (**really** fast,\nwith builtin auto-fix and a large number of checks taken from popular linters, but\nimplemented in ``rust``) or flake8_ (a framework to implement your own checks in python using ``ast`` directly),\nmypy_, pyright_ / pylance or pyre_ (typing checks), bandit_ (security oriented checks), black_ and\nisort_ (auto-formatting), autoflake_ (automated removal of unused imports or variables), pyupgrade_\n(automated upgrade to newer python syntax) and pydocstringformatter_ (automated pep257).\n\n.. _ruff: https://github.com/astral-sh/ruff\n.. _flake8: https://github.com/PyCQA/flake8\n.. _bandit: https://github.com/PyCQA/bandit\n.. _mypy: https://github.com/python/mypy\n.. _pyright: https://github.com/microsoft/pyright\n.. _pyre: https://github.com/facebook/pyre-check\n.. _black: https://github.com/psf/black\n.. _autoflake: https://github.com/myint/autoflake\n.. _pyupgrade: https://github.com/asottile/pyupgrade\n.. _pydocstringformatter: https://github.com/DanielNoord/pydocstringformatter\n.. _isort: https://pycqa.github.io/isort/\n\nAdditional tools included in pylint\n-----------------------------------\n\nPylint ships with two additional tools:\n\n- pyreverse_ (standalone tool that generates package and class diagrams.)\n- symilar_  (duplicate code finder that is also integrated in pylint)\n\n.. _pyreverse: https://pylint.readthedocs.io/en/latest/additional_tools/pyreverse/index.html\n.. _symilar: https://pylint.readthedocs.io/en/latest/additional_tools/symilar/index.html\n\n\n.. This is used inside the doc to recover the end of the introduction\n\nContributing\n------------\n\n.. This is used inside the doc to recover the start of the short text for contribution\n\nWe welcome all forms of contributions such as updates for documentation, new code, checking issues for duplicates or telling us\nthat we can close them, confirming that issues still exist, `creating issues because\nyou found a bug or want a feature`_, etc. Everything is much appreciated!\n\nPlease follow the `code of conduct`_ and check `the Contributor Guides`_ if you want to\nmake a code contribution.\n\n.. _creating issues because you found a bug or want a feature: https://pylint.readthedocs.io/en/latest/contact.html#bug-reports-feedback\n.. _code of conduct: https://github.com/pylint-dev/pylint/blob/main/CODE_OF_CONDUCT.md\n.. _the Contributor Guides: https://pylint.readthedocs.io/en/latest/development_guide/contribute.html\n\n.. This is used inside the doc to recover the end of the short text for contribution\n\nShow your usage\n-----------------\n\nYou can place this badge in your README to let others know your project uses pylint.\n\n    .. image:: https://img.shields.io/badge/linting-pylint-yellowgreen\n        :target: https://github.com/pylint-dev/pylint\n\nLearn how to add a badge to your documentation in `the badge documentation`_.\n\n.. _the badge documentation: https://pylint.readthedocs.io/en/latest/user_guide/installation/badge.html\n\nLicense\n-------\n\npylint is, with a few exceptions listed below, `GPLv2 <https://github.com/pylint-dev/pylint/blob/main/LICENSE>`_.\n\nThe icon files are licensed under the `CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0/>`_ license:\n\n- `doc/logo.png <https://raw.githubusercontent.com/pylint-dev/pylint/main/doc/logo.png>`_\n- `doc/logo.svg <https://raw.githubusercontent.com/pylint-dev/pylint/main/doc/logo.svg>`_\n\nSupport\n-------\n\nPlease check `the contact information`_.\n\n.. _`the contact information`: https://pylint.readthedocs.io/en/latest/contact.html\n\n.. |tideliftlogo| image:: https://raw.githubusercontent.com/pylint-dev/pylint/main/doc/media/Tidelift_Logos_RGB_Tidelift_Shorthand_On-White.png\n   :width: 200\n   :alt: Tidelift\n\n.. list-table::\n   :widths: 10 100\n\n   * - |tideliftlogo|\n     - Professional support for pylint is available as part of the `Tidelift\n       Subscription`_.  Tidelift gives software development teams a single source for\n       purchasing and maintaining their software, with professional grade assurances\n       from the experts who know it best, while seamlessly integrating with existing\n       tools.\n\n.. _Tidelift Subscription: https://tidelift.com/subscription/pkg/pypi-pylint?utm_source=pypi-pylint&utm_medium=referral&utm_campaign=readme\n",
+        "description_content_type": "text/x-rst",
+        "keywords": [
+          "lint",
+          "linter",
+          "python",
+          "static code analysis"
+        ],
+        "author_email": "Python Code Quality Authority <code-quality@python.org>",
+        "license_expression": "GPL-2.0-or-later",
+        "license_file": [
+          "LICENSE",
+          "CONTRIBUTORS.txt"
+        ],
+        "classifier": [
+          "Development Status :: 6 - Mature",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Software Development :: Debuggers",
+          "Topic :: Software Development :: Quality Assurance",
+          "Topic :: Software Development :: Testing",
+          "Typing :: Typed"
+        ],
+        "requires_dist": [
+          "astroid<=4.1.dev0,>=4.0.2",
+          "colorama>=0.4.5; sys_platform == \"win32\"",
+          "dill>=0.2; python_version < \"3.11\"",
+          "dill>=0.3.6; python_version >= \"3.11\"",
+          "dill>=0.3.7; python_version >= \"3.12\"",
+          "isort!=5.13,<10,>=5",
+          "mccabe<0.8,>=0.6",
+          "platformdirs>=2.2",
+          "tomli>=1.1; python_version < \"3.11\"",
+          "tomlkit>=0.10.1",
+          "typing-extensions>=3.10; python_version < \"3.10\"",
+          "pyenchant~=3.2; extra == \"spelling\"",
+          "gitpython>3; extra == \"testutils\""
+        ],
+        "requires_python": ">=3.10.0",
+        "project_url": [
+          "Bug Tracker, https://github.com/pylint-dev/pylint/issues",
+          "Discord Server, https://discord.com/invite/Egy6P8AMB5",
+          "Docs: Contributor Guide, https://pylint.readthedocs.io/en/latest/development_guide/contributor_guide/index.html",
+          "Docs: User Guide, https://pylint.readthedocs.io/en/latest/",
+          "homepage, https://github.com/pylint-dev/pylint",
+          "Source Code, https://github.com/pylint-dev/pylint",
+          "What's New, https://pylint.readthedocs.io/en/latest/whatsnew/4/"
+        ],
+        "provides_extra": [
+          "spelling",
+          "testutils"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/b0/cf/1c5f42b110e57bc5502eb80dbc3b03d256926062519224835ef08134f1f9/astroid-4.0.4-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=52f39653876c7dec3e3afd4c2696920e05c83832b9737afc21928f2d2eb7a753",
+          "hashes": {
+            "sha256": "52f39653876c7dec3e3afd4c2696920e05c83832b9737afc21928f2d2eb7a753"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "astroid",
+        "version": "4.0.4",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "An abstract syntax tree for Python with inference support.",
+        "description": "Astroid\n=======\n\n.. image:: https://codecov.io/gh/pylint-dev/astroid/branch/main/graph/badge.svg?token=Buxy4WptLb\n    :target: https://codecov.io/gh/pylint-dev/astroid\n    :alt: Coverage badge from codecov\n\n.. image:: https://readthedocs.org/projects/astroid/badge/?version=latest\n    :target: http://astroid.readthedocs.io/en/latest/?badge=latest\n    :alt: Documentation Status\n\n.. image:: https://img.shields.io/badge/code%20style-black-000000.svg\n    :target: https://github.com/ambv/black\n\n.. image:: https://results.pre-commit.ci/badge/github/pylint-dev/astroid/main.svg\n   :target: https://results.pre-commit.ci/latest/github/pylint-dev/astroid/main\n   :alt: pre-commit.ci status\n\n.. |tidelift_logo| image:: https://raw.githubusercontent.com/pylint-dev/astroid/main/doc/media/Tidelift_Logos_RGB_Tidelift_Shorthand_On-White.png\n   :width: 200\n   :alt: Tidelift\n\n.. list-table::\n   :widths: 10 100\n\n   * - |tidelift_logo|\n     - Professional support for astroid is available as part of the\n       `Tidelift Subscription`_.  Tidelift gives software development teams a single source for\n       purchasing and maintaining their software, with professional grade assurances\n       from the experts who know it best, while seamlessly integrating with existing\n       tools.\n\n.. _Tidelift Subscription: https://tidelift.com/subscription/pkg/pypi-astroid?utm_source=pypi-astroid&utm_medium=referral&utm_campaign=readme\n\n\n\nWhat's this?\n------------\n\nThe aim of this module is to provide a common base representation of\npython source code. It is currently the library powering pylint's capabilities.\n\nIt provides a compatible representation which comes from the `_ast`\nmodule.  It rebuilds the tree generated by the builtin _ast module by\nrecursively walking down the AST and building an extended ast. The new\nnode classes have additional methods and attributes for different\nusages. They include some support for static inference and local name\nscopes. Furthermore, astroid can also build partial trees by inspecting living\nobjects.\n\n\nInstallation\n------------\n\nExtract the tarball, jump into the created directory and run::\n\n    pip install .\n\n\nIf you want to do an editable installation, you can run::\n\n    pip install -e .\n\n\nIf you have any questions, please mail the code-quality@python.org\nmailing list for support. See\nhttp://mail.python.org/mailman/listinfo/code-quality for subscription\ninformation and archives.\n\nDocumentation\n-------------\nhttp://astroid.readthedocs.io/en/latest/\n\n\nPython Versions\n---------------\n\nastroid 2.0 is currently available for Python 3 only. If you want Python 2\nsupport, use an older version of astroid (though note that these versions\nare no longer supported).\n\nTest\n----\n\nTests are in the 'test' subdirectory. To launch the whole tests suite, you can use\neither `tox` or `pytest`::\n\n    tox\n    pytest\n",
+        "description_content_type": "text/x-rst",
+        "keywords": [
+          "abstract syntax tree",
+          "python",
+          "static code analysis"
+        ],
+        "license_expression": "LGPL-2.1-or-later",
+        "license_file": [
+          "LICENSE",
+          "CONTRIBUTORS.txt"
+        ],
+        "classifier": [
+          "Development Status :: 6 - Mature",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          "Topic :: Software Development :: Quality Assurance",
+          "Topic :: Software Development :: Testing"
+        ],
+        "requires_dist": [
+          "typing-extensions>=4; python_version < \"3.11\""
+        ],
+        "requires_python": ">=3.10.0",
+        "project_url": [
+          "Bug tracker, https://github.com/pylint-dev/astroid/issues",
+          "Discord server, https://discord.gg/Egy6P8AMB5",
+          "Docs, https://pylint.readthedocs.io/projects/astroid/en/latest/",
+          "Source Code, https://github.com/pylint-dev/astroid"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/1e/77/dc8c558f7593132cf8fefec57c4f60c83b16941c574ac5f619abb3ae7933/dill-0.4.1-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=1e1ce33e978ae97fcfcff5638477032b801c46c7c65cf717f95fbc2248f79a9d",
+          "hashes": {
+            "sha256": "1e1ce33e978ae97fcfcff5638477032b801c46c7c65cf717f95fbc2248f79a9d"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.1",
+        "name": "dill",
+        "version": "0.4.1",
+        "platform": [
+          "Linux",
+          "Windows",
+          "Mac"
+        ],
+        "summary": "serialize all of Python",
+        "description": "-----------------------------\ndill: serialize all of Python\n-----------------------------\n\nAbout Dill\n==========\n\n``dill`` extends Python's ``pickle`` module for serializing and de-serializing\nPython objects to the majority of the built-in Python types. Serialization\nis the process of converting an object to a byte stream, and the inverse\nof which is converting a byte stream back to a Python object hierarchy.\n\n``dill`` provides the user the same interface as the ``pickle`` module, and\nalso includes some additional features. In addition to pickling Python\nobjects, ``dill`` provides the ability to save the state of an interpreter\nsession in a single command.  Hence, it would be feasible to save an\ninterpreter session, close the interpreter, ship the pickled file to\nanother computer, open a new interpreter, unpickle the session and\nthus continue from the 'saved' state of the original interpreter\nsession.\n\n``dill`` can be used to store Python objects to a file, but the primary\nusage is to send Python objects across the network as a byte stream.\n``dill`` is quite flexible, and allows arbitrary user defined classes\nand functions to be serialized.  Thus ``dill`` is not intended to be\nsecure against erroneously or maliciously constructed data. It is\nleft to the user to decide whether the data they unpickle is from\na trustworthy source.\n\n``dill`` is part of ``pathos``, a Python framework for heterogeneous computing.\n``dill`` is in active development, so any user feedback, bug reports, comments,\nor suggestions are highly appreciated.  A list of issues is located at\nhttps://github.com/uqfoundation/dill/issues, with a legacy list maintained at\nhttps://uqfoundation.github.io/project/pathos/query.\n\n\nMajor Features\n==============\n\n``dill`` can pickle the following standard types:\n\n    - none, type, bool, int, float, complex, bytes, str,\n    - tuple, list, dict, file, buffer, builtin,\n    - Python classes, namedtuples, dataclasses, metaclasses,\n    - instances of classes,\n    - set, frozenset, array, functions, exceptions\n\n``dill`` can also pickle more 'exotic' standard types:\n\n    - functions with yields, nested functions, lambdas,\n    - cell, method, unboundmethod, module, code, methodwrapper,\n    - methoddescriptor, getsetdescriptor, memberdescriptor, wrapperdescriptor,\n    - dictproxy, slice, notimplemented, ellipsis, quit\n\n``dill`` cannot yet pickle these standard types:\n\n    - frame, generator, traceback\n\n``dill`` also provides the capability to:\n\n    - save and load Python interpreter sessions\n    - save and extract the source code from functions and classes\n    - interactively diagnose pickling errors\n\n\nCurrent Release\n===============\n\nThe latest released version of ``dill`` is available from:\n\n    https://pypi.org/project/dill\n\n``dill`` is distributed under a 3-clause BSD license.\n\n\nDevelopment Version\n===================\n\nYou can get the latest development version with all the shiny new features at:\n\n    https://github.com/uqfoundation\n\nIf you have a new contribution, please submit a pull request.\n\n\nInstallation\n============\n\n``dill`` can be installed with ``pip``::\n\n    $ pip install dill\n\nTo optionally include the ``objgraph`` diagnostic tool in the install::\n\n    $ pip install dill[graph]\n\nTo optionally include the ``gprof2dot`` diagnostic tool in the install::\n\n    $ pip install dill[profile]\n\nFor windows users, to optionally install session history tools::\n\n    $ pip install dill[readline]\n\n\nRequirements\n============\n\n``dill`` requires:\n\n    - ``python`` (or ``pypy``), **>=3.9**\n    - ``setuptools``, **>=42**\n\nOptional requirements:\n\n    - ``objgraph``, **>=1.7.2**\n    - ``gprof2dot``, **>=2022.7.29**\n    - ``pyreadline``, **>=1.7.1** (on windows)\n\n\nBasic Usage\n===========\n\n``dill`` is a drop-in replacement for ``pickle``. Existing code can be\nupdated to allow complete pickling using::\n\n    >>> import dill as pickle\n\nor::\n\n    >>> from dill import dumps, loads\n\n``dumps`` converts the object to a unique byte string, and ``loads`` performs\nthe inverse operation::\n\n    >>> squared = lambda x: x**2\n    >>> loads(dumps(squared))(3)\n    9\n\nThere are a number of options to control serialization which are provided\nas keyword arguments to several ``dill`` functions:\n\n* with *protocol*, the pickle protocol level can be set. This uses the\n  same value as the ``pickle`` module, *DEFAULT_PROTOCOL*.\n* with *byref=True*, ``dill`` to behave a lot more like pickle with\n  certain objects (like modules) pickled by reference as opposed to\n  attempting to pickle the object itself.\n* with *recurse=True*, objects referred to in the global dictionary are\n  recursively traced and pickled, instead of the default behavior of\n  attempting to store the entire global dictionary.\n* with *fmode*, the contents of the file can be pickled along with the file\n  handle, which is useful if the object is being sent over the wire to a\n  remote system which does not have the original file on disk. Options are\n  *HANDLE_FMODE* for just the handle, *CONTENTS_FMODE* for the file content\n  and *FILE_FMODE* for content and handle.\n* with *ignore=False*, objects reconstructed with types defined in the\n  top-level script environment use the existing type in the environment\n  rather than a possibly different reconstructed type.\n\nThe default serialization can also be set globally in *dill.settings*.\nThus, we can modify how ``dill`` handles references to the global dictionary\nlocally or globally::\n\n    >>> import dill.settings\n    >>> dumps(absolute) == dumps(absolute, recurse=True)\n    False\n    >>> dill.settings['recurse'] = True\n    >>> dumps(absolute) == dumps(absolute, recurse=True)\n    True\n\n``dill`` also includes source code inspection, as an alternate to pickling::\n\n    >>> import dill.source\n    >>> print(dill.source.getsource(squared))\n    squared = lambda x:x**2\n\nTo aid in debugging pickling issues, use *dill.detect* which provides\ntools like pickle tracing::\n\n    >>> import dill.detect\n    >>> with dill.detect.trace():\n    >>>     dumps(squared)\n    ┬ F1: <function <lambda> at 0x7fe074f8c280>\n    ├┬ F2: <function _create_function at 0x7fe074c49c10>\n    │└ # F2 [34 B]\n    ├┬ Co: <code object <lambda> at 0x7fe07501eb30, file \"<stdin>\", line 1>\n    │├┬ F2: <function _create_code at 0x7fe074c49ca0>\n    ││└ # F2 [19 B]\n    │└ # Co [87 B]\n    ├┬ D1: <dict object at 0x7fe0750d4680>\n    │└ # D1 [22 B]\n    ├┬ D2: <dict object at 0x7fe074c5a1c0>\n    │└ # D2 [2 B]\n    ├┬ D2: <dict object at 0x7fe074f903c0>\n    │├┬ D2: <dict object at 0x7fe074f8ebc0>\n    ││└ # D2 [2 B]\n    │└ # D2 [23 B]\n    └ # F1 [180 B]\n\nWith trace, we see how ``dill`` stored the lambda (``F1``) by first storing\n``_create_function``, the underlying code object (``Co``) and ``_create_code``\n(which is used to handle code objects), then we handle the reference to\nthe global dict (``D2``) plus other dictionaries (``D1`` and ``D2``) that\nsave the lambda object's state. A ``#`` marks when the object is actually stored.\n\n\nMore Information\n================\n\nProbably the best way to get started is to look at the documentation at\nhttp://dill.rtfd.io. Also see ``dill.tests`` for a set of scripts that\ndemonstrate how ``dill`` can serialize different Python objects. You can\nrun the test suite with ``python -m dill.tests``. The contents of any\npickle file can be examined with ``undill``.  As ``dill`` conforms to\nthe ``pickle`` interface, the examples and documentation found at\nhttp://docs.python.org/library/pickle.html also apply to ``dill``\nif one will ``import dill as pickle``. The source code is also generally\nwell documented, so further questions may be resolved by inspecting the\ncode itself. Please feel free to submit a ticket on github, or ask a\nquestion on stackoverflow (**@Mike McKerns**).\nIf you would like to share how you use ``dill`` in your work, please send\nan email (to **mmckerns at uqfoundation dot org**).\n\n\nCitation\n========\n\nIf you use ``dill`` to do research that leads to publication, we ask that you\nacknowledge use of ``dill`` by citing the following in your publication::\n\n    M.M. McKerns, L. Strand, T. Sullivan, A. Fang, M.A.G. Aivazis,\n    \"Building a framework for predictive science\", Proceedings of\n    the 10th Python in Science Conference, 2011;\n    http://arxiv.org/pdf/1202.1056\n\n    Michael McKerns and Michael Aivazis,\n    \"pathos: a framework for heterogeneous computing\", 2010- ;\n    https://uqfoundation.github.io/project/pathos\n\nPlease see https://uqfoundation.github.io/project/pathos or\nhttp://arxiv.org/pdf/1202.1056 for further information.\n",
+        "home_page": "https://github.com/uqfoundation/dill",
+        "download_url": "https://pypi.org/project/dill/#files",
+        "author": "Mike McKerns",
+        "author_email": "mmckerns@uqfoundation.org",
+        "maintainer": "Mike McKerns",
+        "maintainer_email": "mmckerns@uqfoundation.org",
+        "license": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Intended Audience :: Science/Research",
+          "License :: OSI Approved :: BSD License",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Scientific/Engineering",
+          "Topic :: Software Development"
+        ],
+        "requires_dist": [
+          "objgraph>=1.7.2; extra == \"graph\"",
+          "gprof2dot>=2022.7.29; extra == \"profile\""
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Documentation, http://dill.rtfd.io",
+          "Source Code, https://github.com/uqfoundation/dill",
+          "Bug Tracker, https://github.com/uqfoundation/dill/issues"
+        ],
+        "provides_extra": [
+          "readline",
+          "graph",
+          "profile"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/ab/36/512c41f0d9f4c2a61d56d383db21d42a9b82b4f768827f7e852139d14123/isort-9.0.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+        "archive_info": {
+          "hash": "sha256=af8be0b5cac101202c8255360e5de832ebbb84b2e863dc0f65dbb1a3d63dd40a",
+          "hashes": {
+            "sha256": "af8be0b5cac101202c8255360e5de832ebbb84b2e863dc0f65dbb1a3d63dd40a"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "isort",
+        "version": "9.0.2",
+        "summary": "A Python utility / library to sort Python imports.",
+        "description": "[![isort - isort your imports, so you don't have to.](https://raw.githubusercontent.com/pycqa/isort/main/art/logo_large.png)](https://isort.readthedocs.io/)\n\n------------------------------------------------------------------------\n\n[![PyPI version](https://badge.fury.io/py/isort.svg)](https://badge.fury.io/py/isort)\n[![Python Version](https://img.shields.io/pypi/pyversions/isort)][pypi status]\n[![CI](https://github.com/PyCQA/isort/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/PyCQA/isort/actions/workflows/continuous-integration.yml)\n[![Code coverage Status](https://codecov.io/gh/pycqa/isort/branch/main/graph/badge.svg)](https://codecov.io/gh/pycqa/isort)\n[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://pypi.org/project/isort/)\n[![Downloads](https://pepy.tech/badge/isort)](https://pepy.tech/project/isort)\n[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)\n[![Imports: isort](https://img.shields.io/badge/imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://isort.readthedocs.io/)\n[![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/pycqa/isort/?ref=repository-badge)\n\n[pypi status]: https://pypi.org/project/isort/\n_________________\n\n[Read Latest Documentation](https://isort.readthedocs.io/) - [Browse GitHub Code Repository](https://github.com/pycqa/isort/)\n_________________\n\n# isort your imports, so you don't have to.\n\nisort is a Python utility / library to sort imports alphabetically and\nautomatically separate into sections and by type. It provides a command line\nutility, Python library and [plugins for various\neditors](https://github.com/pycqa/isort/wiki/isort-Plugins) to\nquickly sort all your imports. It requires Python 3.10+ to run but\nsupports formatting Python 2 code too.\n\n- [Try isort now from your browser!](docs/quick_start/0.-try.md)\n- [Using black? See the isort and black compatibility guide.](docs/configuration/black_compatibility.md)\n- [isort has official support for pre-commit!](docs/configuration/pre-commit.md)\n\n![Example Usage](https://raw.github.com/pycqa/isort/main/example.gif)\n\nBefore isort:\n\n```python\nfrom my_lib import Object\n\nimport os\n\nfrom my_lib import Object3\n\nfrom my_lib import Object2\n\nimport sys\n\nfrom third_party import lib15, lib1, lib2, lib3, lib4, lib5, lib6, lib7, lib8, lib9, lib10, lib11, lib12, lib13, lib14\n\nimport sys\n\nfrom __future__ import absolute_import\n\nfrom third_party import lib3\n\nprint(\"Hey\")\nprint(\"yo\")\n```\n\nAfter isort:\n\n```python\nfrom __future__ import absolute_import\n\nimport os\nimport sys\n\nfrom third_party import (lib1, lib2, lib3, lib4, lib5, lib6, lib7, lib8,\n                         lib9, lib10, lib11, lib12, lib13, lib14, lib15)\n\nfrom my_lib import Object, Object2, Object3\n\nprint(\"Hey\")\nprint(\"yo\")\n```\n\n## Installing isort\n\nInstalling isort is as simple as:\n\n```bash\npip install isort\n```\n\n## Using isort\n\n**From the command line**:\n\nTo run on specific files:\n\n```bash\nisort mypythonfile.py mypythonfile2.py\n```\n\nTo apply recursively:\n\n```bash\nisort .\n```\n\nIf [globstar](https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html)\nis enabled, `isort .` is equivalent to:\n\n```bash\nisort **/*.py\n```\n\nTo view proposed changes without applying them:\n\n```bash\nisort mypythonfile.py --diff\n```\n\nFinally, to atomically run isort against a project, only applying\nchanges if they don't introduce syntax errors:\n\n```bash\nisort --atomic .\n```\n\n(Note: this is disabled by default, as it prevents isort from\nrunning against code written using a different version of Python.)\n\n**From within Python**:\n\n```python\nimport isort\n\nisort.file(\"pythonfile.py\")\n```\n\nor:\n\n```python\nimport isort\n\nsorted_code = isort.code(\"import b\\nimport a\\n\")\n```\n\n## Installing isort's for your preferred text editor\n\nSeveral plugins have been written that enable to use isort from within a\nvariety of text-editors. You can find a full list of them [on the isort\nwiki](https://github.com/pycqa/isort/wiki/isort-Plugins).\nAdditionally, I will enthusiastically accept pull requests that include\nplugins for other text editors and add documentation for them as I am\nnotified.\n\n## Multi line output modes\n\nYou will notice above the \\\"multi\\_line\\_output\\\" setting. This setting\ndefines how from imports wrap when they extend past the line\\_length\nlimit and has [12 possible settings](docs/configuration/multi_line_output_modes.md).\n\n## Indentation\n\nTo change the how constant indents appear - simply change the\nindent property with the following accepted formats:\n\n-   Number of spaces you would like. For example: 4 would cause standard\n    4 space indentation.\n-   Tab\n-   A verbatim string with quotes around it.\n\nFor example:\n\n```python\n\"    \"\n```\n\nis equivalent to 4.\n\nFor the import styles that use parentheses, you can control whether or\nnot to include a trailing comma after the last import with the\n`include_trailing_comma` option (defaults to `False`).\n\n## Intelligently Balanced Multi-line Imports\n\nAs of isort 3.1.0 support for balanced multi-line imports has been\nadded. With this enabled isort will dynamically change the import length\nto the one that produces the most balanced grid, while staying below the\nmaximum import length defined.\n\nExample:\n\n```python\nfrom __future__ import (absolute_import, division,\n                        print_function, unicode_literals)\n```\n\nWill be produced instead of:\n\n```python\nfrom __future__ import (absolute_import, division, print_function,\n                        unicode_literals)\n```\n\nTo enable this set `balanced_wrapping` to `True` in your config or pass\nthe `-e` option into the command line utility.\n\n## Custom Sections and Ordering\n\nisort provides configuration options to change almost every aspect of how\nimports are organized, ordered, or grouped together in sections.\n\n[Click here](docs/configuration/custom_sections_and_ordering.md) for an overview of all these options.\n\n## Skip processing of imports (outside of configuration)\n\nTo make isort ignore a single import simply add a comment at the end of\nthe import line containing the text `isort:skip`:\n\n```python\nimport module  # isort:skip\n```\n\nor:\n\n```python\nfrom xyz import (abc,  # isort:skip\n                 yo,\n                 hey)\n```\n\nTo make isort skip an entire file simply add `isort:skip_file` to the\nmodule's doc string:\n\n```python\n\"\"\" my_module.py\n    Best module ever\n\n   isort:skip_file\n\"\"\"\n\nimport b\nimport a\n```\n\n## Adding or removing an import from multiple files\n\nisort can be ran or configured to add / remove imports automatically.\n\n[See a complete guide here.](docs/configuration/add_or_remove_imports.md)\n\n## Using isort to verify code\n\nThe `--check-only` option\n-------------------------\n\nisort can also be used to verify that code is correctly formatted\nby running it with `-c`. Any files that contain incorrectly sorted\nand/or formatted imports will be outputted to `stderr`.\n\n```bash\nisort **/*.py -c -v\n\nSUCCESS: /home/timothy/Projects/Open_Source/isort/isort_kate_plugin.py Everything Looks Good!\nERROR: /home/timothy/Projects/Open_Source/isort/isort/isort.py Imports are incorrectly sorted.\n```\n\nOne great place this can be used is with a pre-commit git hook, such as\nthis one by \\@acdha:\n\n<https://gist.github.com/acdha/8717683>\n\nThis can help to ensure a certain level of code quality throughout a\nproject.\n\n## Git hook\n\nisort provides a hook function that can be integrated into your Git\npre-commit script to check Python code before committing.\n\n[More info here.](docs/configuration/git_hook.md)\n\n## Spread the word\n\n[![Imports: isort](https://img.shields.io/badge/imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://isort.readthedocs.io/)\n\nPlace this badge at the top of your repository to let others know your project uses isort.\n\nFor README.md:\n\n```markdown\n[![Imports: isort](https://img.shields.io/badge/imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://isort.readthedocs.io/)\n```\n\nOr README.rst:\n\n```rst\n.. image:: https://img.shields.io/badge/imports-isort-%231674b1?style=flat&labelColor=ef8336\n    :target: https://isort.readthedocs.io/\n```\n\n## Security contact information\n\nTo report a security vulnerability, please use the [Tidelift security\ncontact](https://tidelift.com/security). Tidelift will coordinate the\nfix and disclosure.\n\n## Why isort?\n\nisort simply stands for import sort. It was originally called\n\"sortImports\" however I got tired of typing the extra characters and\ncame to the realization camelCase is not pythonic.\n\nI wrote isort because in an organization I used to work in the manager\ncame in one day and decided all code must have alphabetically sorted\nimports. The code base was huge - and he meant for us to do it by hand.\nHowever, being a programmer - I\\'m too lazy to spend 8 hours mindlessly\nperforming a function, but not too lazy to spend 16 hours automating it.\nI was given permission to open source sortImports and here we are :)\n\n------------------------------------------------------------------------\n\n[Get professionally supported isort with the Tidelift\nSubscription](https://tidelift.com/subscription/pkg/pypi-isort?utm_source=pypi-isort&utm_medium=referral&utm_campaign=readme)\n\nProfessional support for isort is available as part of the [Tidelift\nSubscription](https://tidelift.com/subscription/pkg/pypi-isort?utm_source=pypi-isort&utm_medium=referral&utm_campaign=readme).\nTidelift gives software development teams a single source for purchasing\nand maintaining their software, with professional grade assurances from\nthe experts who know it best, while seamlessly integrating with existing\ntools.\n\n------------------------------------------------------------------------\n\nThanks and I hope you find isort useful!\n\n~Timothy Crosley\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "Clean",
+          "Imports",
+          "Lint",
+          "Refactor",
+          "Sort"
+        ],
+        "author_email": "Daniël van Noord <13665637+DanielNoord@users.noreply.github.com>, Timothy Crosley <timothy.crosley@gmail.com>, staticdev <staticdev-support@proton.me>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 6 - Mature",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Natural Language :: English",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Software Development :: Libraries",
+          "Topic :: Utilities"
+        ],
+        "requires_dist": [
+          "mypy-extensions>=1.1.0",
+          "colorama; extra == 'colors'"
+        ],
+        "requires_python": ">=3.10.0",
+        "project_url": [
+          "Homepage, https://isort.readthedocs.io/",
+          "Documentation, https://isort.readthedocs.io/",
+          "Repository, https://github.com/PyCQA/isort",
+          "Changelog, https://github.com/PyCQA/isort/releases"
+        ],
+        "provides_extra": [
+          "colors"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/27/1a/1f68f9ba0c207934b35b86a8ca3aad8395a3d6dd7921c0686e23853ff5a9/mccabe-0.7.0-py2.py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=6c2d30ab6be0e4a46919781807b4f0d834ebdd6c6e3dca0bda5a15f863427b6e",
+          "hashes": {
+            "sha256": "6c2d30ab6be0e4a46919781807b4f0d834ebdd6c6e3dca0bda5a15f863427b6e"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.1",
+        "name": "mccabe",
+        "version": "0.7.0",
+        "platform": [
+          "UNKNOWN"
+        ],
+        "summary": "McCabe checker, plugin for flake8",
+        "description": "McCabe complexity checker\n=========================\n\nNed's script to check McCabe complexity.\n\nThis module provides a plugin for ``flake8``, the Python code checker.\n\n\nInstallation\n------------\n\nYou can install, upgrade, or uninstall ``mccabe`` with these commands::\n\n  $ pip install mccabe\n  $ pip install --upgrade mccabe\n  $ pip uninstall mccabe\n\n\nStandalone script\n-----------------\n\nThe complexity checker can be used directly::\n\n  $ python -m mccabe --min 5 mccabe.py\n  (\"185:1: 'PathGraphingAstVisitor.visitIf'\", 5)\n  (\"71:1: 'PathGraph.to_dot'\", 5)\n  (\"245:1: 'McCabeChecker.run'\", 5)\n  (\"283:1: 'main'\", 7)\n  (\"203:1: 'PathGraphingAstVisitor.visitTryExcept'\", 5)\n  (\"257:1: 'get_code_complexity'\", 5)\n\n\nPlugin for Flake8\n-----------------\n\nWhen both ``flake8 2+`` and ``mccabe`` are installed, the plugin is\navailable in ``flake8``::\n\n  $ flake8 --version\n  2.0 (pep8: 1.4.2, pyflakes: 0.6.1, mccabe: 0.2)\n\nBy default the plugin is disabled.  Use the ``--max-complexity`` switch to\nenable it.  It will emit a warning if the McCabe complexity of a function is\nhigher than the provided value::\n\n    $ flake8 --max-complexity 10 coolproject\n    ...\n    coolproject/mod.py:1204:1: C901 'CoolFactory.prepare' is too complex (14)\n\nThis feature is quite useful for detecting over-complex code.  According to McCabe,\nanything that goes beyond 10 is too complex.\n\nFlake8 has many features that mccabe does not provide. Flake8 allows users to\nignore violations reported by plugins with ``# noqa``. Read more about this in\n`their documentation\n<http://flake8.pycqa.org/en/latest/user/violations.html#in-line-ignoring-errors>`__.\nTo silence violations reported by ``mccabe``, place your ``# noqa: C901`` on\nthe function definition line, where the error is reported for (possibly a\ndecorator).\n\n\nLinks\n-----\n\n* Feedback and ideas: http://mail.python.org/mailman/listinfo/code-quality\n\n* Cyclomatic complexity: http://en.wikipedia.org/wiki/Cyclomatic_complexity\n\n* Ned Batchelder's script:\n  http://nedbatchelder.com/blog/200803/python_code_complexity_microtool.html\n\n* McCabe complexity: http://en.wikipedia.org/wiki/Cyclomatic_complexity\n\n\nChanges\n-------\n\n0.7.0 - 2021-01-23\n``````````````````\n\n* Drop support for all versions of Python lower than 3.6\n\n* Add support for Python 3.8, 3.9, and 3.10\n\n* Fix option declaration for Flake8\n\n0.6.1 - 2017-01-26\n``````````````````\n\n* Fix signature for ``PathGraphingAstVisitor.default`` to match the signature\n  for ``ASTVisitor``\n\n0.6.0 - 2017-01-23\n``````````````````\n\n* Add support for Python 3.6\n\n* Fix handling for missing statement types\n\n0.5.3 - 2016-12-14\n``````````````````\n\n* Report actual column number of violation instead of the start of the line\n\n0.5.2 - 2016-07-31\n``````````````````\n\n* When opening files ourselves, make sure we always name the file variable\n\n0.5.1 - 2016-07-28\n``````````````````\n\n* Set default maximum complexity to -1 on the class itself\n\n0.5.0 - 2016-05-30\n``````````````````\n\n* PyCon 2016 PDX release\n\n* Add support for Flake8 3.0\n\n0.4.0 - 2016-01-27\n``````````````````\n\n* Stop testing on Python 3.2\n\n* Add support for async/await keywords on Python 3.5 from PEP 0492\n\n0.3.1 - 2015-06-14\n``````````````````\n\n* Include ``test_mccabe.py`` in releases.\n\n* Always coerce the ``max_complexity`` value from Flake8's entry-point to an\n  integer.\n\n0.3 - 2014-12-17\n````````````````\n\n* Computation was wrong: the mccabe complexity starts at 1, not 2.\n\n* The ``max-complexity`` value is now inclusive.  E.g.: if the\n  value is 10 and the reported complexity is 10, then it passes.\n\n* Add tests.\n\n\n0.2.1 - 2013-04-03\n``````````````````\n\n* Do not require ``setuptools`` in setup.py.  It works around an issue\n  with ``pip`` and Python 3.\n\n\n0.2 - 2013-02-22\n````````````````\n\n* Rename project to ``mccabe``.\n\n* Provide ``flake8.extension`` setuptools entry point.\n\n* Read ``max-complexity`` from the configuration file.\n\n* Rename argument ``min_complexity`` to ``threshold``.\n\n\n0.1 - 2013-02-11\n````````````````\n* First release\n\n\n",
+        "keywords": [
+          "flake8",
+          "mccabe"
+        ],
+        "home_page": "https://github.com/pycqa/mccabe",
+        "author": "Tarek Ziade",
+        "author_email": "tarek@ziade.org",
+        "maintainer": "Ian Stapleton Cordasco",
+        "maintainer_email": "graffatcolmingov@gmail.com",
+        "license": "Expat license",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3.6",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          "Topic :: Software Development :: Quality Assurance"
+        ],
+        "requires_python": ">=3.6"
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/69/2b/887969ef4bb53e0cb271dc7c3f4a73d50c5d58bb88aeaae311e3340cd57e/platformdirs-4.14.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=1dadfc59a8a5d7565b3d9270ae8fa71c065595352c4277b41c11ee6c222c4b91",
+          "hashes": {
+            "sha256": "1dadfc59a8a5d7565b3d9270ae8fa71c065595352c4277b41c11ee6c222c4b91"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "platformdirs",
+        "version": "4.14.0",
+        "summary": "A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`.",
+        "description": "# platformdirs\n\n[![PyPI version](https://badge.fury.io/py/platformdirs.svg)](https://badge.fury.io/py/platformdirs)\n[![Python versions](https://img.shields.io/pypi/pyversions/platformdirs.svg)](https://pypi.python.org/pypi/platformdirs/)\n[![CI](https://github.com/tox-dev/platformdirs/actions/workflows/check.yaml/badge.svg)](https://github.com/platformdirs/platformdirs/actions)\n[![Downloads](https://static.pepy.tech/badge/platformdirs/month)](https://pepy.tech/project/platformdirs)\n\nA Python package for determining platform-specific directories (e.g. user data, config, cache, logs). Handles the\ndifferences between macOS, Windows, Linux/Unix, Android, and iOS so you don't have to.\n\n## Quick start\n\n```python\nfrom platformdirs import PlatformDirs\n\ndirs = PlatformDirs(\"MyApp\", \"MyCompany\")\ndirs.user_data_dir  # ~/.local/share/MyApp (Linux)\ndirs.user_config_dir  # ~/.config/MyApp (Linux)\ndirs.user_cache_dir  # ~/.cache/MyApp (Linux)\ndirs.user_state_dir  # ~/.local/state/MyApp (Linux)\ndirs.user_log_dir  # ~/.local/state/MyApp/log (Linux)\ndirs.user_documents_dir  # ~/Documents\ndirs.user_downloads_dir  # ~/Downloads\ndirs.user_runtime_dir  # /run/user/<uid>/MyApp (Linux)\n```\n\nFor Path objects instead of strings:\n\n```python\nfrom platformdirs import PlatformDirs\n\ndirs = PlatformDirs(\"MyApp\", \"MyCompany\")\ndirs.user_data_path  # pathlib.Path('~/.local/share/MyApp')\ndirs.user_config_path  # pathlib.Path('~/.config/MyApp')\n```\n\nConvenience functions for quick access:\n\n```python\nfrom platformdirs import user_data_dir, user_config_path\n\nuser_data_dir(\"MyApp\", \"MyCompany\")  # returns str\nuser_config_path(\"MyApp\", \"MyCompany\")  # returns pathlib.Path\n```\n\n## Directory types\n\n**Application directories** — scoped to your app name and version:\n\n- **Data**: Persistent application data (`user_data_dir`, `site_data_dir`)\n- **Config**: Configuration files and settings (`user_config_dir`, `site_config_dir`)\n- **Preference**: User preferences, distinct from config on macOS (`user_preference_dir`)\n- **Cache**: Cached data that can be regenerated (`user_cache_dir`, `site_cache_dir`)\n- **State**: Non-essential runtime state like window positions (`user_state_dir`, `site_state_dir`)\n- **Logs**: Log files (`user_log_dir`, `site_log_dir`)\n- **Runtime**: Runtime files like sockets and PIDs (`user_runtime_dir`, `site_runtime_dir`)\n\nApp dirs have both `user_*` (per-user, writable) and `site_*` (system-wide, read-only) variants where applicable.\n\n**User media directories** — standard user-facing folders, not scoped to app name:\n\n- **Documents** (`user_documents_dir`), **Downloads** (`user_downloads_dir`)\n- **Pictures** (`user_pictures_dir`), **Videos** (`user_videos_dir`), **Music** (`user_music_dir`)\n- **Desktop** (`user_desktop_dir`), **Projects** (`user_projects_dir`)\n- **Public share** (`user_publicshare_dir`), **Templates** (`user_templates_dir`)\n- **Fonts** (`user_fonts_dir`) — user-writable font installation directory\n- **Executable** (`user_bin_dir`, `site_bin_dir`), **Applications** (`user_applications_dir`, `site_applications_dir`)\n\n## Documentation\n\nFull documentation is available at [platformdirs.readthedocs.io](https://platformdirs.readthedocs.io):\n\n- **[Getting started tutorial](https://platformdirs.readthedocs.io/en/latest/tutorial.html)** -- learn core concepts\n  through real-world examples\n- **[How-to guides](https://platformdirs.readthedocs.io/en/latest/howto.html)** -- recipes for common tasks and\n  platform-specific tips\n- **[API reference](https://platformdirs.readthedocs.io/en/latest/api.html)** -- complete list of functions and classes\n- **[Platform details](https://platformdirs.readthedocs.io/en/latest/platforms.html)** -- default paths for each\n  operating system\n\nContributions are welcome! See [CONTRIBUTING.md](https://github.com/tox-dev/platformdirs/blob/main/CONTRIBUTING.md) for\ndetails.\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "appdirs",
+          "application",
+          "cache",
+          "directory",
+          "log",
+          "user"
+        ],
+        "maintainer_email": "Bernát Gábor <gaborjbernat@gmail.com>, Julian Berman <Julian@GrayVines.com>, Ofek Lev <oss@ofek.dev>, Ronny Pfannschmidt <opensource@ronnypfannschmidt.de>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Software Development :: Libraries :: Python Modules"
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "Changelog, https://platformdirs.readthedocs.io/en/latest/changelog.html",
+          "Documentation, https://platformdirs.readthedocs.io",
+          "Homepage, https://github.com/tox-dev/platformdirs",
+          "Source, https://github.com/tox-dev/platformdirs",
+          "Tracker, https://github.com/tox-dev/platformdirs/issues"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/da/46/7d84138a60a8bd796825b2d38ebe92d0d16501ca57d501b7c5d677401bbc/tomlkit-0.15.2-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=05562412163a3037b94497385fb7f9204c637bc605af7a48199e41cf2272f437",
+          "hashes": {
+            "sha256": "05562412163a3037b94497385fb7f9204c637bc605af7a48199e41cf2272f437"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "tomlkit",
+        "version": "0.15.2",
+        "summary": "Style preserving TOML library",
+        "description": "[github_release]: https://img.shields.io/github/release/sdispater/tomlkit.svg?logo=github&logoColor=white\n[pypi_version]: https://img.shields.io/pypi/v/tomlkit.svg?logo=python&logoColor=white\n[python_versions]: https://img.shields.io/pypi/pyversions/tomlkit.svg?logo=python&logoColor=white\n[github_license]: https://img.shields.io/github/license/sdispater/tomlkit.svg?logo=github&logoColor=white\n[github_action]: https://github.com/sdispater/tomlkit/actions/workflows/tests.yml/badge.svg\n\n[![GitHub Release][github_release]](https://github.com/sdispater/tomlkit/releases/)\n[![PyPI Version][pypi_version]](https://pypi.org/project/tomlkit/)\n[![Python Versions][python_versions]](https://pypi.org/project/tomlkit/)\n[![License][github_license]](https://github.com/sdispater/tomlkit/blob/master/LICENSE)\n<br>\n[![Tests][github_action]](https://github.com/sdispater/tomlkit/actions/workflows/tests.yml)\n\n# TOML Kit - Style-preserving TOML library for Python\n\nTOML Kit is a **1.1.0-compliant** [TOML](https://toml.io/) library.\n\nIt includes a parser that preserves all comments, indentations, whitespace and internal element ordering,\nand makes them accessible and editable via an intuitive API.\n\nYou can also create new TOML documents from scratch using the provided helpers.\n\nPart of the implementation has been adapted, improved and fixed from [Molten](https://github.com/LeopoldArkham/Molten).\n\n## Usage\n\nSee the [documentation](https://tomlkit.readthedocs.io/) for more information.\n\n## Limitations\n\n`tomlkit` preserves the original layout of a document, with one exception: a\nsub-table that extends an array of tables out of order — for example a\n`[fruit.apple.texture]` header that appears after `[[fruit]]` with an unrelated\ntable in between — is normalized into the array's last element when the document\nis re-serialized, rather than kept at its original position. The data is\npreserved; only the physical placement of that sub-table changes.\n\n## Installation\n\nIf you are using [uv](https://docs.astral.sh/uv), you can\nadd `tomlkit` to your `pyproject.toml` file by using:\n\n```bash\nuv add tomlkit\n```\n\nOr just:\n\n```bash\nuv pip install tomlkit\n```\n\nIf not, you can use `pip`:\n\n```bash\npip install tomlkit\n```\n\n## Running tests\n\nPlease clone the repo with submodules with the following command:\n```bash\ngit clone --recurse-submodules https://github.com/python-poetry/tomlkit.git\n```\nThe `toml-test` submodule is required for running the tests.\n\nYou can then run the tests with\n```bash\npoetry run pytest -q tests\n```\n\n",
+        "description_content_type": "text/markdown",
+        "author": "Sébastien Eustace",
+        "author_email": "sebastien@eustace.io",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Changelog, https://github.com/python-poetry/tomlkit/blob/master/CHANGELOG.md",
+          "Homepage, https://github.com/python-poetry/tomlkit",
+          "Repository, https://github.com/python-poetry/tomlkit"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/79/7b/2c79738432f5c924bef5071f933bcc9efd0473bac3b4aa584a6f7c1c8df8/mypy_extensions-1.1.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505",
+          "hashes": {
+            "sha256": "1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "mypy_extensions",
+        "version": "1.1.0",
+        "summary": "Type system extensions for programs checked with the mypy type checker.",
+        "description": "Mypy Extensions\n===============\n\nThe `mypy_extensions` module defines extensions to the Python standard\nlibrary `typing` module that are supported by the mypy type checker and\nthe mypyc compiler.\n\n",
+        "description_content_type": "text/markdown",
+        "author_email": "The mypy developers <jukka.lehtosalo@iki.fi>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Topic :: Software Development"
+        ],
+        "requires_python": ">=3.8",
+        "project_url": [
+          "Homepage, https://github.com/python/mypy_extensions"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "7.0.0-1017-azure",
+    "platform_system": "Linux",
+    "platform_version": "#17~24.04.1-Ubuntu SMP PREEMPT Thu Sep 24 18:46:57 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}

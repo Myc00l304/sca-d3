@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "python": "python312",
+  "resolution": "full",
+  "f2": true,
+  "packages": 5,
+  "tree": {
+    "Authlib": "1.8.0",
+    "cffi": "2.1.1",
+    "cryptography": "50.0.2",
+    "joserfc": "1.7.7",
+    "pycparser": "3.12"
+  }
+}
