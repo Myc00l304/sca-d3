@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "packages": 12,
+  "tree": {
+    "@graphql-tools/executor-legacy-ws": "1.1.35",
+    "@graphql-tools/utils": "12.1.0",
+    "@graphql-typed-document-node/core": "3.2.0",
+    "@types/node": "26.6.6",
+    "@types/ws": "8.18.2",
+    "@whatwg-node/promise-helpers": "2.0.1",
+    "cross-inspect": "1.0.1",
+    "graphql": "17.0.2",
+    "isomorphic-ws": "5.0.0",
+    "tslib": "2.9.1",
+    "undici-types": "8.9.0",
+    "ws": "8.22.1"
+  }
+}

@@ -1,0 +1,10 @@
+autobahn==26.7.1
+cbor2==6.1.5
+cffi==2.1.1
+cryptography==50.0.2
+hyperlink==21.0.0
+idna==3.20
+msgpack==1.2.4
+pycparser==3.12
+txaio==26.6.1
+ujson==6.0.0

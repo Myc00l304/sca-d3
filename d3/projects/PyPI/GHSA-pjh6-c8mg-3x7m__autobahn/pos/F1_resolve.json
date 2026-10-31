@@ -1,0 +1,734 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/b2/4c/00553ee9d57ee11df47bc9867d120cfe721a73bec0b58fb3a3b91cd7c797/autobahn-26.7.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+        "archive_info": {
+          "hash": "sha256=de491baa4cf52fb6d7f542e445c72d94ce52dc7aabb47b0b4d5191e452dd2c74",
+          "hashes": {
+            "sha256": "de491baa4cf52fb6d7f542e445c72d94ce52dc7aabb47b0b4d5191e452dd2c74"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "autobahn",
+        "version": "26.7.1",
+        "summary": "WebSocket client & server library, WAMP real-time framework",
+        "description": "# Autobahn|Python\n\nWebSocket & WAMP for Python on Twisted and asyncio.\n\n[![PyPI](https://img.shields.io/pypi/v/autobahn.svg)](https://pypi.python.org/pypi/autobahn)\n[![Python](https://img.shields.io/pypi/pyversions/autobahn.svg)](https://pypi.python.org/pypi/autobahn)\n[![CI](https://github.com/crossbario/autobahn-python/workflows/main/badge.svg)](https://github.com/crossbario/autobahn-python/actions?query=workflow%3Amain)\n[![CI (wstest)](https://github.com/crossbario/autobahn-python/workflows/wstest/badge.svg)](https://github.com/crossbario/autobahn-python/actions?query=workflow%3Awstest)\n[![CD (wheels)](https://github.com/crossbario/autobahn-python/workflows/wheels/badge.svg)](https://github.com/crossbario/autobahn-python/actions?query=workflow%3Awheels)\n[![CD (wheels-arm64)](https://github.com/crossbario/autobahn-python/workflows/wheels-arm64/badge.svg)](https://github.com/crossbario/autobahn-python/actions?query=workflow%3Awheels-arm64)\n[![CD (wheels-docker)](https://github.com/crossbario/autobahn-python/workflows/wheels-docker/badge.svg)](https://github.com/crossbario/autobahn-python/actions?query=workflow%3Awheels-docker)\n[![Docs](https://readthedocs.org/projects/autobahn/badge/?version=latest)](https://autobahn.readthedocs.io/en/latest/)\n[![License](https://img.shields.io/pypi/l/autobahn.svg)](https://github.com/crossbario/autobahn-python/blob/master/LICENSE)\n[![Downloads](https://img.shields.io/pypi/dm/autobahn.svg)](https://pypi.python.org/pypi/autobahn)\n\n---\n\n**Quick Links**:\n[Source Code](https://github.com/crossbario/autobahn-python) -\n[Documentation](https://autobahn.readthedocs.io/en/latest/) -\n[WebSocket Examples](https://autobahn.readthedocs.io/en/latest/websocket/examples.html) -\n[WAMP Examples](https://autobahn.readthedocs.io/en/latest/wamp/examples.html)\n**Community**:\n[Forum](https://crossbar.discourse.group/) -\n[StackOverflow](https://stackoverflow.com/questions/tagged/autobahn) -\n[Twitter](https://twitter.com/autobahnws) -\n[IRC \\#autobahn/chat.freenode.net](https://webchat.freenode.net/)\n**Companion\nProjects**:\n[Autobahn|JS](https://github.com/crossbario/autobahn-js/) -\n[Autobahn|Cpp](https://github.com/crossbario/autobahn-cpp) -\n[Autobahn|Testsuite](https://github.com/crossbario/autobahn-testsuite) -\n[Crossbar.io](https://crossbar.io) -\n[WAMP](https://wamp-proto.org)\n\n## Introduction\n\n**Autobahn|Python** is a subproject of\n[Autobahn](https://crossbar.io/autobahn) and provides open-source\nimplementations of\n\n- [The WebSocket Protocol](https://tools.ietf.org/html/rfc6455)\n- [The Web Application Messaging Protocol (WAMP)](https://wamp-proto.org/)\n\nfor Python 3.11+ and running on\n[Twisted](https://twistedmatrix.com/) and\n[asyncio](https://docs.python.org/3/library/asyncio.html).\n\nYou can use **Autobahn|Python** to create clients and servers in\nPython speaking just plain WebSocket or WAMP.\n\n**WebSocket** allows\n[bidirectional real-time messaging on the Web](https://crossbario.com/blog/post/websocket-why-what-can-i-use-it/)\nand beyond, while [WAMP](https://wamp-proto.org/) adds real-time\napplication communication on top of WebSocket.\n\n**WAMP** provides asynchronous **Remote Procedure Calls** and\n**Publish & Subscribe** for applications in _one_ protocol\nrunning over [WebSocket](https://tools.ietf.org/html/rfc6455).\nWAMP is a _routed_ protocol, so you need a **WAMP Router** to\nconnect your **Autobahn|Python** based clients. We provide\n[Crossbar.io](https://crossbar.io), but there are\n[other options](https://wamp-proto.org/implementations.html#routers)\nas well.\n\nNote\n\n**Autobahn|Python** currently requires Python 3.11 or later. Earlier\nrelease lines supported older Python versions: up to version v19.11.2\nsupported Python 2 and 3.4+, up to version v20.7.1 supported Python\n3.5+, and up to version v21.2.1 supported Python 3.6+.\n\n## Features\n\n- framework for [WebSocket](https://tools.ietf.org/html/rfc6455)\n  and [WAMP](https://wamp-proto.org/) clients and servers\n- runs on [CPython](https://python.org/) and\n  <span class=\"title-ref\">PyPy &lt;https://pypy.org/&gt;</span>\n- runs under [Twisted](https://twistedmatrix.com/) and\n  [asyncio](https://docs.python.org/3/library/asyncio.html) -\n  implements WebSocket\n  [RFC6455](https://tools.ietf.org/html/rfc6455) and Draft\n  Hybi-10+\n- implements\n  [WebSocket compression](https://tools.ietf.org/html/draft-ietf-hybi-permessage-compression)\n- implements [WAMP](https://wamp-proto.org/), the Web Application\n  Messaging Protocol\n- high-performance, fully asynchronous implementation\n- best-in-class standards conformance (100% strict passes with\n  [Autobahn Testsuite](https://crossbar.io/autobahn#testsuite):\n  [Client](https://autobahn.ws/testsuite/reports/clients/index.html)\n  [Server](https://autobahn.ws/testsuite/reports/servers/index.html))\n- message-, frame- and streaming-APIs for WebSocket\n- supports TLS (secure WebSocket) and proxies\n- Open-source\n  ([MIT license](https://github.com/crossbario/autobahn-python/blob/master/LICENSE))\n\n---\n\n## AI Policy\n\n> **IMPORTANT: A Note on Upcoming Policy Changes Regarding AI-Assisted Content**\n>\n> Up to and including release **v25.6.1**, this project contains no code\n> or documentation generated with the assistance of AI tools. This version\n> represents the final release under our historical contribution policy.\n> Starting with future versions (*after* release v25.6.1), our contribution policy\n> will change. Subsequent releases **MAY** contain code or documentation\n> created with AI assistance.\n\nWe urge all users and contributors to review our [AI\nPolicy](https://github.com/crossbario/autobahn-python/blob/master/AI_POLICY.md).\nThis document details:\n\n-   The rules and warranties required for all future contributions.\n-   The potential intellectual property implications for the project and\n    its users.\n\nThis policy was established following an open community discussion,\nwhich you can review on [GitHub issue\n\\#1663](https://github.com/crossbario/autobahn-python/issues/1663).\n\nWe are providing this transparent notice to enable you to make an\ninformed decision. If our new AI policy is incompatible with your own\n(or your organization's) development practices or risk tolerance, please\ntake this into consideration when deciding whether to upgrade beyond\nversion v25.6.1.\n\n\n## Show me some code\n\nTo give you a first impression, here are two examples. We have\nlot more\n[in the repo](https://github.com/crossbario/autobahn-python/tree/master/examples).\n\n### WebSocket Echo Server\n\nHere is a simple WebSocket Echo Server that will echo back any\nWebSocket message received:\n\n    from autobahn.twisted.websocket import WebSocketServerProtocol\n    # or: from autobahn.asyncio.websocket import WebSocketServerProtocol\n\n    class MyServerProtocol(WebSocketServerProtocol):\n\n        def onConnect(self, request):\n            print(\"Client connecting: {}\".format(request.peer))\n\n        def onOpen(self):\n            print(\"WebSocket connection open.\")\n\n        def onMessage(self, payload, isBinary):\n            if isBinary:\n                print(\"Binary message received: {} bytes\".format(len(payload)))\n            else:\n                print(\"Text message received: {}\".format(payload.decode('utf8')))\n\n            # echo back message verbatim\n            self.sendMessage(payload, isBinary)\n\n        def onClose(self, wasClean, code, reason):\n            print(\"WebSocket connection closed: {}\".format(reason))\n\nTo actually run above server protocol, you need some lines of\n[boilerplate](https://autobahn.readthedocs.io/en/latest/websocket/programming.html#running-a-server).\n\n### WAMP Application Component\n\nHere is a WAMP Application Component that performs all four types\nof actions that WAMP provides:\n\n1.  **subscribe** to a topic\n2.  **publish** an event\n3.  **register** a procedure\n4.  **call** a procedure\n\n<!-- -->\n\n    from autobahn.twisted.wamp import ApplicationSession\n    # or: from autobahn.asyncio.wamp import ApplicationSession\n\n    class MyComponent(ApplicationSession):\n\n        @inlineCallbacks\n        def onJoin(self, details):\n\n            # 1. subscribe to a topic so we receive events\n            def onevent(msg):\n                print(\"Got event: {}\".format(msg))\n\n            yield self.subscribe(onevent, 'com.myapp.hello')\n\n            # 2. publish an event to a topic\n            self.publish('com.myapp.hello', 'Hello, world!')\n\n            # 3. register a procedure for remote calling\n            def add2(x, y):\n                return x + y\n\n            self.register(add2, 'com.myapp.add2')\n\n            # 4. call a remote procedure\n            res = yield self.call('com.myapp.add2', 2, 3)\n            print(\"Got result: {}\".format(res))\n\nAbove code will work on Twisted and asyncio by changing a single\nline (the base class of `MyComponent`). To actually run above\napplication component, you need some lines of\n[boilerplate](https://autobahn.readthedocs.io/en/latest/wamp/programming.html#running-components)\nand a\n[WAMP Router](https://autobahn.readthedocs.io/en/latest/wamp/programming.html#running-a-wamp-router).\n\n## Packaging\n\nThe Autobahn|Python OSS project:\n\n- build & publish *binary wheels* on [GitHub Releases](https://github.com/crossbario/autobahn-python/releases) and [PyPI](https://pypi.org/project/autobahn/)\n- plans to publish on [pyx](https://astral.sh/blog/introducing-pyx) once that launches\n- plans to support [WheelNext](https://wheelnext.dev/) once that launches (see also: https://lwn.net/Articles/1028299/, https://labs.quansight.org/blog/python-wheels-from-tags-to-variants)\n- no longer bakes & publishes Docker images *\n- no longer explicitly supports [PyInstaller](https://pyinstaller.org/) packaging\n\n> *: for commercial users, *typedef int GmbH (Germany)*, original creator and active maintainer of Autobahn, Crossbar.io and WAMP provides production grade, optimized and supported Docker images based on RHEL 9 and Debian 12, including complete SBOM for both the base system and full Python application run-time environment based on [CycloneDX v1.6](https://cyclonedx.org/) in JSON format and as a audit-level PDF/A document fulfilling strict cybersecurity requirements addressing e.g. EU CRA and [BSI TR-03183](https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/Technische-Richtlinien/TR-nach-Thema-sortiert/tr03183/TR-03183_node.html).\n\n## Package Releases\n\nAutobahn|Python publishes source distributions and pre-built wheels on\n[PyPI](https://pypi.org/project/autobahn/) and\n[GitHub Releases](https://github.com/crossbario/autobahn-python/releases).\nThe current release line requires Python 3.11 or later and publishes\nwheels for CPython 3.11 through 3.14 and PyPy 3.11 across supported\nLinux, macOS, and Windows targets.\n\nThe recommended installation method is:\n\n```console\npython -m pip install autobahn\n```\n\nPip will choose the best matching wheel for your Python implementation,\noperating system, and CPU architecture. See the\n[wheels inventory](https://autobahn.readthedocs.io/en/latest/wheels-inventory.html)\nfor the supported wheel matrix and NVX acceleration notes.\n\n## Extensions\n\n### Networking framework\n\nAutobahn runs on both Twisted and asyncio. To select the\nrespective netoworking framework, install flavor:\n\n- `asyncio`: Backwards-compatible no-op. Asyncio is included in the\n  Python standard library for all supported Python versions.\n- `twisted`: Install Twisted and Twisted support in Autobahn\n\n---\n\n### WebSocket Acceleration and Compression\n\n#### Acceleration (Deprecated)\n\nThe `accelerate` optional dependency is **no longer recommended**. Autobahn now includes **NVX** (Native Vector Extensions), which provides SIMD-accelerated native code for WebSocket operations (XOR masking and UTF-8 validation) using CFFI. See the [NVX section](#native-vector-extensions-nvx) below for details.\n\n- ~~`accelerate`~~: Deprecated - Use NVX instead\n\n#### Compression\n\nAutobahn supports multiple WebSocket per-message compression algorithms via the `compress` optional dependency:\n\n    pip install autobahn[compress]\n\n**Compression Methods Available:**\n\n| Method | Availability | Standard | Implementation | Notes |\n|--------|--------------|----------|----------------|-------|\n| **permessage-deflate** | Always | [RFC 7692](https://datatracker.ietf.org/doc/html/rfc7692) | Python stdlib (zlib) | Standard WebSocket compression |\n| **permessage-brotli** | `[compress]` | [RFC 7932](https://datatracker.ietf.org/doc/html/rfc7932) | brotli / brotlicffi | **Recommended** - Best compression ratio |\n| **permessage-bzip2** | Optional | Non-standard | Python stdlib (bz2) | Requires Python built with libbz2 |\n| **permessage-snappy** | Manual install | Non-standard | python-snappy | Requires separate installation |\n\n**Platform-Optimized Brotli Support:**\n\nAutobahn includes **Brotli compression** with full binary wheel coverage optimized for both CPython and PyPy:\n\n- **CPython**: Uses [brotli](https://github.com/google/brotli) (Google's official package, CPyExt)\n- **PyPy**: Uses [brotlicffi](https://github.com/python-hyper/brotlicffi) (CFFI-based, optimized for PyPy)\n\n**Advantages of Brotli:**\n- **Superior compression ratio** compared to deflate or snappy\n- **Binary wheels** for all major platforms (Linux x86_64/ARM64, macOS x86_64/ARM64, Windows x86_64)\n- **IETF standard** ([RFC 7932](https://datatracker.ietf.org/doc/html/rfc7932)) for HTTP compression\n- **Fast decompression** suitable for real-time applications\n- **Widely adopted** by browsers and CDNs\n\n**Resources:**\n- [RFC 7932 - Brotli Compressed Data Format](https://datatracker.ietf.org/doc/html/rfc7932)\n- [Google Brotli](https://github.com/google/brotli) - Official implementation\n- [brotlicffi](https://github.com/python-hyper/brotlicffi) - CFFI bindings for PyPy\n- [PyPI: brotlicffi](https://pypi.org/project/brotlicffi/)\n- [WAMP Brotli Extension Discussion](https://github.com/wamp-proto/wamp-proto/issues/555)\n\n**Note on Snappy:**\n\n[Snappy](https://github.com/google/snappy) compression is available but requires manual installation of [python-snappy](https://pypi.org/project/python-snappy/) (no binary wheels):\n\n    pip install python-snappy  # Requires libsnappy-dev system library\n\nFor most use cases, **Brotli is recommended** over Snappy due to better compression ratios and included binary wheels.\n\n---\n\n### Encryption and WAMP authentication\n\nAutobahn supports running over TLS (for WebSocket and all WAMP\ntransports) as well as **WAMP-cryposign** authentication.\n\nTo install use this flavor:\n\n- `encryption`: Installs TLS and WAMP-cryptosign dependencies\n\nAutobahn also supports **WAMP-SCRAM** authentication. To install:\n\n- `scram`: Installs WAMP-SCRAM dependencies\n\n---\n\n### Native vector extensions (NVX)\n\n&gt; This is NOT yet complete - ALPHA!\n\nAutobahn contains **NVX**, a network accelerator library that\nprovides SIMD accelerated native vector code for WebSocket (XOR\nmasking) and UTF-8 validation.\n\n> NVX lives in namespace\n> <span class=\"title-ref\">autobahn.nvx</span> and currently\n> requires a x86-86 CPU with at least SSE2 and makes use of\n> SSE4.1 if available. The code is written using vector\n> instrinsics, should compile with both GCC and Clang,and\n> interfaces with Python using CFFI, and hence runs fast on PyPy.\n\n---\n\n### WAMP Serializers\n\n**The JSON, MessagePack, CBOR and FlatBuffers serializers are included by default** - batteries included! UBJSON is available via the optional `autobahn[serialization]` extra.\n\nAutobahn|Python ships with the following WAMP serializers:\n\n- **JSON** (standard library) - always available\n- **MessagePack** - high-performance binary serialization\n- **CBOR** - IETF standard binary serialization (RFC 8949)\n- **UBJSON** - Universal Binary JSON *(optional: `pip install autobahn[serialization]`)*\n- **Flatbuffers** - Google's zero-copy serialization (vendored)\n\n#### Architecture & Performance\n\nThe serializer dependencies are optimized for both **CPython** and **PyPy**:\n\n| Serializer | CPython | PyPy | Wheel Type | Notes |\n|------------|---------|------|------------|-------|\n| **json** | stdlib | stdlib | - | Always available |\n| **msgpack** | Binary wheel (C extension) | u-msgpack-python (pure Python) | Native + Universal | PyPy JIT makes pure Python faster than C |\n| **ujson** | Binary wheel | Binary wheel | Native | Available for both implementations |\n| **cbor2** | Binary wheel | Pure Python fallback | Native + Universal | Binary wheels + py3-none-any |\n| **ubjson** *(optional)* | C ext (from sdist) | ❌ n/a (CPython only) | Source only — no wheels | Optional `autobahn[serialization]` extra (bjdata, pulls numpy). CPython-only: bjdata can't install on PyPy ([NeuroJSON/pybj#6](https://github.com/NeuroJSON/pybj/issues/6)); on PyPy use cbor/msgpack. On CPython without a compiler set `PYBJDATA_NO_EXTENSION=1` |\n| **flatbuffers** | Vendored | Vendored | Included | Always available, no external dependency |\n\n**Key Design Principles:**\n\n1. **Batteries Included**: Core serializers (JSON, MessagePack, CBOR, FlatBuffers) available without extra install steps; UBJSON via the optional `autobahn[serialization]` extra\n2. **PyPy Optimization**: Pure Python implementations leverage PyPy's JIT for superior performance\n3. **Binary Wheels**: Native wheels for all major platforms (Linux x86_64/ARM64, macOS x86_64/ARM64, Windows x86_64)\n4. **Zero System Pollution**: All dependencies install cleanly via wheels or pure Python\n5. **WAMP Compliance**: Full protocol support out-of-the-box\n\n**Total Additional Size**: ~590KB (negligible compared to full application install)\n\n#### Platform Coverage\n\nAll serializer dependencies provide binary wheels for:\n- **Linux**: x86_64, ARM64 (manylinux, musllinux)\n- **macOS**: x86_64 (Intel), ARM64 (Apple Silicon)\n- **Windows**: x86_64 (AMD64), ARM64\n- **Python**: 3.11, 3.12, 3.13, 3.14 (including 3.14t free-threaded)\n- **Implementations**: CPython, PyPy 3.11+\n\n#### Backwards Compatibility\n\nThe `serialization` optional dependency is maintained for backwards compatibility:\n\n    pip install autobahn[serialization]  # Still works, but now a no-op\n\n#### ujson Acceleration\n\nTo speed up JSON on CPython using the faster `ujson`, set:\n\n    AUTOBAHN_USE_UJSON=1\n\n> **Warning**: Using `ujson` will break the ability of Autobahn to transport and translate binary application payloads in WAMP transparently. This ability depends on features of the standard library `json` module not available in `ujson`.\n\n#### Recommendations\n\n- **General use**: JSON (stdlib) or CBOR\n- **High performance**: MessagePack or Flatbuffers\n- **Strict standards**: CBOR (IETF RFC 8949)\n- **Zero-copy**: Flatbuffers (for large payloads)\n\n---\n\n## Dependency Analysis\n\n**Autobahn|Python is fully optimized for both CPython and PyPy with comprehensive binary wheel coverage.**\n\nAll dependencies follow these design principles:\n\n1. **CFFI over CPyExt**: All native extensions use CFFI for optimal PyPy compatibility\n2. **Binary Wheels First**: Native wheels available for all major platforms\n3. **PyPy-Optimized**: Platform-specific packages leverage PyPy's JIT compiler\n4. **Zero System Pollution**: No system libraries or build tools required for installation\n\n### Core Dependencies\n\n| Dependency | Purpose | CPython | PyPy | Wheel Coverage | Notes |\n|------------|---------|---------|------|----------------|-------|\n| **txaio** | Twisted/asyncio abstraction | Universal wheel | Universal wheel | ✅ Excellent | Pure Python, works everywhere |\n| **cryptography** | TLS, X.509, cryptographic primitives | Binary wheel (Rust+CFFI) | Binary wheel (Rust+CFFI) | ✅ Excellent | 40+ wheels per release |\n| **hyperlink** | URL parsing | Universal wheel | Universal wheel | ✅ Excellent | Pure Python |\n\n### WAMP Serializers (Batteries Included)\n\nAll serializers **except UBJSON** are included by default in the base installation; UBJSON is an optional extra (`pip install autobahn[serialization]`):\n\n| Serializer | Purpose | CPython | PyPy | Wheel Coverage | Notes |\n|------------|---------|---------|------|----------------|-------|\n| **json** | JSON serialization | stdlib | stdlib | ✅ Always available | Python standard library |\n| **msgpack** | MessagePack serialization | msgpack (binary wheel) | u-msgpack-python (pure Python) | ✅ Excellent | 50+ wheels for CPython; PyPy JIT optimized |\n| **ujson** | Fast JSON (optional) | Binary wheel | Binary wheel | ✅ Excellent | 30+ wheels; both implementations |\n| **cbor2** | CBOR serialization (RFC 8949) | Binary wheel | Pure Python fallback | ✅ Excellent | 30+ binary wheels + universal fallback |\n| **bjdata** | UBJSON serialization *(optional)* | C ext (from sdist) | ❌ n/a (CPython only) | ⚠️ sdist only — no wheels | `autobahn[serialization]` extra; pulls numpy. CPython-only: can't install on PyPy ([NeuroJSON/pybj#6](https://github.com/NeuroJSON/pybj/issues/6)). On CPython without a compiler set `PYBJDATA_NO_EXTENSION=1`. For wheels-only/cross-arch/PyPy installs prefer cbor/msgpack |\n| **flatbuffers** | Google Flatbuffers | **Vendored** | **Vendored** | ✅ Perfect | Included in our wheel, zero external dependency |\n\n### Optional: Twisted Framework\n\nAvailable via `pip install autobahn[twisted]`:\n\n| Dependency | Purpose | CPython | PyPy | Wheel Coverage | Notes |\n|------------|---------|---------|------|----------------|-------|\n| **zope.interface** | Component architecture | Binary wheel | Binary wheel | ✅ Excellent | 40+ wheels |\n| **twisted** | Async networking framework | Universal wheel | Universal wheel | ✅ Excellent | Pure Python |\n| **attrs** | Class attributes | Universal wheel | Universal wheel | ✅ Excellent | Pure Python |\n\n### Optional: WebSocket Compression\n\nAvailable via `pip install autobahn[compress]`:\n\n| Compression Method | CPython | PyPy | Wheel Coverage | Standards | Notes |\n|-------------------|---------|------|----------------|-----------|-------|\n| **permessage-deflate** | stdlib (zlib) | stdlib (zlib) | ✅ Always available | RFC 7692 | Python standard library |\n| **permessage-brotli** | brotli (CPyExt) | brotlicffi (CFFI) | ✅ Excellent | RFC 7932 | 40+ wheels (brotli), 20+ wheels (brotlicffi) |\n| **permessage-bzip2** | stdlib (bz2) | stdlib (bz2) | ✅ Always available | Non-standard | Python standard library |\n| **permessage-snappy** | python-snappy (optional) | python-snappy (optional) | ⚠️ No wheels | Non-standard | Manual install; requires libsnappy-dev |\n\n**Recommendation**: Use **permessage-brotli** for optimal compression with full binary wheel support.\n\n### Optional: Encryption & WAMP Authentication\n\nAvailable via `pip install autobahn[encryption]`:\n\n| Dependency | Purpose | CPython | PyPy | Wheel Coverage | Notes |\n|------------|---------|---------|------|----------------|-------|\n| **pyopenssl** | TLS/SSL operations | Universal wheel | Universal wheel | ✅ Excellent | Pure Python wrapper |\n| **service-identity** | TLS service verification | Universal wheel | Universal wheel | ✅ Excellent | Pure Python |\n| **pynacl** | NaCl cryptography | Binary wheel (CFFI) | Binary wheel (CFFI) | ✅ Excellent | 30+ CFFI wheels |\n| **pytrie** | Trie data structure | Universal wheel | Universal wheel | ✅ Excellent | Pure Python |\n| **qrcode** | QR code generation | Universal wheel | Universal wheel | ✅ Excellent | Pure Python |\n| **base58** | Base58 encoding | Universal wheel | Universal wheel | ✅ Excellent | Pure Python |\n| **ecdsa** | ECDSA signatures | Universal wheel | Universal wheel | ✅ Excellent | Pure Python |\n\n### Optional: WAMP-SCRAM Authentication\n\nAvailable via `pip install autobahn[scram]`:\n\n| Dependency | Purpose | CPython | PyPy | Wheel Coverage | Notes |\n|------------|---------|---------|------|----------------|-------|\n| **cffi** | C Foreign Function Interface | Binary wheel | Binary wheel | ✅ Excellent | 40+ wheels including PyPy |\n| **argon2-cffi** | Argon2 password hashing | Binary wheel (CFFI) | Binary wheel (CFFI) | ✅ Excellent | 30+ CFFI wheels including PyPy |\n| **passlib** | Password hashing framework | Universal wheel | Universal wheel | ✅ Excellent | Pure Python |\n\n### Optional: Native Vector Extensions (NVX)\n\nAvailable via `pip install autobahn[nvx]`:\n\n| Feature | Implementation | CPython | PyPy | Coverage | Notes |\n|---------|---------------|---------|------|----------|-------|\n| **XOR Masking** | SIMD via CFFI | ✅ Yes | ✅ Yes | ✅ Excellent | Our own CFFI-based implementation |\n| **UTF-8 Validation** | SIMD via CFFI | ✅ Yes | ✅ Yes | ✅ Excellent | Our own CFFI-based implementation |\n\n**NVX** provides significant performance improvements for WebSocket operations using SIMD instructions through CFFI.\n\n### Platform Coverage Summary\n\n**Binary wheels available for:**\n- **Operating Systems**: Linux (glibc/musl), macOS, Windows\n- **Architectures**: x86_64 (Intel/AMD), ARM64 (Apple Silicon, AWS Graviton)\n- **Python Versions**: 3.11, 3.12, 3.13, 3.14 (including free-threaded 3.14t)\n- **Implementations**: CPython, PyPy 3.11+\n\n**All optional dependencies install cleanly without:**\n- System libraries (except optional python-snappy)\n- Build tools (gcc, make, etc.)\n- Package managers (apt, yum, brew)\n\n### Verdict\n\n✅ **Autobahn|Python achieves its goals:**\n\n1. ✅ **Batteries Included**: All core WAMP serializers shipped by default\n2. ✅ **CPython & PyPy**: Full support for both implementations\n3. ✅ **CFFI Everywhere**: All native extensions use CFFI (PyPy-optimized)\n4. ✅ **Binary Wheels**: Comprehensive coverage across platforms/architectures\n5. ✅ **Zero System Dependencies**: Clean pip install on all platforms\n6. ✅ **Performance**: Native SIMD (NVX), optimized serializers, Brotli compression\n\n**There is nothing more to optimize or wish for** - the dependency strategy is complete and optimal.\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "asyncio",
+          "autobahn",
+          "crossbar",
+          "pubsub",
+          "realtime",
+          "rfc6455",
+          "rpc",
+          "twisted",
+          "wamp",
+          "websocket"
+        ],
+        "author_email": "typedef int GmbH <contact@typedefint.eu>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: No Input/Output (Daemon)",
+          "Framework :: Twisted",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Communications",
+          "Topic :: Internet",
+          "Topic :: Internet :: WWW/HTTP",
+          "Topic :: Software Development :: Libraries",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          "Topic :: Software Development :: Object Brokering",
+          "Topic :: System :: Distributed Computing"
+        ],
+        "requires_dist": [
+          "cbor2<6,>=5.2.0; platform_python_implementation == 'PyPy' and sys_platform == 'win32'",
+          "cbor2>=5.2.0; platform_python_implementation != 'PyPy' or sys_platform != 'win32'",
+          "cffi>=2.0.0",
+          "cryptography>=3.4.6",
+          "hyperlink>=21.0.0",
+          "importlib-resources>=5.0.0; python_version < '3.10'",
+          "msgpack>=1.0.2; platform_python_implementation == 'CPython'",
+          "txaio>=25.12.2",
+          "u-msgpack-python>=2.1; platform_python_implementation != 'CPython'",
+          "ujson>=4.0.2",
+          "argon2-cffi>=20.1.0; extra == 'all'",
+          "attrs>=20.3.0; extra == 'all'",
+          "base58>=2.1.1; extra == 'all'",
+          "bjdata>=0.6.0; (platform_python_implementation == 'CPython') and extra == 'all'",
+          "brotli>=1.0.0; (platform_python_implementation == 'CPython') and extra == 'all'",
+          "brotlicffi>=1.0.0; (platform_python_implementation != 'CPython') and extra == 'all'",
+          "ecdsa>=0.19.1; extra == 'all'",
+          "passlib>=1.7.4; extra == 'all'",
+          "pynacl>=1.4.0; extra == 'all'",
+          "pyopenssl>=20.0.1; extra == 'all'",
+          "pytrie>=0.4.0; extra == 'all'",
+          "qrcode>=7.3.1; extra == 'all'",
+          "service-identity>=18.1.0; extra == 'all'",
+          "twisted>=22.10.0; extra == 'all'",
+          "zope-interface>=5.2.0; extra == 'all'",
+          "humanize>=4.0.0; extra == 'benchmark'",
+          "jinja2>=3.0.0; extra == 'benchmark'",
+          "vmprof-flamegraph>=0.0.1; (python_version >= '3.11') and extra == 'benchmark'",
+          "vmprof>=0.4.15; (python_version >= '3.11') and extra == 'benchmark'",
+          "auditwheel>=5.0.0; (sys_platform == 'linux') and extra == 'build-tools'",
+          "build>=1.0.0; extra == 'build-tools'",
+          "wheel>=0.36.2; extra == 'build-tools'",
+          "brotli>=1.0.0; (platform_python_implementation == 'CPython') and extra == 'compress'",
+          "brotlicffi>=1.0.0; (platform_python_implementation != 'CPython') and extra == 'compress'",
+          "auditwheel>=5.0.0; (sys_platform == 'linux') and extra == 'dev'",
+          "backports-tempfile>=1.0; extra == 'dev'",
+          "build>=1.0.0; extra == 'dev'",
+          "bumpversion>=0.5.3; extra == 'dev'",
+          "codecov>=2.0.15; extra == 'dev'",
+          "furo>=2024.7.0; extra == 'dev'",
+          "humanize>=4.0.0; extra == 'dev'",
+          "linkify-it-py>=2.0.0; extra == 'dev'",
+          "myst-parser>=2.0; extra == 'dev'",
+          "passlib; extra == 'dev'",
+          "pep8-naming>=0.3.3; extra == 'dev'",
+          "pyenchant>=3.2; extra == 'dev'",
+          "pyflakes>=1.0.0; extra == 'dev'",
+          "pylint>=1.9.2; extra == 'dev'",
+          "pytest-aiohttp; extra == 'dev'",
+          "pytest-asyncio>=0.14.0; extra == 'dev'",
+          "pytest-runner>=2.11.1; extra == 'dev'",
+          "pytest>=3.4.2; extra == 'dev'",
+          "pyyaml>=4.2b4; extra == 'dev'",
+          "qualname>=0.1.0; extra == 'dev'",
+          "ruff>=0.12.1; extra == 'dev'",
+          "scour>=0.38; extra == 'dev'",
+          "setuptools>=70.0.0; extra == 'dev'",
+          "sphinx-autoapi>=2.1.0; extra == 'dev'",
+          "sphinx-copybutton>=0.5; extra == 'dev'",
+          "sphinx-design>=0.5; extra == 'dev'",
+          "sphinx>=8.2.3; extra == 'dev'",
+          "sphinxcontrib-images>=0.9; extra == 'dev'",
+          "sphinxcontrib-spelling>=8.0; extra == 'dev'",
+          "sphinxext-opengraph>=0.9; extra == 'dev'",
+          "twine>=3.3.0; extra == 'dev'",
+          "twisted>=22.10.0; extra == 'dev'",
+          "txaio>=25.12.2; extra == 'dev'",
+          "watchdog>=0.8.3; extra == 'dev'",
+          "wheel>=0.36.2; extra == 'dev'",
+          "yapf==0.29.0; extra == 'dev'",
+          "furo>=2024.7.0; extra == 'docs'",
+          "linkify-it-py>=2.0.0; extra == 'docs'",
+          "myst-parser>=2.0; extra == 'docs'",
+          "pyenchant>=3.2; extra == 'docs'",
+          "scour>=0.38; extra == 'docs'",
+          "sphinx-autoapi>=2.1.0; extra == 'docs'",
+          "sphinx-copybutton>=0.5; extra == 'docs'",
+          "sphinx-design>=0.5; extra == 'docs'",
+          "sphinx>=8.2.3; extra == 'docs'",
+          "sphinxcontrib-images>=0.9; extra == 'docs'",
+          "sphinxcontrib-spelling>=8.0; extra == 'docs'",
+          "sphinxext-opengraph>=0.9; extra == 'docs'",
+          "base58>=2.1.1; extra == 'encryption'",
+          "ecdsa>=0.19.1; extra == 'encryption'",
+          "pynacl>=1.4.0; extra == 'encryption'",
+          "pyopenssl>=20.0.1; extra == 'encryption'",
+          "pytrie>=0.4.0; extra == 'encryption'",
+          "qrcode>=7.3.1; extra == 'encryption'",
+          "service-identity>=18.1.0; extra == 'encryption'",
+          "argon2-cffi>=20.1.0; extra == 'scram'",
+          "passlib>=1.7.4; extra == 'scram'",
+          "bjdata>=0.6.0; (platform_python_implementation == 'CPython') and extra == 'serialization'",
+          "attrs>=20.3.0; extra == 'twisted'",
+          "twisted>=22.10.0; extra == 'twisted'",
+          "zope-interface>=5.2.0; extra == 'twisted'"
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "Homepage, https://autobahn.readthedocs.io/",
+          "Source, https://github.com/crossbario/autobahn-python"
+        ],
+        "provides_extra": [
+          "accelerate",
+          "all",
+          "asyncio",
+          "benchmark",
+          "build-tools",
+          "compress",
+          "dev",
+          "docs",
+          "encryption",
+          "nvx",
+          "scram",
+          "serialization",
+          "twisted"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/72/28/72c76aee7aa74e5dc53b79505dc6c168805d20c8e75166143076c5b61906/cbor2-6.1.5-cp312-cp312-manylinux_2_28_x86_64.whl",
+        "archive_info": {
+          "hash": "sha256=b70d7c47ea84d456034d2be02e89d92eef7044cfcedf6f05058e21d4452f0fef",
+          "hashes": {
+            "sha256": "b70d7c47ea84d456034d2be02e89d92eef7044cfcedf6f05058e21d4452f0fef"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "cbor2",
+        "version": "6.1.5",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "CBOR (de)serializer with extensive tag support",
+        "description": ".. image:: https://github.com/agronholm/cbor2/actions/workflows/test.yml/badge.svg\n  :target: https://github.com/agronholm/cbor2/actions/workflows/test.yml\n  :alt: Testing Status\n.. image:: https://github.com/agronholm/cbor2/actions/workflows/publish.yml/badge.svg\n  :target: https://github.com/agronholm/cbor2/actions/workflows/publish.yml\n  :alt: Publish Status\n.. image:: https://coveralls.io/repos/github/agronholm/cbor2/badge.svg?branch=master\n  :target: https://coveralls.io/github/agronholm/cbor2?branch=master\n  :alt: Code Coverage\n.. image:: https://readthedocs.org/projects/cbor2/badge/?version=latest\n  :target: https://cbor2.readthedocs.io/en/latest/?badge=latest\n  :alt: Documentation Status\n.. image:: https://tidelift.com/badges/package/pypi/cbor2\n  :target: https://tidelift.com/subscription/pkg/pypi-cbor2\n  :alt: Tidelift\n\nAbout\n=====\n\nThis library provides encoding and decoding for the Concise Binary Object Representation (CBOR)\n(`RFC 8949`_) serialization format. The specification is fully compatible with the original RFC\n7049. `Read the docs <https://cbor2.readthedocs.io/>`_ to learn more.\n\nIt is implemented in Rust.\n\n.. _RFC 8949: https://www.rfc-editor.org/rfc/rfc8949.html\n\nFeatures\n--------\n\n* Simple API like the ``json`` or ``pickle`` modules\n* Support many `CBOR tags`_ with `stdlib objects`_\n* Generic tag decoding\n* `Shared value`_ references including cyclic references\n* `String references`_ compact encoding with repeated strings replaced with indices\n* Extensible `tagged value handling`_ using ``tag_hook`` and ``object_hook`` on decode and\n  ``default`` on encode.\n* Command-line diagnostic tool, converting CBOR file or stream to JSON ``python -m cbor2.tool``\n  (This is a lossy conversion, for diagnostics only)\n* Thorough test suite (Tested on big- and little-endian architectures)\n\n.. _CBOR tags: https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml\n.. _stdlib objects: https://cbor2.readthedocs.io/en/latest/usage.html#tag-support\n.. _Shared value: http://cbor.schmorp.de/value-sharing\n.. _String references: http://cbor.schmorp.de/stringref\n.. _tagged value handling: https://cbor2.readthedocs.io/en/latest/customizing.html#using-the-cbor-tags-for-custom-types\n\nInstallation\n============\n\nThe simplest way to install the library is with pip_:\n\n::\n\n    pip install cbor2\n\nIf this fails, see the next section.\n\n.. _pip: https://packaging.python.org/en/latest/tutorials/installing-packages/\n\nBuild requirements\n------------------\n\nIf you wish to compile the code yourself, or are installing on a yet unsupported Python version\nor platform where there are no wheels available, you need the following pre-requisites:\n\n* Python >= 3.10 (or `PyPy3`_ 3.11+)\n* `Rust toolchain`_ (tested with v1.93.0)\n\n.. _PyPy3: https://www.pypy.org/\n.. _Rust toolchain: https://rust-lang.org/tools/install/\n\nUsage\n=====\n\n`Basic Usage <https://cbor2.readthedocs.io/en/latest/usage.html#basic-usage>`_\n\nCommand-line Usage\n==================\n\nThe provided command line tool (``cbor2``) converts CBOR data in raw binary or base64\nencoding into a representation that allows printing as JSON. This is a lossy\ntransformation as each datatype is converted into something that can be represented as a\nJSON value.\n\nThe tool can alternatively be invoked with ``python -m cbor2.tool``.\n\nUsage::\n\n    # Pass hexadecimal through xxd.\n    $ echo a16568656c6c6f65776f726c64 | xxd -r -ps | cbor2 --pretty\n    {\n        \"hello\": \"world\"\n    }\n    # Decode Base64 directly\n    $ echo ggEC | python -m cbor2.tool --decode\n    [1, 2]\n    # Read from a file encoded in Base64\n    $ python -m cbor2.tool -d tests/examples.cbor.b64\n    {...}\n\nIt can be used in a pipeline with json processing tools like `jq`_ to allow syntax\ncoloring, field extraction and more.\n\nCBOR data items concatenated into a sequence can be decoded also::\n\n    $ echo ggECggMEggUG | cbor2 -d --sequence\n    [1, 2]\n    [3, 4]\n    [5, 6]\n\nMultiple files can also be sent to a single output file::\n\n    $ cbor2 -o all_files.json file1.cbor file2.cbor ... fileN.cbor\n\n.. _jq: https://stedolan.github.io/jq/\n\nSecurity\n========\n\nThis library has not been tested against malicious input. In theory it should be\nas safe as JSON, since unlike ``pickle`` the decoder does not execute any code.\n",
+        "description_content_type": "text/x-rst",
+        "keywords": [
+          "serialization",
+          "cbor"
+        ],
+        "author_email": "Alex Grönholm <alex.gronholm@nextday.fi>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE.txt"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Typing :: Typed",
+          "Programming Language :: Python :: Free Threading :: 2 - Beta",
+          "Programming Language :: Rust",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Changelog, https://cbor2.readthedocs.io/en/latest/versionhistory.html",
+          "Documentation, https://cbor2.readthedocs.org/en/latest/",
+          "Source Code, https://github.com/agronholm/cbor2",
+          "Issue Tracker, https://github.com/agronholm/cbor2/issues"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/b1/db/dceb9dd5b231e1da801793f8acc9f3c52a7e1afe40bb1aae37e02b0faad5/cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+        "archive_info": {
+          "hash": "sha256=c1453022f490d2459a11819d83ad1d586e9ff65a12ac3e705ffebd46d3685dcf",
+          "hashes": {
+            "sha256": "c1453022f490d2459a11819d83ad1d586e9ff65a12ac3e705ffebd46d3685dcf"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "cffi",
+        "version": "2.1.1",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "Foreign Function Interface for Python calling C code.",
+        "description": "[![GitHub Actions Status](https://github.com/python-cffi/cffi/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/python-cffi/cffi/actions/workflows/ci.yaml?query=branch%3Amain++)\n[![PyPI version](https://img.shields.io/pypi/v/cffi.svg)](https://pypi.org/project/cffi)\n[![Read the Docs](https://img.shields.io/badge/docs-latest-blue.svg)][Documentation]\n\n\nCFFI\n====\n\nForeign Function Interface for Python calling C code.\n\nPlease see the [Documentation] or uncompiled in the `doc/` subdirectory.\n\nDownload\n--------\n\n[Download page](https://github.com/python-cffi/cffi/releases)\n\nSource Code\n-----------\n\nSource code is publicly available on\n[GitHub](https://github.com/python-cffi/cffi).\n\nContact\n-------\n\n[Mailing list](https://groups.google.com/forum/#!forum/python-cffi)\n\nTesting/development tips\n------------------------\n\nAfter `git clone` or `wget && tar`, we will get a directory called `cffi` or `cffi-x.x.x`. We call it `repo-directory`. To run tests under CPython, run the following in the `repo-directory`:\n\n    pip install pytest\n    pip install -e .  # editable install of CFFI for local development\n    pytest src/c/ testing/\n\n[Documentation]: http://cffi.readthedocs.org/\n",
+        "description_content_type": "text/markdown",
+        "author": "Armin Rigo, Maciej Fijalkowski",
+        "maintainer": "Matt Davis, Matt Clay",
+        "license_expression": "MIT-0",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Free Threading :: 2 - Beta",
+          "Programming Language :: Python :: Implementation :: CPython"
+        ],
+        "requires_dist": [
+          "pycparser; implementation_name != \"PyPy\""
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Documentation, https://cffi.readthedocs.io/",
+          "Changelog, https://cffi.readthedocs.io/en/latest/whatsnew.html",
+          "Download, https://github.com/python-cffi/cffi/releases",
+          "Contact, https://groups.google.com/forum/#!forum/python-cffi",
+          "Source Code, https://github.com/python-cffi/cffi",
+          "Issue Tracker, https://github.com/python-cffi/cffi/issues"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/d3/69/2c833a049475e0a3444e94c7d0aca0aa51d166374a449b09e92ac98138de/cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl",
+        "archive_info": {
+          "hash": "sha256=9dab55f57c74c3cad24c323bacbbd04be4705ba6eb0d92e920b1fc4837ed5079",
+          "hashes": {
+            "sha256": "9dab55f57c74c3cad24c323bacbbd04be4705ba6eb0d92e920b1fc4837ed5079"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "cryptography",
+        "version": "50.0.2",
+        "summary": "cryptography is a package which provides cryptographic recipes and primitives to Python developers.",
+        "description": "pyca/cryptography\n=================\n\n.. image:: https://img.shields.io/pypi/v/cryptography.svg\n    :target: https://pypi.org/project/cryptography/\n    :alt: Latest Version\n\n.. image:: https://readthedocs.org/projects/cryptography/badge/?version=latest\n    :target: https://cryptography.io\n    :alt: Latest Docs\n\n.. image:: https://github.com/pyca/cryptography/actions/workflows/ci.yml/badge.svg\n    :target: https://github.com/pyca/cryptography/actions/workflows/ci.yml?query=branch%3Amain\n\n``cryptography`` is a package which provides cryptographic recipes and\nprimitives to Python developers. Our goal is for it to be your \"cryptographic\nstandard library\". It supports Python 3.9+ and PyPy3 7.3.11+.\n\n``cryptography`` includes both high level recipes and low level interfaces to\ncommon cryptographic algorithms such as symmetric ciphers, message digests, and\nkey derivation functions. For example, to encrypt something with\n``cryptography``'s high level symmetric encryption recipe:\n\n.. code-block:: pycon\n\n    >>> from cryptography.fernet import Fernet\n    >>> # Put this somewhere safe!\n    >>> key = Fernet.generate_key()\n    >>> f = Fernet(key)\n    >>> token = f.encrypt(b\"A really secret message. Not for prying eyes.\")\n    >>> token\n    b'...'\n    >>> f.decrypt(token)\n    b'A really secret message. Not for prying eyes.'\n\nYou can find more information in the `documentation`_.\n\nYou can install ``cryptography`` with:\n\n.. code-block:: console\n\n    $ pip install cryptography\n\nFor full details see `the installation documentation`_.\n\nDiscussion\n~~~~~~~~~~\n\nIf you run into bugs, you can file them in our `issue tracker`_.\n\nWe maintain a `cryptography-dev`_ mailing list for development discussion.\n\nYou can also join ``#pyca`` on ``irc.libera.chat`` to ask questions or get\ninvolved.\n\nSecurity\n~~~~~~~~\n\nNeed to report a security issue? Please consult our `security reporting`_\ndocumentation.\n\n\n.. _`documentation`: https://cryptography.io/\n.. _`the installation documentation`: https://cryptography.io/en/latest/installation/\n.. _`issue tracker`: https://github.com/pyca/cryptography/issues\n.. _`cryptography-dev`: https://mail.python.org/mailman/listinfo/cryptography-dev\n.. _`security reporting`: https://cryptography.io/en/latest/security/\n\n",
+        "description_content_type": "text/x-rst; charset=UTF-8",
+        "author_email": "The Python Cryptographic Authority and individual contributors <cryptography-dev@python.org>",
+        "license_expression": "Apache-2.0 OR BSD-3-Clause",
+        "license_file": [
+          "LICENSE",
+          "LICENSE.APACHE",
+          "LICENSE.BSD"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Natural Language :: English",
+          "Operating System :: MacOS :: MacOS X",
+          "Operating System :: POSIX",
+          "Operating System :: POSIX :: BSD",
+          "Operating System :: POSIX :: Linux",
+          "Operating System :: Microsoft :: Windows",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Programming Language :: Python :: Free Threading :: 3 - Stable",
+          "Topic :: Security :: Cryptography"
+        ],
+        "requires_dist": [
+          "cffi>=2.0.0 ; platform_python_implementation != 'PyPy'",
+          "typing-extensions>=4.13.2 ; python_full_version < '3.11'",
+          "bcrypt>=3.1.5 ; extra == 'ssh'"
+        ],
+        "requires_python": ">=3.9, !=3.9.0, !=3.9.1",
+        "project_url": [
+          "changelog, https://cryptography.io/en/latest/changelog/",
+          "documentation, https://cryptography.io/",
+          "homepage, https://github.com/pyca/cryptography",
+          "issues, https://github.com/pyca/cryptography/issues",
+          "source, https://github.com/pyca/cryptography/"
+        ],
+        "provides_extra": [
+          "ssh"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/6e/aa/8caf6a0a3e62863cbb9dab27135660acba46903b703e224f14f447e57934/hyperlink-21.0.0-py2.py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=e6b14c37ecb73e89c77d78cdb4c2cc8f3fb59a885c5b3f819ff4ed80f25af1b4",
+          "hashes": {
+            "sha256": "e6b14c37ecb73e89c77d78cdb4c2cc8f3fb59a885c5b3f819ff4ed80f25af1b4"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.1",
+        "name": "hyperlink",
+        "version": "21.0.0",
+        "platform": [
+          "any"
+        ],
+        "summary": "A featureful, immutable, and correct URL for Python.",
+        "description": "The humble, but powerful, URL runs everything around us. Chances\nare you've used several just to read this text.\n\nHyperlink is a featureful, pure-Python implementation of the URL, with\nan emphasis on correctness. MIT licensed.\n\nSee the docs at http://hyperlink.readthedocs.io.\n\n\n",
+        "home_page": "https://github.com/python-hyper/hyperlink",
+        "author": "Mahmoud Hashemi and Glyph Lefkowitz",
+        "author_email": "mahmoud@hatnote.com",
+        "license": "MIT",
+        "classifier": [
+          "Topic :: Utilities",
+          "Intended Audience :: Developers",
+          "Topic :: Software Development :: Libraries",
+          "Development Status :: 5 - Production/Stable",
+          "Programming Language :: Python :: 2",
+          "Programming Language :: Python :: 2.6",
+          "Programming Language :: Python :: 2.7",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.4",
+          "Programming Language :: Python :: 3.5",
+          "Programming Language :: Python :: 3.6",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "License :: OSI Approved :: MIT License"
+        ],
+        "requires_dist": [
+          "idna (>=2.5)",
+          "typing ; python_version < \"3.5\""
+        ],
+        "requires_python": ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/1e/d9/f59bd841fc2fd2b74dc50ce85860a6a25f58e588dd48946aeaf2862cf990/msgpack-1.2.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+        "archive_info": {
+          "hash": "sha256=c4d5bbdbea8f5669b3a734d6c226772804fb120848f99cbe63a0ddee63b049c9",
+          "hashes": {
+            "sha256": "c4d5bbdbea8f5669b3a734d6c226772804fb120848f99cbe63a0ddee63b049c9"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "msgpack",
+        "version": "1.2.4",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "MessagePack serializer",
+        "description": "# MessagePack for Python\n\n[![Build Status](https://github.com/msgpack/msgpack-python/actions/workflows/wheel.yml/badge.svg)](https://github.com/msgpack/msgpack-python/actions/workflows/wheel.yml)\n[![Documentation Status](https://readthedocs.org/projects/msgpack-python/badge/?version=latest)](https://msgpack-python.readthedocs.io/en/latest/?badge=latest)\n\n## What is this?\n\n[MessagePack](https://msgpack.org/) is an efficient binary serialization format.\nIt lets you exchange data among multiple languages like JSON.\nBut it's faster and smaller.\nThis package provides CPython bindings for reading and writing MessagePack data.\n\n## Install\n\n```\n$ pip install msgpack\n```\n\n### Pure Python implementation\n\nThe extension module in msgpack (`msgpack._cmsgpack`) does not support PyPy.\n\nBut msgpack provides a pure Python implementation (`msgpack.fallback`) for PyPy.\n\n\n### Windows\n\nIf you can't use a binary distribution, you need to install Visual Studio\nor the Windows SDK on Windows.\nWithout the extension, the pure Python implementation on CPython runs slowly.\n\n\n## How to use\n\n### One-shot pack & unpack\n\nUse `packb` for packing and `unpackb` for unpacking.\nmsgpack provides `dumps` and `loads` as aliases for compatibility with\n`json` and `pickle`.\n\n`pack` and `dump` pack to a file-like object.\n`unpack` and `load` unpack from a file-like object.\n\n```pycon\n>>> import msgpack\n>>> msgpack.packb([1, 2, 3])\n'\\x93\\x01\\x02\\x03'\n>>> msgpack.unpackb(_)\n[1, 2, 3]\n```\n\nRead the docstring for options.\n\n\n### Streaming unpacking\n\n`Unpacker` is a \"streaming unpacker\". It unpacks multiple objects from one\nstream (or from bytes provided through its `feed` method).\n\n```py\nimport msgpack\nfrom io import BytesIO\n\nbuf = BytesIO()\nfor i in range(100):\n   buf.write(msgpack.packb(i))\n\nbuf.seek(0)\n\nunpacker = msgpack.Unpacker(buf)\nfor unpacked in unpacker:\n    print(unpacked)\n```\n\n> [!IMPORTANT]\n> If `Unpacker.unpack()` stops with an exception other than `OutOfData`, that `Unpacker` cannot be reused.\n> Create a new `Unpacker` when reading another stream.\n\n\n### Packing/unpacking of custom data types\n\nIt is also possible to pack/unpack custom data types. Here is an example for\n`datetime.datetime`.\n\n```py\nimport datetime\nimport msgpack\n\nuseful_dict = {\n    \"id\": 1,\n    \"created\": datetime.datetime.now(),\n}\n\ndef decode_datetime(obj):\n    if '__datetime__' in obj:\n        obj = datetime.datetime.strptime(obj[\"as_str\"], \"%Y%m%dT%H:%M:%S.%f\")\n    return obj\n\ndef encode_datetime(obj):\n    if isinstance(obj, datetime.datetime):\n        return {'__datetime__': True, 'as_str': obj.strftime(\"%Y%m%dT%H:%M:%S.%f\")}\n    return obj\n\n\npacked_dict = msgpack.packb(useful_dict, default=encode_datetime)\nthis_dict_again = msgpack.unpackb(packed_dict, object_hook=decode_datetime)\n```\n\n`Unpacker`'s `object_hook` callback receives a dict; the\n`object_pairs_hook` callback may instead be used to receive a list of\nkey-value pairs.\n\nNOTE: msgpack can encode datetime with tzinfo into standard ext type for now.\nSee `datetime` option in `Packer` docstring.\n\n\n### Extended types\n\nIt is also possible to pack/unpack custom data types using the **ext** type.\n\n```pycon\n>>> import msgpack\n>>> import array\n>>> def default(obj):\n...     if isinstance(obj, array.array) and obj.typecode == 'd':\n...         return msgpack.ExtType(42, obj.tobytes())\n...     raise TypeError(\"Unknown type: %r\" % (obj,))\n...\n>>> def ext_hook(code, data):\n...     if code == 42:\n...         a = array.array('d')\n...         a.frombytes(data)\n...         return a\n...     return msgpack.ExtType(code, data)\n...\n>>> data = array.array('d', [1.2, 3.4])\n>>> packed = msgpack.packb(data, default=default)\n>>> unpacked = msgpack.unpackb(packed, ext_hook=ext_hook)\n>>> data == unpacked\nTrue\n```\n\n\n### Advanced unpacking control\n\nAs an alternative to iteration, `Unpacker` objects provide `unpack`,\n`skip`, `read_array_header`, and `read_map_header` methods. The former two\nread an entire message from the stream, respectively deserializing and returning\nthe result, or ignoring it. The latter two methods return the number of elements\nin the upcoming container, so that each element in an array, or key-value pair\nin a map, can be unpacked or skipped individually.\n\n\n## Notes\n\n### String and binary types in the old MessagePack spec\n\nEarly versions of msgpack didn't distinguish string and binary types.\nThe type for representing both string and binary types was named **raw**.\n\nYou can pack into and unpack from this old spec using `use_bin_type=False`\nand `raw=True` options.\n\n```pycon\n>>> import msgpack\n>>> msgpack.unpackb(msgpack.packb([b'spam', 'eggs'], use_bin_type=False), raw=True)\n[b'spam', b'eggs']\n>>> msgpack.unpackb(msgpack.packb([b'spam', 'eggs'], use_bin_type=True), raw=False)\n[b'spam', 'eggs']\n```\n\n### ext type\n\nTo use the **ext** type, pass a `msgpack.ExtType` object to the packer.\n\n```pycon\n>>> import msgpack\n>>> packed = msgpack.packb(msgpack.ExtType(42, b'xyzzy'))\n>>> msgpack.unpackb(packed)\nExtType(code=42, data='xyzzy')\n```\n\nYou can use it with `default` and `ext_hook`. See below.\n\n\n### Security\n\nWhen unpacking data received from an unreliable source, msgpack provides\ntwo security options.\n\n`max_buffer_size` (default: `100*1024*1024`) limits the internal buffer size.\nIt is also used to limit preallocated list sizes.\n\n`strict_map_key` (default: `True`) limits the type of map keys to bytes and str.\nWhile the MessagePack spec doesn't limit map key types,\nthere is a risk of a hash DoS.\nIf you need to support other types for map keys, use `strict_map_key=False`.\n\n\n### Performance tips\n\nCPython's GC starts when the number of allocated objects grows.\nThis means unpacking may trigger unnecessary GC.\nYou can use `gc.disable()` when unpacking a large message.\n\nA list is the default sequence type in Python.\nHowever, a tuple is lighter than a list.\nYou can use `use_list=False` while unpacking when performance is important.\n\n\n## Major breaking changes in the history\n\n### msgpack 0.5\n\nThe package name on PyPI was changed from `msgpack-python` to `msgpack` in 0.5.\n\nWhen upgrading from msgpack-0.4 or earlier, do `pip uninstall msgpack-python` before\n`pip install -U msgpack`.\n\n\n### msgpack 1.0\n\n* Python 2 support\n\n  * The extension module no longer supports Python 2.\n    The pure Python implementation (`msgpack.fallback`) is used for Python 2.\n\n  * msgpack 1.0.6 drops official support of Python 2.7, as pip and\n    GitHub Action \"setup-python\" no longer supports Python 2.7.\n\n* Packer\n\n  * Packer uses `use_bin_type=True` by default.\n    Bytes are encoded in the bin type in MessagePack.\n  * The `encoding` option is removed. UTF-8 is always used.\n\n* Unpacker\n\n  * Unpacker uses `raw=False` by default. It assumes str values are valid UTF-8 strings\n    and decodes them to Python str (Unicode) objects.\n  * `encoding` option is removed.  You can use `raw=True` to support old format (e.g. unpack into bytes, not str).\n  * The default value of `max_buffer_size` is changed from 0 to 100 MiB to avoid DoS attacks.\n    You need to pass `max_buffer_size=0` if you have large but safe data.\n  * The default value of `strict_map_key` is changed to True to avoid hash DoS.\n    You need to pass `strict_map_key=False` if you have data that contain map keys\n    whose type is neither bytes nor str.\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "msgpack",
+          "messagepack",
+          "serializer",
+          "serialization",
+          "binary"
+        ],
+        "author_email": "Inada Naoki <songofacandy@gmail.com>",
+        "license_expression": "Apache-2.0",
+        "license_file": [
+          "COPYING"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Operating System :: OS Independent",
+          "Topic :: File Formats",
+          "Intended Audience :: Developers",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Homepage, https://msgpack.org/",
+          "Documentation, https://msgpack-python.readthedocs.io/",
+          "Repository, https://github.com/msgpack/msgpack-python/",
+          "Tracker, https://github.com/msgpack/msgpack-python/issues",
+          "Changelog, https://github.com/msgpack/msgpack-python/blob/main/CHANGELOG.md"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/91/68/075bf851e11c9ef65bd6a0426791f0d9a0c7dae0e7f6e0b16ca67334b456/txaio-26.6.1-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=91a84a7825485a367c0b070c7399824c0e1a1e8c071cbdf3882dd3146dab587b",
+          "hashes": {
+            "sha256": "91a84a7825485a367c0b070c7399824c0e1a1e8c071cbdf3882dd3146dab587b"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "txaio",
+        "version": "26.6.1",
+        "summary": "Compatibility API between asyncio/Twisted/Trollius",
+        "description": "# txaio\n\n[![PyPI](https://img.shields.io/pypi/v/txaio.svg)](https://pypi.python.org/pypi/txaio)\n[![Python](https://img.shields.io/pypi/pyversions/txaio.svg)](https://pypi.python.org/pypi/txaio)\n[![CI](https://github.com/crossbario/txaio/workflows/main/badge.svg)](https://github.com/crossbario/txaio/actions?query=workflow%3Amain)\n[![Docs](https://readthedocs.org/projects/txaio/badge/?version=latest)](https://txaio.readthedocs.io/en/latest/)\n[![License](https://img.shields.io/pypi/l/txaio.svg)](https://github.com/crossbario/txaio/blob/master/LICENSE)\n[![Downloads](https://img.shields.io/pypi/dm/txaio.svg)](https://pypi.python.org/pypi/txaio)\n\n------------------------------------------------------------------------\n\n**txaio** is a helper library for writing code that runs unmodified on\nboth [Twisted](https://twistedmatrix.com/) and\n[asyncio](https://docs.python.org/3/library/asyncio.html) /\n[Trollius](http://trollius.readthedocs.org/en/latest/index.html).\n\nThis is like [six](http://pythonhosted.org/six/), but for wrapping over\ndifferences between Twisted and asyncio so one can write code that runs\nunmodified on both (aka *source code compatibility*). In other words:\nyour *users* can choose if they want asyncio **or** Twisted as a\ndependency.\n\nNote that, with this approach, user code **runs under the native event\nloop of either Twisted or asyncio**. This is different from attaching\neither one's event loop to the other using some event loop adapter.\n\n## Platform support\n\n**txaio** runs on CPython 3.6+ and PyPy 3, on top of *Twisted* or\n*asyncio*. Specifically, **txaio** is tested on the following platforms:\n\n-   CPython 3.6 and 3.9 on Twisted 18.7, 19.10, trunk and on asyncio\n    (stdlib)\n-   PyPy 3.6 an 3.7 on Twisted 18.7, 19.10, trunk and on asyncio\n    (stdlib)\n\n&gt; Note: txaio up to version 18.8.1 also supported Python 2.7 and\nPython 3.4. Beginning with release v20.1.1, txaio only supports Python\n3.5+. Beginning with release v20.12.1, txaio only supports Python 3.6+.\n\n## How it works\n\nInstead of directly importing, instantiating and using `Deferred` (for\nTwisted) or `Future` (for asyncio) objects, **txaio** provides\nhelper-functions to do that for you, as well as associated things like\nadding callbacks or errbacks.\n\nThis obviously changes the style of your code, but then you can choose\nat runtime (or import time) which underlying event-loop to use. This\nmeans you can write **one** code-base that can run on Twisted *or*\nasyncio (without a Twisted dependency) as you or your users see fit.\n\nCode like the following can then run on *either* system:\n\n```python\nimport txaio\ntxaio.use_twisted()  # or .use_asyncio()\n\nf0 = txaio.create_future()\nf1 = txaio.as_future(some_func, 1, 2, key='word')\ntxaio.add_callbacks(f0, callback, errback)\ntxaio.add_callbacks(f1, callback, errback)\n# ...\ntxaio.resolve(f0, \"value\")\ntxaio.reject(f1, RuntimeError(\"it failed\"))\n```\n\nPlease refer to the\n[documentation](https://txaio.readthedocs.io/en/latest/) for description\nand usage of the library features.\n\n## AI Policy\n\n> **IMPORTANT: A Note on Upcoming Policy Changes Regarding AI-Assisted Content**\n>\n> Up to and including release **v25.6.1**, this project contains no code\n> or documentation generated with the assistance of AI tools. This version\n> represents the final release under our historical contribution policy.\n> Starting with future versions (*after* release v25.6.1), our contribution policy\n> will change. Subsequent releases **MAY** contain code or documentation\n> created with AI assistance.\n\nWe urge all users and contributors to review our [AI\nPolicy](https://github.com/crossbario/txaio/blob/master/AI_POLICY.md).\nThis document details:\n\n-   The rules and warranties required for all future contributions.\n-   The potential intellectual property implications for the project and\n    its users.\n\nThis policy was established following an open community discussion,\nwhich you can review on [GitHub issue\n\\#1663](https://github.com/crossbario/autobahn-python/issues/1663).\n\nWe are providing this transparent notice to enable you to make an\ninformed decision. If our new AI policy is incompatible with your own\n(or your organization's) development practices or risk tolerance, please\ntake this into consideration when deciding whether to upgrade beyond\nversion v25.6.1.\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "asyncio",
+          "coroutine",
+          "trollius",
+          "twisted"
+        ],
+        "author_email": "typedef int GmbH <contact@typedefint.eu>",
+        "maintainer_email": "typedef int GmbH <contact@typedefint.eu>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Framework :: Twisted",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Software Development :: Libraries",
+          "Topic :: Software Development :: Libraries :: Application Frameworks"
+        ],
+        "requires_dist": [
+          "twisted>=22.10.0; extra == 'all'",
+          "zope-interface>=5.2.0; extra == 'all'",
+          "build>=1.0.0; extra == 'dev'",
+          "coverage>=7.0.0; extra == 'dev'",
+          "pytest-cov>=4.0.0; extra == 'dev'",
+          "pytest>=8.0.0; extra == 'dev'",
+          "ruff>=0.4.0; extra == 'dev'",
+          "twine>=5.0.0; extra == 'dev'",
+          "ty>=0.0.44; extra == 'dev'",
+          "wheel>=0.42.0; extra == 'dev'",
+          "furo>=2024.7.0; extra == 'docs'",
+          "linkify-it-py>=2.0.0; extra == 'docs'",
+          "myst-parser>=2.0; extra == 'docs'",
+          "pyenchant>=3.2; extra == 'docs'",
+          "scour>=0.38; extra == 'docs'",
+          "sphinx-autoapi>=2.1.0; extra == 'docs'",
+          "sphinx-copybutton>=0.5; extra == 'docs'",
+          "sphinx-design>=0.5; extra == 'docs'",
+          "sphinx>=8.2.3; extra == 'docs'",
+          "sphinxcontrib-images>=0.9; extra == 'docs'",
+          "sphinxcontrib-spelling>=8.0; extra == 'docs'",
+          "sphinxext-opengraph>=0.9; extra == 'docs'",
+          "twisted>=22.10.0; extra == 'twisted'",
+          "zope-interface>=5.2.0; extra == 'twisted'"
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "Homepage, https://txaio.readthedocs.io/",
+          "Documentation, https://txaio.readthedocs.io/",
+          "Repository, https://github.com/crossbario/txaio",
+          "Source, https://github.com/crossbario/txaio",
+          "Bug Tracker, https://github.com/crossbario/txaio/issues"
+        ],
+        "provides_extra": [
+          "all",
+          "asyncio",
+          "dev",
+          "docs",
+          "twisted"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/09/be/4ddd61b3d4beb21eced10d0d100a4dca26f13303d4952e48fb5e89167869/ujson-6.0.0-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+        "archive_info": {
+          "hash": "sha256=e9359bfd0efd12593f0db40ccb2d1497284401da207f1d6a1783718313201b21",
+          "hashes": {
+            "sha256": "e9359bfd0efd12593f0db40ccb2d1497284401da207f1d6a1783718313201b21"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "ujson",
+        "version": "6.0.0",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "Ultra fast JSON encoder and decoder for Python",
+        "description": "# UltraJSON\n\n[![PyPI version](https://img.shields.io/pypi/v/ujson.svg?logo=pypi&logoColor=FFE873)](https://pypi.org/project/ujson)\n[![Supported Python versions](https://img.shields.io/pypi/pyversions/ujson.svg?logo=python&logoColor=FFE873)](https://pypi.org/project/ujson)\n[![PyPI downloads](https://img.shields.io/pypi/dm/ujson.svg)](https://pypistats.org/packages/ujson)\n[![GitHub Actions status](https://github.com/ultrajson/ultrajson/workflows/Test/badge.svg)](https://github.com/ultrajson/ultrajson/actions)\n[![codecov](https://codecov.io/gh/ultrajson/ultrajson/branch/main/graph/badge.svg)](https://codecov.io/gh/ultrajson/ultrajson)\n[![DOI](https://zenodo.org/badge/1418941.svg)](https://zenodo.org/badge/latestdoi/1418941)\n[![Code style: Black](https://img.shields.io/badge/code%20style-Black-000000.svg)](https://github.com/psf/black)\n\nUltraJSON is an ultra fast JSON encoder and decoder written in pure C with bindings for\nPython.\n\nInstall with pip:\n\n```sh\npython -m pip install ujson\n```\n\n## Project status\n\n> [!WARNING]\n> UltraJSON's architecture is fundamentally ill-suited to making changes without\n> risk of introducing new security vulnerabilities. As a result, this library\n> has been put into a *maintenance-only* mode. Support for new Python versions\n> will be added and critical bugs and security issues will still be\n> fixed but all other changes will be rejected. Users are encouraged to migrate\n> to [orjson](https://pypi.org/project/orjson/) which is both much faster and\n> less likely to introduce a surprise buffer overflow vulnerability in the\n> future.\n\n## Usage\n\nMay be used as a drop in replacement for most other JSON parsers for Python:\n\n```pycon\n>>> import ujson\n>>> ujson.dumps([{\"key\": \"value\"}, 81, True])\n'[{\"key\":\"value\"},81,true]'\n>>> ujson.loads(\"\"\"[{\"key\": \"value\"}, 81, true]\"\"\")\n[{'key': 'value'}, 81, True]\n```\n\n### Encoder options\n\n#### encode_html_chars\n\nUsed to enable special encoding of \"unsafe\" HTML characters into safer Unicode\nsequences. Default is `False`:\n\n```pycon\n>>> ujson.dumps(\"<script>John&Doe\", encode_html_chars=True)\n'\"\\\\u003cscript\\\\u003eJohn\\\\u0026Doe\"'\n```\n\n#### ensure_ascii\n\nLimits output to ASCII and escapes all extended characters above 127. Default is `True`.\nIf your end format supports UTF-8, setting this option to false is highly recommended to\nsave space:\n\n```pycon\n>>> ujson.dumps(\"åäö\")\n'\"\\\\u00e5\\\\u00e4\\\\u00f6\"'\n>>> ujson.dumps(\"åäö\", ensure_ascii=False)\n'\"åäö\"'\n```\n\n#### escape_forward_slashes\n\nControls whether forward slashes (`/`) are escaped. Default is `True`:\n\n```pycon\n>>> ujson.dumps(\"https://example.com\")\n'\"https:\\\\/\\\\/example.com\"'\n>>> ujson.dumps(\"https://example.com\", escape_forward_slashes=False)\n'\"https://example.com\"'\n```\n\n#### indent\n\nControls whether indentation (\"pretty output\") is enabled. Default is `0` (disabled):\n\n```pycon\n>>> ujson.dumps({\"foo\": \"bar\"})\n'{\"foo\":\"bar\"}'\n>>> print(ujson.dumps({\"foo\": \"bar\"}, indent=4))\n{\n    \"foo\": \"bar\"\n}\n```\n\n## Benchmarks\n\n*UltraJSON* calls/sec compared to other popular JSON parsers with performance gain\nspecified below each.\n\n### Test machine\n\nLinux 5.15.0-1037-azure x86_64 #44-Ubuntu SMP Thu Apr 20 13:19:31 UTC 2023\n\n### Versions\n\n- CPython 3.11.3 (main, Apr  6 2023, 07:55:46) [GCC 11.3.0]\n- ujson        : 5.7.1.dev26\n- orjson       : 3.9.0\n- simplejson   : 3.19.1\n- json         : 2.0.9\n\n|                                                                               | ujson      | orjson     | simplejson | json       |\n|-------------------------------------------------------------------------------|-----------:|-----------:|-----------:|-----------:|\n| Array with 256 doubles                                                        |            |            |            |            |\n| encode                                                                        |     18,282 |     79,569 |      5,681 |      5,935 |\n| decode                                                                        |     28,765 |     93,283 |     13,844 |     13,367 |\n| Array with 256 UTF-8 strings                                                  |            |            |            |            |\n| encode                                                                        |      3,457 |     26,437 |      3,630 |      3,653 |\n| decode                                                                        |      3,576 |      4,236 |        522 |      1,978 |\n| Array with 256 strings                                                        |            |            |            |            |\n| encode                                                                        |     44,769 |    125,920 |     21,401 |     23,565 |\n| decode                                                                        |     28,518 |     75,043 |     41,496 |     42,221 |\n| Medium complex object                                                         |            |            |            |            |\n| encode                                                                        |     11,672 |     47,659 |      3,913 |      5,729 |\n| decode                                                                        |     12,522 |     23,599 |      8,007 |      9,720 |\n| Array with 256 True values                                                    |            |            |            |            |\n| encode                                                                        |    110,444 |    425,919 |     81,428 |     84,347 |\n| decode                                                                        |    203,430 |    318,193 |    146,867 |    156,249 |\n| Array with 256 dict{string, int} pairs                                        |            |            |            |            |\n| encode                                                                        |     14,170 |     72,514 |      3,050 |      7,079 |\n| decode                                                                        |     19,116 |     27,542 |      9,374 |     13,713 |\n| Dict with 256 arrays with 256 dict{string, int} pairs                         |            |            |            |            |\n| encode                                                                        |         55 |        282 |         11 |         26 |\n| decode                                                                        |         48 |         53 |         27 |         34 |\n| Dict with 256 arrays with 256 dict{string, int} pairs, outputting sorted keys |            |            |            |            |\n| encode                                                                        |         42 |            |          8 |         27 |\n| Complex object                                                                |            |            |            |            |\n| encode                                                                        |        462 |            |        397 |        444 |\n| decode                                                                        |        480 |        618 |        177 |        310 |\n\nAbove metrics are in call/sec, larger is better.\n\n## Multi-threading/Free-threading support\n\nUltraJSON has no global state so using `ujson` functions between threads is\norganically thread safe and will produce consistent results with or without\nPython's global interpreter lock. What is is not supported nor safe is mutating\nan object in one thread whilst it's simultaneously being serialised by `ujson`\nin another. In such usage, all bugs are features.\n\n## Build options\n\nFor those with particular needs, such as Linux distribution packagers, several\nbuild options are provided in the form of environment variables.\n\n### Debugging symbols\n\n#### UJSON_BUILD_NO_STRIP\n\nBy default, debugging symbols are stripped on Linux platforms. Setting this\nenvironment variable with a value of `1` or `True` disables this behavior.\n\n### Using an external or system copy of the double-conversion library\n\nThese two environment variables are typically used together, something like:\n\n```sh\nexport UJSON_BUILD_DC_INCLUDES='/usr/include/double-conversion'\nexport UJSON_BUILD_DC_LIBS='-ldouble-conversion'\n```\n\nUsers planning to link against an external shared library should be aware of\nthe ABI-compatibility requirements this introduces when upgrading system\nlibraries or copying compiled wheels to other machines.\n\n#### UJSON_BUILD_DC_INCLUDES\n\nOne or more directories, delimited by `os.pathsep` (same as the `PATH`\nenvironment variable), in which to look for `double-conversion` header files;\nthe default is to use the bundled copy.\n\n#### UJSON_BUILD_DC_LIBS\n\nCompiler flags needed to link the `double-conversion` library; the default\nis to use the bundled copy.\n",
+        "description_content_type": "text/markdown",
+        "author": "Jonas Tarnstrom",
+        "license_expression": "BSD-3-Clause AND TCL",
+        "license_file": [
+          "LICENSE.txt"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Programming Language :: C",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: GraalPy",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Typing :: Typed"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Download, https://github.com/ultrajson/ultrajson",
+          "Homepage, https://github.com/ultrajson/ultrajson",
+          "Source, https://github.com/ultrajson/ultrajson"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+          "hashes": {
+            "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "idna",
+        "version": "3.20",
+        "summary": "Internationalized Domain Names in Applications (IDNA)",
+        "description": "# Internationalized Domain Names in Applications (IDNA)\n\nSupport for [Internationalized Domain Names in Applications\n(IDNA)](https://tools.ietf.org/html/rfc5891) and [Unicode IDNA\nCompatibility Processing](https://unicode.org/reports/tr46/). It\nsupersedes the standard library's `encodings.idna`, which only\nimplements the 2003 specification, offering broader script coverage and\nlimiting domains with known security vulnerabilities.\n\n## Usage\n\nPackage may be installed from [PyPI](https://pypi.org/project/idna/) via\nthe typical methods (e.g. `python3 -m pip install idna`)\n\nFor typical usage, the `encode` and `decode` functions will take a\ndomain name argument and perform a conversion to ASCII-compatible encoding\n(known as A-labels), or to Unicode strings (known as U-labels)\nrespectively.\n\n```pycon\n>>> import idna\n>>> idna.encode('ドメイン.テスト')\nb'xn--eckwd4c7c.xn--zckzah'\n>>> print(idna.decode('xn--eckwd4c7c.xn--zckzah'))\nドメイン.テスト\n```\n\nConversions can be applied at a per-label basis using the `ulabel` or\n`alabel` functions for specialized use cases.\n\n\n### Compatibility Mapping (UTS #46)\n\nThis library provides support for [Unicode IDNA Compatibility\nProcessing](https://unicode.org/reports/tr46/) which normalizes input from\ndifferent potential ways a user may input a domain prior to performing the IDNA\nconversion operations. This functionality, known as a\n[mapping](https://tools.ietf.org/html/rfc5895), is considered by the\nspecification to be a local user-interface issue distinct from IDNA\nconversion functionality.\n\nFor example, \"Königsgäßchen\" is not a permissible label as capital letters\nare not allowed. UTS #46 will convert this into lower case prior to applying\nthe IDNA conversion.\n\n```pycon\n>>> import idna\n>>> idna.encode('Königsgäßchen')\n...\nidna.core.InvalidCodepoint: Codepoint U+004B at position 1 of 'Königsgäßchen' not allowed\n>>> idna.encode('Königsgäßchen', uts46=True)\nb'xn--knigsgchen-b4a3dun'\n>>> idna.decode('xn--knigsgchen-b4a3dun')\n'königsgäßchen'\n```\n\nWhen performing a decode operation for display purposes, `decode()`\naccepts a `display=True` argument that leaves any `xn--` label that\nfails to decode unchanged. This is useful for user interface display\nwhere a domain is in use, the A-label form can be presented when it\nis not a valid IDN.\n\n\n## Exceptions\n\nAll errors raised during conversion derive from the `idna.IDNAError`\nbase class. The more specific exceptions are:\n\n* `idna.IDNABidiError` — raised when a label contains an illegal\n  combination of left-to-right and right-to-left characters.\n* `idna.InvalidCodepoint` — raised when a label contains a codepoint\n  that is INVALID for IDNA.\n* `idna.InvalidCodepointContext` — raised when a CONTEXTO or CONTEXTJ\n  codepoint appears in a position whose contextual requirements are\n  not satisfied.\n\nExceptions carry machine-readable attributes so that applications do\nnot need to parse the message: `code` is a short, stable identifier\nfor the rule that failed (such as `disallowed_codepoint` or\n`label_too_long`); and, when the failure can be attributed to a\nparticular character, `text` (the label or domain being validated),\n`codepoint` (the offending codepoint as an integer) and `position`\nare set. \n\n\n## Command-line tool\n\nThe package supports command-line usage to convert domain names\nbetween their Unicode and ASCII-compatible forms. It can be run either\nas a module (`python3 -m idna`) or, once installed (such as with `uv\ntool` or `pipx`), via the `idna` script:\n\n```bash\n$ uv tool install idna\n$ idna xn--e1afmkfd.xn--p1ai\nпример.рф\n$ idna пример.рф\nxn--e1afmkfd.xn--p1ai\n```\n\nMode can be specified with `-e`/`--encode` or `-d`/`--decode`, otherwise\nit will be chosen automatically based on the first input. Multiple\ndomains can be supplied either as arguments or through standard input.\nUTS #46 mapping is applied by default, which lets the tool accept\ninputs that aren't strictly valid IDNA 2008 by normalising them first,\npass `--strict` to disable UTS #46.\n\nConversion failures are reported on stderr together with the\noffending input; processing continues with the remaining domains and\nthe tool exits with a non-zero status if any conversion failed.\n\n\n## Additional Notes\n\n* **Python version support**. This library supports Python 3.9 and higher.\n  As this library serves as a low-level toolkit for a variety of\n  applications, we strive to support all versions of Python that are\n  not beyond end-of-life. Free-threaded Python is also supported,\n  as the library holds no mutable global state the functions can be\n  called concurrently from multiple threads.\n\n* **Unicode version**. The IDNA and UTS #46 lookup tables are generated\n  from a specific Unicode release. Some Unicode data depends on the\n  running Python's `unicodedata` module, so on an older Python a\n  character new to Unicode may be rejected as unknown even if this\n  library knows about it.\n\n* **Emoji**. It is an occasional request to support emoji domains in\n  this library. Encoding of symbols like emoji is expressly prohibited by\n  the IDNA technical standard, and emoji domains are broadly phased\n  out across the domain industry due to associated security risks.\n\n* **Regenerating lookup tables**. The IDNA and UTS #46 functionality\n  relies upon pre-calculated lookup tables, generated using the\n  `idna-data` script in [`tools/`](tools/README.md).\n\n",
+        "description_content_type": "text/markdown",
+        "author_email": "Kim Davies <kim+pypi@gumleaf.org>",
+        "license_expression": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE.md"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Intended Audience :: System Administrators",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Internet :: Name Service (DNS)",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          "Topic :: Utilities"
+        ],
+        "requires_dist": [
+          "ruff >= 0.16.0 ; extra == \"all\"",
+          "mypy >= 1.11.2 ; extra == \"all\"",
+          "ty >= 0.0.37 ; extra == \"all\"",
+          "pytest >= 8.3.2 ; extra == \"all\"",
+          "hypothesis >= 6.141.1 ; extra == \"all\"",
+          "coverage >= 7.10.0 ; extra == \"all\""
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Changelog, https://github.com/kjd/idna/blob/master/HISTORY.md",
+          "Issue tracker, https://github.com/kjd/idna/issues",
+          "Source, https://github.com/kjd/idna"
+        ],
+        "provides_extra": [
+          "all"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/b6/ae/315bbeee126a769cbde43cf4908acb4b40408d8bf8bbf334dd7368d8dadf/pycparser-3.12-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e",
+          "hashes": {
+            "sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "pycparser",
+        "version": "3.12",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "C parser in Python",
+        "description": "=========\npycparser\n=========\n\n\n.. image:: https://github.com/eliben/pycparser/workflows/pycparser-tests/badge.svg\n  :align: center\n  :target: https://github.com/eliben/pycparser/actions\n\n----\n\n.. contents::\n    :backlinks: none\n\n.. sectnum::\n\nIntroduction\n============\n\nWhat is pycparser?\n------------------\n\n**pycparser** is a parser for the C language, written in pure Python. It is a\nmodule designed to be easily integrated into applications that need to parse\nC source code.\n\nWhat is it good for?\n--------------------\n\nAnything that needs C code to be parsed. The following are some uses for\n**pycparser**, taken from real user reports:\n\n* C code obfuscator\n* Front-end for various specialized C compilers\n* Static code checker\n* Automatic unit-test discovery\n* Adding specialized extensions to the C language\n\nOne of the most popular uses of **pycparser** is in the `cffi\n<https://cffi.readthedocs.io/en/latest/>`_ library, which uses it to parse the\ndeclarations of C functions and types in order to auto-generate FFIs.\n\n**pycparser** is unique in the sense that it's written in pure Python - a very\nhigh level language that's easy to experiment with and tweak. To people familiar\nwith Lex and Yacc, **pycparser**'s code will be simple to understand. It also\nhas no external dependencies (except for a Python interpreter), making it very\nsimple to install and deploy.\n\nWhich version of C does pycparser support?\n------------------------------------------\n\n**pycparser** aims to support the full C11 language, including earlier\nrevisions like C99.\n\nC23 support is conditional on a ``dialect=\"c23\"`` setting, since this revision\nintroduces new keywords like ``bool`` that would conflict with existing C code\nif not handled properly.\n\n**pycparser** supports very few GCC extensions, but it's fairly easy to set\nthings up so that it parses code with a lot of GCC-isms successfully. See the\n`FAQ <https://github.com/eliben/pycparser/wiki/FAQ>`_ for more details.\n\nWhat grammar does pycparser follow?\n-----------------------------------\n\n**pycparser** very closely follows the C grammar provided in Annex A of the C99\nstandard (ISO/IEC 9899).\n\nHow is pycparser licensed?\n--------------------------\n\n`BSD license <https://github.com/eliben/pycparser/blob/main/LICENSE>`_.\n\nContact details\n---------------\n\nFor reporting problems with **pycparser** or submitting feature requests, please\nopen an `issue <https://github.com/eliben/pycparser/issues>`_, or submit a\npull request.\n\n\nInstalling\n==========\n\nPrerequisites\n-------------\n\n**pycparser** is being tested with modern versions of Python on\nLinux, macOS and Windows. See `the CI dashboard <https://github.com/eliben/pycparser/actions/workflows/ci.yml>`__\nfor details.\n\n**pycparser** has no external dependencies.\n\nInstallation process\n--------------------\n\nThe recommended way to install **pycparser** is with ``pip``::\n\n    > pip install pycparser\n\nUsing\n=====\n\nInteraction with the C preprocessor\n-----------------------------------\n\nIn order to be compilable, C code must be preprocessed by the C preprocessor -\n``cpp``. A compatible ``cpp`` handles preprocessing directives like ``#include`` and\n``#define``, removes comments, and performs other minor tasks that prepare the C\ncode for compilation.\n\nFor all but the most trivial snippets of C code **pycparser**, like a C\ncompiler, must receive preprocessed C code in order to function correctly. If\nyou import the top-level ``parse_file`` function from the **pycparser** package,\nit will interact with ``cpp`` for you, as long as it's in your PATH, or you\nprovide a path to it.\n\nNote also that you can use ``gcc -E`` or ``clang -E`` instead of ``cpp``. See\nthe ``using_gcc_E_libc.py`` example for more details. Windows users can download\nand install a binary build of Clang for Windows `from this website\n<http://llvm.org/releases/download.html>`_.\n\nWhat about the standard C library headers?\n------------------------------------------\n\nC code almost always ``#include``\\s various header files from the standard C\nlibrary, like ``stdio.h``. While (with some effort) **pycparser** can be made to\nparse the standard headers from any C compiler, it's much simpler to use the\nprovided \"fake\" standard includes for C11 in ``utils/fake_libc_include``. These\nare standard C header files that contain only the bare necessities to allow\nvalid parsing of the files that use them. As a bonus, since they're minimal, it\ncan significantly improve the performance of parsing large C files.\n\nThe key point to understand here is that **pycparser** doesn't really care about\nthe semantics of types. It only needs to know whether some token encountered in\nthe source is a previously defined type. This is essential in order to be able\nto parse C correctly.\n\nSee `this blog post\n<https://eli.thegreenplace.net/2015/on-parsing-c-type-declarations-and-fake-headers>`_\nfor more details.\n\nNote that the fake headers are not included in the ``pip`` package nor installed\nvia the package build (`#224 <https://github.com/eliben/pycparser/issues/224>`_).\n\nBasic usage\n-----------\n\nTake a look at the |examples|_ directory of the distribution for a few examples\nof using **pycparser**. These should be enough to get you started. Please note\nthat most realistic C code samples would require running the C preprocessor\nbefore passing the code to **pycparser**; see the previous sections for more\ndetails.\n\nFor example, to parse C23 source with a preprocessor that supports ``-std=c23``::\n\n    from pycparser import CParser, parse_file\n\n    ast = parse_file(\n        \"example.c\",\n        use_cpp=True,\n        cpp_args=[\"-std=c23\"],\n        parser=CParser(dialect=\"c23\"),\n    )\n\nThe parser's dialect does not configure the external preprocessor; select its\nlanguage mode separately through ``cpp_args``.\n\n.. |examples| replace:: ``examples``\n.. _examples: examples\n\n\nAdvanced usage\n--------------\n\nThe public interface of **pycparser** is well documented with comments in\n``pycparser/c_parser.py``. For a detailed overview of the various AST nodes\ncreated by the parser, see ``pycparser/_c_ast.cfg``.\n\nThe root node is a ``FileAST``, whose ``ext`` attribute is a list of top-level\ndeclarations and function definitions. Explore nodes through their named fields,\nand use ``show()`` on a subtree to inspect just that part of the AST::\n\n    from pycparser import CParser\n\n    ast = CParser().parse(\"int x; int f(void) { return x; }\")\n    print(len(ast.ext))  # 2\n    func = ast.ext[1]\n    func.body.show()\n\nFor generic exploration, call ``children()`` to get a tuple of ``(field_name,\nchild_node)`` pairs for the immediate children. The tuple supports length and\nindexing directly::\n\n    children = func.children()\n    print(len(children))  # 2: decl and body\n    name, child = children[0]\n    print(name)  # decl\n    child.show()\n\nIterating over a node directly (``for child in node``) yields just the child\nnodes, without their names. For a guided walkthrough, see\n`examples/explore_ast.py <examples/explore_ast.py>`_; for recursive traversal,\nsee the ``NodeVisitor`` example in `examples/func_defs.py <examples/func_defs.py>`_.\n\nThere's also a `FAQ available here <https://github.com/eliben/pycparser/wiki/FAQ>`_.\nIn any case, you can always drop me an `email <eliben@gmail.com>`_ for help.\n\n\nModifying\n=========\n\nThere are a few points to keep in mind when modifying **pycparser**:\n\n* The code for **pycparser**'s AST nodes is automatically generated from a\n  configuration file - ``_c_ast.cfg``, by ``_ast_gen.py``. If you modify the AST\n  configuration or the generator, run ``make regen-ast`` from the repository\n  root to re-generate ``pycparser/c_ast.py`` and run ``make format``.\n* Read the docstring in the constructor of the ``CParser`` class for details\n  on configuration and compatibility arguments.\n\n\nPackage contents\n================\n\nOnce you unzip the ``pycparser`` package, you'll see the following files and\ndirectories:\n\nREADME.rst:\n  This README file.\n\nLICENSE:\n  The pycparser license\n\nsetup.py:\n  Legacy installation script (build metadata lives in ``pyproject.toml``).\n\npyproject.toml:\n  Package metadata and build configuration.\n\nexamples/:\n  A directory with some examples of using **pycparser**\n\npycparser/:\n  The **pycparser** module source code.\n\ntests/:\n  Unit tests.\n\nutils/fake_libc_include:\n  Minimal standard C library include files that should allow to parse any C code.\n  Note that these headers now include C11 code, so they may not work when the\n  preprocessor is configured to an earlier C standard (like ``-std=c99``).\n\nutils/internal/:\n  Internal utilities for my own use. You probably don't need them.\n\n\nContributors\n============\n\nSome people have contributed to **pycparser** by opening issues on bugs they've\nfound and/or submitting patches. The list of contributors is in the CONTRIBUTORS\nfile in the source distribution. After **pycparser** moved to Github I stopped\nupdating this list because Github does a much better job at tracking\ncontributions.\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Eli Bendersky <eliben@gmail.com>",
+        "maintainer_email": "Eli Bendersky <eliben@gmail.com>",
+        "license_expression": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15"
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "Homepage, https://github.com/eliben/pycparser"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "7.0.0-1017-azure",
+    "platform_system": "Linux",
+    "platform_version": "#17~24.04.1-Ubuntu SMP PREEMPT Thu Sep 24 18:46:57 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}

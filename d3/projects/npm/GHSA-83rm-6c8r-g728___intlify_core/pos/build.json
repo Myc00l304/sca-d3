@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "packages": 5,
+  "tree": {
+    "@intlify/core": "12.0.0-alpha.4",
+    "@intlify/core-base": "12.0.0-alpha.4",
+    "@intlify/message-compiler": "12.0.0-alpha.4",
+    "@intlify/shared": "12.0.0-alpha.4",
+    "source-map-js": "1.2.2"
+  }
+}
