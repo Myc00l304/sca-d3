@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "packages": 9,
+  "tree": {
+    "@js-temporal/polyfill": "0.5.1",
+    "@signalk/path-metadata": "1.0.3",
+    "@signalk/resources-provider": "1.5.2",
+    "@signalk/server-api": "2.35.0",
+    "@sinclair/typebox": "0.34.52",
+    "baconjs": "3.0.23",
+    "geolib": "3.3.14",
+    "jsbi": "4.3.2",
+    "ngeohash": "0.6.4"
+  }
+}

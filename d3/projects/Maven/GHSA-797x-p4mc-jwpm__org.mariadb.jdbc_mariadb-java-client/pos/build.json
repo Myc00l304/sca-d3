@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "packages": 9,
+  "tree": {
+    "org.mariadb.jdbc:mariadb-java-client": "3.4.4",
+    "com.github.waffle:waffle-jna": "3.3.0",
+    "net.java.dev.jna:jna": "5.13.0",
+    "net.java.dev.jna:jna-platform": "5.13.0",
+    "org.slf4j:jcl-over-slf4j": "2.0.7",
+    "org.slf4j:slf4j-api": "2.0.7",
+    "com.github.ben-manes.caffeine:caffeine": "2.9.3",
+    "com.google.errorprone:error_prone_annotations": "2.10.0",
+    "org.checkerframework:checker-qual": "3.32.0"
+  },
+  "jars": [
+    "caffeine-2.9.3.jar",
+    "checker-qual-3.32.0.jar",
+    "error_prone_annotations-2.10.0.jar",
+    "jcl-over-slf4j-2.0.7.jar",
+    "jna-5.13.0.jar",
+    "jna-platform-5.13.0.jar",
+    "mariadb-java-client-3.4.4.jar",
+    "slf4j-api-2.0.7.jar",
+    "waffle-jna-3.3.0.jar"
+  ]
+}

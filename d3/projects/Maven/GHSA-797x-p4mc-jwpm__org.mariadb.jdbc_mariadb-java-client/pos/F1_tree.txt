@@ -1,0 +1,10 @@
+pl.thesis.d1:d1-case:jar:1.0.0
+\- org.mariadb.jdbc:mariadb-java-client:jar:3.4.4:compile
+   \- com.github.waffle:waffle-jna:jar:3.3.0:compile
+      +- net.java.dev.jna:jna:jar:5.13.0:compile
+      +- net.java.dev.jna:jna-platform:jar:5.13.0:compile
+      +- org.slf4j:jcl-over-slf4j:jar:2.0.7:compile
+      +- org.slf4j:slf4j-api:jar:2.0.7:compile
+      +- com.github.ben-manes.caffeine:caffeine:jar:2.9.3:compile
+      |  \- com.google.errorprone:error_prone_annotations:jar:2.10.0:compile
+      \- org.checkerframework:checker-qual:jar:3.32.0:compile
