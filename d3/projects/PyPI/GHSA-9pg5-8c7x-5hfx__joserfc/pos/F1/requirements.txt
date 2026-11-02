@@ -1,0 +1,4 @@
+cffi==2.1.1
+cryptography==50.0.2
+joserfc==1.7.5
+pycparser==3.12

@@ -1,0 +1,85 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/9a/3b/6163796d69c3977d1e4287bea4a6979161cbbdd170ebb430511e8e1999ce/pyasn1-0.6.4-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=deda9277cfd454080ec40b207fb6df82206a3a2688735233cdcd8d3d565f088b",
+          "hashes": {
+            "sha256": "deda9277cfd454080ec40b207fb6df82206a3a2688735233cdcd8d3d565f088b"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "pyasn1",
+        "version": "0.6.4",
+        "dynamic": [
+          "license-file"
+        ],
+        "platform": [
+          "any"
+        ],
+        "summary": "Pure-Python implementation of ASN.1 types and DER/BER/CER codecs (X.208)",
+        "description": "\nASN.1 library for Python\n------------------------\n[![PyPI](https://img.shields.io/pypi/v/pyasn1.svg?maxAge=2592000)](https://pypi.org/project/pyasn1)\n[![Python Versions](https://img.shields.io/pypi/pyversions/pyasn1.svg)](https://pypi.org/project/pyasn1/)\n[![Build status](https://github.com/pyasn1/pyasn1/actions/workflows/main.yml/badge.svg)](https://github.com/pyasn1/pyasn1/actions/workflows/main.yml)\n[![Coverage Status](https://img.shields.io/codecov/c/github/pyasn1/pyasn1.svg)](https://codecov.io/github/pyasn1/pyasn1)\n[![GitHub license](https://img.shields.io/badge/license-BSD-blue.svg)](https://raw.githubusercontent.com/pyasn1/pyasn1/master/LICENSE.txt)\n\nThis is a free and open source implementation of ASN.1 types and codecs\nas a Python package. It has been first written to support particular\nprotocol (SNMP) but then generalized to be suitable for a wide range\nof protocols based on\n[ASN.1 specification](https://www.itu.int/rec/dologin_pub.asp?lang=e&id=T-REC-X.208-198811-W!!PDF-E&type=items).\n\n**NOTE:** The package is now maintained by *Christian Heimes* and\n*Simon Pichugin* in project https://github.com/pyasn1/pyasn1.\n\nFeatures\n--------\n\n* Generic implementation of ASN.1 types (X.208)\n* Standards compliant BER/CER/DER codecs\n* Can operate on streams of serialized data\n* Dumps/loads ASN.1 structures from Python types\n* 100% Python, works with Python 3.8+\n* MT-safe\n* Contributed ASN.1 compiler [Asn1ate](https://github.com/kimgr/asn1ate)\n\nWhy using pyasn1\n----------------\n\nASN.1 solves the data serialisation problem. This solution was\ndesigned long ago by the wise Ancients. Back then, they did not\nhave the luxury of wasting bits. That is why ASN.1 is designed\nto serialise data structures of unbounded complexity into\nsomething compact and efficient when it comes to processing\nthe data.\n\nThat probably explains why many network protocols and file formats\nstill rely on the 30+ years old technology. Including a number of\nhigh-profile Internet protocols and file formats.\n\nQuite a number of books cover the topic of ASN.1. \n[Communication between heterogeneous systems](http://www.oss.com/asn1/dubuisson.html)\nby Olivier Dubuisson is one of those high quality books freely \navailable on the Internet.\n\nThe pyasn1 package is designed to help Python programmers tackling\nnetwork protocols and file formats at the comfort of their Python\nprompt. The tool struggles to capture all aspects of a rather\ncomplicated ASN.1 system and to represent it on the Python terms.\n\nHow to use pyasn1\n-----------------\n\nWith pyasn1 you can build Python objects from ASN.1 data structures.\nFor example, the following ASN.1 data structure:\n\n```bash\nRecord ::= SEQUENCE {\n  id        INTEGER,\n  room  [0] INTEGER OPTIONAL,\n  house [1] INTEGER DEFAULT 0\n}\n```\n\nCould be expressed in pyasn1 like this:\n\n```python\nclass Record(Sequence):\n    componentType = NamedTypes(\n        NamedType('id', Integer()),\n        OptionalNamedType(\n            'room', Integer().subtype(\n                implicitTag=Tag(tagClassContext, tagFormatSimple, 0)\n            )\n        ),\n        DefaultedNamedType(\n            'house', Integer(0).subtype(\n                implicitTag=Tag(tagClassContext, tagFormatSimple, 1)\n            )\n        )\n    )\n```\n\nIt is in the spirit of ASN.1 to take abstract data description \nand turn it into a programming language specific form.\nOnce you have your ASN.1 data structure expressed in Python, you\ncan use it along the lines of similar Python type (e.g. ASN.1\n`SET` is similar to Python `dict`, `SET OF` to `list`):\n\n```python\n>>> record = Record()\n>>> record['id'] = 123\n>>> record['room'] = 321\n>>> str(record)\nRecord:\n id=123\n room=321\n>>>\n```\n\nPart of the power of ASN.1 comes from its serialisation features. You\ncan serialise your data structure and send it over the network.\n\n```python\n>>> from pyasn1.codec.der.encoder import encode\n>>> substrate = encode(record)\n>>> hexdump(substrate)\n00000: 30 07 02 01 7B 80 02 01 41\n```\n\nConversely, you can turn serialised ASN.1 content, as received from\nnetwork or read from a file, into a Python object which you can\nintrospect, modify, encode and send back.\n\n```python\n>>> from pyasn1.codec.der.decoder import decode\n>>> received_record, rest_of_substrate = decode(substrate, asn1Spec=Record())\n>>>\n>>> for field in received_record:\n>>>    print('{} is {}'.format(field, received_record[field]))\nid is 123\nroom is 321\nhouse is 0\n>>>\n>>> record == received_record\nTrue\n>>> received_record.update(room=123)\n>>> substrate = encode(received_record)\n>>> hexdump(substrate)\n00000: 30 06 02 01 7B 80 01 7B\n```\n\nThe pyasn1 classes struggle to emulate their Python prototypes (e.g. int,\nlist, dict etc.). But ASN.1 types exhibit more complicated behaviour.\nTo make life easier for a Pythonista, they can turn their pyasn1\nclasses into Python built-ins:\n\n```python\n>>> from pyasn1.codec.native.encoder import encode\n>>> encode(record)\n{'id': 123, 'room': 321, 'house': 0}\n```\n\nOr vice-versa -- you can initialize an ASN.1 structure from a tree of\nPython objects:\n\n```python\n>>> from pyasn1.codec.native.decoder import decode\n>>> record = decode({'id': 123, 'room': 321, 'house': 0}, asn1Spec=Record())\n>>> str(record)\nRecord:\n id=123\n room=321\n>>>\n```\n\nWith ASN.1 design, serialisation codecs are decoupled from data objects,\nso you could turn every single ASN.1 object into many different \nserialised forms. As of this moment, pyasn1 supports BER, DER, CER and\nPython built-ins codecs. The extremely compact PER encoding is expected\nto be introduced in the upcoming pyasn1 release.\n\nMore information on pyasn1 APIs can be found in the\n[documentation](https://pyasn1.readthedocs.io/en/latest/pyasn1/contents.html),\ncompiled ASN.1 modules for different protocols and file formats\ncould be found in the pyasn1-modules \n[repo](https://github.com/pyasn1/pyasn1-modules).\n\nHow to get pyasn1\n-----------------\n\nThe pyasn1 package is distributed under terms and conditions of 2-clause\nBSD [license](https://pyasn1.readthedocs.io/en/latest/license.html). Source code is freely\navailable as a GitHub [repo](https://github.com/pyasn1/pyasn1).\n\nYou could `pip install pyasn1` or download it from [PyPI](https://pypi.org/project/pyasn1).\n\nIf something does not work as expected, \n[open an issue](https://github.com/epyasn1/pyasn1/issues) at GitHub or\npost your question [on Stack Overflow](https://stackoverflow.com/questions/ask)\nor try browsing pyasn1 \n[mailing list archives](https://sourceforge.net/p/pyasn1/mailman/pyasn1-users/).\n\nCopyright (c) 2005-2020, [Ilya Etingof](mailto:etingof@gmail.com).\nAll rights reserved.\n",
+        "description_content_type": "text/markdown",
+        "author_email": "Ilya Etingof <etingof@gmail.com>",
+        "maintainer": "pyasn1 maintenance organization",
+        "maintainer_email": "Christian Heimes <christian@python.org>",
+        "license": "BSD-2-Clause",
+        "license_file": [
+          "LICENSE.rst"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "Intended Audience :: Education",
+          "Intended Audience :: Information Technology",
+          "Intended Audience :: System Administrators",
+          "Intended Audience :: Telecommunications Industry",
+          "Natural Language :: English",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Communications",
+          "Topic :: Software Development :: Libraries :: Python Modules"
+        ],
+        "requires_python": ">=3.8",
+        "project_url": [
+          "Homepage, https://github.com/pyasn1/pyasn1",
+          "Documentation, https://pyasn1.readthedocs.io",
+          "Source, https://github.com/pyasn1/pyasn1",
+          "Issues, https://github.com/pyasn1/pyasn1/issues",
+          "Changelog, https://pyasn1.readthedocs.io/en/latest/changelog.html"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "7.0.0-1017-azure",
+    "platform_system": "Linux",
+    "platform_version": "#17~24.04.1-Ubuntu SMP PREEMPT Thu Sep 24 18:46:57 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}
