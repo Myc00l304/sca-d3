@@ -38,8 +38,13 @@ DUMPS = ROOT / "pilot" / "data"
 # kody wyjścia oznaczające poprawne zakończenie (1 = znaleziono podatności)
 OK_CODES = {
     "trivy": {0}, "grype": {0, 1}, "osv-scanner": {0, 1, 128}, "osv-scanner-ext": {0, 1, 128},
-    "dependency-check": {0}, "npm-audit": {0, 1}, "pip-audit": {0, 1},
+    "dependency-check": {0, 14}, "npm-audit": {0, 1}, "pip-audit": {0, 1},
+    "dependency-check-mvn": {0}, "grype-ext": {0, 1}, "trivy-online": {0},
 }
+# Dependency-Check: kod 14 = błąd pojedynczego analizatora (np. Yarn Audit przy plikach JS
+# dołączonych do pakietów Pythona) po zakończonej analizie; raport JSON jest kompletny dla
+# pozostałych analizatorów. Akceptowany tylko przy poprawnym raporcie, oznaczany "ok_partial".
+PARTIAL_CODES = {"dependency-check": {14}}
 OSV_CHECKS = ["confirmed", "version_not_affected", "package_mismatch", "not_in_osv",
               "unknown_version"]
 VULN_ID_RE = re.compile(r"(GHSA-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}|CVE-\d{4}-\d{4,}|PYSEC-\d{4}-\d+)",
@@ -150,14 +155,39 @@ def parse_dc(data, eco):
 
 
 def parse_npm_audit(data, eco):
+    """npm audit nie podaje wersji; podaje ścieżki wystąpień pakietu (nodes), z których
+    wersja jest odczytywana z pliku blokady (fill_versions)."""
     findings = []
     for name, v in (data.get("vulnerabilities") or {}).items():
+        nodes = v.get("nodes") or [None]
         for via in v.get("via") or []:
-            if isinstance(via, dict):
-                findings.append({"package": via.get("name") or name, "version": None,
-                                 "ids": vuln_ids(via.get("url"), via.get("cve")),
-                                 "source": "npm"})
+            if isinstance(via, dict) and (via.get("name") or name) == name:
+                for node in nodes:
+                    findings.append({"package": name, "version": None, "node": node,
+                                     "ids": vuln_ids(via.get("url"), via.get("cve")),
+                                     "source": "npm"})
     return findings, None
+
+
+def fill_versions(eco: str, findings: list[dict], label_dir: Path) -> None:
+    """Uzupełnia brakujące wersje: npm audit z pliku blokady (po ścieżce wystąpienia),
+    pozostałe narzędzia z drzewa zależności projektu (tylko gdy pakiet występuje raz)."""
+    lock = load_json(label_dir / "F1" / "package-lock.json") if eco == "npm" else None
+    lock_pkgs = (lock or {}).get("packages") or {}
+    build = load_json(label_dir / "build.json") or {}
+    tree = {norm_pkg(eco, k): v for k, v in (build.get("tree") or {}).items()}
+    counts = defaultdict(int)
+    for path in lock_pkgs:
+        if path:
+            counts[norm_pkg(eco, path.split("node_modules/")[-1])] += 1
+    for f in findings:
+        if f["version"] or not f["package"]:
+            continue
+        node = f.get("node")
+        if node and node in lock_pkgs:
+            f["version"] = lock_pkgs[node].get("version")
+        elif counts.get(norm_pkg(eco, f["package"]), 0) <= 1:
+            f["version"] = tree.get(norm_pkg(eco, f["package"]))
 
 
 def parse_pip_audit(data, eco):
@@ -171,8 +201,12 @@ def parse_pip_audit(data, eco):
 
 
 PARSERS = {"trivy": parse_trivy, "grype": parse_grype, "osv-scanner": parse_osv,
-           "osv-scanner-ext": parse_osv,
+           "osv-scanner-ext": parse_osv, "dependency-check-mvn": None, "grype-ext": None,
+           "trivy-online": None,
            "dependency-check": parse_dc, "npm-audit": parse_npm_audit, "pip-audit": parse_pip_audit}
+
+
+PARSERS.update({"dependency-check-mvn": parse_dc, "grype-ext": parse_grype, "trivy-online": parse_trivy})
 
 
 # --------------------------------------------------------------------------- grupy aliasów
@@ -308,6 +342,7 @@ def main():
             outcomes.append(row)
             continue
         findings, inventory = PARSERS[tool](data, eco)
+        fill_versions(eco, findings, PROJ / case_key / label)
         target_pkg = norm_pkg(eco, case["package"])
         group = osv.group(case["advisory"])
         hit, other = False, set()
@@ -328,6 +363,8 @@ def main():
             fin.writerow([case_key, label, form, tool, f["package"], f["version"],
                           " ".join(sorted(f["ids"])), f["source"], is_pkg, is_vuln, chk])
         status = "no_packages" if tool.startswith("osv-scanner") and meta.get("exit_code") == 128 else "ok"
+        if meta.get("exit_code") in PARTIAL_CODES.get(tool, set()):
+            status = "ok_partial"
         outcome = {("pos", True): "TP", ("pos", False): "FN",
                    ("neg", True): "FP", ("neg", False): "TN"}[(label, hit)]
         row.update(status=status, outcome=outcome, detected=hit,
@@ -361,7 +398,7 @@ def main():
     sums = defaultdict(lambda: defaultdict(float))
     cnt = defaultdict(int)
     for r in outcomes:
-        if r.get("status") in ("ok", "no_packages"):
+        if r.get("status") in ("ok", "no_packages", "ok_partial"):
             k = (r["tool"], r["ecosystem"])
             cnt[k] += 1
             for c in OSV_CHECKS:

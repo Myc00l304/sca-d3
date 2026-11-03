@@ -188,6 +188,43 @@ def scan_one(tool: str, src: Path) -> tuple[dict, dict | None, str]:
     return meta, data, log_tail
 
 
+NVD_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
+
+
+def nvd_snapshot(cves: list[str], session: requests.Session) -> dict:
+    """Bieżący stan rekordu NVD (bez pamięci podręcznej): status analizy i konfiguracje CPE."""
+    import time
+    key = os.environ.get("NVD_API_KEY")
+    for cve in cves:
+        for attempt in range(5):
+            try:
+                r = session.get(NVD_URL, params={"cveId": cve}, timeout=60,
+                                headers={"apiKey": key} if key else {})
+            except requests.RequestException:
+                time.sleep(5 * (attempt + 1)); continue
+            if r.status_code == 200:
+                time.sleep(0.7 if key else 6.5)
+                vulns = r.json().get("vulnerabilities") or []
+                if not vulns:
+                    break
+                cve_rec = vulns[0]["cve"]
+                prods, n = set(), 0
+                for conf in cve_rec.get("configurations") or []:
+                    for node in conf.get("nodes") or []:
+                        for m in node.get("cpeMatch") or []:
+                            if m.get("vulnerable"):
+                                n += 1
+                                parts = m.get("criteria", "").split(":")
+                                if len(parts) > 4:
+                                    prods.add(f"{parts[3]}:{parts[4]}")
+                return {"cve": cve, "in_nvd": True, "nvd_status": cve_rec.get("vulnStatus"),
+                        "n_cpe_match": n, "cpe_products": " ".join(sorted(prods))}
+            if r.status_code in (403, 429, 500, 502, 503, 504):
+                time.sleep(10 * (attempt + 1)); continue
+            break
+    return {"cve": cves[0] if cves else None, "in_nvd": False}
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -252,14 +289,27 @@ def main():
                 target = ev.norm_pkg(eco, c["package"])
                 detected = any(f["package"] and ev.norm_pkg(eco, f["package"]) == target
                                and f["ids"] & group for f in findings)
+            partial = ok and meta["exit_code"] in ev.PARTIAL_CODES.get(tool, set())
             rows.append({"run_date": run_date, "advisory": c["advisory"], "ecosystem": eco,
-                         "tool": tool, "form": form, "status": "ok" if ok else "error",
+                         "tool": tool, "form": form,
+                         "status": ("ok_partial" if partial else "ok") if ok else "error",
                          "detected": detected, "exit_code": meta["exit_code"],
                          "wall_seconds": meta["wall_seconds"], "age_days": age,
                          **({"log_tail": log_tail} if not ok else {})})
             if detected:
                 st[tool] = run_date
     append_jsonl(det_path, rows)
+    # codzienny stan rekordów NVD dla śledzonych porad (rozdzielenie opóźnienia bazy NVD
+    # od opóźnienia narzędzia); błąd odpytania NVD nie przerywa serii
+    nvd_rows = []
+    for c in cohort:
+        if (today - dt.date.fromisoformat(c["added_run"])).days > args.track_days:
+            continue
+        group = osv.group(c["advisory"]) | {a.upper() for a in c["aliases"]}
+        cves = sorted(g for g in group if g.startswith("CVE-"))
+        snap = nvd_snapshot(cves, session) if cves else {"cve": None, "in_nvd": False}
+        nvd_rows.append({"run_date": run_date, "advisory": c["advisory"], "ecosystem": c["ecosystem"], **snap})
+    append_jsonl(DATA / "nvd_status.jsonl", nvd_rows)
     state["_last_run"] = run_date
     state_path.write_text(json.dumps(state, indent=1, sort_keys=True))
     subprocess.run([str(ROOT / "tools" / "db_status.sh"), str(DATA / "db_status" / run_date)],
