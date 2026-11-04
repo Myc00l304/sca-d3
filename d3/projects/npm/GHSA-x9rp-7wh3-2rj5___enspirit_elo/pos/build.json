@@ -1,0 +1,8 @@
+{
+  "ok": true,
+  "packages": 2,
+  "tree": {
+    "@enspirit/elo": "1.0.0",
+    "luxon": "3.7.2"
+  }
+}
