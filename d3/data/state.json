@@ -213,6 +213,12 @@
   "osv-scanner": "2026-10-22",
   "trivy": "2026-10-22"
  },
+ "GHSA-64vx-6h2c-rjh7": {
+  "grype": "2026-11-06",
+  "osv-scanner": "2026-11-06",
+  "pip-audit": "2026-11-06",
+  "trivy": "2026-11-06"
+ },
  "GHSA-6757-hggm-hp2w": {
   "dependency-check": "2026-10-30",
   "grype": "2026-10-30",
@@ -276,6 +282,13 @@
   "pip-audit": "2026-10-30",
   "trivy": "2026-10-30"
  },
+ "GHSA-7w38-ggh5-v542": {
+  "dependency-check": "2026-11-06",
+  "grype": "2026-11-06",
+  "npm-audit": "2026-11-06",
+  "osv-scanner": "2026-11-06",
+  "trivy": "2026-11-06"
+ },
  "GHSA-7wpf-ch8f-5f4x": {
   "dependency-check": "2026-10-31",
   "grype": "2026-10-31",
@@ -336,6 +349,7 @@
   "trivy": "2026-11-01"
  },
  "GHSA-9mx8-4j7g-633p": {
+  "dependency-check": "2026-11-06",
   "grype": "2026-10-22",
   "osv-scanner": "2026-10-22",
   "pip-audit": "2026-10-22",
@@ -584,6 +598,13 @@
   "osv-scanner": "2026-10-29",
   "pip-audit": "2026-10-29",
   "trivy": "2026-10-29"
+ },
+ "GHSA-m5ph-mmg5-6w5h": {
+  "dependency-check": "2026-11-06",
+  "grype": "2026-11-06",
+  "npm-audit": "2026-11-06",
+  "osv-scanner": "2026-11-06",
+  "trivy": "2026-11-06"
  },
  "GHSA-mc8m-rr6c-r5qr": {
   "dependency-check": "2026-11-05",
@@ -902,5 +923,5 @@
   "osv-scanner": "2026-10-28",
   "trivy": "2026-10-28"
  },
- "_last_run": "2026-11-05"
+ "_last_run": "2026-11-06"
 }

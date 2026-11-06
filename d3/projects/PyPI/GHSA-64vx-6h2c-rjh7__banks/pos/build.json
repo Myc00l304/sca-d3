@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "python": "python312",
+  "resolution": "full",
+  "f2": true,
+  "packages": 16,
+  "tree": {
+    "Deprecated": "3.0.1",
+    "Jinja2": "3.1.6",
+    "MarkupSafe": "3.0.4",
+    "annotated-types": "0.8.0",
+    "banks": "2.4.2",
+    "colorama": "0.4.6",
+    "filetype": "1.2.0",
+    "griffe": "2.4.1",
+    "griffecli": "2.4.1",
+    "griffelib": "2.4.1",
+    "platformdirs": "4.14.5",
+    "pydantic": "2.14.3",
+    "pydantic_core": "2.50.4",
+    "typing-inspection": "0.4.5",
+    "typing_extensions": "4.16.0",
+    "wrapt": "2.5.2"
+  }
+}
