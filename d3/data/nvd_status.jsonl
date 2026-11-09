@@ -862,3 +862,153 @@
 {"run_date": "2026-11-08", "advisory": "GHSA-9fpx-fr6j-2vh6", "ecosystem": "PyPI", "cve": "CVE-2026-33050", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
 {"run_date": "2026-11-08", "advisory": "GHSA-92r3-p8c2-3fpx", "ecosystem": "Maven", "cve": "CVE-2026-16454", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 1, "cpe_products": "eclipse:hawkbit"}
 {"run_date": "2026-11-08", "advisory": "GHSA-fqpv-mq26-pr4j", "ecosystem": "PyPI", "cve": "CVE-2026-46429", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-q3jh-wrc6-jgq8", "ecosystem": "npm", "cve": "CVE-2026-111756", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-qhcq-9pm2-c9w9", "ecosystem": "npm", "cve": "CVE-2026-113658", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-44qr-rrjg-2cqq", "ecosystem": "npm", "cve": "CVE-2026-113667", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-6prh-2h8m-c8cw", "ecosystem": "npm", "cve": "CVE-2026-111769", "in_nvd": true, "nvd_status": "Received", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-jm63-cq47-j5jp", "ecosystem": "npm", "cve": "CVE-2026-111770", "in_nvd": true, "nvd_status": "Received", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-rv4m-xm3f-3ccq", "ecosystem": "PyPI", "cve": "CVE-2026-111058", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-f9xw-jh8m-3mwq", "ecosystem": "PyPI", "cve": "CVE-2026-111748", "in_nvd": true, "nvd_status": "Undergoing Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-c6hw-5grf-ff96", "ecosystem": "PyPI", "cve": "CVE-2026-112404", "in_nvd": true, "nvd_status": "Modified", "n_cpe_match": 1, "cpe_products": "python:pillow"}
+{"run_date": "2026-11-09", "advisory": "GHSA-9xw5-w5jj-pvcg", "ecosystem": "PyPI", "cve": "CVE-2026-111066", "in_nvd": true, "nvd_status": "Undergoing Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-vx6w-vv9f-6gvg", "ecosystem": "PyPI", "cve": "CVE-2026-112899", "in_nvd": true, "nvd_status": "Undergoing Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-q78c-5jjq-57g8", "ecosystem": "Maven", "cve": "CVE-2026-111761", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-x32g-jvvm-4725", "ecosystem": "Maven", "cve": "CVE-2026-111762", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-4fpj-g9jf-9rgg", "ecosystem": "Maven", "cve": "CVE-2026-111765", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-qw47-mcm5-934w", "ecosystem": "Maven", "cve": "CVE-2026-111764", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-5r4p-p66f-jhc7", "ecosystem": "npm", "cve": "CVE-2026-109955", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-gqh3-7856-rjjg", "ecosystem": "npm", "cve": "CVE-2026-113668", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-c9rx-x947-fp3h", "ecosystem": "npm", "cve": "CVE-2026-113650", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-f2ph-cmg5-wxc8", "ecosystem": "npm", "cve": "CVE-2026-114125", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-5m22-7pfq-vp65", "ecosystem": "npm", "cve": "CVE-2026-113649", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-9mx8-4j7g-633p", "ecosystem": "PyPI", "cve": "CVE-2026-113793", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 1, "cpe_products": "py-pdf:pypdf"}
+{"run_date": "2026-11-09", "advisory": "GHSA-f8c7-rwf9-fmgm", "ecosystem": "PyPI", "cve": "CVE-2026-111057", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-fc9g-5qg7-mf45", "ecosystem": "PyPI", "cve": "CVE-2026-112891", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 1, "cpe_products": "python:pillow"}
+{"run_date": "2026-11-09", "advisory": "GHSA-6q48-6c7w-9gw2", "ecosystem": "PyPI", "cve": null, "in_nvd": false}
+{"run_date": "2026-11-09", "advisory": "GHSA-hq85-5cpj-mr62", "ecosystem": "PyPI", "cve": null, "in_nvd": false}
+{"run_date": "2026-11-09", "advisory": "GHSA-crwc-vw2r-qr6m", "ecosystem": "Maven", "cve": "CVE-2026-113730", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-p458-7748-mcp3", "ecosystem": "npm", "cve": "CVE-2026-112948", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-jjm6-p2m9-9w4x", "ecosystem": "npm", "cve": "CVE-2026-114130", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-389g-gv7q-r4x8", "ecosystem": "npm", "cve": "CVE-2026-107832", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-rqgm-cfrp-4hx8", "ecosystem": "npm", "cve": "CVE-2026-112954", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-374f-7chj-9948", "ecosystem": "npm", "cve": "CVE-2026-113657", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-c978-59m8-c77v", "ecosystem": "PyPI", "cve": "CVE-2026-113722", "in_nvd": true, "nvd_status": "Undergoing Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-vj8h-fx38-h3vc", "ecosystem": "PyPI", "cve": "CVE-2026-75507", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-5hx5-vpf9-5wcv", "ecosystem": "PyPI", "cve": "CVE-2026-113786", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-pqxq-w44r-73xw", "ecosystem": "PyPI", "cve": "CVE-2026-111750", "in_nvd": true, "nvd_status": "Undergoing Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-xw6w-gcfp-cf8m", "ecosystem": "PyPI", "cve": "CVE-2026-114137", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-3qxv-5xgr-q7w9", "ecosystem": "npm", "cve": "CVE-2026-114122", "in_nvd": true, "nvd_status": "Undergoing Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-9g7p-m758-rp72", "ecosystem": "npm", "cve": "CVE-2026-112955", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-f2hq-32vh-53cc", "ecosystem": "npm", "cve": null, "in_nvd": false}
+{"run_date": "2026-11-09", "advisory": "GHSA-xfq5-w38q-pc2x", "ecosystem": "npm", "cve": "CVE-2026-114133", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-xjj6-f33q-929c", "ecosystem": "npm", "cve": "CVE-2026-109869", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 3, "cpe_products": "nodejs:undici"}
+{"run_date": "2026-11-09", "advisory": "GHSA-53xc-49m8-p798", "ecosystem": "PyPI", "cve": "CVE-2026-115776", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-2g95-wg33-c5x2", "ecosystem": "PyPI", "cve": "CVE-2026-112906", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 1, "cpe_products": "tox-dev:filelock"}
+{"run_date": "2026-11-09", "advisory": "GHSA-cw65-gx24-rc82", "ecosystem": "PyPI", "cve": "CVE-2026-113716", "in_nvd": true, "nvd_status": "Undergoing Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-xcq7-p3pf-p88h", "ecosystem": "PyPI", "cve": "CVE-2026-114603", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-83vg-56qc-22m7", "ecosystem": "PyPI", "cve": "CVE-2026-114145", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-98hj-9722-w3j8", "ecosystem": "npm", "cve": "CVE-2026-114128", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-mchm-gjx6-7h55", "ecosystem": "npm", "cve": "CVE-2026-114139", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-rxp7-6hxx-x8q5", "ecosystem": "npm", "cve": "CVE-2026-111997", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-xhq7-xmqj-769h", "ecosystem": "npm", "cve": "CVE-2026-110095", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-cg2g-xh64-v4q7", "ecosystem": "npm", "cve": "CVE-2026-116804", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-6w3r-xr62-4xcp", "ecosystem": "PyPI", "cve": "CVE-2026-113723", "in_nvd": true, "nvd_status": "Undergoing Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-2qrf-pqgx-qh9v", "ecosystem": "PyPI", "cve": "CVE-2026-115774", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-354v-3q48-cv69", "ecosystem": "PyPI", "cve": "CVE-2026-114135", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-cg8m-r9f2-5wm2", "ecosystem": "PyPI", "cve": "CVE-2026-114134", "in_nvd": true, "nvd_status": "Received", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-3547-9m27-7rxg", "ecosystem": "PyPI", "cve": "CVE-2026-114136", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-8c8m-p3m8-cjg8", "ecosystem": "npm", "cve": "CVE-2026-121424", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-27mw-82g8-phjj", "ecosystem": "npm", "cve": "CVE-2026-114061", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-pqh8-4pj7-32xx", "ecosystem": "npm", "cve": "CVE-2026-77363", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-2rqm-h6hv-g79v", "ecosystem": "npm", "cve": null, "in_nvd": false}
+{"run_date": "2026-11-09", "advisory": "GHSA-wjr9-j795-jxcr", "ecosystem": "npm", "cve": "CVE-2026-110180", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-gmh7-3g9r-mjh5", "ecosystem": "PyPI", "cve": "CVE-2026-115580", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-xmj3-9gf7-h52w", "ecosystem": "PyPI", "cve": null, "in_nvd": false}
+{"run_date": "2026-11-09", "advisory": "GHSA-v4x8-3wr5-3wq8", "ecosystem": "PyPI", "cve": "CVE-2026-112940", "in_nvd": true, "nvd_status": "Modified", "n_cpe_match": 1, "cpe_products": "tox-dev:filelock"}
+{"run_date": "2026-11-09", "advisory": "GHSA-vqqp-x5qm-5qp4", "ecosystem": "PyPI", "cve": null, "in_nvd": false}
+{"run_date": "2026-11-09", "advisory": "GHSA-h7ww-273w-6cm8", "ecosystem": "PyPI", "cve": "CVE-2026-115355", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-4w7w-5xrc-9h26", "ecosystem": "npm", "cve": "CVE-2026-109829", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 2, "cpe_products": "nodejs:undici"}
+{"run_date": "2026-11-09", "advisory": "GHSA-g73g-hqqh-jr95", "ecosystem": "npm", "cve": "CVE-2026-110870", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-f897-62hf-6gxq", "ecosystem": "npm", "cve": null, "in_nvd": false}
+{"run_date": "2026-11-09", "advisory": "GHSA-mf2p-h6hf-fcwm", "ecosystem": "npm", "cve": "CVE-2026-116675", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-r4xp-prcw-77qf", "ecosystem": "npm", "cve": "CVE-2026-110864", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-j586-36cw-2gc2", "ecosystem": "PyPI", "cve": "CVE-2026-114613", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-5h93-6whr-6q8j", "ecosystem": "PyPI", "cve": "CVE-2026-116685", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-f5m9-jfrj-jjj7", "ecosystem": "PyPI", "cve": "CVE-2026-116694", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-rw7v-4hrq-x6r9", "ecosystem": "PyPI", "cve": "CVE-2026-114609", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-vcw3-r3fx-j444", "ecosystem": "PyPI", "cve": "CVE-2026-27975", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 1, "cpe_products": "ajenti:ajenti"}
+{"run_date": "2026-11-09", "advisory": "GHSA-q233-g92q-qxp6", "ecosystem": "Maven", "cve": "CVE-2026-108106", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-xxph-c9ww-hj94", "ecosystem": "Maven", "cve": "CVE-2026-102554", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-gg6h-894w-4m9c", "ecosystem": "npm", "cve": "CVE-2026-116795", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-qq8j-7v2v-3rwp", "ecosystem": "npm", "cve": "CVE-2026-109855", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 1, "cpe_products": "nodejs:undici"}
+{"run_date": "2026-11-09", "advisory": "GHSA-4vjg-vx72-qq4g", "ecosystem": "npm", "cve": "CVE-2026-116673", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-r5wg-q8fc-p6w2", "ecosystem": "npm", "cve": "CVE-2026-118254", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-7rv5-mrxv-xcr9", "ecosystem": "npm", "cve": "CVE-2026-116580", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-3fx2-cqw9-xr3c", "ecosystem": "PyPI", "cve": "CVE-2026-118667", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-q686-2qmg-hqc7", "ecosystem": "PyPI", "cve": "CVE-2026-114619", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 1, "cpe_products": "authlib:authlib"}
+{"run_date": "2026-11-09", "advisory": "GHSA-r4j5-9xpp-3985", "ecosystem": "PyPI", "cve": "CVE-2026-115927", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-8prr-f582-jqq3", "ecosystem": "PyPI", "cve": "CVE-2026-115885", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-m462-7rxw-wvpg", "ecosystem": "PyPI", "cve": "CVE-2026-112938", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-gwq9-9ffj-mvrv", "ecosystem": "Maven", "cve": "CVE-2026-93451", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-ccrj-gw8r-854m", "ecosystem": "Maven", "cve": "CVE-2026-118259", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-6g3c-p4fg-xv47", "ecosystem": "npm", "cve": "CVE-2026-118242", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-wp97-x4hv-qvhp", "ecosystem": "npm", "cve": "CVE-2026-116584", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-w658-mh9p-ww8f", "ecosystem": "npm", "cve": "CVE-2026-115923", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-5793-x2q3-c3q7", "ecosystem": "npm", "cve": "CVE-2026-118251", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-q84f-53jg-9ppm", "ecosystem": "npm", "cve": "CVE-2026-109346", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-22qq-2fwx-7p67", "ecosystem": "PyPI", "cve": "CVE-2026-114608", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-7vr2-2fgp-9w7p", "ecosystem": "PyPI", "cve": "CVE-2026-114615", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 1, "cpe_products": "authlib:authlib"}
+{"run_date": "2026-11-09", "advisory": "GHSA-w4fh-qvv9-3v23", "ecosystem": "PyPI", "cve": "CVE-2026-116684", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-j456-xh4h-cpf2", "ecosystem": "PyPI", "cve": "CVE-2026-109956", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-6757-hggm-hp2w", "ecosystem": "PyPI", "cve": "CVE-2026-115912", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 1, "cpe_products": "vllm:vllm"}
+{"run_date": "2026-11-09", "advisory": "GHSA-f5p5-6xmx-p252", "ecosystem": "Maven", "cve": "CVE-2026-9800", "in_nvd": true, "nvd_status": "Modified", "n_cpe_match": 2, "cpe_products": "redhat:build_of_keycloak"}
+{"run_date": "2026-11-09", "advisory": "GHSA-xqrx-qh46-34m7", "ecosystem": "Maven", "cve": "CVE-2026-116590", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-grj7-r4jv-pw9j", "ecosystem": "npm", "cve": "CVE-2026-118245", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-5324-3w58-qpp2", "ecosystem": "npm", "cve": "CVE-2026-116575", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-7wpf-ch8f-5f4x", "ecosystem": "npm", "cve": "CVE-2026-115752", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-mp66-8ww2-pcwm", "ecosystem": "npm", "cve": "CVE-2026-118666", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-83rm-6c8r-g728", "ecosystem": "npm", "cve": "CVE-2026-118257", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-5j9r-fx4x-rpvg", "ecosystem": "PyPI", "cve": "CVE-2026-58273", "in_nvd": true, "nvd_status": "Received", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-48m4-24cq-37qf", "ecosystem": "PyPI", "cve": "CVE-2026-115919", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-pjh6-c8mg-3x7m", "ecosystem": "PyPI", "cve": "CVE-2026-116579", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-q97c-p368-75c4", "ecosystem": "PyPI", "cve": "CVE-2026-115916", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 1, "cpe_products": "vllm:vllm"}
+{"run_date": "2026-11-09", "advisory": "GHSA-6jp4-8v48-cc5v", "ecosystem": "PyPI", "cve": "CVE-2026-117601", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-fhx5-2xqw-2cgm", "ecosystem": "Maven", "cve": "CVE-2026-119210", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-r7rc-c989-86g6", "ecosystem": "Maven", "cve": "CVE-2026-9705", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 2, "cpe_products": "redhat:build_of_keycloak"}
+{"run_date": "2026-11-09", "advisory": "GHSA-c6q7-wqw2-h65w", "ecosystem": "Maven", "cve": "CVE-2026-54442", "in_nvd": true, "nvd_status": "Received", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-c33x-vcv4-vg3g", "ecosystem": "npm", "cve": null, "in_nvd": false}
+{"run_date": "2026-11-09", "advisory": "GHSA-w9x9-j56r-h98r", "ecosystem": "npm", "cve": null, "in_nvd": false}
+{"run_date": "2026-11-09", "advisory": "GHSA-r899-h629-j84r", "ecosystem": "npm", "cve": "CVE-2026-61448", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-4xm8-rg9h-jhq2", "ecosystem": "npm", "cve": null, "in_nvd": false}
+{"run_date": "2026-11-09", "advisory": "GHSA-x287-wcfc-q46c", "ecosystem": "npm", "cve": "CVE-2026-119198", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-jpxq-7h8p-2q76", "ecosystem": "PyPI", "cve": "CVE-2026-119283", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-26mh-57q7-jfvr", "ecosystem": "PyPI", "cve": "CVE-2026-61438", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-c73q-w75p-j82v", "ecosystem": "PyPI", "cve": "CVE-2026-116672", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-9m75-vc3g-4x39", "ecosystem": "PyPI", "cve": "CVE-2026-119195", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-mpqx-q82w-9x46", "ecosystem": "PyPI", "cve": "CVE-2026-119286", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-v3f7-2p4r-mwfw", "ecosystem": "Maven", "cve": "CVE-2026-9086", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 2, "cpe_products": "redhat:build_of_keycloak"}
+{"run_date": "2026-11-09", "advisory": "GHSA-797x-p4mc-jwpm", "ecosystem": "Maven", "cve": "CVE-2026-119279", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-4642-5mcj-2rqw", "ecosystem": "npm", "cve": "CVE-2026-118775", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 1, "cpe_products": "digitalbazaar:forge"}
+{"run_date": "2026-11-09", "advisory": "GHSA-3g3m-2fjr-6pw4", "ecosystem": "npm", "cve": "CVE-2026-118773", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-4528-x5fx-h6hg", "ecosystem": "npm", "cve": "CVE-2026-118772", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-3xf4-9g3c-4h4w", "ecosystem": "npm", "cve": "CVE-2026-119201", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-mrwp-f3q8-3g9p", "ecosystem": "npm", "cve": "CVE-2026-116689", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-9pg5-8c7x-5hfx", "ecosystem": "PyPI", "cve": "CVE-2026-119284", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-2qm8-x737-gmw5", "ecosystem": "PyPI", "cve": "CVE-2026-119196", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-9gh4-xw24-9xh5", "ecosystem": "PyPI", "cve": "CVE-2026-116677", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-7984-qgvg-3j9c", "ecosystem": "PyPI", "cve": "CVE-2026-118669", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-grfq-r75j-rw9x", "ecosystem": "Maven", "cve": "CVE-2026-119281", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-f9j6-8p6x-r9j6", "ecosystem": "npm", "cve": "CVE-2026-62374", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-j656-3hf2-fvjc", "ecosystem": "npm", "cve": "CVE-2026-61789", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-x9rp-7wh3-2rj5", "ecosystem": "npm", "cve": "CVE-2026-44265", "in_nvd": true, "nvd_status": "Received", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-gh9r-c94j-cmp5", "ecosystem": "PyPI", "cve": "CVE-2026-115878", "in_nvd": true, "nvd_status": "Received", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-33r5-xmm8-v6x5", "ecosystem": "npm", "cve": "CVE-2026-44267", "in_nvd": true, "nvd_status": "Received", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-mc8m-rr6c-r5qr", "ecosystem": "npm", "cve": "CVE-2026-93363", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-3cgg-c5pp-57h6", "ecosystem": "npm", "cve": "CVE-2026-113787", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-m5ph-mmg5-6w5h", "ecosystem": "npm", "cve": "CVE-2026-62300", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-7w38-ggh5-v542", "ecosystem": "npm", "cve": "CVE-2026-44266", "in_nvd": true, "nvd_status": "Received", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-64vx-6h2c-rjh7", "ecosystem": "PyPI", "cve": "CVE-2026-61536", "in_nvd": true, "nvd_status": "Deferred", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-9fpx-fr6j-2vh6", "ecosystem": "PyPI", "cve": "CVE-2026-33050", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-92r3-p8c2-3fpx", "ecosystem": "Maven", "cve": "CVE-2026-16454", "in_nvd": true, "nvd_status": "Analyzed", "n_cpe_match": 1, "cpe_products": "eclipse:hawkbit"}
+{"run_date": "2026-11-09", "advisory": "GHSA-fqpv-mq26-pr4j", "ecosystem": "PyPI", "cve": "CVE-2026-46429", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
+{"run_date": "2026-11-09", "advisory": "GHSA-r4hm-p9f9-fj9v", "ecosystem": "PyPI", "cve": "CVE-2026-55649", "in_nvd": true, "nvd_status": "Awaiting Analysis", "n_cpe_match": 0, "cpe_products": ""}
