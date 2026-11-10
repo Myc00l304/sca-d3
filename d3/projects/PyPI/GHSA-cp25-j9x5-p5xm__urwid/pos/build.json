@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "python": "python312",
+  "resolution": "full",
+  "f2": true,
+  "packages": 3,
+  "tree": {
+    "typing_extensions": "4.16.0",
+    "urwid": "4.0.6",
+    "wcwidth": "0.9.4"
+  }
+}

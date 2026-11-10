@@ -1,0 +1,21 @@
+pl.thesis.d1:d1-case:jar:1.0.0
+\- com.gradleup.shadow:com.gradleup.shadow.gradle.plugin:jar:9.5.1:compile
+   \- com.gradleup.shadow:shadow-gradle-plugin:jar:9.5.1:compile
+      +- org.apache.ant:ant:jar:1.10.17:compile
+      |  \- org.apache.ant:ant-launcher:jar:1.10.17:compile
+      +- commons-codec:commons-codec:jar:1.22.0:runtime
+      +- commons-io:commons-io:jar:2.22.0:runtime
+      +- org.apache.logging.log4j:log4j-core:jar:2.26.1:runtime
+      |  \- org.apache.logging.log4j:log4j-api:jar:2.26.1:runtime
+      +- org.vafer:jdependency:jar:2.16:runtime
+      +- org.jdom:jdom2:jar:2.0.6.1:runtime
+      +- org.jetbrains.kotlin:kotlin-metadata-jvm:jar:2.4.0:runtime
+      |  \- org.jetbrains.kotlin:kotlin-stdlib:jar:2.4.0:runtime
+      |     \- org.jetbrains:annotations:jar:13.0:runtime
+      +- org.codehaus.plexus:plexus-utils:jar:4.0.3:runtime
+      \- org.codehaus.plexus:plexus-xml:jar:4.1.1:runtime
+         \- org.apache.maven:maven-xml:jar:4.0.0-rc-5:runtime
+            +- org.apache.maven:maven-api-xml:jar:4.0.0-rc-5:runtime
+            |  \- org.apache.maven:maven-api-annotations:jar:4.0.0-rc-5:runtime
+            +- com.fasterxml.woodstox:woodstox-core:jar:7.1.1:runtime
+            \- org.codehaus.woodstox:stax2-api:jar:4.2.2:runtime

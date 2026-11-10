@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "packages": 1,
+  "tree": {
+    "org.json:json": "20260522"
+  },
+  "jars": [
+    "json-20260522.jar"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/7a/82/5817041ee7b77e4aa4fa0857eff4581d394e852006b84c92e4cf81b970d9/loggingredactor-0.0.6-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=3fddce91e5719a03548968ddcd07eaa462148bfffabf579c7d856497e86b741b",
+          "hashes": {
+            "sha256": "3fddce91e5719a03548968ddcd07eaa462148bfffabf579c7d856497e86b741b"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.1",
+        "name": "loggingredactor",
+        "version": "0.0.6",
+        "summary": "Redact data in logs based on regex filters and keys",
+        "description": "# Logging Redactor\n![PyPI version](https://img.shields.io/pypi/v/loggingredactor.svg?color=blue)\n![Supported Python versions](https://img.shields.io/pypi/pyversions/loggingredactor.svg?color=green)\n\nLogging Redactor is a Python library designed to redact sensitive data in logs based on regex mask_patterns or dictionary keys. It supports JSON logging formats and handles nested data at the message level, at the positional argument level and also in the `extra` keyword argument.\n\n## Installation\n\nYou can install Logging Redactor via pip:\n\n```\npip install loggingredactor\n```\n\n## Illustrative Examples\n\nBelow is a basic example that illustrates how to redact any digits in a logger message:\n\n```python\nimport re\nimport logging\nimport loggingredactor\n\n# Create a logger\nlogger = logging.getLogger()\n# Add the redact filter to the logger with your custom filters\nredact_mask_patterns = [re.compile(r'\\d+')]\n\n# if no `mask` is passed in, 4 asterisks will be used\nlogger.addFilter(loggingredactor.RedactingFilter(redact_mask_patterns, mask='xx'))\n\nlogger.warning(\"This is a test 123...\")\n# Output: This is a test xx...\n```\n\nPython only applies the filter on that logger, so any other files using logging will not get the filter applied. To have this filter applied to all loggers do the following\n```python\nimport re\nimport logging\nimport loggingredactor\nfrom pythonjsonlogger import jsonlogger\n\n# Create a pattern to hide api key in url. This uses a _Positive Lookbehind_\nredact_mask_patterns = [re.compile(r'(?<=api_key=)[\\w-]+')]\n\n# Override the logging handler that you want redacted\nclass RedactStreamHandler(logging.StreamHandler):\n    def __init__(self, *args, **kwargs):\n        logging.StreamHandler.__init__(self, *args, **kwargs)\n        self.addFilter(loggingredactor.RedactingFilter(redact_mask_patterns))\n\nroot_logger = logging.getLogger()\n\nsys_stream = RedactStreamHandler()\n# Also set the formatter to use json, this is optional and all nested keys will get redacted too\nsys_stream.setFormatter(jsonlogger.JsonFormatter('%(name)s %(message)s'))\nroot_logger.addHandler(sys_stream)\n\nlogger = logging.getLogger(__name__)\n\nlogger.error(\"Request Failed\", extra={'url': 'https://example.com?api_key=my-secret-key'})\n# Output: {\"name\": \"__main__\", \"message\": \"Request Failed\", \"url\": \"https://example.com?api_key=****\"}\n```\n\nYou can also redact by dictionary keys, rather than by regex, in cases where certain fields should always be redacted. To achieve this, you can provide any iterable representing the keys that you would like to redact on. An example is shown below (this time with a different default mask): \n\n```python\nimport re\nimport logging\nimport loggingredactor\nfrom pythonjsonlogger import jsonlogger\n\n# This list now contains all the dictioanry keys that will have their values redacted in the logger object\nredact_keys = ['email', 'password']\n\n# Override the logging handler that you want redacted\nclass RedactStreamHandler(logging.StreamHandler):\n    def __init__(self, *args, **kwargs):\n        logging.StreamHandler.__init__(self, *args, **kwargs)\n        self.addFilter(loggingredactor.RedactingFilter(mask='REDACTED', mask_keys=redact_keys))\n\nroot_logger = logging.getLogger()\n\nsys_stream = RedactStreamHandler()\n# Also set the formatter to use json, this is optional and all nested keys will get redacted too\nsys_stream.setFormatter(jsonlogger.JsonFormatter('%(name)s %(message)s'))\nroot_logger.addHandler(sys_stream)\n\nlogger = logging.getLogger(__name__)\n\nlogger.warning(\"User %(firstname)s with email: %(email)s and password: %(password)s bought some food!\", {'firstname': 'Arman', 'email': 'arman_jasuja@yahoo.com', 'password': '1234567'})\n# Output: {\"name\": \"__main__\", \"message\": \"User Arman with email: REDACTED and password: REDACTED bought some food\"}\n```\nThe above example also illustrates the logger redacting positional arguments provided to the message.\n\n### Integrating with already built logger configs\nLogging Redactor also integrates quite well with already created logging configurations, for example, say you have your logging config set up in the following format:\n```python\nimport re\nimport logging.config\n... # Other imports\nLOGGING = {\n    ... # Your other configs\n    'filters':{ \n        ... # Some configs\n        'pii': {\n            '()': 'loggingredactor.RedactingFilter',\n            'mask_keys': ('password', 'email', 'last_name', 'first_name', 'gender', 'lastname', 'firstname',),\n            'mask_patterns': (re.compile(r'\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b'), ) # email regex\n            'mask': 'REDACTED',\n        },\n        ... # Some other configs\n    }\n    'handlers': {\n        ... # Some handlers\n        'stdout': {\n            ... # Some configs\n            'filters': ['pii', ...],\n        },\n        ... # Other handlers (add pii as a filter to all the ones where you want the appropriate information to be redacted)\n    }\n    ... # Rest of your configs\n}\n\nlogging.config.dictConfig(LOGGING)\n... # Use your logger as normal, the redaction will now be applied.\n```\nThe essence boils down to adding the RedactingFilter to your logging config, and to the filters section of the associated handlers to which you want to apply the redaction.\n\n\n## Release Notes - v0.0.6:\n\n### Improvements and Changes\n- Allow redaction of any generic mapping type, including:\n    1. `dict`\n    2. `collections.OrderedDict`\n    3. `frozendict.frozendict`\n    4. `collections.ChainMap`\n    5. `types.MappingProxyType`\n    6. `collections.UserDict`\nand any other mapping class that inherits from `collections.Mapping`\n\n### Bug Fixes\n- Fix bug that was converting non-string data types to strings. (Reported in issue [#7](https://github.com/armurox/loggingredactor/issues/7))\n\n\n## A Note about the Motivation behind Logging Redactor:\nLogging Redactor started as a fork of [logredactor](https://pypi.org/project/logredactor/). However, due to the bugs present in the original (specifically the data mutations), it was not usable in production environments where the purpose was to only redact variables in the logs, not in their usage in the code. This, along with the fact that the original package is no longer maintained lead to the creation of Logging Redactor.\n",
+        "description_content_type": "text/markdown",
+        "home_page": "https://github.com/armurox/loggingredactor/tree/0.0.6",
+        "author": "Arman Jasuja",
+        "author_email": "arman_jasuja@yahoo.com",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: OS Independent",
+          "Operating System :: MacOS",
+          "Operating System :: Microsoft :: Windows",
+          "Operating System :: POSIX",
+          "Operating System :: Unix",
+          "Topic :: Software Development :: Libraries"
+        ],
+        "requires_python": ">=3.7"
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "7.0.0-1017-azure",
+    "platform_system": "Linux",
+    "platform_version": "#17~24.04.1-Ubuntu SMP PREEMPT Thu Sep 24 18:46:57 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}

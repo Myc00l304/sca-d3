@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "packages": 3,
+  "tree": {
+    "ag-psd": "31.0.0",
+    "base64-js": "1.5.1",
+    "pako": "2.1.0"
+  }
+}

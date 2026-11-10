@@ -1,0 +1,2 @@
+pl.thesis.d1:d1-case:jar:1.0.0
+\- org.json:json:jar:20260522:compile
