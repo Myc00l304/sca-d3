@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "packages": 2,
+  "tree": {
+    "org.zeroturnaround:zt-zip": "1.18.0",
+    "org.slf4j:slf4j-api": "2.0.18"
+  },
+  "jars": [
+    "slf4j-api-2.0.18.jar",
+    "zt-zip-1.18.0.jar"
+  ]
+}

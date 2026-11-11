@@ -1,0 +1,54 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/21/64/4e21d26a2fc910594aaab19367ac25467a4da6438b7c381f67e90c38945e/zizmor-1.27.0-py3-none-manylinux_2_28_x86_64.whl",
+        "archive_info": {
+          "hash": "sha256=afb28123882d2b8248f1e480bf6cc6d1af102e0d3fbe22a40f7f795b1aa9d435",
+          "hashes": {
+            "sha256": "afb28123882d2b8248f1e480bf6cc6d1af102e0d3fbe22a40f7f795b1aa9d435"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": true,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "zizmor",
+        "version": "1.27.0",
+        "summary": "Static analysis for GitHub Actions",
+        "description": "# 🌈 zizmor\n\n[![zizmor](https://img.shields.io/badge/%F0%9F%8C%88-zizmor-white?labelColor=white)](https://zizmor.sh/)\n[![CI](https://github.com/zizmorcore/zizmor/actions/workflows/ci.yml/badge.svg)](https://github.com/zizmorcore/zizmor/actions/workflows/ci.yml)\n[![Crates.io](https://img.shields.io/crates/v/zizmor)](https://crates.io/crates/zizmor)\n[![Packaging status](https://img.shields.io/repology/repositories/zizmor)](https://repology.org/project/zizmor/versions)\n[![GitHub Sponsors](https://img.shields.io/github/sponsors/woodruffw?style=flat&logo=githubsponsors&labelColor=white&color=white)](https://github.com/sponsors/woodruffw)\n[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?logo=discord&logoColor=white)](https://discord.com/invite/PGU3zGZuGG)\n\n`zizmor` is a static analysis tool for GitHub Actions.\n\nIt can find many common security issues in typical GitHub Actions CI/CD setups,\nincluding:\n\n* Template injection vulnerabilities, leading to attacker-controlled code execution\n* Accidental credential persistence and leakage\n* Excessive permission scopes and credential grants to runners\n* Impostor commits and confusable `git` references\n* ...[and much more]!\n\n[and much more]: https://docs.zizmor.sh/audits/\n\n![zizmor demo](https://zizmor.sh/assets/zizmor-demo.gif)\n\nSee [`zizmor`'s documentation](https://docs.zizmor.sh/)\nfor [installation steps], as well as a [quickstart] and\n[detailed usage recipes].\n\n[please file them]: https://github.com/zizmorcore/zizmor/issues/new?assignees=&labels=bug%2Ctriage&projects=&template=bug-report.yml&title=%5BBUG%5D%3A+\n\n[installation steps]: https://docs.zizmor.sh/installation/\n\n[quickstart]: https://docs.zizmor.sh/quickstart/\n\n[detailed usage recipes]: https://docs.zizmor.sh/usage/\n\n## License\n\n`zizmor` is licensed under the [MIT License](./LICENSE).\n\n## Contributing\n\nSee [our contributing guide!](./CONTRIBUTING.md)\n\n## The name?\n\n*[Now you can have beautiful clean workflows!]*\n\n[Now you can have beautiful clean workflows!]: https://www.youtube.com/watch?v=ol7rxFCvpy8\n\n## Sponsors\n\n`zizmor`'s development is supported by these amazing sponsors!\n\n<!-- @@begin-sponsors@@ -->\n<table width=\"100%\">\n<caption>Logo-level sponsors</caption>\n<tbody>\n<tr>\n<td align=\"center\" valign=\"top\" width=\"15%\">\n<a href=\"https://grafana.com/\">\n<img src=\"https://avatars.githubusercontent.com/u/7195757?s=100&v=4\" width=\"100px\">\n<br>\nGrafana Labs\n</a>\n</td>\n<td align=\"center\" valign=\"top\" width=\"15%\">\n<a href=\"https://trailofbits.com/\">\n<img src=\"https://avatars.githubusercontent.com/u/2314423?s=100&v=4\" width=\"100px\">\n<br>\nTrail of Bits\n</a>\n</td>\n<td align=\"center\" valign=\"top\" width=\"15%\">\n<a href=\"https://kusari.dev\">\n<img src=\"https://avatars.githubusercontent.com/u/105390000?s=100&v=4\" width=\"100px\">\n<br>\nKusari\n</a>\n</td>\n<td align=\"center\" valign=\"top\" width=\"15%\">\n<a href=\"https://tracebit.com\">\n<img src=\"https://avatars.githubusercontent.com/u/104151585?s=100&v=4\" width=\"100px\">\n<br>\nTracebit\n</a>\n</td>\n</tr>\n</tbody>\n</table>\n<hr align=\"center\">\n<table width=\"100%\">\n<caption>Name-level sponsors</caption>\n<tbody>\n<tr>\n<td align=\"center\" valign=\"top\">\n<a href=\"https://github.com/ariccio\">\nAlexander Riccio\n</a>\n</td>\n<td align=\"center\" valign=\"top\">\n<a href=\"https://github.com/willingc\">\nCarol Willing\n</a>\n</td>\n</tr>\n</tbody>\n</table>\n<!-- @@end-sponsors@@ -->\n\nWant to see your name or logo above? Consider becoming a sponsor\nthrough one of the following:\n\n- [GitHub Sponsors](https://github.com/sponsors/woodruffw) (preferred)\n- [thanks.dev](https://thanks.dev/u/gh/woodruffw)\n- [ko-fi](https://ko-fi.com/woodruffw)\n\n## Star History\n\n<a href=\"https://star-history.com/#zizmorcore/zizmor&Date\">\n <picture>\n   <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://api.star-history.com/svg?repos=zizmorcore/zizmor&type=Date&theme=dark\" />\n   <source media=\"(prefers-color-scheme: light)\" srcset=\"https://api.star-history.com/svg?repos=zizmorcore/zizmor&type=Date\" />\n   <img alt=\"Star History Chart\" src=\"https://api.star-history.com/svg?repos=zizmorcore/zizmor&type=Date\" />\n </picture>\n</a>\n\n",
+        "description_content_type": "text/markdown; charset=UTF-8; variant=GFM",
+        "home_page": "https://docs.zizmor.sh",
+        "author": "William Woodruff <william@yossarian.net>",
+        "author_email": "William Woodruff <william@yossarian.net>",
+        "license": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Homepage, https://docs.zizmor.sh",
+          "Documentation, https://docs.zizmor.sh",
+          "Source Code, https://github.com/zizmorcore/zizmor"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "7.0.0-1017-azure",
+    "platform_system": "Linux",
+    "platform_version": "#17~24.04.1-Ubuntu SMP PREEMPT Thu Sep 24 18:46:57 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}

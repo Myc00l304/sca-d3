@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "stage": "lock",
+  "stderr": "npm error code EBADPLATFORM\nnpm error notsup Unsupported platform for @microsoft/aspire-cli-osx-arm64@13.6.4: wanted {\"os\":\"darwin\",\"cpu\":\"arm64\"} (current: {\"os\":\"linux\",\"cpu\":\"x64\"})\nnpm error notsup Valid os:   darwin\nnpm error notsup Actual os:  linux\nnpm error notsup Valid cpu:  arm64\nnpm error notsup Actual cpu: x64\nnpm error A complete log of this run can be found in: /tmp/.npm/_logs/2026-11-11T12_49_06_779Z-debug-0.log\n"
+}
