@@ -1,0 +1,2 @@
+PyYAML==6.0.3
+compose-lint==0.31.0

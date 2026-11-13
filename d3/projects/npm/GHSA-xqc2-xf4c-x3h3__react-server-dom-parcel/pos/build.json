@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "packages": 4,
+  "tree": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-server-dom-parcel": "19.1.9",
+    "scheduler": "0.28.0"
+  }
+}
