@@ -1,0 +1,75 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/eb/dc/ad025c1ee131eba60c69f4dd5779b18fcf1e6b21a343e2162a84d5d133c7/soupsieve-2.9.2-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=8089a26fd974ca7a1f30276d3d8492ab266ab15af581642dfe8aa162e0c1c823",
+          "hashes": {
+            "sha256": "8089a26fd974ca7a1f30276d3d8492ab266ab15af581642dfe8aa162e0c1c823"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "soupsieve",
+        "version": "2.9.2",
+        "summary": "A modern CSS selector implementation for Beautiful Soup.",
+        "description": "[![Donate via PayPal][donate-image]][donate-link]\n[![Build][github-ci-image]][github-ci-link]\n[![Coverage Status][codecov-image]][codecov-link]\n[![PyPI Version][pypi-image]][pypi-link]\n[![PyPI Downloads][pypi-down]][pypi-link]\n[![PyPI - Python Version][python-image]][pypi-link]\n[![License][license-image-mit]][license-link]\n\n# Soup Sieve\n\n## Overview\n\nSoup Sieve is a CSS selector library designed to be used with [Beautiful Soup 4][bs4]. It aims to provide selecting,\nmatching, and filtering using modern CSS selectors. Soup Sieve currently provides selectors from the CSS level 1\nspecifications up through the latest CSS level 4 drafts and beyond (though some are not yet implemented).\n\nSoup Sieve was written with the intent to replace Beautiful Soup's builtin select feature, and as of Beautiful Soup\nversion 4.7.0, it now is :confetti_ball:. Soup Sieve can also be imported in order to use its API directly for\nmore controlled, specialized parsing.\n\nSoup Sieve has implemented most of the CSS selectors up through the latest CSS draft specifications, though there are a\nnumber that don't make sense in a non-browser environment. Selectors that cannot provide meaningful functionality simply\ndo not match anything. Some of the supported selectors are:\n\n- `.classes`\n- `#ids`\n- `[attributes=value]`\n- `parent child`\n- `parent > child`\n- `sibling ~ sibling`\n- `sibling + sibling`\n- `:not(element.class, element2.class)`\n- `:is(element.class, element2.class)`\n- `parent:has(> child)`\n- and [many more](https://facelessuser.github.io/soupsieve/selectors/)\n\n\n## Installation\n\nYou must have Beautiful Soup already installed:\n\n```\npip install beautifulsoup4\n```\n\nIn most cases, assuming you've installed version 4.7.0, that should be all you need to do, but if you've installed via\nsome alternative method, and Soup Sieve is not automatically installed, you can install it directly:\n\n```\npip install soupsieve\n```\n\nIf you want to manually install it from source, first ensure that [`build`](https://pypi.org/project/build/) is\ninstalled:\n\n```\npip install build\n```\n\nThen navigate to the root of the project and build the wheel and install (replacing `<ver>` with the current version):\n\n```\npython -m build -w\npip install dist/soupsieve-<ver>-py3-none-any.whl\n```\n\n## Documentation\n\nDocumentation is found here: https://facelessuser.github.io/soupsieve/.\n\n## License\n\nMIT\n\n[bs4]: https://beautiful-soup-4.readthedocs.io/en/latest/#\n\n[github-ci-image]: https://github.com/facelessuser/soupsieve/workflows/build/badge.svg\n[github-ci-link]: https://github.com/facelessuser/soupsieve/actions?query=workflow%3Abuild+branch%3Amain\n[codecov-image]: https://img.shields.io/codecov/c/github/facelessuser/soupsieve/master.svg?logo=codecov&logoColor=aaaaaa&labelColor=333333\n[codecov-link]: https://codecov.io/github/facelessuser/soupsieve\n[pypi-image]: https://img.shields.io/pypi/v/soupsieve.svg?logo=pypi&logoColor=aaaaaa&labelColor=333333\n[pypi-down]: https://img.shields.io/pypi/dm/soupsieve.svg?logo=pypi&logoColor=aaaaaa&labelColor=333333\n[pypi-link]: https://pypi.python.org/pypi/soupsieve\n[python-image]: https://img.shields.io/pypi/pyversions/soupsieve?logo=python&logoColor=aaaaaa&labelColor=333333\n[license-image-mit]: https://img.shields.io/badge/license-MIT-blue.svg?labelColor=333333\n[license-link]: https://github.com/facelessuser/soupsieve/blob/main/LICENSE.md\n[donate-image]: https://img.shields.io/badge/Donate-PayPal-3fabd1?logo=paypal\n[donate-link]: https://www.paypal.me/facelessuser\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "CSS",
+          "HTML",
+          "XML",
+          "filter",
+          "query",
+          "selector",
+          "soup"
+        ],
+        "author_email": "Isaac Muse <Isaac.Muse@gmail.com>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE.md"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          "Typing :: Typed"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Homepage, https://github.com/facelessuser/soupsieve"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "7.0.0-1017-azure",
+    "platform_system": "Linux",
+    "platform_version": "#17~24.04.1-Ubuntu SMP PREEMPT Thu Sep 24 18:46:57 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}
