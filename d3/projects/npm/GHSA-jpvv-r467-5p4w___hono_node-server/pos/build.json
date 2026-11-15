@@ -1,0 +1,8 @@
+{
+  "ok": true,
+  "packages": 2,
+  "tree": {
+    "@hono/node-server": "2.1.5",
+    "hono": "4.13.18"
+  }
+}

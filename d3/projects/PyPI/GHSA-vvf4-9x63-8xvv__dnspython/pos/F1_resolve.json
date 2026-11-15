@@ -1,0 +1,101 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/61/55/f90405bbbbd3dd8f788e92cec2d39964f5c09783f0570fc35f3bb3381485/dnspython-2.9.1-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=7c81caf8de1ed57b8cfc7e0ad4f528a0b8ceace473c7eb946df195dc9def751f",
+          "hashes": {
+            "sha256": "7c81caf8de1ed57b8cfc7e0ad4f528a0b8ceace473c7eb946df195dc9def751f"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "dnspython",
+        "version": "2.9.1",
+        "summary": "DNS toolkit",
+        "description": "# dnspython\n\n[![Build Status](https://github.com/rthalley/dnspython/actions/workflows/ci.yml/badge.svg)](https://github.com/rthalley/dnspython/actions/)\n[![Documentation Status](https://readthedocs.org/projects/dnspython/badge/?version=latest)](https://dnspython.readthedocs.io/en/latest/?badge=latest)\n[![PyPI version](https://badge.fury.io/py/dnspython.svg)](https://badge.fury.io/py/dnspython)\n[![License: ISC](https://img.shields.io/badge/License-ISC-brightgreen.svg)](https://opensource.org/licenses/ISC)\n[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)\n\n## INTRODUCTION\n\n`dnspython` is a DNS toolkit for Python. It supports almost all record types. It\ncan be used for queries, zone transfers, and dynamic updates. It supports\nTSIG-authenticated messages and EDNS0.\n\n`dnspython` provides both high- and low-level access to DNS. The high-level\nclasses perform queries for data of a given name, type, and class, and return an\nanswer set. The low-level classes allow direct manipulation of DNS zones,\nmessages, names, and records.\n\nThe module name for `dnspython` is `dns`.  To see a few of the ways `dnspython` can be\nused, look in the `examples/` directory.\n\n`dnspython` is a utility to work with DNS, `/etc/hosts` is thus not used. For\nsimple forward DNS lookups, it's better to use `socket.getaddrinfo()` or\n`socket.gethostbyname()`.\n\n`dnspython` originated at Nominum where it was developed to facilitate the\ntesting of DNS software.\n\n## ABOUT THIS RELEASE\n\nThis is `dnspython` 2.9.1.\nPlease read\n[What's New](https://dnspython.readthedocs.io/en/stable/whatsnew.html) for\ninformation about the changes in this release.\n\n## INSTALLATION\n\n* Many distributions have dnspython packaged for you, so you should check there\n  first.\n* To use a wheel downloaded from PyPi, run:\n\n```\n    pip install dnspython\n```\n\n* To install from the source code, go into the top-level of the source code\n  and run:\n\n```\n    pip install --upgrade pip build\n    python -m build\n    pip install dist/*.whl\n```\n\n* To install the latest from the main branch, run\n`pip install git+https://github.com/rthalley/dnspython.git`\n\n`dnspython`'s default installation does not depend on any modules other than\nthose in the Python standard library.  To use some features, additional modules\nmust be installed.  For convenience, `pip` options are defined for the\nrequirements.\n\nIf you want to use DNS-over-HTTPS, run\n`pip install dnspython[doh]`.\n\nIf you want to use DNSSEC functionality, run\n`pip install dnspython[dnssec]`.\n\nIf you want to use internationalized domain names (IDNA)\nfunctionality, you must run\n`pip install dnspython[idna]`\n\nIf you want to use the Trio asynchronous I/O package, run\n`pip install dnspython[trio]`.\n\nIf you want to use WMI on Windows to determine the active DNS settings\ninstead of the default registry scanning method, run\n`pip install dnspython[wmi]`.\n\nIf you want to try the experimental DNS-over-QUIC code, run\n`pip install dnspython[doq]`.\n\nNote that you can install any combination of the above, e.g.:\n`pip install dnspython[doh,dnssec,idna]`\n\n### Notices\n\nPython 2.x support ended with the release of 1.16.0.  `dnspython` supports Python 3.11\nand later.  Future support  is aligned with the lifetime of the Python 3 versions.\n\nDocumentation has moved to\n[dnspython.readthedocs.io](https://dnspython.readthedocs.io).\n",
+        "description_content_type": "text/markdown",
+        "author": "Bob Halley",
+        "author_email": "Bob Halley <halley@dnspython.org>",
+        "license_expression": "ISC",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Intended Audience :: System Administrators",
+          "Operating System :: POSIX",
+          "Operating System :: Microsoft :: Windows",
+          "Programming Language :: Python",
+          "Topic :: Internet :: Name Service (DNS)",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15"
+        ],
+        "requires_dist": [
+          "black>=26.5 ; extra == 'dev'",
+          "coverage>=7.15 ; extra == 'dev'",
+          "hypercorn>=0.18.0 ; extra == 'dev'",
+          "pyright>=1.1.411 ; extra == 'dev'",
+          "pytest>=9.1 ; extra == 'dev'",
+          "pytest-cov>=7.1 ; extra == 'dev'",
+          "quart-trio>=0.12.0 ; extra == 'dev'",
+          "ruff>=0.16.0 ; extra == 'dev'",
+          "sphinx>=9.1.0 ; python_full_version >= '3.12' and extra == 'dev'",
+          "sphinx-rtd-theme>=3.1.0 ; python_full_version >= '3.12' and extra == 'dev'",
+          "trustme>=1.2.1 ; extra == 'dev'",
+          "ty>=0.0.85 ; extra == 'dev'",
+          "cryptography>=50 ; extra == 'dnssec'",
+          "httpcore2>=2.13 ; extra == 'doh'",
+          "httpx2>=2.13 ; extra == 'doh'",
+          "h2>=4.4 ; extra == 'doh'",
+          "aioquic>=1.3.0 ; extra == 'doq'",
+          "idna>=3.20 ; extra == 'idna'",
+          "trio>=0.34 ; extra == 'trio'",
+          "wmi>=1.5.1 ; sys_platform == 'win32' and extra == 'wmi'"
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "homepage, https://www.dnspython.org",
+          "repository, https://github.com/rthalley/dnspython.git",
+          "documentation, https://dnspython.readthedocs.io/en/stable/",
+          "issues, https://github.com/rthalley/dnspython/issues"
+        ],
+        "provides_extra": [
+          "dev",
+          "dnssec",
+          "doh",
+          "doq",
+          "idna",
+          "trio",
+          "wmi"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "7.0.0-1017-azure",
+    "platform_system": "Linux",
+    "platform_version": "#17~24.04.1-Ubuntu SMP PREEMPT Thu Sep 24 18:46:57 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}
