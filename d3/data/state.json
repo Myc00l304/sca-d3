@@ -121,6 +121,13 @@
   "osv-scanner": "2026-10-24",
   "trivy": "2026-10-24"
  },
+ "GHSA-3v2p-hm54-8qcq": {
+  "dependency-check": "2026-11-16",
+  "grype": "2026-11-16",
+  "npm-audit": "2026-11-16",
+  "osv-scanner": "2026-11-16",
+  "trivy": "2026-11-16"
+ },
  "GHSA-3xf4-9g3c-4h4w": {
   "dependency-check": "2026-11-02",
   "grype": "2026-11-02",
@@ -1334,5 +1341,5 @@
   "osv-scanner": "2026-11-13",
   "trivy": "2026-11-13"
  },
- "_last_run": "2026-11-15"
+ "_last_run": "2026-11-16"
 }
