@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "python": "python312",
+  "resolution": "full",
+  "f2": true,
+  "packages": 5,
+  "tree": {
+    "Pygments": "2.21.0",
+    "markdown-it-py": "4.3.0",
+    "mdurl": "0.1.2",
+    "rich": "15.0.0",
+    "termux-sync": "1.2.3"
+  }
+}
