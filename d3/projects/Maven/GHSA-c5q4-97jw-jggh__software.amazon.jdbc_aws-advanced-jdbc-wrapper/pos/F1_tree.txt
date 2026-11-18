@@ -1,0 +1,2 @@
+pl.thesis.d1:d1-case:jar:1.0.0
+\- software.amazon.jdbc:aws-advanced-jdbc-wrapper:jar:4.0.0:compile

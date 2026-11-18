@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "packages": 1,
+  "tree": {
+    "software.amazon.jdbc:aws-advanced-jdbc-wrapper": "4.0.0"
+  },
+  "jars": [
+    "aws-advanced-jdbc-wrapper-4.0.0.jar"
+  ]
+}

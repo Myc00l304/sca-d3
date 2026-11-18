@@ -1,0 +1,532 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/56/61/ea08bb020cbe9b4931e571111e71c8899020cab50e6801d3a25b64f9a9a4/pympp-0.9.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=0db8a29312f5c855bf087287cfe53002d0c9726f45fa407765d0c21efe93e7ec",
+          "hashes": {
+            "sha256": "0db8a29312f5c855bf087287cfe53002d0c9726f45fa407765d0c21efe93e7ec"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "pympp",
+        "version": "0.9.0",
+        "summary": "Python SDK for the Machine Payments Protocol (MPP)",
+        "description": "# pympp\n\nPython SDK for the [**Machine Payments Protocol**](https://mpp.dev)\n\n[![PyPI](https://img.shields.io/pypi/v/pympp.svg)](https://pypi.org/project/pympp/)\n[![License](https://img.shields.io/pypi/l/pympp.svg)](LICENSE)\n\n## Documentation\n\nFull documentation, API reference, and guides are available at **[mpp.dev/sdk/python](https://mpp.dev/sdk/python)**.\n\n## Install\n\n```bash\npip install pympp\n```\n\n## Quick Start\n\n### Server\n\n```python\nfrom mpp import Credential, Receipt\nfrom mpp.server import Mpp\nfrom mpp.methods.tempo import tempo, ChargeIntent\n\nserver = Mpp.create(\n    method=tempo(\n        intents={\"charge\": ChargeIntent()},\n        recipient=\"0x742d35Cc6634c0532925a3b844bC9e7595F8fE00\",\n    ),\n)\n\n@app.get(\"/paid\")\n@server.pay(amount=\"0.50\")\nasync def handler(request, credential: Credential, receipt: Receipt):\n    return {\"data\": \"...\", \"payer\": credential.source}\n```\n\n### Client\n\n```python\nfrom mpp.client import Client\nfrom mpp.methods.tempo import tempo, TempoAccount, ChargeIntent\n\naccount = TempoAccount.from_key(\"0x...\")\n\nasync with Client(methods=[tempo(account=account, intents={\"charge\": ChargeIntent()})]) as client:\n    response = await client.get(\"https://mpp.dev/api/ping/paid\")\n```\n\n## Examples\n\n| Example | Description |\n|---------|-------------|\n| [api-server](./examples/api-server/) | Payment-gated API server |\n| [fetch](./examples/fetch/) | CLI tool for fetching URLs with automatic payment handling |\n| [mcp-server](./examples/mcp-server/) | MCP server with payment-protected tools |\n\n## Protocol\n\nBuilt on the [\"Payment\" HTTP Authentication Scheme](https://datatracker.ietf.org/doc/draft-ryan-httpauth-payment/). See [mpp-specs](https://tempoxyz.github.io/mpp-specs/) for the full specification.\n\n## License\n\nMIT OR Apache-2.0\n",
+        "description_content_type": "text/markdown",
+        "author": "Tempo",
+        "license": "MIT OR Apache-2.0",
+        "license_file": [
+          "LICENSE-APACHE",
+          "LICENSE-MIT"
+        ],
+        "classifier": [
+          "License :: OSI Approved :: Apache Software License",
+          "License :: OSI Approved :: MIT License",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Typing :: Typed"
+        ],
+        "requires_dist": [
+          "httpx>=0.27",
+          "hypothesis>=6.0; extra == 'dev'",
+          "pytest-asyncio>=0.24; extra == 'dev'",
+          "pytest>=8.0; extra == 'dev'",
+          "ruff>=0.4; extra == 'dev'",
+          "starlette>=0.37; extra == 'dev'",
+          "mcp>=1.1.0; extra == 'mcp'",
+          "redis>=5.0; extra == 'redis'",
+          "pydantic>=2.0; extra == 'server'",
+          "aiosqlite>=0.20; extra == 'sqlite'",
+          "pydantic>=2.0; extra == 'stripe'",
+          "attrs>=23.0; extra == 'tempo'",
+          "eth-account>=0.11; extra == 'tempo'",
+          "eth-hash[pycryptodome]>=0.7; extra == 'tempo'",
+          "pydantic>=2.0; extra == 'tempo'",
+          "pytempo>=0.2.1; extra == 'tempo'",
+          "rlp>=4.0; extra == 'tempo'"
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "Homepage, https://github.com/tempoxyz/pympp",
+          "Documentation, https://github.com/tempoxyz/pympp#readme"
+        ],
+        "provides_extra": [
+          "dev",
+          "mcp",
+          "redis",
+          "server",
+          "sqlite",
+          "stripe",
+          "tempo"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/2a/39/e50c7c3a983047577ee07d2a9e53faf5a69493943ec3f6a384bdc792deb2/httpx-0.28.1-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad",
+          "hashes": {
+            "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.3",
+        "name": "httpx",
+        "version": "0.28.1",
+        "summary": "The next generation HTTP client.",
+        "description": "<p align=\"center\">\n  <a href=\"https://www.python-httpx.org/\"><img width=\"350\" height=\"208\" src=\"https://raw.githubusercontent.com/encode/httpx/master/docs/img/butterfly.png\" alt='HTTPX'></a>\n</p>\n\n<p align=\"center\"><strong>HTTPX</strong> <em>- A next-generation HTTP client for Python.</em></p>\n\n<p align=\"center\">\n<a href=\"https://github.com/encode/httpx/actions\">\n    <img src=\"https://github.com/encode/httpx/workflows/Test%20Suite/badge.svg\" alt=\"Test Suite\">\n</a>\n<a href=\"https://pypi.org/project/httpx/\">\n    <img src=\"https://badge.fury.io/py/httpx.svg\" alt=\"Package version\">\n</a>\n</p>\n\nHTTPX is a fully featured HTTP client library for Python 3. It includes **an integrated command line client**, has support for both **HTTP/1.1 and HTTP/2**, and provides both **sync and async APIs**.\n\n---\n\nInstall HTTPX using pip:\n\n```shell\n$ pip install httpx\n```\n\nNow, let's get started:\n\n```pycon\n>>> import httpx\n>>> r = httpx.get('https://www.example.org/')\n>>> r\n<Response [200 OK]>\n>>> r.status_code\n200\n>>> r.headers['content-type']\n'text/html; charset=UTF-8'\n>>> r.text\n'<!doctype html>\\n<html>\\n<head>\\n<title>Example Domain</title>...'\n```\n\nOr, using the command-line client.\n\n```shell\n$ pip install 'httpx[cli]'  # The command line client is an optional dependency.\n```\n\nWhich now allows us to use HTTPX directly from the command-line...\n\n<p align=\"center\">\n  <img width=\"700\" src=\"https://raw.githubusercontent.com/encode/httpx/master/docs/img/httpx-help.png\" alt='httpx --help'>\n</p>\n\nSending a request...\n\n<p align=\"center\">\n  <img width=\"700\" src=\"https://raw.githubusercontent.com/encode/httpx/master/docs/img/httpx-request.png\" alt='httpx http://httpbin.org/json'>\n</p>\n\n## Features\n\nHTTPX builds on the well-established usability of `requests`, and gives you:\n\n* A broadly [requests-compatible API](https://www.python-httpx.org/compatibility/).\n* An integrated command-line client.\n* HTTP/1.1 [and HTTP/2 support](https://www.python-httpx.org/http2/).\n* Standard synchronous interface, but with [async support if you need it](https://www.python-httpx.org/async/).\n* Ability to make requests directly to [WSGI applications](https://www.python-httpx.org/advanced/transports/#wsgi-transport) or [ASGI applications](https://www.python-httpx.org/advanced/transports/#asgi-transport).\n* Strict timeouts everywhere.\n* Fully type annotated.\n* 100% test coverage.\n\nPlus all the standard features of `requests`...\n\n* International Domains and URLs\n* Keep-Alive & Connection Pooling\n* Sessions with Cookie Persistence\n* Browser-style SSL Verification\n* Basic/Digest Authentication\n* Elegant Key/Value Cookies\n* Automatic Decompression\n* Automatic Content Decoding\n* Unicode Response Bodies\n* Multipart File Uploads\n* HTTP(S) Proxy Support\n* Connection Timeouts\n* Streaming Downloads\n* .netrc Support\n* Chunked Requests\n\n## Installation\n\nInstall with pip:\n\n```shell\n$ pip install httpx\n```\n\nOr, to include the optional HTTP/2 support, use:\n\n```shell\n$ pip install httpx[http2]\n```\n\nHTTPX requires Python 3.8+.\n\n## Documentation\n\nProject documentation is available at [https://www.python-httpx.org/](https://www.python-httpx.org/).\n\nFor a run-through of all the basics, head over to the [QuickStart](https://www.python-httpx.org/quickstart/).\n\nFor more advanced topics, see the [Advanced Usage](https://www.python-httpx.org/advanced/) section, the [async support](https://www.python-httpx.org/async/) section, or the [HTTP/2](https://www.python-httpx.org/http2/) section.\n\nThe [Developer Interface](https://www.python-httpx.org/api/) provides a comprehensive API reference.\n\nTo find out about tools that integrate with HTTPX, see [Third Party Packages](https://www.python-httpx.org/third_party_packages/).\n\n## Contribute\n\nIf you want to contribute with HTTPX check out the [Contributing Guide](https://www.python-httpx.org/contributing/) to learn how to start.\n\n## Dependencies\n\nThe HTTPX project relies on these excellent libraries:\n\n* `httpcore` - The underlying transport implementation for `httpx`.\n  * `h11` - HTTP/1.1 support.\n* `certifi` - SSL certificates.\n* `idna` - Internationalized domain name support.\n* `sniffio` - Async library autodetection.\n\nAs well as these optional installs:\n\n* `h2` - HTTP/2 support. *(Optional, with `httpx[http2]`)*\n* `socksio` - SOCKS proxy support. *(Optional, with `httpx[socks]`)*\n* `rich` - Rich terminal support. *(Optional, with `httpx[cli]`)*\n* `click` - Command line client support. *(Optional, with `httpx[cli]`)*\n* `brotli` or `brotlicffi` - Decoding for \"brotli\" compressed responses. *(Optional, with `httpx[brotli]`)*\n* `zstandard` - Decoding for \"zstd\" compressed responses. *(Optional, with `httpx[zstd]`)*\n\nA huge amount of credit is due to `requests` for the API layout that\nmuch of this work follows, as well as to `urllib3` for plenty of design\ninspiration around the lower-level networking details.\n\n---\n\n<p align=\"center\"><i>HTTPX is <a href=\"https://github.com/encode/httpx/blob/master/LICENSE.md\">BSD licensed</a> code.<br/>Designed & crafted with care.</i><br/>&mdash; 🦋 &mdash;</p>\n\n## Release Information\n\n### Fixed\n\n* Reintroduced supposedly-private `URLTypes` shortcut. (#2673)\n\n\n---\n\n[Full changelog](https://github.com/encode/httpx/blob/master/CHANGELOG.md)\n",
+        "description_content_type": "text/markdown",
+        "author_email": "Tom Christie <tom@tomchristie.com>",
+        "license": "BSD-3-Clause",
+        "classifier": [
+          "Development Status :: 4 - Beta",
+          "Environment :: Web Environment",
+          "Framework :: AsyncIO",
+          "Framework :: Trio",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Topic :: Internet :: WWW/HTTP"
+        ],
+        "requires_dist": [
+          "anyio",
+          "certifi",
+          "httpcore==1.*",
+          "idna",
+          "brotli; (platform_python_implementation == 'CPython') and extra == 'brotli'",
+          "brotlicffi; (platform_python_implementation != 'CPython') and extra == 'brotli'",
+          "click==8.*; extra == 'cli'",
+          "pygments==2.*; extra == 'cli'",
+          "rich<14,>=10; extra == 'cli'",
+          "h2<5,>=3; extra == 'http2'",
+          "socksio==1.*; extra == 'socks'",
+          "zstandard>=0.18.0; extra == 'zstd'"
+        ],
+        "requires_python": ">=3.8",
+        "project_url": [
+          "Changelog, https://github.com/encode/httpx/blob/master/CHANGELOG.md",
+          "Documentation, https://www.python-httpx.org",
+          "Homepage, https://github.com/encode/httpx",
+          "Source, https://github.com/encode/httpx"
+        ],
+        "provides_extra": [
+          "brotli",
+          "cli",
+          "http2",
+          "socks",
+          "zstd"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/7e/f5/f66802a942d491edb555dd61e3a9961140fd64c90bce1eafd741609d334d/httpcore-1.0.9-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55",
+          "hashes": {
+            "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "httpcore",
+        "version": "1.0.9",
+        "summary": "A minimal low-level HTTP client.",
+        "description": "# HTTP Core\n\n[![Test Suite](https://github.com/encode/httpcore/workflows/Test%20Suite/badge.svg)](https://github.com/encode/httpcore/actions)\n[![Package version](https://badge.fury.io/py/httpcore.svg)](https://pypi.org/project/httpcore/)\n\n> *Do one thing, and do it well.*\n\nThe HTTP Core package provides a minimal low-level HTTP client, which does\none thing only. Sending HTTP requests.\n\nIt does not provide any high level model abstractions over the API,\ndoes not handle redirects, multipart uploads, building authentication headers,\ntransparent HTTP caching, URL parsing, session cookie handling,\ncontent or charset decoding, handling JSON, environment based configuration\ndefaults, or any of that Jazz.\n\nSome things HTTP Core does do:\n\n* Sending HTTP requests.\n* Thread-safe / task-safe connection pooling.\n* HTTP(S) proxy & SOCKS proxy support.\n* Supports HTTP/1.1 and HTTP/2.\n* Provides both sync and async interfaces.\n* Async backend support for `asyncio` and `trio`.\n\n## Requirements\n\nPython 3.8+\n\n## Installation\n\nFor HTTP/1.1 only support, install with:\n\n```shell\n$ pip install httpcore\n```\n\nThere are also a number of optional extras available...\n\n```shell\n$ pip install httpcore['asyncio,trio,http2,socks']\n```\n\n## Sending requests\n\nSend an HTTP request:\n\n```python\nimport httpcore\n\nresponse = httpcore.request(\"GET\", \"https://www.example.com/\")\n\nprint(response)\n# <Response [200]>\nprint(response.status)\n# 200\nprint(response.headers)\n# [(b'Accept-Ranges', b'bytes'), (b'Age', b'557328'), (b'Cache-Control', b'max-age=604800'), ...]\nprint(response.content)\n# b'<!doctype html>\\n<html>\\n<head>\\n<title>Example Domain</title>\\n\\n<meta charset=\"utf-8\"/>\\n ...'\n```\n\nThe top-level `httpcore.request()` function is provided for convenience. In practice whenever you're working with `httpcore` you'll want to use the connection pooling functionality that it provides.\n\n```python\nimport httpcore\n\nhttp = httpcore.ConnectionPool()\nresponse = http.request(\"GET\", \"https://www.example.com/\")\n```\n\nOnce you're ready to get going, [head over to the documentation](https://www.encode.io/httpcore/).\n\n## Motivation\n\nYou *probably* don't want to be using HTTP Core directly. It might make sense if\nyou're writing something like a proxy service in Python, and you just want\nsomething at the lowest possible level, but more typically you'll want to use\na higher level client library, such as `httpx`.\n\nThe motivation for `httpcore` is:\n\n* To provide a reusable low-level client library, that other packages can then build on top of.\n* To provide a *really clear interface split* between the networking code and client logic,\n  so that each is easier to understand and reason about in isolation.\n\n## Dependencies\n\nThe `httpcore` package has the following dependencies...\n\n* `h11`\n* `certifi`\n\nAnd the following optional extras...\n\n* `anyio` - Required by `pip install httpcore['asyncio']`.\n* `trio` - Required by `pip install httpcore['trio']`.\n* `h2` - Required by `pip install httpcore['http2']`.\n* `socksio` - Required by `pip install httpcore['socks']`.\n\n## Versioning\n\nWe use [SEMVER for our versioning policy](https://semver.org/).\n\nFor changes between package versions please see our [project changelog](CHANGELOG.md).\n\nWe recommend pinning your requirements either the most current major version, or a more specific version range:\n\n```python\npip install 'httpcore==1.*'\n```\n# Changelog\n\nAll notable changes to this project will be documented in this file.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).\n\n## Version 1.0.9 (April 24th, 2025)\n\n- Resolve https://github.com/advisories/GHSA-vqfr-h8mv-ghfj with h11 dependency update. (#1008)\n\n## Version 1.0.8 (April 11th, 2025)\n\n- Fix `AttributeError` when importing on Python 3.14. (#1005)\n\n## Version 1.0.7 (November 15th, 2024)\n\n- Support `proxy=…` configuration on `ConnectionPool()`. (#974)\n\n## Version 1.0.6 (October 1st, 2024)\n\n- Relax `trio` dependency pinning. (#956)\n- Handle `trio` raising `NotImplementedError` on unsupported platforms. (#955)\n- Handle mapping `ssl.SSLError` to `httpcore.ConnectError`. (#918)\n\n## 1.0.5 (March 27th, 2024)\n\n- Handle `EndOfStream` exception for anyio backend. (#899)\n- Allow trio `0.25.*` series in package dependancies. (#903)\n\n## 1.0.4 (February 21st, 2024)\n\n- Add `target` request extension. (#888)\n- Fix support for connection `Upgrade` and `CONNECT` when some data in the stream has been read. (#882)\n\n## 1.0.3 (February 13th, 2024)\n\n- Fix support for async cancellations. (#880)\n- Fix trace extension when used with socks proxy. (#849)\n- Fix SSL context for connections using the \"wss\" scheme (#869)\n\n## 1.0.2 (November 10th, 2023)\n\n- Fix `float(\"inf\")` timeouts in `Event.wait` function. (#846)\n\n## 1.0.1 (November 3rd, 2023)\n\n- Fix pool timeout to account for the total time spent retrying. (#823)\n- Raise a neater RuntimeError when the correct async deps are not installed. (#826)\n- Add support for synchronous TLS-in-TLS streams. (#840)\n\n## 1.0.0 (October 6th, 2023)\n\nFrom version 1.0 our async support is now optional, as the package has minimal dependencies by default.\n\nFor async support use either `pip install 'httpcore[asyncio]'` or `pip install 'httpcore[trio]'`.\n\nThe project versioning policy is now explicitly governed by SEMVER. See https://semver.org/.\n\n- Async support becomes fully optional. (#809)\n- Add support for Python 3.12. (#807)\n\n## 0.18.0 (September 8th, 2023)\n\n- Add support for HTTPS proxies. (#745, #786)\n- Drop Python 3.7 support. (#727)\n- Handle `sni_hostname` extension with SOCKS proxy. (#774)\n- Handle HTTP/1.1 half-closed connections gracefully. (#641)\n- Change the type of `Extensions` from `Mapping[Str, Any]` to `MutableMapping[Str, Any]`. (#762)\n\n## 0.17.3 (July 5th, 2023)\n\n- Support async cancellations, ensuring that the connection pool is left in a clean state when cancellations occur. (#726)\n- The networking backend interface has [been added to the public API](https://www.encode.io/httpcore/network-backends). Some classes which were previously private implementation detail are now part of the top-level public API. (#699)\n- Graceful handling of HTTP/2 GoAway frames, with requests being transparently retried on a new connection. (#730)\n- Add exceptions when a synchronous `trace callback` is passed to an asynchronous request or an asynchronous `trace callback` is passed to a synchronous request. (#717)\n- Drop Python 3.7 support. (#727)\n\n## 0.17.2 (May 23th, 2023)\n\n- Add `socket_options` argument to `ConnectionPool` and `HTTProxy` classes. (#668)\n- Improve logging with per-module logger names. (#690)\n- Add `sni_hostname` request extension. (#696)\n- Resolve race condition during import of `anyio` package. (#692)\n- Enable TCP_NODELAY for all synchronous sockets. (#651)\n\n## 0.17.1 (May 17th, 2023)\n\n- If 'retries' is set, then allow retries if an SSL handshake error occurs. (#669)\n- Improve correctness of tracebacks on network exceptions, by raising properly chained exceptions. (#678)\n- Prevent connection-hanging behaviour when HTTP/2 connections are closed by a server-sent 'GoAway' frame. (#679)\n- Fix edge-case exception when removing requests from the connection pool. (#680)\n- Fix pool timeout edge-case. (#688)\n\n## 0.17.0 (March 16th, 2023)\n\n- Add DEBUG level logging. (#648)\n- Respect HTTP/2 max concurrent streams when settings updates are sent by server. (#652)\n- Increase the allowable HTTP header size to 100kB. (#647)\n- Add `retries` option to SOCKS proxy classes. (#643)\n\n## 0.16.3 (December 20th, 2022)\n\n- Allow `ws` and `wss` schemes. Allows us to properly support websocket upgrade connections. (#625)\n- Forwarding HTTP proxies use a connection-per-remote-host. Required by some proxy implementations. (#637)\n- Don't raise `RuntimeError` when closing a connection pool with active connections. Removes some error cases when cancellations are used. (#631)\n- Lazy import `anyio`, so that it's no longer a hard dependancy, and isn't imported if unused. (#639)\n\n## 0.16.2 (November 25th, 2022)\n\n- Revert 'Fix async cancellation behaviour', which introduced race conditions. (#627)\n- Raise `RuntimeError` if attempting to us UNIX domain sockets on Windows. (#619)\n\n## 0.16.1 (November 17th, 2022)\n\n- Fix HTTP/1.1 interim informational responses, such as \"100 Continue\". (#605)\n\n## 0.16.0 (October 11th, 2022)\n\n- Support HTTP/1.1 informational responses. (#581)\n- Fix async cancellation behaviour. (#580)\n- Support `h11` 0.14. (#579)\n\n## 0.15.0 (May 17th, 2022)\n\n- Drop Python 3.6 support (#535)\n- Ensure HTTP proxy CONNECT requests include `timeout` configuration. (#506)\n- Switch to explicit `typing.Optional` for type hints. (#513)\n- For `trio` map OSError exceptions to `ConnectError`. (#543)\n\n## 0.14.7 (February 4th, 2022)\n\n- Requests which raise a PoolTimeout need to be removed from the pool queue. (#502)\n- Fix AttributeError that happened when Socks5Connection were terminated. (#501)\n\n## 0.14.6 (February 1st, 2022)\n\n- Fix SOCKS support for `http://` URLs. (#492)\n- Resolve race condition around exceptions during streaming a response. (#491)\n\n## 0.14.5 (January 18th, 2022)\n\n- SOCKS proxy support. (#478)\n- Add proxy_auth argument to HTTPProxy. (#481)\n- Improve error message on 'RemoteProtocolError' exception when server disconnects without sending a response. (#479)\n\n## 0.14.4 (January 5th, 2022)\n\n- Support HTTP/2 on HTTPS tunnelling proxies. (#468)\n- Fix proxy headers missing on HTTP forwarding. (#456)\n- Only instantiate SSL context if required. (#457)\n- More robust HTTP/2 handling. (#253, #439, #440, #441)\n\n## 0.14.3 (November 17th, 2021)\n\n- Fix race condition when removing closed connections from the pool. (#437)\n\n## 0.14.2 (November 16th, 2021)\n\n- Failed connections no longer remain in the pool. (Pull #433)\n\n## 0.14.1 (November 12th, 2021)\n\n- `max_connections` becomes optional. (Pull #429)\n- `certifi` is now included in the install dependancies. (Pull #428)\n- `h2` is now strictly optional. (Pull #428)\n\n## 0.14.0 (November 11th, 2021)\n\nThe 0.14 release is a complete reworking of `httpcore`, comprehensively addressing some underlying issues in the connection pooling, as well as substantially redesigning the API to be more user friendly.\n\nSome of the lower-level API design also makes the components more easily testable in isolation, and the package now has 100% test coverage.\n\nSee [discussion #419](https://github.com/encode/httpcore/discussions/419) for a little more background.\n\nThere's some other neat bits in there too, such as the \"trace\" extension, which gives a hook into inspecting the internal events that occur during the request/response cycle. This extension is needed for the HTTPX cli, in order to...\n\n* Log the point at which the connection is established, and the IP/port on which it is made.\n* Determine if the outgoing request should log as HTTP/1.1 or HTTP/2, rather than having to assume it's HTTP/2 if the --http2 flag was passed. (Which may not actually be true.)\n* Log SSL version info / certificate info.\n\nNote that `curio` support is not currently available in 0.14.0. If you're using `httpcore` with `curio` please get in touch, so we can assess if we ought to prioritize it as a feature or not.\n\n## 0.13.7 (September 13th, 2021)\n\n- Fix broken error messaging when URL scheme is missing, or a non HTTP(S) scheme is used. (Pull #403)\n\n## 0.13.6 (June 15th, 2021)\n\n### Fixed\n\n- Close sockets when read or write timeouts occur. (Pull #365)\n\n## 0.13.5 (June 14th, 2021)\n\n### Fixed\n\n- Resolved niggles with AnyIO EOF behaviours. (Pull #358, #362)\n\n## 0.13.4 (June 9th, 2021)\n\n### Added\n\n- Improved error messaging when URL scheme is missing, or a non HTTP(S) scheme is used. (Pull #354)\n\n### Fixed\n\n- Switched to `anyio` as the default backend implementation when running with `asyncio`. Resolves some awkward [TLS timeout issues](https://github.com/encode/httpx/discussions/1511).\n\n## 0.13.3 (May 6th, 2021)\n\n### Added\n\n- Support HTTP/2 prior knowledge, using `httpcore.SyncConnectionPool(http1=False)`. (Pull #333)\n\n### Fixed\n\n- Handle cases where environment does not provide `select.poll` support. (Pull #331)\n\n## 0.13.2 (April 29th, 2021)\n\n### Added\n\n- Improve error message for specific case of `RemoteProtocolError` where server disconnects without sending a response. (Pull #313)\n\n## 0.13.1 (April 28th, 2021)\n\n### Fixed\n\n- More resiliant testing for closed connections. (Pull #311)\n- Don't raise exceptions on ungraceful connection closes. (Pull #310)\n\n## 0.13.0 (April 21st, 2021)\n\nThe 0.13 release updates the core API in order to match the HTTPX Transport API,\nintroduced in HTTPX 0.18 onwards.\n\nAn example of making requests with the new interface is:\n\n```python\nwith httpcore.SyncConnectionPool() as http:\n    status_code, headers, stream, extensions = http.handle_request(\n        method=b'GET',\n        url=(b'https', b'example.org', 443, b'/'),\n        headers=[(b'host', b'example.org'), (b'user-agent', b'httpcore')]\n        stream=httpcore.ByteStream(b''),\n        extensions={}\n    )\n    body = stream.read()\n    print(status_code, body)\n```\n\n### Changed\n\n- The `.request()` method is now `handle_request()`. (Pull #296)\n- The `.arequest()` method is now `.handle_async_request()`. (Pull #296)\n- The `headers` argument is no longer optional. (Pull #296)\n- The `stream` argument is no longer optional. (Pull #296)\n- The `ext` argument is now named `extensions`, and is no longer optional. (Pull #296)\n- The `\"reason\"` extension keyword is now named `\"reason_phrase\"`. (Pull #296)\n- The `\"reason_phrase\"` and `\"http_version\"` extensions now use byte strings for their values. (Pull #296)\n- The `httpcore.PlainByteStream()` class becomes `httpcore.ByteStream()`. (Pull #296)\n\n### Added\n\n- Streams now support a `.read()` interface. (Pull #296)\n\n### Fixed\n\n- Task cancellation no longer leaks connections from the connection pool. (Pull #305)\n\n## 0.12.3 (December 7th, 2020)\n\n### Fixed\n\n- Abort SSL connections on close rather than waiting for remote EOF when using `asyncio`.  (Pull #167)\n- Fix exception raised in case of connect timeouts when using the `anyio` backend. (Pull #236)\n- Fix `Host` header precedence for `:authority` in HTTP/2. (Pull #241, #243)\n- Handle extra edge case when detecting for socket readability when using `asyncio`. (Pull #242, #244)\n- Fix `asyncio` SSL warning when using proxy tunneling. (Pull #249)\n\n## 0.12.2 (November 20th, 2020)\n\n### Fixed\n\n- Properly wrap connect errors on the asyncio backend. (Pull #235)\n- Fix `ImportError` occurring on Python 3.9 when using the HTTP/1.1 sync client in a multithreaded context. (Pull #237)\n\n## 0.12.1 (November 7th, 2020)\n\n### Added\n\n- Add connect retries. (Pull #221)\n\n### Fixed\n\n- Tweak detection of dropped connections, resolving an issue with open files limits on Linux. (Pull #185)\n- Avoid leaking connections when establishing an HTTP tunnel to a proxy has failed. (Pull #223)\n- Properly wrap OS errors when using `trio`. (Pull #225)\n\n## 0.12.0 (October 6th, 2020)\n\n### Changed\n\n- HTTP header casing is now preserved, rather than always sent in lowercase. (#216 and python-hyper/h11#104)\n\n### Added\n\n- Add Python 3.9 to officially supported versions.\n\n### Fixed\n\n- Gracefully handle a stdlib asyncio bug when a connection is closed while it is in a paused-for-reading state. (#201)\n\n## 0.11.1 (September 28nd, 2020)\n\n### Fixed\n\n- Add await to async semaphore release() coroutine (#197)\n- Drop incorrect curio classifier (#192)\n\n## 0.11.0 (September 22nd, 2020)\n\nThe Transport API with 0.11.0 has a couple of significant changes.\n\nFirstly we've moved changed the request interface in order to allow extensions, which will later enable us to support features\nsuch as trailing headers, HTTP/2 server push, and CONNECT/Upgrade connections.\n\nThe interface changes from:\n\n```python\ndef request(method, url, headers, stream, timeout):\n    return (http_version, status_code, reason, headers, stream)\n```\n\nTo instead including an optional dictionary of extensions on the request and response:\n\n```python\ndef request(method, url, headers, stream, ext):\n    return (status_code, headers, stream, ext)\n```\n\nHaving an open-ended extensions point will allow us to add later support for various optional features, that wouldn't otherwise be supported without these API changes.\n\nIn particular:\n\n* Trailing headers support.\n* HTTP/2 Server Push\n* sendfile.\n* Exposing raw connection on CONNECT, Upgrade, HTTP/2 bi-di streaming.\n* Exposing debug information out of the API, including template name, template context.\n\nCurrently extensions are limited to:\n\n* request: `timeout` - Optional. Timeout dictionary.\n* response: `http_version` - Optional. Include the HTTP version used on the response.\n* response: `reason` - Optional. Include the reason phrase used on the response. Only valid with HTTP/1.*.\n\nSee https://github.com/encode/httpx/issues/1274#issuecomment-694884553 for the history behind this.\n\nSecondly, the async version of `request` is now namespaced as `arequest`.\n\nThis allows concrete transports to support both sync and async implementations on the same class.\n\n### Added\n\n- Add curio support. (Pull #168)\n- Add anyio support, with `backend=\"anyio\"`. (Pull #169)\n\n### Changed\n\n- Update the Transport API to use 'ext' for optional extensions. (Pull #190)\n- Update the Transport API to use `.request` and `.arequest` so implementations can support both sync and async. (Pull #189)\n\n## 0.10.2 (August 20th, 2020)\n\n### Added\n\n- Added Unix Domain Socket support. (Pull #139)\n\n### Fixed\n\n- Always include the port on proxy CONNECT requests. (Pull #154)\n- Fix `max_keepalive_connections` configuration. (Pull #153)\n- Fixes behaviour in HTTP/1.1 where server disconnects can be used to signal the end of the response body. (Pull #164)\n\n## 0.10.1 (August 7th, 2020)\n\n- Include `max_keepalive_connections` on `AsyncHTTPProxy`/`SyncHTTPProxy` classes.\n\n## 0.10.0 (August 7th, 2020)\n\nThe most notable change in the 0.10.0 release is that HTTP/2 support is now fully optional.\n\nUse either `pip install httpcore` for HTTP/1.1 support only, or `pip install httpcore[http2]` for HTTP/1.1 and HTTP/2 support.\n\n### Added\n\n- HTTP/2 support becomes optional. (Pull #121, #130)\n- Add `local_address=...` support. (Pull #100, #134)\n- Add `PlainByteStream`, `IteratorByteStream`, `AsyncIteratorByteStream`. The `AsyncByteSteam` and `SyncByteStream` classes are now pure interface classes. (#133)\n- Add `LocalProtocolError`, `RemoteProtocolError` exceptions. (Pull #129)\n- Add `UnsupportedProtocol` exception. (Pull #128)\n- Add `.get_connection_info()` method. (Pull #102, #137)\n- Add better TRACE logs. (Pull #101)\n\n### Changed\n\n- `max_keepalive` is deprecated in favour of `max_keepalive_connections`. (Pull #140)\n\n### Fixed\n\n- Improve handling of server disconnects. (Pull #112)\n\n## 0.9.1 (May 27th, 2020)\n\n### Fixed\n\n- Proper host resolution for sync case, including IPv6 support. (Pull #97)\n- Close outstanding connections when connection pool is closed. (Pull #98)\n\n## 0.9.0 (May 21th, 2020)\n\n### Changed\n\n- URL port becomes an `Optional[int]` instead of `int`. (Pull #92)\n\n### Fixed\n\n- Honor HTTP/2 max concurrent streams settings. (Pull #89, #90)\n- Remove incorrect debug log. (Pull #83)\n\n## 0.8.4 (May 11th, 2020)\n\n### Added\n\n- Logging via HTTPCORE_LOG_LEVEL and HTTPX_LOG_LEVEL environment variables\nand TRACE level logging. (Pull #79)\n\n### Fixed\n\n- Reuse of connections on HTTP/2 in close concurrency situations. (Pull #81)\n\n## 0.8.3 (May 6rd, 2020)\n\n### Fixed\n\n- Include `Host` and `Accept` headers on proxy \"CONNECT\" requests.\n- De-duplicate any headers also contained in proxy_headers.\n- HTTP/2 flag not being passed down to proxy connections.\n\n## 0.8.2 (May 3rd, 2020)\n\n### Fixed\n\n- Fix connections using proxy forwarding requests not being added to the\nconnection pool properly. (Pull #70)\n\n## 0.8.1 (April 30th, 2020)\n\n### Changed\n\n- Allow inherintance of both `httpcore.AsyncByteStream`, `httpcore.SyncByteStream` without type conflicts.\n\n## 0.8.0 (April 30th, 2020)\n\n### Fixed\n\n- Fixed tunnel proxy support.\n\n### Added\n\n- New `TimeoutException` base class.\n\n## 0.7.0 (March 5th, 2020)\n\n- First integration with HTTPX.\n",
+        "description_content_type": "text/markdown",
+        "author_email": "Tom Christie <tom@tomchristie.com>",
+        "license_expression": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE.md"
+        ],
+        "classifier": [
+          "Development Status :: 3 - Alpha",
+          "Environment :: Web Environment",
+          "Framework :: AsyncIO",
+          "Framework :: Trio",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Topic :: Internet :: WWW/HTTP"
+        ],
+        "requires_dist": [
+          "certifi",
+          "h11>=0.16",
+          "anyio<5.0,>=4.0; extra == 'asyncio'",
+          "h2<5,>=3; extra == 'http2'",
+          "socksio==1.*; extra == 'socks'",
+          "trio<1.0,>=0.22.0; extra == 'trio'"
+        ],
+        "requires_python": ">=3.8",
+        "project_url": [
+          "Documentation, https://www.encode.io/httpcore",
+          "Homepage, https://www.encode.io/httpcore/",
+          "Source, https://github.com/encode/httpcore"
+        ],
+        "provides_extra": [
+          "asyncio",
+          "http2",
+          "socks",
+          "trio"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/a9/16/7757fb84c819accc7d7e9af5291b261e4abb8627ee040f99e7d35ef2457a/anyio-4.16.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=c66ae634e0b8228396b801741beb3294326d4b6102f7bba4041c0dfb58c29026",
+          "hashes": {
+            "sha256": "c66ae634e0b8228396b801741beb3294326d4b6102f7bba4041c0dfb58c29026"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "anyio",
+        "version": "4.16.0",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "High-level concurrency and networking framework on top of asyncio or Trio",
+        "description": ".. image:: https://github.com/agronholm/anyio/actions/workflows/test.yml/badge.svg\n  :target: https://github.com/agronholm/anyio/actions/workflows/test.yml\n  :alt: Build Status\n.. image:: https://coveralls.io/repos/github/agronholm/anyio/badge.svg?branch=master\n  :target: https://coveralls.io/github/agronholm/anyio?branch=master\n  :alt: Code Coverage\n.. image:: https://readthedocs.org/projects/anyio/badge/?version=latest\n  :target: https://anyio.readthedocs.io/en/latest/?badge=latest\n  :alt: Documentation\n.. image:: https://badges.gitter.im/gitterHQ/gitter.svg\n  :target: https://gitter.im/python-trio/AnyIO\n  :alt: Gitter chat\n.. image:: https://tidelift.com/badges/package/pypi/anyio\n  :target: https://tidelift.com/subscription/pkg/pypi-anyio\n  :alt: Tidelift\n\nAnyIO is an asynchronous networking and concurrency library that works on top of either asyncio_ or\nTrio_. It implements Trio-like `structured concurrency`_ (SC) on top of asyncio and works in harmony\nwith the native SC of Trio itself.\n\nApplications and libraries written against AnyIO's API will run unmodified on either asyncio_ or\nTrio_. AnyIO can also be adopted into a library or application incrementally – bit by bit, no full\nrefactoring necessary. It will blend in with the native libraries of your chosen backend.\n\nTo find out why you might want to use AnyIO's APIs instead of asyncio's, you can read about it\n`here <https://anyio.readthedocs.io/en/stable/why.html>`_.\n\nDocumentation\n-------------\n\nView full documentation at: https://anyio.readthedocs.io/\n\nFeatures\n--------\n\nAnyIO offers the following functionality:\n\n* Task groups (nurseries_ in trio terminology)\n* High-level networking (TCP, UDP and UNIX sockets)\n\n  * `Happy eyeballs`_ algorithm for TCP connections (more robust than that of asyncio on Python\n    3.8)\n  * async/await style UDP sockets (unlike asyncio where you still have to use Transports and\n    Protocols)\n\n* A versatile API for byte streams and object streams\n* Inter-task synchronization and communication (locks, conditions, events, semaphores, object\n  streams and futures)\n* Worker threads\n* Subprocesses\n* Subinterpreter support for code parallelization (on Python 3.13 and later)\n* Asynchronous file I/O (using worker threads)\n* Signal handling\n* Asynchronous versions of the functools_ and itertools_ modules\n\nAnyIO also comes with its own pytest_ plugin which also supports asynchronous fixtures.\nIt even works with the popular Hypothesis_ library.\n\n.. _asyncio: https://docs.python.org/3/library/asyncio.html\n.. _Trio: https://github.com/python-trio/trio\n.. _structured concurrency: https://en.wikipedia.org/wiki/Structured_concurrency\n.. _nurseries: https://trio.readthedocs.io/en/stable/reference-core.html#nurseries-and-spawning\n.. _Happy eyeballs: https://en.wikipedia.org/wiki/Happy_Eyeballs\n.. _pytest: https://docs.pytest.org/en/latest/\n.. _functools: https://docs.python.org/3/library/functools.html\n.. _itertools: https://docs.python.org/3/library/itertools.html\n.. _Hypothesis: https://hypothesis.works/\n\nSecurity contact information\n----------------------------\n\nTo report a security vulnerability, please use the `Tidelift security contact`_.\nTidelift will coordinate the fix and disclosure.\n\n.. _Tidelift security contact: https://tidelift.com/security\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Alex Grönholm <alex.gronholm@nextday.fi>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Framework :: AnyIO",
+          "Typing :: Typed",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Free Threading :: 2 - Beta"
+        ],
+        "requires_dist": [
+          "exceptiongroup>=1.0.2; python_version < \"3.11\"",
+          "idna>=2.8",
+          "typing_extensions>=4.16.0; python_version < \"3.15\"",
+          "trio>=0.32.0; extra == \"trio\""
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Documentation, https://anyio.readthedocs.io/en/latest/",
+          "Changelog, https://anyio.readthedocs.io/en/stable/versionhistory.html",
+          "Source code, https://github.com/agronholm/anyio",
+          "Issue tracker, https://github.com/agronholm/anyio/issues"
+        ],
+        "provides_extra": [
+          "trio"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+          "hashes": {
+            "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "idna",
+        "version": "3.20",
+        "summary": "Internationalized Domain Names in Applications (IDNA)",
+        "description": "# Internationalized Domain Names in Applications (IDNA)\n\nSupport for [Internationalized Domain Names in Applications\n(IDNA)](https://tools.ietf.org/html/rfc5891) and [Unicode IDNA\nCompatibility Processing](https://unicode.org/reports/tr46/). It\nsupersedes the standard library's `encodings.idna`, which only\nimplements the 2003 specification, offering broader script coverage and\nlimiting domains with known security vulnerabilities.\n\n## Usage\n\nPackage may be installed from [PyPI](https://pypi.org/project/idna/) via\nthe typical methods (e.g. `python3 -m pip install idna`)\n\nFor typical usage, the `encode` and `decode` functions will take a\ndomain name argument and perform a conversion to ASCII-compatible encoding\n(known as A-labels), or to Unicode strings (known as U-labels)\nrespectively.\n\n```pycon\n>>> import idna\n>>> idna.encode('ドメイン.テスト')\nb'xn--eckwd4c7c.xn--zckzah'\n>>> print(idna.decode('xn--eckwd4c7c.xn--zckzah'))\nドメイン.テスト\n```\n\nConversions can be applied at a per-label basis using the `ulabel` or\n`alabel` functions for specialized use cases.\n\n\n### Compatibility Mapping (UTS #46)\n\nThis library provides support for [Unicode IDNA Compatibility\nProcessing](https://unicode.org/reports/tr46/) which normalizes input from\ndifferent potential ways a user may input a domain prior to performing the IDNA\nconversion operations. This functionality, known as a\n[mapping](https://tools.ietf.org/html/rfc5895), is considered by the\nspecification to be a local user-interface issue distinct from IDNA\nconversion functionality.\n\nFor example, \"Königsgäßchen\" is not a permissible label as capital letters\nare not allowed. UTS #46 will convert this into lower case prior to applying\nthe IDNA conversion.\n\n```pycon\n>>> import idna\n>>> idna.encode('Königsgäßchen')\n...\nidna.core.InvalidCodepoint: Codepoint U+004B at position 1 of 'Königsgäßchen' not allowed\n>>> idna.encode('Königsgäßchen', uts46=True)\nb'xn--knigsgchen-b4a3dun'\n>>> idna.decode('xn--knigsgchen-b4a3dun')\n'königsgäßchen'\n```\n\nWhen performing a decode operation for display purposes, `decode()`\naccepts a `display=True` argument that leaves any `xn--` label that\nfails to decode unchanged. This is useful for user interface display\nwhere a domain is in use, the A-label form can be presented when it\nis not a valid IDN.\n\n\n## Exceptions\n\nAll errors raised during conversion derive from the `idna.IDNAError`\nbase class. The more specific exceptions are:\n\n* `idna.IDNABidiError` — raised when a label contains an illegal\n  combination of left-to-right and right-to-left characters.\n* `idna.InvalidCodepoint` — raised when a label contains a codepoint\n  that is INVALID for IDNA.\n* `idna.InvalidCodepointContext` — raised when a CONTEXTO or CONTEXTJ\n  codepoint appears in a position whose contextual requirements are\n  not satisfied.\n\nExceptions carry machine-readable attributes so that applications do\nnot need to parse the message: `code` is a short, stable identifier\nfor the rule that failed (such as `disallowed_codepoint` or\n`label_too_long`); and, when the failure can be attributed to a\nparticular character, `text` (the label or domain being validated),\n`codepoint` (the offending codepoint as an integer) and `position`\nare set. \n\n\n## Command-line tool\n\nThe package supports command-line usage to convert domain names\nbetween their Unicode and ASCII-compatible forms. It can be run either\nas a module (`python3 -m idna`) or, once installed (such as with `uv\ntool` or `pipx`), via the `idna` script:\n\n```bash\n$ uv tool install idna\n$ idna xn--e1afmkfd.xn--p1ai\nпример.рф\n$ idna пример.рф\nxn--e1afmkfd.xn--p1ai\n```\n\nMode can be specified with `-e`/`--encode` or `-d`/`--decode`, otherwise\nit will be chosen automatically based on the first input. Multiple\ndomains can be supplied either as arguments or through standard input.\nUTS #46 mapping is applied by default, which lets the tool accept\ninputs that aren't strictly valid IDNA 2008 by normalising them first,\npass `--strict` to disable UTS #46.\n\nConversion failures are reported on stderr together with the\noffending input; processing continues with the remaining domains and\nthe tool exits with a non-zero status if any conversion failed.\n\n\n## Additional Notes\n\n* **Python version support**. This library supports Python 3.9 and higher.\n  As this library serves as a low-level toolkit for a variety of\n  applications, we strive to support all versions of Python that are\n  not beyond end-of-life. Free-threaded Python is also supported,\n  as the library holds no mutable global state the functions can be\n  called concurrently from multiple threads.\n\n* **Unicode version**. The IDNA and UTS #46 lookup tables are generated\n  from a specific Unicode release. Some Unicode data depends on the\n  running Python's `unicodedata` module, so on an older Python a\n  character new to Unicode may be rejected as unknown even if this\n  library knows about it.\n\n* **Emoji**. It is an occasional request to support emoji domains in\n  this library. Encoding of symbols like emoji is expressly prohibited by\n  the IDNA technical standard, and emoji domains are broadly phased\n  out across the domain industry due to associated security risks.\n\n* **Regenerating lookup tables**. The IDNA and UTS #46 functionality\n  relies upon pre-calculated lookup tables, generated using the\n  `idna-data` script in [`tools/`](tools/README.md).\n\n",
+        "description_content_type": "text/markdown",
+        "author_email": "Kim Davies <kim+pypi@gumleaf.org>",
+        "license_expression": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE.md"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Intended Audience :: System Administrators",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Internet :: Name Service (DNS)",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          "Topic :: Utilities"
+        ],
+        "requires_dist": [
+          "ruff >= 0.16.0 ; extra == \"all\"",
+          "mypy >= 1.11.2 ; extra == \"all\"",
+          "ty >= 0.0.37 ; extra == \"all\"",
+          "pytest >= 8.3.2 ; extra == \"all\"",
+          "hypothesis >= 6.141.1 ; extra == \"all\"",
+          "coverage >= 7.10.0 ; extra == \"all\""
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Changelog, https://github.com/kjd/idna/blob/master/HISTORY.md",
+          "Issue tracker, https://github.com/kjd/idna/issues",
+          "Source, https://github.com/kjd/idna"
+        ],
+        "provides_extra": [
+          "all"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/32/d1/a3652fe2c19134d0d15922177821d863cbd7e842d53a21bbe7e8e3a1b5ac/certifi-2026.10.23-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1",
+          "hashes": {
+            "sha256": "e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "certifi",
+        "version": "2026.10.23",
+        "dynamic": [
+          "author",
+          "author-email",
+          "classifier",
+          "description",
+          "home-page",
+          "license",
+          "license-file",
+          "project-url",
+          "requires-python",
+          "summary"
+        ],
+        "summary": "Python package for providing Mozilla's CA Bundle.",
+        "description": "Certifi: Python SSL Certificates\n================================\n\nCertifi provides Mozilla's carefully curated collection of Root Certificates for\nvalidating the trustworthiness of SSL certificates while verifying the identity\nof TLS hosts. It has been extracted from the `Requests`_ project.\n\nInstallation\n------------\n\n``certifi`` is available on PyPI. Simply install it with ``pip``::\n\n    $ pip install certifi\n\nUsage\n-----\n\nTo reference the installed certificate authority (CA) bundle, you can use the\nbuilt-in function::\n\n    >>> import certifi\n\n    >>> certifi.where()\n    '/usr/local/lib/python3.7/site-packages/certifi/cacert.pem'\n\nOr from the command line::\n\n    $ python -m certifi\n    /usr/local/lib/python3.7/site-packages/certifi/cacert.pem\n\nEnjoy!\n\n.. _`Requests`: https://requests.readthedocs.io/en/latest/\n\nAddition/Removal of Certificates\n--------------------------------\n\nCertifi does not support any addition/removal or other modification of the\nCA trust store content. This project is intended to provide a reliable and\nhighly portable root of trust to python deployments. Look to upstream projects\nfor methods to use alternate trust.\n",
+        "home_page": "https://github.com/certifi/python-certifi",
+        "author": "Kenneth Reitz",
+        "author_email": "me@kennethreitz.com",
+        "license": "MPL-2.0",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+          "Natural Language :: English",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15"
+        ],
+        "requires_python": ">=3.7",
+        "project_url": [
+          "Source, https://github.com/certifi/python-certifi"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+          "hashes": {
+            "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "h11",
+        "version": "0.16.0",
+        "dynamic": [
+          "author",
+          "author-email",
+          "classifier",
+          "description",
+          "home-page",
+          "license",
+          "license-file",
+          "requires-python",
+          "summary"
+        ],
+        "summary": "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1",
+        "description": "h11\n===\n\n.. image:: https://travis-ci.org/python-hyper/h11.svg?branch=master\n   :target: https://travis-ci.org/python-hyper/h11\n   :alt: Automated test status\n\n.. image:: https://codecov.io/gh/python-hyper/h11/branch/master/graph/badge.svg\n   :target: https://codecov.io/gh/python-hyper/h11\n   :alt: Test coverage\n\n.. image:: https://readthedocs.org/projects/h11/badge/?version=latest\n   :target: http://h11.readthedocs.io/en/latest/?badge=latest\n   :alt: Documentation Status\n\nThis is a little HTTP/1.1 library written from scratch in Python,\nheavily inspired by `hyper-h2 <https://hyper-h2.readthedocs.io/>`_.\n\nIt's a \"bring-your-own-I/O\" library; h11 contains no IO code\nwhatsoever. This means you can hook h11 up to your favorite network\nAPI, and that could be anything you want: synchronous, threaded,\nasynchronous, or your own implementation of `RFC 6214\n<https://tools.ietf.org/html/rfc6214>`_ -- h11 won't judge you.\n(Compare this to the current state of the art, where every time a `new\nnetwork API <https://trio.readthedocs.io/>`_ comes along then someone\ngets to start over reimplementing the entire HTTP protocol from\nscratch.) Cory Benfield made an `excellent blog post describing the\nbenefits of this approach\n<https://lukasa.co.uk/2015/10/The_New_Hyper/>`_, or if you like video\nthen here's his `PyCon 2016 talk on the same theme\n<https://www.youtube.com/watch?v=7cC3_jGwl_U>`_.\n\nThis also means that h11 is not immediately useful out of the box:\nit's a toolkit for building programs that speak HTTP, not something\nthat could directly replace ``requests`` or ``twisted.web`` or\nwhatever. But h11 makes it much easier to implement something like\n``requests`` or ``twisted.web``.\n\nAt a high level, working with h11 goes like this:\n\n1) First, create an ``h11.Connection`` object to track the state of a\n   single HTTP/1.1 connection.\n\n2) When you read data off the network, pass it to\n   ``conn.receive_data(...)``; you'll get back a list of objects\n   representing high-level HTTP \"events\".\n\n3) When you want to send a high-level HTTP event, create the\n   corresponding \"event\" object and pass it to ``conn.send(...)``;\n   this will give you back some bytes that you can then push out\n   through the network.\n\nFor example, a client might instantiate and then send a\n``h11.Request`` object, then zero or more ``h11.Data`` objects for the\nrequest body (e.g., if this is a POST), and then a\n``h11.EndOfMessage`` to indicate the end of the message. Then the\nserver would then send back a ``h11.Response``, some ``h11.Data``, and\nits own ``h11.EndOfMessage``. If either side violates the protocol,\nyou'll get a ``h11.ProtocolError`` exception.\n\nh11 is suitable for implementing both servers and clients, and has a\npleasantly symmetric API: the events you send as a client are exactly\nthe ones that you receive as a server and vice-versa.\n\n`Here's an example of a tiny HTTP client\n<https://github.com/python-hyper/h11/blob/master/examples/basic-client.py>`_\n\nIt also has `a fine manual <https://h11.readthedocs.io/>`_.\n\nFAQ\n---\n\n*Whyyyyy?*\n\nI wanted to play with HTTP in `Curio\n<https://curio.readthedocs.io/en/latest/tutorial.html>`__ and `Trio\n<https://trio.readthedocs.io>`__, which at the time didn't have any\nHTTP libraries. So I thought, no big deal, Python has, like, a dozen\ndifferent implementations of HTTP, surely I can find one that's\nreusable. I didn't find one, but I did find Cory's call-to-arms\nblog-post. So I figured, well, fine, if I have to implement HTTP from\nscratch, at least I can make sure no-one *else* has to ever again.\n\n*Should I use it?*\n\nMaybe. You should be aware that it's a very young project. But, it's\nfeature complete and has an exhaustive test-suite and complete docs,\nso the next step is for people to try using it and see how it goes\n:-). If you do then please let us know -- if nothing else we'll want\nto talk to you before making any incompatible changes!\n\n*What are the features/limitations?*\n\nRoughly speaking, it's trying to be a robust, complete, and non-hacky\nimplementation of the first \"chapter\" of the HTTP/1.1 spec: `RFC 7230:\nHTTP/1.1 Message Syntax and Routing\n<https://tools.ietf.org/html/rfc7230>`_. That is, it mostly focuses on\nimplementing HTTP at the level of taking bytes on and off the wire,\nand the headers related to that, and tries to be anal about spec\nconformance. It doesn't know about higher-level concerns like URL\nrouting, conditional GETs, cross-origin cookie policies, or content\nnegotiation. But it does know how to take care of framing,\ncross-version differences in keep-alive handling, and the \"obsolete\nline folding\" rule, so you can focus your energies on the hard /\ninteresting parts for your application, and it tries to support the\nfull specification in the sense that any useful HTTP/1.1 conformant\napplication should be able to use h11.\n\nIt's pure Python, and has no dependencies outside of the standard\nlibrary.\n\nIt has a test suite with 100.0% coverage for both statements and\nbranches.\n\nCurrently it supports Python 3 (testing on 3.8-3.12) and PyPy 3.\nThe last Python 2-compatible version was h11 0.11.x.\n(Originally it had a Cython wrapper for `http-parser\n<https://github.com/nodejs/http-parser>`_ and a beautiful nested state\nmachine implemented with ``yield from`` to postprocess the output. But\nI had to take these out -- the new *parser* needs fewer lines-of-code\nthan the old *parser wrapper*, is written in pure Python, uses no\nexotic language syntax, and has more features. It's sad, really; that\nold state machine was really slick. I just need a few sentences here\nto mourn that.)\n\nI don't know how fast it is. I haven't benchmarked or profiled it yet,\nso it's probably got a few pointless hot spots, and I've been trying\nto err on the side of simplicity and robustness instead of\nmicro-optimization. But at the architectural level I tried hard to\navoid fundamentally bad decisions, e.g., I believe that all the\nparsing algorithms remain linear-time even in the face of pathological\ninput like slowloris, and there are no byte-by-byte loops. (I also\nbelieve that it maintains bounded memory usage in the face of\narbitrary/pathological input.)\n\nThe whole library is ~800 lines-of-code. You can read and understand\nthe whole thing in less than an hour. Most of the energy invested in\nthis so far has been spent on trying to keep things simple by\nminimizing special-cases and ad hoc state manipulation; even though it\nis now quite small and simple, I'm still annoyed that I haven't\nfigured out how to make it even smaller and simpler. (Unfortunately,\nHTTP does not lend itself to simplicity.)\n\nThe API is ~feature complete and I don't expect the general outlines\nto change much, but you can't judge an API's ergonomics until you\nactually document and use it, so I'd expect some changes in the\ndetails.\n\n*How do I try it?*\n\n.. code-block:: sh\n\n  $ pip install h11\n  $ git clone git@github.com:python-hyper/h11\n  $ cd h11/examples\n  $ python basic-client.py\n\nand go from there.\n\n*License?*\n\nMIT\n\n*Code of conduct?*\n\nContributors are requested to follow our `code of conduct\n<https://github.com/python-hyper/h11/blob/master/CODE_OF_CONDUCT.md>`_ in\nall project spaces.\n",
+        "home_page": "https://github.com/python-hyper/h11",
+        "author": "Nathaniel J. Smith",
+        "author_email": "njs@pobox.com",
+        "license": "MIT",
+        "license_file": [
+          "LICENSE.txt"
+        ],
+        "classifier": [
+          "Development Status :: 3 - Alpha",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Topic :: Internet :: WWW/HTTP",
+          "Topic :: System :: Networking"
+        ],
+        "requires_python": ">=3.8"
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+          "hashes": {
+            "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "typing_extensions",
+        "version": "4.16.0",
+        "summary": "Backported and Experimental Type Hints for Python 3.9+",
+        "description": "# Typing Extensions\n\n[![Chat at https://gitter.im/python/typing](https://badges.gitter.im/python/typing.svg)](https://gitter.im/python/typing)\n\n[Documentation](https://typing-extensions.readthedocs.io/en/latest/#) –\n[PyPI](https://pypi.org/project/typing-extensions/)\n\n## Overview\n\nThe `typing_extensions` module serves two related purposes:\n\n- Enable use of new type system features on older Python versions. For example,\n  `typing.TypeGuard` is new in Python 3.10, but `typing_extensions` allows\n  users on previous Python versions to use it too.\n- Enable experimentation with new type system PEPs before they are accepted and\n  added to the `typing` module.\n\n`typing_extensions` is treated specially by static type checkers such as\nmypy and pyright. Objects defined in `typing_extensions` are treated the same\nway as equivalent forms in `typing`.\n\n`typing_extensions` uses\n[Semantic Versioning](https://semver.org/). The\nmajor version will be incremented only for backwards-incompatible changes.\nTherefore, it's safe to depend\non `typing_extensions` like this: `typing_extensions ~=x.y`,\nwhere `x.y` is the first version that includes all features you need.\n[This](https://packaging.python.org/en/latest/specifications/version-specifiers/#compatible-release)\nis equivalent to `typing_extensions >=x.y, <(x+1)`. Do not depend on `~= x.y.z`\nunless you really know what you're doing; that defeats the purpose of\nsemantic versioning.\n\n## Included items\n\nSee [the documentation](https://typing-extensions.readthedocs.io/en/latest/#) for a\ncomplete listing of module contents.\n\n## Contributing\n\nSee [CONTRIBUTING.md](https://github.com/python/typing_extensions/blob/main/CONTRIBUTING.md)\nfor how to contribute to `typing_extensions`.\n\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "annotations",
+          "backport",
+          "checker",
+          "checking",
+          "function",
+          "hinting",
+          "hints",
+          "type",
+          "typechecking",
+          "typehinting",
+          "typehints",
+          "typing"
+        ],
+        "author_email": "\"Guido van Rossum, Jukka Lehtosalo, Łukasz Langa, Michael Lee\" <levkivskyi@gmail.com>",
+        "license_expression": "PSF-2.0",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Topic :: Software Development"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Bug Tracker, https://github.com/python/typing_extensions/issues",
+          "Changes, https://github.com/python/typing_extensions/blob/main/CHANGELOG.md",
+          "Documentation, https://typing-extensions.readthedocs.io/",
+          "Home, https://github.com/python/typing_extensions",
+          "Q & A, https://github.com/python/typing/discussions",
+          "Repository, https://github.com/python/typing_extensions"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "7.0.0-1017-azure",
+    "platform_system": "Linux",
+    "platform_version": "#17~24.04.1-Ubuntu SMP PREEMPT Thu Sep 24 18:46:57 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}
