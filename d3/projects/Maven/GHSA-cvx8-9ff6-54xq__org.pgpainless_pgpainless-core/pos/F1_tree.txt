@@ -1,0 +1,12 @@
+pl.thesis.d1:d1-case:jar:1.0.0
+\- org.pgpainless:pgpainless-core:jar:1.7.7:compile
+   +- org.slf4j:slf4j-api:jar:1.7.36:compile
+   +- org.bouncycastle:bcprov-jdk18on:jar:1.82:compile
+   +- org.bouncycastle:bcpg-jdk18on:jar:1.82:compile
+   +- org.bouncycastle:bcutil-jdk18on:jar:1.82:compile
+   +- org.jetbrains.kotlin:kotlin-stdlib-jdk8:jar:1.8.10:compile
+   |  +- org.jetbrains.kotlin:kotlin-stdlib:jar:1.8.10:compile
+   |  |  +- org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.8.10:compile
+   |  |  \- org.jetbrains:annotations:jar:13.0:compile
+   |  \- org.jetbrains.kotlin:kotlin-stdlib-jdk7:jar:1.8.10:compile
+   \- com.google.code.findbugs:jsr305:jar:3.0.2:runtime

@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "packages": 21,
+  "tree": {
+    "@chainsafe/is-ip": "2.1.0",
+    "@dnsquery/dns-packet": "6.1.1",
+    "@leichtgewicht/ip-codec": "2.0.5",
+    "@libp2p/crypto": "5.1.21",
+    "@libp2p/interface": "3.4.0",
+    "@multiformats/dns": "1.0.15",
+    "@multiformats/multiaddr": "13.0.3",
+    "@noble/curves": "2.4.0",
+    "@noble/hashes": "2.4.0",
+    "eventemitter3": "5.0.4",
+    "hashlru": "2.3.0",
+    "main-event": "1.0.5",
+    "multiformats": "14.0.6",
+    "p-queue": "9.3.5",
+    "p-timeout": "7.0.2",
+    "progress-events": "1.1.0",
+    "protons-runtime": "7.1.2",
+    "uint8-varint": "3.0.0",
+    "uint8arraylist": "3.0.2",
+    "uint8arrays": "6.1.1",
+    "utf8-codec": "1.0.0"
+  }
+}

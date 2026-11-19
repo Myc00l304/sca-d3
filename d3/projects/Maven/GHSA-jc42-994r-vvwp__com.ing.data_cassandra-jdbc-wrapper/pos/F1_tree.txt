@@ -1,0 +1,96 @@
+pl.thesis.d1:d1-case:jar:1.0.0
+\- com.ing.data:cassandra-jdbc-wrapper:jar:4.16.3:compile
+   +- org.apache.cassandra:java-driver-core:jar:4.19.2:compile
+   |  +- com.datastax.oss:native-protocol:jar:1.5.2:compile
+   |  +- io.netty:netty-handler:jar:4.1.119.Final:compile
+   |  |  +- io.netty:netty-common:jar:4.1.119.Final:compile
+   |  |  +- io.netty:netty-resolver:jar:4.1.119.Final:compile
+   |  |  +- io.netty:netty-buffer:jar:4.1.119.Final:compile
+   |  |  +- io.netty:netty-transport:jar:4.1.119.Final:compile
+   |  |  +- io.netty:netty-transport-native-unix-common:jar:4.1.119.Final:compile
+   |  |  \- io.netty:netty-codec:jar:4.1.119.Final:compile
+   |  +- org.apache.cassandra:java-driver-guava-shaded:jar:4.19.2:compile
+   |  +- com.typesafe:config:jar:1.4.1:compile
+   |  +- com.github.jnr:jnr-posix:jar:3.1.15:compile
+   |  |  +- com.github.jnr:jnr-ffi:jar:2.2.11:compile
+   |  |  |  +- com.github.jnr:jffi:jar:1.3.9:compile
+   |  |  |  +- com.github.jnr:jffi:jar:native:1.3.9:runtime
+   |  |  |  +- org.ow2.asm:asm:jar:9.2:compile
+   |  |  |  +- org.ow2.asm:asm-commons:jar:9.2:compile
+   |  |  |  +- org.ow2.asm:asm-analysis:jar:9.2:compile
+   |  |  |  +- org.ow2.asm:asm-tree:jar:9.2:compile
+   |  |  |  +- org.ow2.asm:asm-util:jar:9.2:compile
+   |  |  |  +- com.github.jnr:jnr-a64asm:jar:1.0.0:compile
+   |  |  |  \- com.github.jnr:jnr-x86asm:jar:1.0.2:compile
+   |  |  \- com.github.jnr:jnr-constants:jar:0.10.3:compile
+   |  +- org.slf4j:slf4j-api:jar:1.7.26:compile
+   |  +- io.dropwizard.metrics:metrics-core:jar:4.1.18:compile
+   |  +- org.hdrhistogram:HdrHistogram:jar:2.1.12:compile
+   |  \- org.reactivestreams:reactive-streams:jar:1.0.3:compile
+   +- org.apache.commons:commons-lang3:jar:3.19.0:compile
+   +- commons-io:commons-io:jar:2.20.0:compile
+   +- org.apache.commons:commons-collections4:jar:4.5.0:compile
+   +- com.github.ben-manes.caffeine:caffeine:jar:2.9.3:compile
+   |  +- org.checkerframework:checker-qual:jar:3.19.0:compile
+   |  \- com.google.errorprone:error_prone_annotations:jar:2.10.0:compile
+   +- com.fasterxml.jackson.core:jackson-core:jar:2.21.1:compile
+   +- com.fasterxml.jackson.core:jackson-databind:jar:2.21.1:compile
+   |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.21:compile
+   +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.21.1:compile
+   +- org.semver4j:semver4j:jar:5.8.0:compile
+   |  \- org.jspecify:jspecify:jar:1.0.0:compile
+   +- com.instaclustr:cassandra-driver-kerberos:jar:3.0.0:compile
+   +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+   +- software.aws.mcs:aws-sigv4-auth-cassandra-java-driver-plugin:jar:4.0.9:compile
+   |  +- commons-codec:commons-codec:jar:1.15:compile
+   |  +- com.datastax.oss:java-driver-core:jar:4.13.0:compile
+   |  |  +- com.datastax.oss:java-driver-shaded-guava:jar:25.1-jre-graal-sub-1:compile
+   |  |  +- com.esri.geometry:esri-geometry-api:jar:1.2.1:compile
+   |  |  |  +- org.json:json:jar:20090211:compile
+   |  |  |  \- org.codehaus.jackson:jackson-core-asl:jar:1.9.12:compile
+   |  |  +- com.github.stephenc.jcip:jcip-annotations:jar:1.0-1:compile
+   |  |  \- com.github.spotbugs:spotbugs-annotations:jar:3.1.12:compile
+   |  \- javax.validation:validation-api:jar:2.0.0.Final:compile
+   +- software.amazon.awssdk:secretsmanager:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:aws-json-protocol:jar:2.36.1:compile
+   |  |  \- software.amazon.awssdk:third-party-jackson-core:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:protocol-core:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:http-auth-aws:jar:2.36.1:compile
+   |  |  +- software.amazon.awssdk:checksums-spi:jar:2.36.1:compile
+   |  |  \- software.amazon.awssdk:checksums:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:sdk-core:jar:2.36.1:compile
+   |  |  +- software.amazon.awssdk:profiles:jar:2.36.1:compile
+   |  |  \- software.amazon.awssdk:retries:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:auth:jar:2.36.1:compile
+   |  |  +- software.amazon.awssdk:http-auth-aws-eventstream:jar:2.36.1:compile
+   |  |  \- software.amazon.eventstream:eventstream:jar:1.0.1:compile
+   |  +- software.amazon.awssdk:http-auth-spi:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:http-auth:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:identity-spi:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:http-client-spi:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:regions:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:annotations:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:utils:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:aws-core:jar:2.36.1:compile
+   |  |  \- software.amazon.awssdk:utils-lite:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:metrics-spi:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:json-utils:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:endpoints-spi:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:retries-spi:jar:2.36.1:compile
+   |  +- software.amazon.awssdk:apache-client:jar:2.36.1:runtime
+   |  |  +- org.apache.httpcomponents:httpclient:jar:4.5.13:runtime
+   |  |  \- org.apache.httpcomponents:httpcore:jar:4.4.16:runtime
+   |  \- software.amazon.awssdk:netty-nio-client:jar:2.36.1:runtime
+   |     +- io.netty:netty-codec-http:jar:4.1.126.Final:runtime
+   |     +- io.netty:netty-codec-http2:jar:4.1.126.Final:runtime
+   |     \- io.netty:netty-transport-classes-epoll:jar:4.1.126.Final:runtime
+   +- com.datastax.astra:astra-sdk-devops:jar:1.2.9:compile
+   |  +- org.apache.httpcomponents.client5:httpclient5:jar:5.3:compile
+   |  |  +- org.apache.httpcomponents.core5:httpcore5:jar:5.2.4:compile
+   |  |  \- org.apache.httpcomponents.core5:httpcore5-h2:jar:5.2.4:compile
+   |  \- org.projectlombok:lombok:jar:1.18.30:compile
+   \- com.opencsv:opencsv:jar:5.12.0:compile
+      +- org.apache.commons:commons-text:jar:1.13.1:compile
+      \- commons-beanutils:commons-beanutils:jar:1.11.0:compile
+         +- commons-logging:commons-logging:jar:1.3.5:compile
+         \- commons-collections:commons-collections:jar:3.2.2:compile
