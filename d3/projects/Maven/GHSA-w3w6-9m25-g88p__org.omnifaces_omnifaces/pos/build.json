@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "packages": 1,
+  "tree": {
+    "org.omnifaces:omnifaces": "5.4.2"
+  },
+  "jars": [
+    "omnifaces-5.4.2.jar"
+  ]
+}

@@ -1,0 +1,373 @@
+pl.thesis.d1:d1-case:jar:1.0.0
+\- io.openremote:openremote-manager:jar:1.30.1:compile
+   +- io.openremote:openremote-container:jar:1.30.1:compile
+   |  +- org.apache.groovy:groovy:jar:5.0.7:compile
+   |  +- org.apache.groovy:groovy-json:jar:5.0.7:compile
+   |  +- org.apache.groovy:groovy-xml:jar:5.0.7:compile
+   |  +- org.apache.groovy:groovy-yaml:jar:5.0.7:compile
+   |  |  \- com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.21.4:compile
+   |  +- org.craftercms:groovy-sandbox:jar:4.3.2:compile
+   |  +- org.slf4j:slf4j-jdk14:jar:2.0.18:compile
+   |  +- io.undertow:undertow-core:jar:2.3.26.Final:compile
+   |  |  +- org.jboss.logging:jboss-logging:jar:3.4.3.Final:compile
+   |  |  +- org.jboss.xnio:xnio-api:jar:3.8.16.Final:compile
+   |  |  |  +- org.wildfly.common:wildfly-common:jar:1.5.4.Final:compile
+   |  |  |  \- org.wildfly.client:wildfly-client-config:jar:1.0.1.Final:compile
+   |  |  +- org.jboss.xnio:xnio-nio:jar:3.8.16.Final:runtime
+   |  |  \- org.jboss.threads:jboss-threads:jar:3.7.0.Final:compile
+   |  |     +- io.smallrye.common:smallrye-common-annotation:jar:2.6.0:compile
+   |  |     +- io.smallrye.common:smallrye-common-constraint:jar:2.6.0:compile
+   |  |     +- io.smallrye.common:smallrye-common-cpu:jar:2.6.0:compile
+   |  |     \- io.smallrye.common:smallrye-common-function:jar:2.6.0:compile
+   |  +- io.undertow:undertow-websockets-jsr:jar:2.3.26.Final:compile
+   |  |  +- jakarta.websocket:jakarta.websocket-api:jar:2.1.0:compile
+   |  |  \- jakarta.websocket:jakarta.websocket-client-api:jar:2.1.0:compile
+   |  +- org.jboss.resteasy:resteasy-undertow:jar:6.2.16.Final:compile
+   |  |  +- org.jboss.resteasy:resteasy-core-spi:jar:6.2.16.Final:compile
+   |  |  \- jakarta.servlet:jakarta.servlet-api:jar:6.0.0:compile
+   |  +- org.jboss.resteasy:resteasy-client:jar:6.2.16.Final:compile
+   |  |  +- org.jboss.resteasy:resteasy-client-api:jar:6.2.16.Final:compile
+   |  |  +- org.jboss.resteasy:resteasy-core:jar:6.2.16.Final:compile
+   |  |  |  +- org.jboss:jandex:jar:2.4.5.Final:compile
+   |  |  |  \- com.ibm.async:asyncutil:jar:0.1.0:compile
+   |  |  +- org.apache.httpcomponents:httpclient:jar:4.5.14:compile
+   |  |  \- org.reactivestreams:reactive-streams:jar:1.0.4:compile
+   |  +- org.jboss.resteasy:resteasy-jackson2-provider:jar:6.2.16.Final:compile
+   |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.18.6:compile
+   |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.18.6:compile
+   |  |  +- com.fasterxml.jackson.jakarta.rs:jackson-jakarta-rs-base:jar:2.18.6:compile
+   |  |  +- com.fasterxml.jackson.module:jackson-module-jakarta-xmlbind-annotations:jar:2.18.6:compile
+   |  |  \- com.github.java-json-tools:json-patch:jar:1.13:compile
+   |  |     +- com.github.java-json-tools:msg-simple:jar:1.2:compile
+   |  |     |  \- com.github.java-json-tools:btf:jar:1.3:compile
+   |  |     \- com.github.java-json-tools:jackson-coreutils:jar:2.0:compile
+   |  +- org.jboss.resteasy:resteasy-multipart-provider:jar:6.2.16.Final:compile
+   |  |  +- org.jboss.resteasy:resteasy-jaxb-provider:jar:6.2.16.Final:compile
+   |  |  |  +- org.glassfish.jaxb:codemodel:jar:4.0.7:compile
+   |  |  |  +- org.glassfish.jaxb:jaxb-core:jar:4.0.7:compile
+   |  |  |  +- org.glassfish.jaxb:jaxb-jxc:jar:4.0.7:compile
+   |  |  |  +- org.glassfish.jaxb:txw2:jar:4.0.7:compile
+   |  |  |  +- org.glassfish.jaxb:jaxb-xjc:jar:4.0.7:compile
+   |  |  |  +- org.glassfish.jaxb:xsom:jar:4.0.7:compile
+   |  |  |  +- com.sun.istack:istack-commons-runtime:jar:4.1.2:compile
+   |  |  |  +- com.sun.istack:istack-commons-tools:jar:4.1.2:compile
+   |  |  |  +- com.sun.xml.bind.external:relaxng-datatype:jar:4.0.7:compile
+   |  |  |  \- com.sun.xml.bind.external:rngom:jar:4.0.7:compile
+   |  |  +- org.apache.james:apache-mime4j-dom:jar:0.8.13:compile
+   |  |  |  \- org.apache.james:apache-mime4j-core:jar:0.8.13:compile
+   |  |  +- org.apache.james:apache-mime4j-storage:jar:0.8.13:compile
+   |  |  \- commons-io:commons-io:jar:2.11.0:compile
+   |  +- org.jboss.resteasy:resteasy-validator-provider:jar:6.2.16.Final:compile
+   |  |  +- org.jboss.resteasy:resteasy-cdi:jar:6.2.16.Final:compile
+   |  |  |  \- jakarta.interceptor:jakarta.interceptor-api:jar:2.1.0:compile
+   |  |  +- jakarta.enterprise:jakarta.enterprise.cdi-api:jar:4.0.1:compile
+   |  |  |  \- jakarta.enterprise:jakarta.enterprise.lang-model:jar:4.0.1:compile
+   |  |  \- com.fasterxml:classmate:jar:1.5.1:compile
+   |  +- jakarta.security.enterprise:jakarta.security.enterprise-api:jar:4.0.0:compile
+   |  |  \- jakarta.json:jakarta.json-api:jar:2.1.3:compile
+   |  +- org.glassfish.soteria:jakarta.security.enterprise:jar:3.0.4:compile
+   |  +- com.nimbusds:nimbus-jose-jwt:jar:10.9.1:compile
+   |  +- org.keycloak:keycloak-admin-client:jar:26.0.10:compile
+   |  |  +- org.keycloak:keycloak-client-common-synced:jar:26.0.10:compile
+   |  |  |  \- org.jboss.logging:commons-logging-jboss-logging:jar:2.0.0.Final:runtime
+   |  |  +- com.fasterxml.jackson.jakarta.rs:jackson-jakarta-rs-yaml-provider:jar:2.21.2:compile
+   |  |  \- org.eclipse.microprofile.openapi:microprofile-openapi-api:jar:4.1.1:compile
+   |  +- org.postgresql:postgresql:jar:42.7.13:compile
+   |  +- org.flywaydb:flyway-core:jar:12.8.1:compile
+   |  |  \- tools.jackson.core:jackson-databind:jar:3.1.1:compile
+   |  |     \- tools.jackson.core:jackson-core:jar:3.1.1:compile
+   |  +- org.hibernate.orm:hibernate-core:jar:7.4.5.Final:compile
+   |  |  +- jakarta.persistence:jakarta.persistence-api:jar:3.2.0:compile
+   |  |  +- jakarta.transaction:jakarta.transaction-api:jar:2.0.1:compile
+   |  |  +- org.hibernate.models:hibernate-models:jar:1.1.1:runtime
+   |  |  +- net.bytebuddy:byte-buddy:jar:1.18.8:runtime
+   |  |  +- org.glassfish.jaxb:jaxb-runtime:jar:4.0.7:compile
+   |  |  +- jakarta.inject:jakarta.inject-api:jar:2.0.1:compile
+   |  |  \- org.antlr:antlr4-runtime:jar:4.13.2:runtime
+   |  +- org.hibernate.orm:hibernate-hikaricp:jar:7.4.5.Final:compile
+   |  +- org.hibernate.validator:hibernate-validator:jar:9.1.2.Final:compile
+   |  |  \- jakarta.validation:jakarta.validation-api:jar:3.1.1:compile
+   |  +- com.zaxxer:HikariCP:jar:7.1.0:compile
+   |  +- jakarta.el:jakarta.el-api:jar:6.0.1:compile
+   |  +- org.glassfish:jakarta.el:jar:4.0.2:compile
+   |  +- org.apache.camel:camel-core:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-core-engine:jar:4.22.0:compile
+   |  |  |  +- org.apache.camel:camel-base-engine:jar:4.22.0:compile
+   |  |  |  \- org.apache.camel:camel-core-reifier:jar:4.22.0:compile
+   |  |  |     \- org.apache.camel:camel-core-processor:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-core-languages:jar:4.22.0:compile
+   |  |  |  \- org.apache.camel:camel-core-model:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-bean:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-browse:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-cluster:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-controlbus:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-dataformat:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-dataset:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-direct:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-file:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-language:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-log:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-mock:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-ref:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-rest:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-saga:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-scheduler:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-seda:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-stub:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-timer:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-validator:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-xpath:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-xslt:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-xml-io:jar:4.22.0:compile
+   |  |  |  \- org.apache.camel:camel-xml-io-util:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-xml-jaxb:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-xml-jaxp:jar:4.22.0:compile
+   |  |  \- org.apache.camel:camel-yaml-io:jar:4.22.0:compile
+   |  |     \- org.apache.camel:camel-core-catalog:jar:4.22.0:compile
+   |  |        \- org.apache.camel:camel-tooling-model:jar:4.22.0:compile
+   |  +- org.apache.camel:camel-jackson:jar:4.22.0:compile
+   |  +- org.apache.camel:camel-snmp:jar:4.22.0:compile
+   |  |  \- org.snmp4j:snmp4j:jar:3.13.1:compile
+   |  +- org.apache.camel:camel-health:jar:4.22.0:compile
+   |  +- org.apache.camel:camel-management:jar:4.22.0:compile
+   |  +- io.micrometer:micrometer-registry-prometheus:jar:1.17.0:compile
+   |  |  +- org.jspecify:jspecify:jar:1.0.0:compile
+   |  |  +- io.prometheus:prometheus-metrics-core:jar:1.7.0:compile
+   |  |  |  \- io.prometheus:prometheus-metrics-config:jar:1.7.0:compile
+   |  |  +- io.prometheus:prometheus-metrics-tracer-common:jar:1.7.0:compile
+   |  |  \- io.prometheus:prometheus-metrics-exposition-formats:jar:1.7.0:runtime
+   |  +- com.thetransactioncompany:cors-filter:jar:3.1:compile
+   |  |  \- com.thetransactioncompany:java-property-utils:jar:1.17:compile
+   |  \- org.flywaydb:flyway-database-postgresql:jar:12.8.1:runtime
+   +- io.openremote:openremote-agent:jar:1.30.1:compile
+   |  +- io.netty:netty-codec:jar:4.2.17.Final:compile
+   |  |  +- io.netty:netty-codec-compression:jar:4.2.17.Final:compile
+   |  |  +- io.netty:netty-codec-protobuf:jar:4.2.17.Final:compile
+   |  |  \- io.netty:netty-codec-marshalling:jar:4.2.17.Final:compile
+   |  +- io.netty:netty-codec-http:jar:4.2.17.Final:compile
+   |  +- com.fazecast:jSerialComm:jar:2.11.4:compile
+   |  +- com.github.calimero:calimero-core:jar:2.6:compile
+   |  +- com.github.calimero:calimero-tools:jar:2.6:compile
+   |  |  \- net.lingala.zip4j:zip4j:jar:2.11.5:runtime
+   |  +- net.sf.saxon:Saxon-HE:jar:12.9:compile
+   |  |  +- org.xmlresolver:xmlresolver:jar:5.3.3:compile
+   |  |  \- org.xmlresolver:xmlresolver:jar:data:5.3.3:compile
+   |  +- org.eclipse.californium:californium-core:jar:3.14.0:compile
+   |  |  +- org.eclipse.californium:californium-legal:jar:3.14.0:runtime
+   |  |  \- org.eclipse.californium:element-connector:jar:3.14.0:compile
+   |  +- org.eclipse.californium:scandium:jar:3.14.0:compile
+   |  +- org.openremote:or-zwave:jar:3.4.0:compile
+   |  +- com.hivemq:hivemq-mqtt-client:jar:1.3.16:compile
+   |  |  +- io.reactivex.rxjava2:rxjava:jar:2.2.21:compile
+   |  |  +- org.jetbrains:annotations:jar:26.1.0:runtime
+   |  |  \- com.google.dagger:dagger:jar:2.42:runtime
+   |  |     \- javax.inject:javax.inject:jar:1:runtime
+   |  +- com.github.weliem:blessed-bluez:jar:0.64:compile
+   |  +- dev.failsafe:failsafe:jar:3.3.2:runtime
+   |  +- org.jdom:jdom2:jar:2.0.6.1:runtime
+   |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-csv:jar:2.21.5:runtime
+   |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.21.5:compile
+   |  +- io.grpc:grpc-netty-shaded:jar:1.83.1:runtime
+   |  |  +- io.grpc:grpc-util:jar:1.83.1:runtime
+   |  |  +- io.grpc:grpc-core:jar:1.83.1:runtime
+   |  |  +- com.google.errorprone:error_prone_annotations:jar:2.50.0:compile
+   |  |  +- io.perfmark:perfmark-api:jar:0.27.0:runtime
+   |  |  +- io.grpc:grpc-api:jar:1.83.1:runtime
+   |  |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.27:runtime
+   |  +- io.grpc:grpc-protobuf:jar:1.83.1:runtime
+   |  |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+   |  |  +- com.google.protobuf:protobuf-java:jar:3.25.9:runtime
+   |  |  +- com.google.api.grpc:proto-google-common-protos:jar:2.64.1:runtime
+   |  |  \- io.grpc:grpc-protobuf-lite:jar:1.83.1:runtime
+   |  +- io.grpc:grpc-stub:jar:1.83.1:runtime
+   |  \- org.bouncycastle:bcprov-jdk18on:jar:1.85:runtime
+   +- io.openremote:openremote-model:jar:1.30.1:compile
+   |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.21.5:compile
+   |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.21.5:compile
+   |  +- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.21.5:compile
+   |  +- jakarta.annotation:jakarta.annotation-api:jar:3.0.0:compile
+   |  +- jakarta.ws.rs:jakarta.ws.rs-api:jar:3.1.0:compile
+   |  +- org.jboss.resteasy:resteasy-cache-core:jar:4.7.10.Final:compile
+   |  |  +- org.infinispan:infinispan-core:jar:12.1.1.Final:compile
+   |  |  |  +- org.infinispan:infinispan-commons:jar:12.1.1.Final:compile
+   |  |  |  |  \- io.reactivex.rxjava3:rxjava:jar:3.0.4:compile
+   |  |  |  +- org.infinispan.protostream:protostream:jar:4.4.0.Final:compile
+   |  |  |  \- org.infinispan.protostream:protostream-types:jar:4.4.0.Final:compile
+   |  |  +- org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.1_spec:jar:2.0.1.Final:compile
+   |  |  \- org.jboss.spec.javax.transaction:jboss-transaction-api_1.3_spec:jar:2.0.0.Final:compile
+   |  +- org.keycloak:keycloak-core:jar:26.6.4:compile
+   |  |  \- org.keycloak:keycloak-common:jar:26.6.4:compile
+   |  +- com.jayway.jsonpath:json-path:jar:2.10.0:compile
+   |  |  \- net.minidev:json-smart:jar:2.6.0:runtime
+   |  |     \- net.minidev:accessors-smart:jar:2.6.0:runtime
+   |  |        \- org.ow2.asm:asm:jar:9.7.1:runtime
+   |  +- org.jeasy:easy-rules-core:jar:4.1.0:compile
+   |  +- org.reflections:reflections:jar:0.10.2:compile
+   |  +- com.google.guava:guava:jar:33.6.0-jre:compile
+   |  |  +- com.google.guava:failureaccess:jar:1.0.3:compile
+   |  |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+   |  |  \- com.google.j2objc:j2objc-annotations:jar:3.1:compile
+   |  +- org.checkerframework:checker-qual:jar:4.2.1:compile
+   |  +- io.swagger.core.v3:swagger-annotations:jar:2.2.53:compile
+   |  +- com.github.victools:jsonschema-generator:jar:4.38.0:compile
+   |  +- com.github.victools:jsonschema-module-jackson:jar:4.38.0:compile
+   |  +- com.github.victools:jsonschema-module-jakarta-validation:jar:4.38.0:compile
+   |  +- io.github.classgraph:classgraph:jar:4.8.184:compile
+   |  +- io.micrometer:micrometer-core:jar:1.17.0:compile
+   |  |  +- io.micrometer:micrometer-commons:jar:1.17.0:compile
+   |  |  +- io.micrometer:micrometer-observation:jar:1.17.0:compile
+   |  |  \- org.hdrhistogram:HdrHistogram:jar:2.2.2:runtime
+   |  +- com.devskiller.friendly-id:friendly-id:jar:1.0.4:compile
+   |  +- com.fasterxml.uuid:java-uuid-generator:jar:5.2.0:compile
+   |  \- fr.neolegal:exp4j:jar:0.4.13:compile
+   +- org.mnode.ical4j:ical4j:jar:4.3.0:compile
+   |  +- org.slf4j:slf4j-api:jar:2.0.12:compile
+   |  +- commons-codec:commons-codec:jar:1.17.0:compile
+   |  +- org.apache.commons:commons-lang3:jar:3.18.0:compile
+   |  \- org.threeten:threeten-extra:jar:1.8.0:compile
+   +- io.netty:netty-codec-mqtt:jar:4.2.17.Final:compile
+   |  +- io.netty:netty-common:jar:4.2.17.Final:compile
+   |  +- io.netty:netty-buffer:jar:4.2.17.Final:compile
+   |  +- io.netty:netty-transport:jar:4.2.17.Final:compile
+   |  |  \- io.netty:netty-resolver:jar:4.2.17.Final:compile
+   |  \- io.netty:netty-codec-base:jar:4.2.17.Final:compile
+   +- org.apache.artemis:artemis-server:jar:2.55.0:compile
+   |  +- com.github.ben-manes.caffeine:caffeine:jar:3.2.4:compile
+   |  +- org.apache.artemis:artemis-commons:jar:2.55.0:compile
+   |  +- org.apache.artemis:artemis-selector:jar:2.55.0:compile
+   |  +- org.apache.artemis:artemis-journal:jar:2.55.0:compile
+   |  |  \- org.apache.activemq:activemq-artemis-native:jar:2.0.0:compile
+   |  +- org.apache.artemis:artemis-jdbc-store:jar:2.55.0:compile
+   |  |  \- org.apache.commons:commons-dbcp2:jar:2.14.0:compile
+   |  |     \- org.apache.commons:commons-pool2:jar:2.13.0:compile
+   |  +- org.apache.artemis:artemis-core-client:jar:2.55.0:compile
+   |  |  +- org.jgroups:jgroups:jar:5.3.13.Final:compile
+   |  |  +- io.netty:netty-handler-proxy:jar:4.1.135.Final:compile
+   |  |  +- io.netty:netty-codec-socks:jar:4.1.135.Final:compile
+   |  |  \- de.dentrassi.crypto:pem-keystore:jar:3.0.0:compile
+   |  |     \- com.hierynomus:asn-one:jar:0.6.0:compile
+   |  +- org.apache.artemis:artemis-lockmanager-api:jar:2.55.0:compile
+   |  +- org.jctools:jctools-core:jar:4.0.6:compile
+   |  +- io.netty:netty-codec-haproxy:jar:4.1.135.Final:compile
+   |  +- io.netty:netty-handler:jar:4.1.135.Final:compile
+   |  |  \- io.netty:netty-transport-native-unix-common:jar:4.1.135.Final:compile
+   |  +- io.netty:netty-transport-native-epoll:jar:linux-x86_64:4.1.135.Final:compile
+   |  +- io.netty:netty-transport-classes-epoll:jar:4.1.135.Final:compile
+   |  +- io.netty:netty-transport-native-kqueue:jar:osx-x86_64:4.1.135.Final:compile
+   |  +- io.netty:netty-transport-classes-kqueue:jar:4.1.135.Final:compile
+   |  +- commons-beanutils:commons-beanutils:jar:1.11.0:compile
+   |  |  \- commons-logging:commons-logging:jar:1.3.5:compile
+   |  +- org.snakeyaml:snakeyaml-engine:jar:3.0.1:compile
+   |  +- org.apache.commons:commons-configuration2:jar:2.15.1:compile
+   |  |  \- org.apache.commons:commons-text:jar:1.15.0:compile
+   |  \- commons-collections:commons-collections:jar:3.2.2:compile
+   +- org.xerial:sqlite-jdbc:jar:3.53.2.0:runtime
+   +- org.geotools:gt-main:jar:34.3:compile
+   +- com.google.firebase:firebase-admin:jar:9.8.0:runtime
+   |  +- com.google.auth:google-auth-library-oauth2-http:jar:1.42.1:runtime
+   |  |  +- com.google.auto.value:auto-value-annotations:jar:1.11.0:runtime
+   |  |  +- com.google.auth:google-auth-library-credentials:jar:1.42.1:runtime
+   |  |  +- com.google.http-client:google-http-client-gson:jar:2.1.0:runtime
+   |  |  \- com.google.code.gson:gson:jar:2.12.1:runtime
+   |  +- com.google.api-client:google-api-client:jar:2.7.2:runtime
+   |  |  +- com.google.oauth-client:google-oauth-client:jar:1.36.0:runtime
+   |  |  +- com.google.http-client:google-http-client-apache-v2:jar:1.45.2:runtime
+   |  |  \- org.apache.httpcomponents:httpcore:jar:4.4.16:compile
+   |  +- com.google.api-client:google-api-client-gson:jar:2.7.2:runtime
+   |  +- com.google.http-client:google-http-client:jar:2.1.0:runtime
+   |  |  +- io.grpc:grpc-context:jar:1.70.0:runtime
+   |  |  +- io.opencensus:opencensus-api:jar:0.31.1:runtime
+   |  |  \- io.opencensus:opencensus-contrib-http-util:jar:0.31.1:runtime
+   |  +- com.google.api:api-common:jar:2.57.1:runtime
+   |  |  \- javax.annotation:javax.annotation-api:jar:1.3.2:runtime
+   |  +- com.google.cloud:google-cloud-storage:jar:2.63.0:runtime
+   |  |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-xml:jar:2.18.2:runtime
+   |  |  +- org.codehaus.woodstox:stax2-api:jar:4.2.2:runtime
+   |  |  +- com.fasterxml.woodstox:woodstox-core:jar:7.0.0:runtime
+   |  |  +- com.google.http-client:google-http-client-jackson2:jar:2.1.0:runtime
+   |  |  +- com.google.apis:google-api-services-storage:jar:v1-rev20251118-2.0.0:runtime
+   |  |  +- com.google.cloud:google-cloud-core:jar:2.64.1:runtime
+   |  |  +- com.google.cloud:google-cloud-core-http:jar:2.64.1:runtime
+   |  |  +- com.google.http-client:google-http-client-appengine:jar:2.1.0:runtime
+   |  |  +- com.google.api:gax-httpjson:jar:2.74.1:runtime
+   |  |  +- com.google.cloud:google-cloud-core-grpc:jar:2.64.1:runtime
+   |  |  +- com.google.api:gax:jar:2.74.1:runtime
+   |  |  +- com.google.api:gax-grpc:jar:2.74.1:runtime
+   |  |  +- io.grpc:grpc-inprocess:jar:1.76.2:runtime
+   |  |  +- io.grpc:grpc-alts:jar:1.76.2:runtime
+   |  |  +- io.grpc:grpc-grpclb:jar:1.76.2:runtime
+   |  |  +- org.conscrypt:conscrypt-openjdk-uber:jar:2.5.2:runtime
+   |  |  +- io.grpc:grpc-auth:jar:1.76.2:runtime
+   |  |  +- io.opentelemetry:opentelemetry-context:jar:1.51.0:runtime
+   |  |  +- com.google.api.grpc:proto-google-iam-v1:jar:1.60.1:runtime
+   |  |  +- com.google.protobuf:protobuf-java-util:jar:4.33.2:runtime
+   |  |  +- com.google.android:annotations:jar:4.1.1.4:runtime
+   |  |  +- org.threeten:threetenbp:jar:1.7.0:runtime
+   |  |  +- com.google.api.grpc:proto-google-cloud-storage-v2:jar:2.63.0:runtime
+   |  |  +- com.google.api.grpc:grpc-google-cloud-storage-v2:jar:2.63.0:runtime
+   |  |  +- com.google.api.grpc:gapic-google-cloud-storage-v2:jar:2.63.0:runtime
+   |  |  +- io.opentelemetry:opentelemetry-sdk:jar:1.51.0:runtime
+   |  |  +- io.opentelemetry:opentelemetry-sdk-trace:jar:1.51.0:runtime
+   |  |  +- io.opentelemetry:opentelemetry-sdk-logs:jar:1.51.0:runtime
+   |  |  +- io.grpc:grpc-opentelemetry:jar:1.76.2:runtime
+   |  |  +- io.opentelemetry:opentelemetry-api:jar:1.51.0:runtime
+   |  |  +- io.opentelemetry:opentelemetry-sdk-metrics:jar:1.51.0:runtime
+   |  |  +- io.opentelemetry:opentelemetry-sdk-common:jar:1.51.0:runtime
+   |  |  +- io.opentelemetry:opentelemetry-sdk-extension-autoconfigure-spi:jar:1.51.0:runtime
+   |  |  +- io.opentelemetry.semconv:opentelemetry-semconv:jar:1.29.0-alpha:runtime
+   |  |  +- com.google.cloud.opentelemetry:exporter-metrics:jar:0.33.0:runtime
+   |  |  +- com.google.cloud:google-cloud-monitoring:jar:3.52.0:runtime
+   |  |  +- com.google.api.grpc:proto-google-cloud-monitoring-v3:jar:3.52.0:runtime
+   |  |  +- com.google.cloud.opentelemetry:shared-resourcemapping:jar:0.33.0:runtime
+   |  |  +- io.opentelemetry.contrib:opentelemetry-gcp-resources:jar:1.37.0-alpha:runtime
+   |  |  +- com.google.cloud.opentelemetry:detector-resources-support:jar:0.33.0:runtime
+   |  |  +- io.grpc:grpc-googleapis:jar:1.76.2:runtime
+   |  |  +- io.grpc:grpc-xds:jar:1.76.2:runtime
+   |  |  +- io.grpc:grpc-services:jar:1.76.2:runtime
+   |  |  +- com.google.re2j:re2j:jar:1.8:runtime
+   |  |  \- io.grpc:grpc-rls:jar:1.76.2:runtime
+   |  +- com.google.cloud:google-cloud-firestore:jar:3.37.0:runtime
+   |  |  +- com.google.api.grpc:proto-google-cloud-firestore-v1:jar:3.37.0:runtime
+   |  |  +- com.google.cloud:proto-google-cloud-firestore-bundle-v1:jar:3.37.0:runtime
+   |  |  +- io.opentelemetry.instrumentation:opentelemetry-grpc-1.6:jar:2.1.0-alpha:runtime
+   |  |  +- io.opentelemetry.instrumentation:opentelemetry-instrumentation-api:jar:2.1.0:runtime
+   |  |  +- io.opentelemetry:opentelemetry-extension-incubator:jar:1.35.0-alpha:runtime
+   |  |  \- io.opentelemetry.instrumentation:opentelemetry-instrumentation-api-incubator:jar:2.1.0-alpha:runtime
+   |  \- org.apache.httpcomponents.client5:httpclient5:jar:5.3.1:runtime
+   |     +- org.apache.httpcomponents.core5:httpcore5:jar:5.2.4:runtime
+   |     \- org.apache.httpcomponents.core5:httpcore5-h2:jar:5.2.4:runtime
+   +- org.eclipse.angus:angus-mail:jar:2.0.5:compile
+   |  +- jakarta.activation:jakarta.activation-api:jar:2.1.4:compile
+   |  +- jakarta.mail:jakarta.mail-api:jar:2.1.5:compile
+   |  \- org.eclipse.angus:angus-activation:jar:2.0.3:compile
+   +- io.swagger.core.v3:swagger-jaxrs2-jakarta:jar:2.2.53:runtime
+   |  +- org.javassist:javassist:jar:3.30.2-GA:compile
+   |  +- io.swagger.core.v3:swagger-models-jakarta:jar:2.2.53:runtime
+   |  +- io.swagger.core.v3:swagger-annotations-jakarta:jar:2.2.53:runtime
+   |  +- io.swagger.core.v3:swagger-integration-jakarta:jar:2.2.53:runtime
+   |  |  \- io.swagger.core.v3:swagger-core-jakarta:jar:2.2.53:runtime
+   |  +- org.yaml:snakeyaml:jar:2.6:compile
+   |  \- com.fasterxml.jackson.jakarta.rs:jackson-jakarta-rs-json-provider:jar:2.22.1:compile
+   +- org.apache.camel:camel-undertow:jar:4.22.0:runtime
+   |  +- org.apache.camel:camel-base:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-api:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-management-api:jar:4.22.0:compile
+   |  |  \- org.apache.camel:camel-util:jar:4.22.0:compile
+   |  +- org.apache.camel:camel-support:jar:4.22.0:compile
+   |  |  +- org.apache.camel:camel-util-json:jar:4.22.0:compile
+   |  |  \- org.apache.camel:camel-xml-jaxp-util:jar:4.22.0:compile
+   |  +- org.apache.camel:camel-attachments:jar:4.22.0:runtime
+   |  +- org.apache.camel:camel-http-base:jar:4.22.0:runtime
+   |  \- io.undertow:undertow-servlet:jar:2.3.26.Final:compile
+   +- org.apache.artemis:artemis-mqtt-protocol:jar:2.55.0:runtime
+   +- org.quartz-scheduler:quartz:jar:2.5.2:runtime
+   |  \- jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.4:compile
+   +- org.shredzone.commons:commons-suncalc:jar:3.11:runtime
+   +- io.prometheus:prometheus-metrics-exporter-httpserver:jar:1.6.1:runtime
+   |  \- io.prometheus:prometheus-metrics-exporter-common:jar:1.6.1:runtime
+   |     +- io.prometheus:prometheus-metrics-model:jar:1.6.1:compile
+   |     \- io.prometheus:prometheus-metrics-exposition-textformats:jar:1.6.1:runtime
+   \- org.apache.sshd:sshd-netty:jar:2.18.0:runtime
+      +- org.apache.sshd:sshd-core:jar:2.18.0:runtime
+      |  \- org.apache.sshd:sshd-common:jar:2.18.0:runtime
+      \- org.slf4j:jcl-over-slf4j:jar:1.7.36:runtime

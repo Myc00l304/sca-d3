@@ -1,0 +1,2 @@
+pl.thesis.d1:d1-case:jar:1.0.0
+\- org.omnifaces:omnifaces:jar:5.4.2:compile

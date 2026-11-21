@@ -1,0 +1,15 @@
+pl.thesis.d1:d1-case:jar:1.0.0
+\- io.netty.incubator:netty-incubator-codec-ohttp:jar:0.0.26.Final:compile
+   +- io.netty:netty-common:jar:4.1.135.Final:compile
+   +- io.netty:netty-buffer:jar:4.1.135.Final:compile
+   +- io.netty:netty-codec:jar:4.1.135.Final:compile
+   +- io.netty:netty-codec-http:jar:4.1.135.Final:compile
+   |  \- io.netty:netty-handler:jar:4.1.135.Final:compile
+   |     \- io.netty:netty-transport-native-unix-common:jar:4.1.135.Final:compile
+   +- io.netty.incubator:netty-incubator-codec-bhttp:jar:0.0.26.Final:compile
+   |  \- org.bouncycastle:bcpkix-jdk18on:jar:1.84:compile
+   |     \- org.bouncycastle:bcutil-jdk18on:jar:1.84:compile
+   |        \- org.bouncycastle:bcprov-jdk18on:jar:1.84:compile
+   +- io.netty.incubator:netty-incubator-codec-ohttp-hpke:jar:0.0.26.Final:compile
+   \- io.netty:netty-transport:jar:4.1.135.Final:compile
+      \- io.netty:netty-resolver:jar:4.1.135.Final:compile

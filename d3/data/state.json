@@ -5,11 +5,24 @@
   "pip-audit": "2026-10-30",
   "trivy": "2026-10-30"
  },
+ "GHSA-24pw-rf5p-mgp7": {
+  "grype": "2026-11-21",
+  "osv-scanner": "2026-11-21",
+  "pip-audit": "2026-11-21",
+  "trivy": "2026-11-21"
+ },
  "GHSA-259w-wmqg-fp76": {
   "grype": "2026-11-17",
   "osv-scanner": "2026-11-17",
   "pip-audit": "2026-11-17",
   "trivy": "2026-11-17"
+ },
+ "GHSA-25qc-m4pw-2w8r": {
+  "dependency-check": "2026-11-21",
+  "grype": "2026-11-21",
+  "npm-audit": "2026-11-21",
+  "osv-scanner": "2026-11-21",
+  "trivy": "2026-11-21"
  },
  "GHSA-26mh-57q7-jfvr": {
   "grype": "2026-11-01",
@@ -114,6 +127,13 @@
   "osv-scanner": "2026-11-02",
   "trivy": "2026-11-02"
  },
+ "GHSA-3g82-77xr-68x5": {
+  "dependency-check": "2026-11-21",
+  "grype": "2026-11-21",
+  "npm-audit": "2026-11-21",
+  "osv-scanner": "2026-11-21",
+  "trivy": "2026-11-21"
+ },
  "GHSA-3gg2-335m-rxc6": {
   "dependency-check": "2026-11-13",
   "grype": "2026-11-13",
@@ -126,6 +146,13 @@
   "osv-scanner": "2026-11-11",
   "pip-audit": "2026-11-11",
   "trivy": "2026-11-11"
+ },
+ "GHSA-3mgh-93r5-r7jf": {
+  "dependency-check": "2026-11-21",
+  "grype": "2026-11-21",
+  "npm-audit": "2026-11-21",
+  "osv-scanner": "2026-11-21",
+  "trivy": "2026-11-21"
  },
  "GHSA-3qxv-5xgr-q7w9": {
   "dependency-check": "2026-10-24",
@@ -239,6 +266,12 @@
   "pip-audit": "2026-10-24",
   "trivy": "2026-10-24"
  },
+ "GHSA-555j-qj3j-c8jv": {
+  "grype": "2026-11-21",
+  "osv-scanner": "2026-11-21",
+  "pip-audit": "2026-11-21",
+  "trivy": "2026-11-21"
+ },
  "GHSA-56v3-jrq2-4q9m": {
   "grype": "2026-11-20",
   "osv-scanner": "2026-11-20",
@@ -323,6 +356,12 @@
   "pip-audit": "2026-11-13",
   "trivy": "2026-11-13"
  },
+ "GHSA-6499-jgj4-2wpf": {
+  "grype": "2026-11-21",
+  "osv-scanner": "2026-11-21",
+  "pip-audit": "2026-11-21",
+  "trivy": "2026-11-21"
+ },
  "GHSA-64vx-6h2c-rjh7": {
   "grype": "2026-11-06",
   "osv-scanner": "2026-11-06",
@@ -395,6 +434,12 @@
   "osv-scanner": "2026-10-25",
   "pip-audit": "2026-10-25",
   "trivy": "2026-10-25"
+ },
+ "GHSA-72jh-722p-rqr3": {
+  "grype": "2026-11-21",
+  "osv-scanner": "2026-11-21",
+  "pip-audit": "2026-11-21",
+  "trivy": "2026-11-21"
  },
  "GHSA-72px-j8gh-p79x": {
   "grype": "2026-11-17",
@@ -505,6 +550,12 @@
   "osv-scanner": "2026-11-11",
   "pip-audit": "2026-11-11",
   "trivy": "2026-11-11"
+ },
+ "GHSA-86mf-q4h5-69gp": {
+  "grype": "2026-11-21",
+  "osv-scanner": "2026-11-21",
+  "pip-audit": "2026-11-21",
+  "trivy": "2026-11-21"
  },
  "GHSA-8776-qf3h-26r3": {
   "grype": "2026-11-20",
@@ -662,6 +713,11 @@
   "grype": "2026-10-29",
   "osv-scanner": "2026-10-29",
   "trivy": "2026-10-29"
+ },
+ "GHSA-cg26-4c6j-2x8h": {
+  "grype": "2026-11-21",
+  "osv-scanner": "2026-11-21",
+  "trivy": "2026-11-21"
  },
  "GHSA-cg2g-xh64-v4q7": {
   "dependency-check": "2026-10-25",
@@ -996,6 +1052,13 @@
   "pip-audit": "2026-11-14",
   "trivy": "2026-11-14"
  },
+ "GHSA-jwgx-mp9m-jwcr": {
+  "dependency-check": "2026-11-21",
+  "grype": "2026-11-21",
+  "npm-audit": "2026-11-21",
+  "osv-scanner": "2026-11-21",
+  "trivy": "2026-11-21"
+ },
  "GHSA-m462-7rxw-wvpg": {
   "grype": "2026-10-29",
   "osv-scanner": "2026-10-29",
@@ -1018,6 +1081,7 @@
  },
  "GHSA-mc8w-wjhw-45x5": {
   "dependency-check": "2026-11-20",
+  "grype": "2026-11-21",
   "npm-audit": "2026-11-20",
   "osv-scanner": "2026-11-20",
   "trivy": "2026-11-20"
@@ -1334,6 +1398,13 @@
   "pip-audit": "2026-10-28",
   "trivy": "2026-10-28"
  },
+ "GHSA-vcx7-pfrh-mcfg": {
+  "dependency-check": "2026-11-21",
+  "grype": "2026-11-21",
+  "npm-audit": "2026-11-21",
+  "osv-scanner": "2026-11-21",
+  "trivy": "2026-11-21"
+ },
  "GHSA-vf85-8ff2-3r9w": {
   "grype": "2026-11-19",
   "osv-scanner": "2026-11-19",
@@ -1375,6 +1446,11 @@
   "osv-scanner": "2026-10-21",
   "pip-audit": "2026-10-21",
   "trivy": "2026-10-21"
+ },
+ "GHSA-w3w6-9m25-g88p": {
+  "grype": "2026-11-21",
+  "osv-scanner": "2026-11-21",
+  "trivy": "2026-11-21"
  },
  "GHSA-w4fh-qvv9-3v23": {
   "grype": "2026-10-30",
@@ -1551,5 +1627,5 @@
   "osv-scanner": "2026-11-13",
   "trivy": "2026-11-13"
  },
- "_last_run": "2026-11-20"
+ "_last_run": "2026-11-21"
 }

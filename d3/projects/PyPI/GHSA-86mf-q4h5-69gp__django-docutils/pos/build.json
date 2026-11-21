@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "python": "python312",
+  "resolution": "full",
+  "f2": true,
+  "packages": 6,
+  "tree": {
+    "Django": "6.1.3",
+    "Pygments": "2.21.0",
+    "asgiref": "3.13.0",
+    "django-docutils": "0.29.0",
+    "docutils": "0.23",
+    "sqlparse": "0.6.1"
+  }
+}

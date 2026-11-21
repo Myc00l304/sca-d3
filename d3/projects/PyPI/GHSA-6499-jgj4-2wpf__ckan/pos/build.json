@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "python": "python312",
+  "resolution": "full",
+  "f2": true,
+  "packages": 2,
+  "tree": {
+    "ckan": "2.10.10",
+    "setuptools": "81.0.0"
+  }
+}

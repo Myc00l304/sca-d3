@@ -1,0 +1,449 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/e0/ea/c39440db82fbfae0718af0d8ef3b79aaace77c5148132050358225f2e0f5/django_docutils-0.29.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=2854db795482dcc75ab8ec7baa9db8bc4481ea025c3ba0db7d8bb2b549f4ea4d",
+          "hashes": {
+            "sha256": "2854db795482dcc75ab8ec7baa9db8bc4481ea025c3ba0db7d8bb2b549f4ea4d"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "django-docutils",
+        "version": "0.29.0",
+        "summary": "Docutils (a.k.a. reStructuredText, reST, RST) support for django.",
+        "description": "# django-docutils &middot; [![Python Package](https://img.shields.io/pypi/v/django-docutils.svg)](https://pypi.org/project/django-docutils/) [![License](https://img.shields.io/github/license/tony/django-docutils.svg)](https://github.com/tony/django-docutils/blob/master/LICENSE)\n\ndocutils (a.k.a. reStructuredText / rst / reST) support for Django.\n\n## Quickstart\n\nInstall django-docutils:\n\n```console\n$ pip install django-docutils\n```\n\nNext, add `django_docutils` to your `INSTALLED_APPS` in your settings file:\n\n```python\nINSTALLED_APPS = [\n    # ... your default apps,\n    'django_docutils'\n]\n```\n\n## Template tag\n\nIn your template:\n\n```django\n{% load django_docutils %}\n{% rst %}\n# hey\n# how's it going\nA. hows\nB. it\n\nC. going\nD. today\n\n**hi**\n*hi*\n{% endrst %}\n```\n\n## Template filter\n\nIn your template:\n\n```django\n{% load django_docutils %}\n{% filter rst %}\n# hey\n# how's it going\nA. hows\nB. it\n\nC. going\nD. today\n\n**hi**\n*hi*\n{% endfilter %}\n```\n\n## Template engine (class-based view)\n\nYou can also use a class-based view to render reStructuredText (reST).\n\nIf you want to use reStructuredText as a django template engine, `INSTALLED_APPS` _isn't_ required,\ninstead you add this to your `TEMPLATES` variable in your settings:\n\n```python\nTEMPLATES = [\n    # ... Other engines\n    {\n        \"NAME\": \"docutils\",\n        \"BACKEND\": \"django_docutils.template.DocutilsTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n    }\n]\n```\n\nNow django will be able to scan for .rst files and process them. In your view:\n\n```python\nfrom django_docutils.views import DocutilsView\n\nclass HomeView(DocutilsView):\n    template_name = 'base.html'\n    rst_name = 'home.rst'\n```\n\n# Settings\n\n```python\n# Optional, automatically maps roles, directives and transformers\nDJANGO_DOCUTILS_LIB_RST = {\n    \"docutils\": {\n        \"raw_enabled\": True,\n        \"strip_comments\": True,\n        \"initial_header_level\": 2,\n    },\n    \"roles\": {\n        \"local\": {\n            \"gh\": \"django_docutils.lib.roles.github.github_role\",\n            \"twitter\": \"django_docutils.lib.roles.twitter.twitter_role\",\n            \"email\": \"django_docutils.lib.roles.email.email_role\",\n        }\n    },\n    \"directives\": {\n        \"code-block\": \"django_docutils.lib.directives.code.CodeBlock\",\n    }\n}\n\n# Optional\nDJANGO_DOCUTILS_LIB_TEXT = {\n    \"uncapitalized_word_filters\": [\"project.my_module.my_capitalization_fn\"]\n}\n```\n\n## More information\n\n- Python 3.10+\n- Django 4.2+\n\n[![Docs](https://github.com/tony/django-docutils/workflows/docs/badge.svg)](https://github.com/tony/django-docutils/actions?query=workflow%3A%22Docs%22)\n[![Build Status](https://github.com/tony/django-docutils/workflows/tests/badge.svg)](https://github.com/tony/django-docutils/actions?query=workflow%3A%22tests%22)\n[![Code Coverage](https://codecov.io/gh/tony/django-docutils/branch/master/graph/badge.svg)](https://codecov.io/gh/tony/django-docutils)\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "django",
+          "docutils",
+          "reST",
+          "reStructuredText",
+          "rst"
+        ],
+        "author_email": "Tony Narlock <tony@git-pull.com>",
+        "license": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 2 - Pre-Alpha",
+          "Framework :: Django",
+          "Framework :: Django :: 4.2",
+          "Framework :: Django :: 5.1",
+          "Framework :: Django :: 5.2",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Natural Language :: English",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Typing :: Typed"
+        ],
+        "requires_dist": [
+          "django>=4.2",
+          "docutils",
+          "pygments<3",
+          "pytz; extra == 'pytz'"
+        ],
+        "requires_python": "<4.0,>=3.10",
+        "provides_extra": [
+          "pytz"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/77/f2/adbe0352c6673f7b608724be5f69962c80ba1d06f8ed60fa4bfbec258b08/django-6.1.3-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=a0530e3fdac55d34ccc5893c36f6c57d7a7083064f3d414537e51473648b3290",
+          "hashes": {
+            "sha256": "a0530e3fdac55d34ccc5893c36f6c57d7a7083064f3d414537e51473648b3290"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "Django",
+        "version": "6.1.3",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "A high-level Python web framework that encourages rapid development and clean, pragmatic design.",
+        "description": "======\nDjango\n======\n\nDjango is a high-level Python web framework that encourages rapid development\nand clean, pragmatic design. Thanks for checking it out.\n\nAll documentation is in the \"``docs``\" directory and online at\nhttps://docs.djangoproject.com/en/stable/. If you're just getting started,\nhere's how we recommend you read the docs:\n\n* First, read ``docs/intro/install.txt`` for instructions on installing Django.\n\n* Next, work through the tutorials in order (``docs/intro/tutorial01.txt``,\n  ``docs/intro/tutorial02.txt``, etc.).\n\n* If you want to set up an actual deployment server, read\n  ``docs/howto/deployment/index.txt`` for instructions.\n\n* You'll probably want to read through the topical guides (in ``docs/topics``)\n  next; from there you can jump to the HOWTOs (in ``docs/howto``) for specific\n  problems, and check out the reference (``docs/ref``) for gory details.\n\n* See ``docs/README`` for instructions on building an HTML version of the docs.\n\nDocs are updated rigorously. If you find any problems in the docs, or think\nthey should be clarified in any way, please take 30 seconds to fill out a\nticket here: https://code.djangoproject.com/newticket\n\nTo get more help:\n\n* Join the `Django Discord community <https://chat.djangoproject.com>`_.\n\n* Join the community on the `Django Forum <https://forum.djangoproject.com/>`_.\n\nTo contribute to Django:\n\n* Check out https://docs.djangoproject.com/en/dev/internals/contributing/ for\n  information about getting involved.\n\nTo run Django's test suite:\n\n* Follow the instructions in the \"Unit tests\" section of\n  ``docs/internals/contributing/writing-code/unit-tests.txt``, published online at\n  https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/unit-tests/#running-the-unit-tests\n\nSupporting the Development of Django\n====================================\n\nDjango's development depends on your contributions.\n\nIf you depend on Django, remember to support the Django Software Foundation: https://www.djangoproject.com/fundraising/\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Django Software Foundation <foundation@djangoproject.com>",
+        "license_expression": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE",
+          "LICENSE.python",
+          "AUTHORS"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Web Environment",
+          "Framework :: Django",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Topic :: Internet :: WWW/HTTP",
+          "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+          "Topic :: Internet :: WWW/HTTP :: WSGI",
+          "Topic :: Software Development :: Libraries :: Application Frameworks",
+          "Topic :: Software Development :: Libraries :: Python Modules"
+        ],
+        "requires_dist": [
+          "asgiref>=3.9.1",
+          "sqlparse>=0.5.0",
+          "tzdata; sys_platform == \"win32\"",
+          "argon2-cffi>=23.1.0; extra == \"argon2\"",
+          "bcrypt>=4.1.1; extra == \"bcrypt\""
+        ],
+        "requires_python": ">=3.12",
+        "project_url": [
+          "Homepage, https://www.djangoproject.com/",
+          "Documentation, https://docs.djangoproject.com/",
+          "Release notes, https://docs.djangoproject.com/en/stable/releases/",
+          "Funding, https://www.djangoproject.com/fundraising/",
+          "Source, https://github.com/django/django",
+          "Tracker, https://code.djangoproject.com/"
+        ],
+        "provides_extra": [
+          "argon2",
+          "bcrypt"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/71/46/17f022dd3e953bf20a04a028a21ec746d942f8d2af30fa0f124fa0e6a684/pygments-2.21.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9",
+          "hashes": {
+            "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "Pygments",
+        "version": "2.21.0",
+        "summary": "Pygments is a syntax highlighting package written in Python.",
+        "description": "Pygments\n~~~~~~~~\n\nPygments is a syntax highlighting package written in Python.\n\nIt is a generic syntax highlighter suitable for use in code hosting, forums,\nwikis or other applications that need to prettify source code.  Highlights\nare:\n\n* a wide range of over 500 languages and other text formats is supported\n* special attention is paid to details, increasing quality by a fair amount\n* support for new languages and formats are added easily\n* a number of output formats, presently HTML, LaTeX, RTF, SVG, all image\n  formats that PIL supports and ANSI sequences\n* it is usable as a command-line tool and as a library\n\nCopyright 2006-present by the Pygments team, see ``AUTHORS``.\nLicensed under the BSD, see ``LICENSE`` for details.\n",
+        "description_content_type": "text/x-rst",
+        "keywords": [
+          "syntax",
+          "highlighting"
+        ],
+        "author_email": "Georg Brandl <georg@python.org>",
+        "maintainer": "Matthäus G. Chajdas",
+        "maintainer_email": "Georg Brandl <georg@python.org>, Jean Abou Samra <jean@abou-samra.fr>",
+        "license_expression": "BSD-2-Clause",
+        "license_file": [
+          "AUTHORS",
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 6 - Mature",
+          "Intended Audience :: Developers",
+          "Intended Audience :: End Users/Desktop",
+          "Intended Audience :: System Administrators",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Text Processing :: Filters",
+          "Topic :: Utilities"
+        ],
+        "requires_dist": [
+          "colorama>=0.4.6; extra == 'windows-terminal'"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Homepage, https://pygments.org",
+          "Documentation, https://pygments.org/docs",
+          "Source, https://github.com/pygments/pygments",
+          "Bug Tracker, https://github.com/pygments/pygments/issues",
+          "Changelog, https://github.com/pygments/pygments/blob/master/CHANGES"
+        ],
+        "provides_extra": [
+          "plugins",
+          "windows-terminal"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/32/91/30151a39f7570f448ed84529390628a651d7f27c87d73c9b887f8189695e/docutils-0.23-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=25d013af9bf23bc1c7b2b093dff4208166c53a94786c9e447808335ef1185fea",
+          "hashes": {
+            "sha256": "25d013af9bf23bc1c7b2b093dff4208166c53a94786c9e447808335ef1185fea"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "docutils",
+        "version": "0.23",
+        "summary": "Docutils -- Python Documentation Utilities",
+        "description": "=======================\n README: Docutils 0.23\n=======================\n\n:Author: David Goodger\n:Contact: goodger@python.org\n:Date: $Date: 2026-05-27 19:20:40 +0200 (Mi, 27. Mai 2026) $\n:Web site: https://docutils.sourceforge.io/\n:Copyright: This document has been placed in the public domain.\n\n:Abstract: Docutils is a modular system for processing documentation into\n           useful formats, such as HTML, XML, and LaTeX.\n           For input Docutils supports reStructuredText, an easy-to-read,\n           what-you-see-is-what-you-get plaintext markup syntax.\n\n.. contents::\n\n\nQuick-Start\n===========\n\nThis is for those who want to get up & running quickly.\n\n1. Docutils requires **Python**, available from\n   https://www.python.org/.\n   See Dependencies_ below for details.\n\n2. Install the latest stable release from PyPi with pip_::\n\n       pip install docutils\n\n   For alternatives and details, see section `Installation`_ below.\n\n3. Use the `front-end scripts`_ to convert reStructuredText documents.\n   Try for example::\n\n       docutils FAQ.rst FAQ.html\n\n   See Usage_ below for details.\n\n\nPurpose\n=======\n\nThe purpose of the Docutils project is to provide a set of tools for\nprocessing plaintext documentation into useful formats, such as HTML,\nLaTeX, troff (man pages), OpenOffice, and native XML.  Support for the\nfollowing sources has been implemented:\n\n* Standalone files.\n\n* `PEPs (Python Enhancement Proposals)`_.\n\nSupport for the following sources is planned or provided by\n`third party tools`_:\n\n* Inline documentation from Python modules and packages, extracted\n  with namespace context.\n\n* Email (RFC-822 headers, quoted excerpts, signatures, MIME parts).\n\n* Wikis, with global reference lookups of \"wiki links\".\n\n* Compound documents, such as multiple chapter files merged into a\n  book.\n\n* And others as discovered.\n\n.. _PEPs (Python Enhancement Proposals):\n   https://peps.python.org/pep-0012\n.. _third party tools: docs/user/links.html#related-applications\n\n\nDependencies\n============\n\nTo run the code, Python_ must be installed.\n(Python is pre-installed with most Linux distributions.)\n\n* Since version 0.21, Docutils requires Python 3.9 or later.\n* Docutils versions 0.19 to 0.20.1 require Python 3.7 or later.\n* Docutils versions 0.16 to 0.18 require Python 2.7 or 3.5+.\n\nThe **type hints** added in version 0.22 use Python 3.10 syntax.\nHowever, the Python interpreter treats them as annotations\nunless ``typing.TYPE_CHECKING`` is set to ``True``.\n\n.. _Python: https://www.python.org/.\n\n\nRecommendations\n---------------\n\nDocutils uses the following packages for enhanced functionality, if they\nare installed:\n\n* The recommended installer is pip_, setuptools_ works, too.\n\n* The `Python Imaging Library`_ (PIL) is used for some image\n  manipulation operations.\n\n* The `Pygments`_ package provides syntax highlight of \"code\" directives\n  and roles.\n\n* The `myst`_, `pycmark`_, or `recommonmark`_ parsers can be used to\n  parse input in \"Markdown\" (CommonMark_) format.\n\nThe `Docutils Link List <docs/user/links.html>`__ records projects that\nusers of Docutils and reStructuredText may find useful.\n\n.. _pip: https://pypi.org/project/pip/\n.. _setuptools: https://pypi.org/project/setuptools/\n.. _Python Imaging Library: http://www.pythonware.com/products/pil/\n.. _Pygments: https://pypi.org/project/Pygments/\n.. _myst: https://pypi.org/project/myst-docutils/\n.. _pycmark: https://pypi.org/project/pycmark/\n.. _recommonmark: https://github.com/rtfd/recommonmark\n.. _CommonMark: https://spec.commonmark.org/0.30/\n\n\nInstallation\n============\n\nThe `Python Packaging User Guide`_ gives details how to\n`use pip for installing`_.\n\n* The simplest way is to install the latest *stable release* from PyPi::\n\n      pip install docutils\n\n* To install a *pre-relase*, append the option ``--pre``.\n\n* To install a `development version`_ *from source*:\n\n  1. Open a shell\n\n  2. Go to the directory containing the ``pyproject.toml`` file.\n\n  3. Install the package with **one** of the following commands::\n\n         pip install -e .  # editable install\n         pip install .     # regular install\n\n     or do a `\"manual\" install`_.\n\n  4. Optional steps:\n\n     * `Running the test suite`_\n     * `Converting the documentation`_\n\n  See also the OS-specific installation instructions below and\n  the `Docutils version repository`_ documentation.\n\n* To install for a *specific Python version*, use this version in the\n  setup call, e.g. ::\n\n       python3.11 -m pip install docutils\n\n  If the python executable isn't on your path, you'll have to specify the\n  complete path, such as ``/usr/local/bin/python3.11``.\n\n  To install for different Python versions, repeat step 3 for every\n  required version. The last installed version will be used for the\n  ``docutils`` command line application.\n\n.. _Python Packaging User Guide: https://packaging.python.org/en/latest/\n.. _use pip for installing:\n    https://packaging.python.org/en/latest/tutorials/installing-packages/\n    #use-pip-for-installing\n.. _\"editable\" install:\n    https://pip.pypa.io/en/stable/topics/local-project-installs/\n    #editable-installs\n.. _\"manual\" install: docs/dev/repository.html#manual-install\n\n\nGNU/Linux, BSDs, Unix, Mac OS X, etc.\n-------------------------------------\n\n* Use ``su`` or ``sudo`` for a system-wide\n  installation as ``root``, e.g.::\n\n      sudo pip install docutils\n\n\nWindows\n-------\n\n* The Python FAQ explains `how to run a Python program under Windows`__.\n\n  __ https://docs.python.org/3/faq/windows.html\n     #how-do-i-run-a-python-program-under-windows\n\n* Usually, pip_ is automatically installed if you are using Python\n  downloaded from https://python.org. If not, see the\n  `pip documentation <https://pip.pypa.io/en/stable/installation/>`__.\n\n* The command window should recognise the word ``py`` as an instruction to\n  start the interpreter, e.g.\n\n       py -m pip install docutils\n\n  If this does not work, you may have to specify the full path to the\n  Python executable.\n\n\nUsage\n=====\n\nStart the \"docutils\" command line application with::\n\n    docutils [options] [<source> [<destination>]]\n\nThe default action is to convert a reStructuredText_ document to HTML5,\nfor example::\n\n    docutils test.rst test.html\n\nRead the ``--help`` option output for details on options and arguments and\n`Docutils Front-End Tools`_ for the full documentation of the various tools.\n\nFor programmatic use of the `docutils` Python package, read the\n`API Reference Material`_ and the source code.\nRemaining questions may be answered in the `Docutils Project\nDocumentation`_ or the Docutils-users_ mailing list.\n\nContributions are welcome!\n\n.. _reStructuredText: https://docutils.sourceforge.io/rst.html\n.. _front-end scripts:\n.. _Docutils Front-End Tools: docs/user/tools.html\n.. _API Reference Material: /docs/index.html\n                            #api-reference-material-for-client-developers\n.. _Docutils Project Documentation: /docs/index.html\n\n\nProject Files & Directories\n===========================\n\n* README.rst: You're reading it.\n\n* COPYING.rst: Public Domain Dedication and copyright details for\n  non-public-domain files (most are PD).\n\n* FAQ.rst: Frequently Asked Questions (with answers!).\n\n* RELEASE-NOTES.rst: Summary of the major changes in recent releases.\n\n* HISTORY.rst: A detailed change log, for the current and all previous\n  project releases.\n\n* BUGS.rst: Known bugs, and how to report a bug.\n\n* THANKS.rst: List of contributors.\n\n* pyproject.toml: Project metadata.\n  See \"Installation\" above.\n\n* docutils: The project source directory, installed as a Python\n  package.\n\n* docs: The project documentation directory.  Read ``docs/index.rst``\n  for an overview.\n\n* docs/user: The project user documentation directory.  Contains the\n  following documents, among others:\n\n  - docs/user/tools.rst: Docutils Front-End Tools\n  - docs/user/latex.rst: Docutils LaTeX Writer\n  - docs/user/rst/quickstart.rst: A ReStructuredText Primer\n  - docs/user/rst/quickref.html: Quick reStructuredText (HTML only)\n\n* docs/ref: The project reference directory.\n  ``docs/ref/rst/restructuredtext.rst`` is the reStructuredText\n  reference.\n\n* licenses: Directory containing copies of license files for\n  non-public-domain files.\n\n* tools: Directory for Docutils front-end tools.  See\n  ``docs/user/tools.rst`` for documentation.\n\n* test: Unit tests.  Not required to use the software, but very useful\n  if you're planning to modify it.  See `Running the Test Suite`_\n  below.\n\n\nDevelopment version\n===================\n\nWhile we are trying to follow a \"release early & often\" policy,\nfeatures are added frequently.\nWe recommend using a current snapshot or a working copy of the repository.\n\nRepository check-out:\n  To keep up to date on the latest developments,\n  use a `working copy`__ of the `Docutils version repository`_.\n\nSnapshots:\n  To get a repository _`snapshot`, go to\n  https://sourceforge.net/p/docutils/code/HEAD/tree/trunk/docutils/\n  and click the download snapshot button.\n\n  Unpack in a temporary directory,\n  **not** directly in Python's ``site-packages``.\n\nSee the `Installation`_ instructions above.\n\n__ docs/dev/repository.html#checking-out-the-repository\n.. _Docutils version repository: docs/dev/repository.html\n.. _sandbox: https://docutils.sourceforge.io/sandbox/README.html\n\n\nConverting the documentation\n============================\n\nAfter unpacking and installing the Docutils package, the following\nshell commands will generate HTML for all included documentation::\n\n    cd <archive_directory_path>\n    tools/buildhtml.py .\n\nOn Windows systems, type::\n\n    cd <archive_directory_path>\n    py tools\\buildhtml.py ..\n\nThe final directory name of the ``<archive_directory_path>`` is\n\"docutils\" for snapshots.  For official releases, the directory may be\ncalled \"docutils-X.Y.Z\", where \"X.Y.Z\" is the release version.\n\nSome files may generate system messages (warnings and errors).  The\n``docs/user/rst/demo.rst`` file (under the archive directory) contains\nfive intentional errors.  (They test the error reporting mechanism!)\n\n\nRunning the Test Suite\n======================\n\nThe test suite is documented in `Docutils Testing`_ (docs/dev/testing.rst).\n\nTo run the entire test suite, open a shell and use the following\ncommands::\n\n    cd <archive_directory_path>/test\n    ./alltests.py\n\nUnder Windows, type::\n\n    cd <archive_directory_path>\\test\n    python alltests.py\n\n\nYou should see a long line of periods, one for each test, and then a\nsummary like this::\n\n    Ran 1744 tests in 5.859s\n\n    OK (skipped=1)\n    Elapsed time: 6.235 seconds\n\nThe number of tests will grow over time, and the times reported will\ndepend on the computer running the tests.\nSome test are skipped, if optional dependencies (`recommendations`_)\nare missing.\nThe difference between the two times represents the time required to set\nup the tests (import modules, create data structures, etc.).\n\nA copy of the test output is written to the file ``alltests.out``.\n\nIf any of the tests fail, please `open a bug report`_ or `send an email`_\n(see `Bugs <BUGS.html>`_).\nPlease include all relevant output, information about your operating\nsystem, Python version, and Docutils version.  To see the Docutils\nversion, look at the test output or use ::\n\n    docutils --version\n\n.. _Docutils Testing: https://docutils.sourceforge.io/docs/dev/testing.html\n.. _open a bug report:\n   https://sourceforge.net/p/docutils/bugs/\n.. _send an email: mailto:docutils-users@lists.sourceforge.net\n   ?subject=Test%20suite%20failure\n.. _web interface: https://sourceforge.net/p/docutils/mailman/\n\n\nGetting Help\n============\n\nAll documentation can be reached from the `Project Documentation\nOverview`_.\n\nThe SourceForge `project page`_ has links to the tracker, mailing\nlists, and code repository.\n\nIf you have further questions or need assistance with Docutils or\nreStructuredText, please post a message to the Docutils-users_ mailing\nlist.\n\n.. _Project Documentation Overview: docs/index.html\n.. _project page: https://sourceforge.net/p/docutils\n.. _Docutils-users: docs/user/mailing-lists.html#docutils-users\n\n\n..\f Emacs settings\n\n   Local Variables:\n   mode: indented-text\n   mode: rst\n   indent-tabs-mode: nil\n   sentence-end-double-space: t\n   fill-column: 70\n   End:\n\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "David Goodger <goodger@python.org>",
+        "maintainer_email": "docutils-develop list <docutils-develop@lists.sourceforge.net>",
+        "license_file": [
+          "COPYING.rst",
+          "licenses/BSD-0-Clause.rst",
+          "licenses/BSD-2-Clause.rst",
+          "licenses/gpl-3-0.txt"
+        ],
+        "classifier": [
+          "Development Status :: 4 - Beta",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "Intended Audience :: End Users/Desktop",
+          "Intended Audience :: Information Technology",
+          "Intended Audience :: Other Audience",
+          "Intended Audience :: System Administrators",
+          "License :: Public Domain",
+          "License :: OSI Approved :: BSD License",
+          "License :: OSI Approved :: GNU General Public License (GPL)",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Topic :: Documentation",
+          "Topic :: Software Development",
+          "Topic :: Software Development :: Documentation",
+          "Topic :: Text Editors :: Documentation",
+          "Topic :: Text Processing",
+          "Topic :: Text Processing :: General",
+          "Topic :: Text Processing :: Markup",
+          "Topic :: Text Processing :: Markup :: HTML",
+          "Topic :: Text Processing :: Markup :: LaTeX",
+          "Topic :: Text Processing :: Markup :: Markdown",
+          "Topic :: Text Processing :: Markup :: reStructuredText",
+          "Topic :: Text Processing :: Markup :: XML",
+          "Topic :: Utilities",
+          "Natural Language :: English",
+          "Natural Language :: Afrikaans",
+          "Natural Language :: Arabic",
+          "Natural Language :: Catalan",
+          "Natural Language :: Catalan (Valencian)",
+          "Natural Language :: Chinese (Simplified)",
+          "Natural Language :: Chinese (Traditional)",
+          "Natural Language :: Czech",
+          "Natural Language :: Danish",
+          "Natural Language :: Dutch",
+          "Natural Language :: Esperanto",
+          "Natural Language :: Finnish",
+          "Natural Language :: French",
+          "Natural Language :: Galician",
+          "Natural Language :: Georgian",
+          "Natural Language :: German",
+          "Natural Language :: Hebrew",
+          "Natural Language :: Italian",
+          "Natural Language :: Japanese",
+          "Natural Language :: Korean",
+          "Natural Language :: Latvian",
+          "Natural Language :: Lithuanian",
+          "Natural Language :: Persian",
+          "Natural Language :: Polish",
+          "Natural Language :: Portuguese (Brazilian)",
+          "Natural Language :: Russian",
+          "Natural Language :: Slovak",
+          "Natural Language :: Spanish",
+          "Natural Language :: Swedish",
+          "Natural Language :: Ukrainian"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Changelog, https://docutils.sourceforge.io/HISTORY.html",
+          "Code, https://sourceforge.net/p/docutils/code/",
+          "Documentation, https://docutils.sourceforge.io/docs/",
+          "Download, https://pypi.org/project/docutils/",
+          "Homepage, https://docutils.sourceforge.io",
+          "Issue tracker, https://sourceforge.net/p/docutils/bugs/"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/2e/b0/ec211e1f7966247cb6469158d856bac9aa4c2fe13621bd6a352e4f850453/asgiref-3.13.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=f9596a2434512686473d50f96ff6207fbba49ae1a785dfac614df4aeb085674d",
+          "hashes": {
+            "sha256": "f9596a2434512686473d50f96ff6207fbba49ae1a785dfac614df4aeb085674d"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "asgiref",
+        "version": "3.13.0",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "ASGI specs, helper code, and adapters",
+        "description": "asgiref\n=======\n\n.. image:: https://github.com/django/asgiref/actions/workflows/tests.yml/badge.svg\n    :target: https://github.com/django/asgiref/actions/workflows/tests.yml\n\n.. image:: https://img.shields.io/pypi/v/asgiref.svg\n    :target: https://pypi.python.org/pypi/asgiref\n\nASGI is a standard for Python asynchronous web apps and servers to communicate\nwith each other, and positioned as an asynchronous successor to WSGI. You can\nread more at https://asgi.readthedocs.io/en/latest/\n\nThis package includes ASGI base libraries, such as:\n\n* Sync-to-async and async-to-sync function wrappers, ``asgiref.sync``\n* Server base classes, ``asgiref.server``\n* A WSGI-to-ASGI adapter, in ``asgiref.wsgi``\n\n\nFunction wrappers\n-----------------\n\nThese allow you to wrap or decorate async or sync functions to call them from\nthe other style (so you can call async functions from a synchronous thread,\nor vice-versa).\n\nIn particular:\n\n* AsyncToSync lets a synchronous subthread stop and wait while the async\n  function is called on the main thread's event loop, and then control is\n  returned to the thread when the async function is finished.\n\n* SyncToAsync lets async code call a synchronous function, which is run in\n  a threadpool and control returned to the async coroutine when the synchronous\n  function completes.\n\nThe idea is to make it easier to call synchronous APIs from async code and\nasynchronous APIs from synchronous code so it's easier to transition code from\none style to the other. In the case of Channels, we wrap the (synchronous)\nDjango view system with SyncToAsync to allow it to run inside the (asynchronous)\nASGI server.\n\nNote that exactly what threads things run in is very specific, and aimed to\nkeep maximum compatibility with old synchronous code. See\n\"Synchronous code & Threads\" below for a full explanation. By default,\n``sync_to_async`` will run all synchronous code in the program in the same\nthread for safety reasons; you can disable this for more performance with\n``@sync_to_async(thread_sensitive=False)``, but make sure that your code does\nnot rely on anything bound to threads (like database connections) when you do.\n\n\nThread-sensitive contexts\n-------------------------\n\n``ThreadSensitiveContext`` gives thread-sensitive ``sync_to_async`` calls a\nshared, single-worker executor for an async block. This allows you to group\nthread-sensitive calls, for example, per-request in a web application,\nrather than per-process::\n\n    class ASGIHandler(...):\n        ...\n\n        async def __call__(...):\n            ...\n\n            async with ThreadSensitiveContext():\n                await self.handle(...)\n\nBy default, only the outermost ``ThreadSensitiveContext`` sets the\ncontext. Nested calls are a no-op and reuse it.\n\nNested contexts can be created by passing the explicit ``executor`` keyword\nargument.\n\n* The executor must run one call at a time on one thread, such as\n  ``ThreadPoolExecutor(max_workers=1)``. Recall, it is used for\n  ``sync_to_async(…, thread_sensitive=True)`` calls.\n\n* The calling code is responsible for the executor lifetime:\n  the context does not shut it down. You may use it again for a later block,\n  for example in a pool.\n\n* Do not use one executor for two blocks at the same time.\n\nBy providing an executor, nested work can be run on a separate thread from the\nparent context's, including when the block is reached through ``async_to_sync``::\n\n    from concurrent.futures import ThreadPoolExecutor\n\n    from asgiref.sync import ThreadSensitiveContext, sync_to_async\n\n    worker = ThreadPoolExecutor(max_workers=1)\n\n    async with ThreadSensitiveContext():\n        await sync_to_async(parent_work)()\n        async with ThreadSensitiveContext(executor=worker):\n            await sync_to_async(child_work)()\n            await sync_to_async(more_child_work)()\n        await sync_to_async(parent_work)()\n\nBoth child calls run on the worker's thread. After the child block exits, calls\nuse the parent thread again. Nested ``sync_to_async`` / ``async_to_sync`` calls\nwithin the child block also retain its thread affinity.\n\nTasks created inside a block inherit its context. Wait for those tasks before\nleaving the context. A thread-sensitive call made by such a task after the\ncontext has exited raises ``RuntimeError``. To isolate concurrent tasks, each\nmust enter its own context with its own executor.\n\nA context with an executor can be entered only once: create a new one for each\nblock.\n\nExecutor contexts separate thread-critical ``Local`` storage but do not change\n``ContextVar`` or plain ``Local`` propagation. ``thread_sensitive=False`` calls\nare not affected.\n\nThreadlocal replacement\n-----------------------\n\nThis is a drop-in replacement for ``threading.local`` that works with both\nthreads and asyncio Tasks. Even better, it will proxy values through from a\ntask-local context to a thread-local context when you use ``sync_to_async``\nto run things in a threadpool, and vice-versa for ``async_to_sync``.\n\nIf you instead want true thread- and task-safety, you can set\n``thread_critical`` on the Local object to ensure this instead.\n\n\nServer base classes\n-------------------\n\nIncludes a ``StatelessServer`` class which provides all the hard work of\nwriting a stateless server (as in, does not handle direct incoming sockets\nbut instead consumes external streams or sockets to work out what is happening).\n\nAn example of such a server would be a chatbot server that connects out to\na central chat server and provides a \"connection scope\" per user chatting to\nit. There's only one actual connection, but the server has to separate things\ninto several scopes for easier writing of the code.\n\nYou can see an example of this being used in `frequensgi <https://github.com/andrewgodwin/frequensgi>`_.\n\n\nWSGI-to-ASGI adapter\n--------------------\n\nAllows you to wrap a WSGI application so it appears as a valid ASGI application.\n\nSimply wrap it around your WSGI application like so::\n\n    asgi_application = WsgiToAsgi(wsgi_application)\n\nThe WSGI application will be run in a synchronous threadpool, and the wrapped\nASGI application will be one that accepts ``http`` class messages.\n\nPlease note that not all extended features of WSGI may be supported (such as\nfile handles for incoming POST bodies).\n\n\nDependencies\n------------\n\n``asgiref`` requires Python 3.11 or higher.\n\n\nContributing\n------------\n\nPlease refer to the\n`main Channels contributing docs <https://github.com/django/channels/blob/master/CONTRIBUTING.rst>`_.\n\n\nTesting\n'''''''\n\nTo run tests, make sure you have installed the ``tests`` extra with the package::\n\n    cd asgiref/\n    pip install -e .[tests]\n    pytest\n\nThere is also a micro-benchmark suite for ``asgiref.local`` in\n``tests/test_benchmark_local.py``. It is skipped unless ``pytest-benchmark``\n(or ``pytest-codspeed``) is installed, and is not part of the regular CI run.\nTo run it via tox::\n\n    tox -e benchmark\n\nBenchmark numbers are only meaningful when compared on the same machine, so\nthe typical workflow is to save a baseline and then compare against it::\n\n    tox -e benchmark -- --benchmark-save=before\n    # ... make changes ...\n    tox -e benchmark -- --benchmark-compare\n\n\nBuilding the documentation\n''''''''''''''''''''''''''\n\nThe documentation uses `Sphinx <http://www.sphinx-doc.org>`_::\n\n    cd asgiref/docs/\n    pip install sphinx\n\nTo build the docs, you can use the default tools::\n\n    sphinx-build -b html . _build/html  # or `make html`, if you've got make set up\n    cd _build/html\n    python -m http.server\n\n...or you can use ``sphinx-autobuild`` to run a server and rebuild/reload\nyour documentation changes automatically::\n\n    pip install sphinx-autobuild\n    sphinx-autobuild . _build/html\n\n\nReleasing\n'''''''''\n\nTo release, first add details to CHANGELOG.txt and update the version number in ``asgiref/__init__.py``.\n\nThen, build and push the packages::\n\n    python -m build\n    twine upload dist/*\n    rm -r asgiref.egg-info dist\n\n\nImplementation Details\n----------------------\n\nSynchronous code & threads\n''''''''''''''''''''''''''\n\nThe ``asgiref.sync`` module provides two wrappers that let you go between\nasynchronous and synchronous code at will, while taking care of the rough edges\nfor you.\n\nUnfortunately, the rough edges are numerous, and the code has to work especially\nhard to keep things in the same thread as much as possible. Notably, the\nrestrictions we are working with are:\n\n* All synchronous code called through ``SyncToAsync`` and marked with\n  ``thread_sensitive`` should run in the same thread as each other (and if the\n  outer layer of the program is synchronous, the main thread)\n\n* If a thread already has a running async loop, ``AsyncToSync`` can't run things\n  on that loop if it's blocked on synchronous code that is above you in the\n  call stack.\n\nThe first compromise you get to might be that ``thread_sensitive`` code should\njust run in the same thread and not spawn in a sub-thread, fulfilling the first\nrestriction, but that immediately runs you into the second restriction.\n\nThe only real solution is to essentially have a variant of ThreadPoolExecutor\nthat executes any ``thread_sensitive`` code on the outermost synchronous\nthread - either the main thread, or a single spawned subthread.\n\nThis means you now have two basic states:\n\n* If the outermost layer of your program is synchronous, then all async code\n  run through ``AsyncToSync`` will run in a per-call event loop in arbitrary\n  sub-threads, while all ``thread_sensitive`` code will run in the main thread.\n\n* If the outermost layer of your program is asynchronous, then all async code\n  runs on the main thread's event loop, and all ``thread_sensitive`` synchronous\n  code will run in a single shared sub-thread.\n\nCrucially, this means that in both cases there is a thread which is a shared\nresource that all ``thread_sensitive`` code must run on, and there is a chance\nthat this thread is currently blocked on its own ``AsyncToSync`` call. Thus,\n``AsyncToSync`` needs to act as an executor for thread code while it's blocking.\n\nThe ``CurrentThreadExecutor`` class provides this functionality; rather than\nsimply waiting on a Future, you can call its ``run_until_future`` method and\nit will run submitted code until that Future is done. This means that code\ninside the call can then run code on your thread.\n\n\nMaintenance and Security\n------------------------\n\nTo report security issues, please contact security@djangoproject.com. For GPG\nsignatures and more security process information, see\nhttps://docs.djangoproject.com/en/dev/internals/security/.\n\nTo report bugs or request new features, please open a new GitHub issue.\n\nThis repository is part of the Channels project. For the shepherd and maintenance team, please see the\n`main Channels readme <https://github.com/django/channels/blob/master/README.rst>`_.\n",
+        "home_page": "https://github.com/django/asgiref/",
+        "author": "Django Software Foundation",
+        "author_email": "foundation@djangoproject.com",
+        "license": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Web Environment",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Free Threading :: 2 - Beta",
+          "Topic :: Internet :: WWW/HTTP"
+        ],
+        "requires_dist": [
+          "packaging; extra == \"tests\"",
+          "pytest; extra == \"tests\"",
+          "pytest-asyncio; extra == \"tests\"",
+          "mypy>=1.14.0; extra == \"mypy\""
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "Documentation, https://asgi.readthedocs.io/",
+          "Further Documentation, https://docs.djangoproject.com/en/stable/topics/async/#async-adapter-functions",
+          "Changelog, https://github.com/django/asgiref/blob/master/CHANGELOG.txt"
+        ],
+        "provides_extra": [
+          "tests",
+          "mypy"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/df/ff/2fee788e82e75be8f210c65c5d103bf44c880e3769c884652a4cd911b8ba/sqlparse-0.6.1-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=3be5a72d04c873d690d7c6dedd33d6fae2ef82759881ceec02fc2efd0cba564f",
+          "hashes": {
+            "sha256": "3be5a72d04c873d690d7c6dedd33d6fae2ef82759881ceec02fc2efd0cba564f"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "sqlparse",
+        "version": "0.6.1",
+        "summary": "A non-validating SQL parser.",
+        "description": "# sqlparse\n\n[![Build Status](https://github.com/andialbrecht/sqlparse/actions/workflows/python-app.yml/badge.svg)](https://github.com/andialbrecht/sqlparse/actions/workflows/python-app.yml)\n[![Coverage](https://codecov.io/gh/andialbrecht/sqlparse/branch/master/graph/badge.svg)](https://codecov.io/gh/andialbrecht/sqlparse)\n[![Documentation](https://readthedocs.org/projects/sqlparse/badge/?version=latest)](https://sqlparse.readthedocs.io/en/latest/)\n[![PyPI](https://img.shields.io/pypi/v/sqlparse?color=%2334D058&label=pypi%20package)](https://pypi.org/project/sqlparse)\n[![Python versions](https://img.shields.io/pypi/pyversions/sqlparse)](https://pypi.org/project/sqlparse)\n[![License](https://img.shields.io/badge/license-BSD--3--Clause-blue)](https://opensource.org/licenses/BSD-3-Clause)\n\n> [!IMPORTANT]\n> **Project Status: End of Maintenance**\n>\n> sqlparse is no longer actively maintained. Version 0.6.1 was its final release.\n>\n> No further bug fixes, feature updates, or security fixes are planned. The repository and published packages will remain available, but users should not expect ongoing maintenance or security support.\n>\n> Software Supply Chain Security: To minimize supply chain risks, I will retain control of the sqlparse project on PyPI and this GitHub repository. There are no plans to transfer ownership or grant publishing or commit access to third parties.\n>\n> After many years of maintaining sqlparse as a volunteer, I have decided to bring the project to a close. A more detailed explanation of this decision is available separately.\n>\n> THANKS TO ALL USERS AND CONTRIBUTORS!\n> I would like to thank everyone who has contributed to sqlparse over the years.\n\nA non-validating SQL parser for Python. Split scripts into statements, format\nthem, and walk their token tree.\n\nsqlparse tokenizes SQL text and groups the parts it recognizes into a tree of\nstatements, clauses, identifiers and expressions. It accepts any input without\nvalidating it, and makes no assumptions about a particular SQL dialect, so\nvendor extensions and templated SQL parse too. It is a building block for\nformatters, linters, editors and query analysis tools.\n\nLicensed under the\n[New BSD license](https://opensource.org/licenses/BSD-3-Clause).\n\n## Install\n\n```bash\npip install sqlparse\n```\n\n## Usage\n\nThree module-level functions cover most needs: `split()`, `format()` and\n`parse()`.\n\n### Split a script into statements\n\n```python\nimport sqlparse\n\nsqlparse.split(\"select * from foo; select * from bar;\")\n# ['select * from foo;', 'select * from bar;']\n```\n\n### Format a statement\n\n```python\nprint(sqlparse.format(\"select id,name from users where active=1\",\n                      reindent=True, keyword_case=\"upper\"))\n```\n\n```sql\nSELECT id,\n       name\nFROM users\nWHERE active=1\n```\n\n`format()` accepts the same options as the command line, among them\n`reindent`, `keyword_case`, `strip_comments` and `indent_width`.\n\n### Parse and inspect a statement\n\n```python\nstatement = sqlparse.parse(\"select id, name from users where active = 1\")[0]\n\nprint(statement.get_type())\nfor token in statement.tokens:\n    if not token.is_whitespace:\n        print(f\"{token.ttype or type(token).__name__!s:20} {token!s}\")\n```\n\n```\nSELECT\nToken.Keyword.DML    select\nIdentifierList       id, name\nToken.Keyword        from\nIdentifier           users\nWhere                where active = 1\n```\n\nTokens with a `ttype` are leaves. The others are groups you can descend into,\nwhich is how nested constructs like subqueries and `CASE` expressions are\nrepresented. See\n[Analyzing SQL statements](https://sqlparse.readthedocs.io/en/latest/analyzing.html)\nfor the traversal API.\n\n## Command line\n\nInstalling sqlparse also provides the `sqlformat` command. It reads from stdin\nwhen the filename is `-`, writes to stdout by default, and rewrites files in\nplace with `--in-place`:\n\n```bash\nsqlformat --reindent --keywords upper query.sql\n```\n\nRun `sqlformat --help` for all formatting options.\n\n## Pre-commit hook\n\nFormat SQL files on commit with [pre-commit](https://pre-commit.com/):\n\n```yaml\nrepos:\n  - repo: https://github.com/andialbrecht/sqlparse\n    rev: 0.5.5  # use the latest release\n    hooks:\n      - id: sqlformat\n        args: [--in-place, --reindent, --keywords, upper]\n```\n\nThe hook defaults to `--in-place --reindent`. When overriding `args`, keep\n`--in-place`, or the hook writes to stdout and leaves your files unchanged.\n\n## Links\n\n| | |\n|---|---|\n| Documentation | <https://sqlparse.readthedocs.io/> |\n| Release notes | <https://sqlparse.readthedocs.io/en/latest/changes.html> |\n| Issues | <https://github.com/andialbrecht/sqlparse/issues> |\n| Discussions | <https://github.com/andialbrecht/sqlparse/discussions> |\n| Online demo | <https://sqlformat.org/> |\n\n## Contributing\n\nContributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) to get\nstarted.\n\nsqlparse is maintained in spare time, so it can take a while before an issue or\npull request gets a reply. Thanks for your patience. A pull request that comes\nwith tests for the behavior it changes is usually the quickest to review.\n\nFor security issues, please follow [SECURITY.md](SECURITY.md) rather than\nopening a public issue.\n\n## License\n\nsqlparse is licensed under the New BSD license; see [LICENSE](LICENSE) for the\nfull text. Parts of the code are based on [Pygments](https://pygments.org/),\nwritten by Georg Brandl and others.\n",
+        "description_content_type": "text/markdown",
+        "author_email": "Andi Albrecht <albrecht.andi@gmail.com>",
+        "license_file": [
+          "AUTHORS",
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Database",
+          "Topic :: Software Development"
+        ],
+        "requires_dist": [
+          "build; extra == 'dev'",
+          "furo; extra == 'doc'",
+          "sphinx; extra == 'doc'"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Home, https://github.com/andialbrecht/sqlparse",
+          "Documentation, https://sqlparse.readthedocs.io/",
+          "Release Notes, https://sqlparse.readthedocs.io/en/latest/changes.html",
+          "Source, https://github.com/andialbrecht/sqlparse",
+          "Tracker, https://github.com/andialbrecht/sqlparse/issues"
+        ],
+        "provides_extra": [
+          "dev",
+          "doc"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "7.0.0-1017-azure",
+    "platform_system": "Linux",
+    "platform_version": "#17~24.04.1-Ubuntu SMP PREEMPT Thu Sep 24 18:46:57 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}
