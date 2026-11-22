@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "stage": "lock",
+  "stderr": "npm error code EBADPLATFORM\nnpm error notsup Unsupported platform for safari-mcp@2.22.14: wanted {\"os\":\"darwin\"} (current: {\"os\":\"linux\"})\nnpm error notsup Valid os:  darwin\nnpm error notsup Actual os: linux\nnpm error A complete log of this run can be found in: /tmp/.npm/_logs/2026-11-22T13_27_09_581Z-debug-0.log\n"
+}

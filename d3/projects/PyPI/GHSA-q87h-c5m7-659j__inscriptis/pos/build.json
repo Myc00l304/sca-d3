@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "python": "python312",
+  "resolution": "full",
+  "f2": true,
+  "packages": 7,
+  "tree": {
+    "certifi": "2026.11.20",
+    "charset-normalizer": "3.5.2",
+    "idna": "3.20",
+    "inscriptis": "2.7.5",
+    "lxml": "6.1.3",
+    "requests": "2.34.2",
+    "urllib3": "2.8.0"
+  }
+}

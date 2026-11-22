@@ -1,0 +1,935 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/58/30/c4b3b40662374c151d5c09f3aa49f379b0889ea1858074ad561b127447c6/djangocms_moderation-2.3.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=410f16a46dd50666d55496d56a905857b7199f4ef403b393d1e50dd66f8c480c",
+          "hashes": {
+            "sha256": "410f16a46dd50666d55496d56a905857b7199f4ef403b393d1e50dd66f8c480c"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "djangocms-moderation",
+        "version": "2.3.0",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "Provide moderation workflows for content in Django CMS",
+        "description": "*********************\ndjango CMS Moderation\n*********************\n\n============\nInstallation\n============\n\nRequirements\n============\n\ndjango CMS Moderation requires that you have a django CMS 4.0 (or higher) project already running and set up, with `djangocms-versioning <https://github.com/django-cms/djangocms-versioning>`_ installed.\n\nTo install\n==========\n\nRun::\n\n    pip install djangocms-moderation\n\nAdd the following to your project's ``INSTALLED_APPS``:\n\n- ``'djangocms_moderation'``\n- ``'adminsortable2'``\n\nRun::\n\n    python manage.py migrate djangocms_moderation\n\nto perform the application's database migrations.\n\nFor a guided introduction, see the `tutorial in the documentation <https://djangocms-moderation.readthedocs.io>`_.\n\nConfiguration\n=============\n\nThe following settings can be added to your project's settings file to configure django CMS Moderation's behavior:\n\n.. list-table::\n   :header-rows: 1\n   :widths: 50 50\n\n   * - Setting\n     - Description\n   * - ``CMS_MODERATION_DEFAULT_COMPLIANCE_NUMBER_BACKEND``\n     - Default backend class for generating compliance numbers.\n       Default is ``djangocms_moderation.backends.uuid4_backend``.\n   * - ``CMS_MODERATION_COMPLIANCE_NUMBER_BACKENDS``\n     - List of available compliance number backend classes.\n       By default, three backends are configured: ``uuid4_backend``,\n       ``sequential_number_backend``, and\n       ``sequential_number_with_identifier_prefix_backend``.\n   * - ``CMS_MODERATION_ENABLE_WORKFLOW_OVERRIDE``\n     - Legacy setting from moderation 1.x; currently has no effect.\n   * - ``CMS_MODERATION_DEFAULT_CONFIRMATION_PAGE_TEMPLATE``\n     - Default template for confirmation pages. Defaults to\n       ``djangocms_moderation/moderation_confirmation.html``\n   * - ``CMS_MODERATION_CONFIRMATION_PAGE_TEMPLATES``\n     - List of available confirmation page templates. Only includes the\n       default template by default.\n   * - ``CMS_MODERATION_COLLECTION_COMMENTS_ENABLED``\n     - Enable/disable comments on collections. Defaults to ``True``.\n   * - ``CMS_MODERATION_REQUEST_COMMENTS_ENABLED``\n     - Enable/disable comments on requests. Defaults to ``True``.\n   * - ``CMS_MODERATION_COLLECTION_NAME_LENGTH_LIMIT``\n     - Maximum length for collection names. Defaults to ``24``.\n   * - ``EMAIL_NOTIFICATIONS_FAIL_SILENTLY``\n     - Control email notification error handling. Defaults to ``False``.\n\nExample Configuration\n---------------------\n\nAdd these settings to your project's settings file:\n\n.. code-block:: python\n\n    # Custom compliance number backend\n    CMS_MODERATION_DEFAULT_COMPLIANCE_NUMBER_BACKEND = 'myapp.backends.custom_compliance_number_backend'\n\n    # Custom confirmation template\n    CMS_MODERATION_DEFAULT_CONFIRMATION_PAGE_TEMPLATE = 'custom_confirmation.html'\n\n    # Enable comments\n    CMS_MODERATION_COLLECTION_COMMENTS_ENABLED = True\n    CMS_MODERATION_REQUEST_COMMENTS_ENABLED = True\n\n    # Set collection name length limit\n    CMS_MODERATION_COLLECTION_NAME_LENGTH_LIMIT = 100\n\n    # Control email notification errors\n    EMAIL_NOTIFICATIONS_FAIL_SILENTLY = False\n\n=============\nDocumentation\n=============\n\nWe maintain documentation under ``docs`` folder using rst format. HTML documentation can be generated using the following commands\n\nRun::\n\n    cd docs/\n    make html\n\nThis should generate all html files from rst documents under the `docs/_build` folder, which can be browsed.\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Divio AG <info@divio.ch>",
+        "maintainer_email": "Django CMS Association and contributors <info@django-cms.org>",
+        "license": "BSD",
+        "license_file": [
+          "LICENSE.txt"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Framework :: Django",
+          "Framework :: Django :: 3.2",
+          "Framework :: Django :: 4.2",
+          "Framework :: Django :: 5.0",
+          "Framework :: Django CMS",
+          "Framework :: Django CMS :: 4.1",
+          "Framework :: Django CMS :: 5.0",
+          "Framework :: Django CMS :: 5.1",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
+          "Topic :: Software Development"
+        ],
+        "requires_dist": [
+          "djangocms-versioning",
+          "django-treebeard<4.8",
+          "django-sekizai>=0.7",
+          "django-admin-sortable2>=0.6.4"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Homepage, https://github.com/django-cms/djangocms-moderation",
+          "Repository, https://github.com/django-cms/djangocms-moderation",
+          "Documentation, https://github.com/django-cms/djangocms-moderation",
+          "Bug Tracker, https://github.com/django-cms/djangocms-moderation/issues"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/19/e8/ba5245f61d82ec135861abded65bfa58d14efb58ff614c3e35208e2aaf2a/django_admin_sortable2-2.4-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=f3c1e28ee1f70f34b6ef0c592aaaa5b5e5a449d0a5fc808167b6af575e3d8772",
+          "hashes": {
+            "sha256": "f3c1e28ee1f70f34b6ef0c592aaaa5b5e5a449d0a5fc808167b6af575e3d8772"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "django-admin-sortable2",
+        "version": "2.4",
+        "dynamic": [
+          "author",
+          "author-email",
+          "classifier",
+          "description",
+          "description-content-type",
+          "home-page",
+          "keywords",
+          "license",
+          "license-file",
+          "platform",
+          "requires-dist",
+          "summary"
+        ],
+        "platform": [
+          "OS Independent"
+        ],
+        "summary": "Generic drag-and-drop sorting for the List, the Stacked- and the Tabular-Inlines Views in the Django Admin",
+        "description": "# django-admin-sortable2\n\nThis Django package adds functionality for generic drag-and-drop ordering of items in the List, the Stacked- and the\nTabular-Inlines Views of the Django Admin interface.\n\n[![Build Status](https://github.com/jrief/django-admin-sortable2/actions/workflows/tests.yml/badge.svg)](https://github.com/jrief/django-admin-sortable2/actions/workflows/tests.yml)\n[![PyPI version](https://img.shields.io/pypi/v/django-admin-sortable2.svg)](https://pypi.python.org/pypi/django-admin-sortable2)\n[![Python versions](https://img.shields.io/pypi/pyversions/django-admin-sortable2.svg)](https://pypi.python.org/pypi/django-admin-sortable2)\n[![Django versions](https://img.shields.io/pypi/djversions/django-admin-sortable2)](https://pypi.python.org/pypi/django-admin-sortable2)\n[![Downloads](https://img.shields.io/pypi/dm/django-admin-sortable2.svg)](https://img.shields.io/pypi/dm/django-admin-sortable2.svg)\n[![Software license](https://img.shields.io/pypi/l/django-admin-sortable2.svg)](https://github.com/jrief/django-admin-sortable2/blob/master/LICENSE)\n\nCheck the demo:\n\n![Demo](https://raw.githubusercontent.com/jrief/django-admin-sortable2/master/docs/source/_static/django-admin-sortable2.gif)\n\nThis library offers simple mixin classes which enrich the functionality of any existing class inheriting from\n`admin.ModelAdmin`, `admin.StackedInline` or `admin.TabularInline`.\n\nIt thus makes it very easy to integrate with existing models and their model admin interfaces. Existing models can\ninherit from `models.Model` or any other class derived thereof. No special base class is required.\n\n\n## Version 2.0\n\nThis is a major rewrite of this **django-admin-sortable2**. It replaces the client side part against\n[Sortable.JS](https://sortablejs.github.io/Sortable/) and thus the need for jQuery.\n\nReplacing that library allowed me to add a new feature: Multiple items can now be dragged and dropped together.\n\n\n## Project's Home\n\nhttps://github.com/jrief/django-admin-sortable2\n\nDetailled documentation can be found on [ReadTheDocs](https://django-admin-sortable2.readthedocs.org/en/latest/).\n\nBefore reporting bugs or asking questions, please read the\n[contributor's guide](https://django-admin-sortable2.readthedocs.io/en/latest/contributing.html).\n\n\n## License\n\nLicensed under the terms of the MIT license.\n\nCopyright &copy; 2013-2022 Jacob Rief and contributors.\n\nPlease follow me on\n[![Twitter Follow](https://img.shields.io/twitter/follow/jacobrief.svg?style=social&label=Jacob+Rief)](https://twitter.com/jacobrief)\nfor updates and other news.\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "django"
+        ],
+        "home_page": "https://github.com/jrief/django-admin-sortable2",
+        "author": "Jacob Rief",
+        "author_email": "jacob.rief@gmail.com",
+        "license": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Environment :: Web Environment",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+          "Topic :: Software Development :: Libraries :: Application Frameworks",
+          "Development Status :: 5 - Production/Stable",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Framework :: Django",
+          "Framework :: Django :: 5.2",
+          "Framework :: Django :: 6.0",
+          "Framework :: Django :: 6.1"
+        ],
+        "requires_dist": [
+          "Django>=4.2"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/c9/4f/8d1df68be504d7664cdeae7279134e77cf15babe2a5911b50f3e31d493f2/django_sekizai-4.1.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=aa12e66ba0335fbe726b7d74cf4e8716b89a0be99a1304a9b9e8b191229e2e4a",
+          "hashes": {
+            "sha256": "aa12e66ba0335fbe726b7d74cf4e8716b89a0be99a1304a9b9e8b191229e2e4a"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.1",
+        "name": "django-sekizai",
+        "version": "4.1.0",
+        "summary": "Django Sekizai",
+        "description": "==============\nDjango Sekizai\n==============\n\n|pypi| |build| |coverage|\n\nSekizai means \"blocks\" in Japanese, and that's what this app provides. A fresh\nlook at blocks. With django-sekizai you can define placeholders where your\nblocks get rendered and at different places in your templates append to those\nblocks. This is especially useful for css and javascript. Your sub-templates can\nnow define css and Javascript files to be included, and the css will be nicely\nput at the top and the Javascript to the bottom, just like you should. Also\nsekizai will ignore any duplicate content in a single block.\n\nThere are some issue/restrictions with this implementation due to how the\ndjango template language works, but if used properly it can be very useful and\nit is the media handling framework for the django CMS (since version 2.2).\n\n.. note:: \n        \n        This project is endorsed by the `django CMS Association <https://www.django-cms.org/en/about-us/>`_.\n        That means that it is officially accepted by the dCA as being in line with our roadmap vision and development/plugin policy. \n        Join us on `Slack <https://www.django-cms.org/slack/>`_.\n\n\n*******************************************\nContribute to this project and win rewards\n*******************************************\n\nBecause this is a an open-source project, we welcome everyone to\n`get involved in the project <https://www.django-cms.org/en/contribute/>`_ and\n`receive a reward <https://www.django-cms.org/en/bounty-program/>`_ for their contribution. \nBecome part of a fantastic community and help us make django CMS the best CMS in the world.   \n\nWe'll be delighted to receive your\nfeedback in the form of issues and pull requests. Before submitting your\npull request, please review our `contribution guidelines\n<http://docs.django-cms.org/en/latest/contributing/index.html>`_.\n\nWe're grateful to all contributors who have helped create and maintain this package.\nContributors are listed at the `contributors <https://github.com/django-cms/django-sekizai/graphs/contributors>`_\nsection.\n\n\nDocumentation\n=============\n\nSee ``REQUIREMENTS`` in the `setup.py <https://github.com/divio/django-sekizai/blob/master/setup.py>`_\nfile for additional dependencies:\n\n|python| |django|\n\nPlease refer to the documentation in the docs/ directory for more information or visit our\n`online documentation <https://django-sekizai.readthedocs.io/en/latest/>`_.\n\n\nRunning Tests\n-------------\n\nYou can run tests by executing::\n\n    virtualenv env\n    source env/bin/activate\n    pip install -r tests/requirements.txt\n    python setup.py test\n\n\n.. |pypi| image:: https://badge.fury.io/py/django-sekizai.svg\n    :target: http://badge.fury.io/py/django-sekizai\n.. |build| image:: https://travis-ci.org/divio/django-sekizai.svg?branch=master\n    :target: https://travis-ci.org/divio/django-sekizai\n.. |coverage| image:: https://codecov.io/gh/divio/django-sekizai/branch/master/graph/badge.svg\n    :target: https://codecov.io/gh/divio/django-sekizai\n\n.. |python| image:: https://img.shields.io/badge/python-3.5+-blue.svg\n    :target: https://pypi.org/project/django-sekizai/\n.. |django| image:: https://img.shields.io/badge/django-2.2,%203.0,%203.1-blue.svg\n    :target: https://www.djangoproject.com/\n",
+        "description_content_type": "text/x-rst",
+        "home_page": "https://github.com/django-cms/django-sekizai",
+        "author": "Jonas Obrist",
+        "author_email": "ojiidotch@gmail.com",
+        "maintainer": "Django CMS Association and contributors",
+        "maintainer_email": "info@django-cms.org",
+        "license": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Web Environment",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Framework :: Django",
+          "Framework :: Django :: 3.2",
+          "Framework :: Django :: 4.0",
+          "Framework :: Django :: 4.1",
+          "Framework :: Django :: 4.2",
+          "Topic :: Internet :: WWW/HTTP",
+          "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+          "Topic :: Software Development",
+          "Topic :: Software Development :: Libraries"
+        ],
+        "requires_dist": [
+          "django (>=3.2)",
+          "django-classy-tags (>=3.0)"
+        ],
+        "requires_python": ">=3.8"
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/87/79/259966820614746cc4d81762edf97a53bf1e3b8e74797c010d310c6f4a8f/django_treebeard-4.7.1-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=995c7120153ab999898fe3043bbdcd8a0fc77cc106eb94de7350e9d02c885135",
+          "hashes": {
+            "sha256": "995c7120153ab999898fe3043bbdcd8a0fc77cc106eb94de7350e9d02c885135"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.1",
+        "name": "django-treebeard",
+        "version": "4.7.1",
+        "summary": "Efficient tree implementations for Django",
+        "description": "# django-treebeard\n\n**django-treebeard** is a library that implements efficient tree\nimplementations for the Django Web Framework 2.2 and later.\n\nIt is written by Gustavo Picón and licensed under the Apache License\n2.0.\n\n## Status\n\n[![Documentation Status](https://readthedocs.org/projects/django-treebeard/badge/?version=latest)](https://django-treebeard.readthedocs.io/en/latest/?badge=latest)\n[![Tests](https://github.com/django-treebeard/django-treebeard/workflows/Tests/badge.svg)]()\n[![App Veyor](https://ci.appveyor.com/api/projects/status/mwbf062v68lhw05c?svg=true)](https://ci.appveyor.com/project/mvantellingen/django-treebeard)\n[![PyPI](https://img.shields.io/pypi/pyversions/django-treebeard.svg)]()\n[![PyPI version](https://img.shields.io/pypi/v/django-treebeard.svg)](https://pypi.org/project/django-treebeard/)\n\n\n## Features\n\ndjango-treebeard is:\n\n-   **Flexible**: Includes 3 different tree implementations with the\n    same API:\n    1.  Adjacency List\n    2.  Materialized Path\n    3.  Nested Sets\n-   **Fast**: Optimized non-naive tree operations\n-   **Easy**: Uses Django Model Inheritance with abstract classes to\n    define your own models.\n-   **Clean**: Testable and well tested code base. Code/branch test\n    coverage is above 96%.\n\nYou can find the documentation in\n\n> <http://django-treebeard.readthedocs.io/en/latest/>\n\n### Supported versions\n\n**django-treebeard** officially supports\n\n-   Django 3.2, 4.1, 4.2, 5.0\n-   Python 3.8 - 3.12\n-   PostgreSQL, MySQL, MSSQL, SQLite database back-ends.\n",
+        "description_content_type": "text/markdown",
+        "home_page": "https://github.com/django-treebeard/django-treebeard/",
+        "author": "Gustavo Picon",
+        "author_email": "tabo@tabo.pe",
+        "license": "Apache License 2.0",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: Apache Software License",
+          "Environment :: Web Environment",
+          "Framework :: Django",
+          "Framework :: Django :: 3.2",
+          "Framework :: Django :: 4.1",
+          "Framework :: Django :: 4.2",
+          "Framework :: Django :: 5.0",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Operating System :: OS Independent",
+          "Topic :: Software Development :: Libraries",
+          "Topic :: Utilities"
+        ],
+        "requires_dist": [
+          "Django >=3.2"
+        ],
+        "requires_python": ">=3.8"
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/d3/b1/44942124f06c25b4038570a59079938825124e9c9825b46f81c4231070e4/djangocms_versioning-2.8.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=4ad9b43692549d11a7b56f294043aa72cd359b74950135149eec80a84d702745",
+          "hashes": {
+            "sha256": "4ad9b43692549d11a7b56f294043aa72cd359b74950135149eec80a84d702745"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "djangocms-versioning",
+        "version": "2.8.0",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "Versioning for django CMS",
+        "description": "|PyPiVersion| |PyVersion| |DjVersion| |CmsVersion| |Coverage|\n\n*********************\ndjango CMS Versioning\n*********************\n\n\n============\nInstallation\n============\n\nRequirements\n============\n\ndjango CMS Versioning requires that you have a django CMS 4.0 (or higher) project already running and set up.\n\nNote: This package uses `django-fsm-2 <https://github.com/django-commons/django-fsm-2>`_ (actively maintained by Django Commons) instead of the original `django-fsm <https://github.com/viewflow/django-fsm>`_ for better support and maintenance.\n\n\nTo install\n==========\n\nRun::\n\n    pip install djangocms-versioning\n\nAdd ``djangocms_versioning`` to your project's ``INSTALLED_APPS``.\n\nRun::\n\n    python -m manage migrate djangocms_versioning\n    python -m manage create_versions --userid <user-id-of-migration-user>\n\nto perform the application's database migrations and (only if you have an existing database) add version objects\nneeded to mark existing versions as draft.\n\n\n=====\nUsage\n=====\n\nTo add versioning to your own models, start with the tutorial in\n`docs/tutorials/versioning_a_blog.rst <docs/tutorials/versioning_a_blog.rst>`_. More\ndetailed integration instructions are available in\n`docs/howto/versioning_integration.rst <docs/howto/versioning_integration.rst>`_.\n\nAn example implementation can be found here:\n\n- `djangocms_versioning/test_utils/polls/cms_config.py <djangocms_versioning/test_utils/polls/cms_config.py>`_\n- `djangocms_versioning/test_utils/polls/models.py <djangocms_versioning/test_utils/polls/models.py>`_\n\n\nTesting\n=======\n\nTo run all the tests the only thing you need to do is run::\n\n    pip install -r tests/requirements/requirements_dev.txt\n    pytest\n\n\nFrontend assets\n===============\n\nThe JavaScript bundles in ``djangocms_versioning/static/`` are built with webpack\nand managed via npm scripts. Node.js 24 is required (see ``.nvmrc``).\n\nInstall dependencies::\n\n    npm install\n\nCommon commands::\n\n    npm run build       # production build\n    npm run build:dev   # development build (sourcemaps, no minification)\n    npm run watch       # rebuild on file change\n    npm run lint        # ESLint over the project's JS sources\n\nEnd-to-end tests with Playwright::\n\n    npm run e2e         # runs the build with coverage instrumentation, then Playwright\n\n\nDocumentation\n=============\n\nThe documentation is online on `readthedocs <https://djangocms-versioning.readthedocs.io>`_.\n\nWe maintain documentation in this repository under the ``docs`` folder using rst format.\n\nTo generate the HTML documentation you will need to install ``sphinx`` (``pip install sphinx``) and ``graphviz`` (as per your operating system's package management system). You can then generate the docs using the following command:\n\nRun::\n\n    cd docs/\n    make html\n\nThis should generate all html files from rst documents under `docs/_build` folder, which can be browsed.\n\n============\nContributing\n============\n\nBecause this is a an open-source project, we welcome everyone to\n`get involved in the project <https://www.django-cms.org/en/contribute/>`_ and\n`receive a reward <https://www.django-cms.org/en/bounty-program/>`_ for their contribution.\nBecome part of a fantastic community and help us make django CMS the best CMS in the world.\n\nWe'll be delighted to receive your\nfeedback in the form of issues and pull requests. Before submitting your\npull request, please review our `contribution guidelines\n<http://docs.django-cms.org/en/latest/contributing/index.html>`_.\n\nThe project makes use of git pre-commit hooks to maintain code quality.\nPlease follow the installation steps to get `pre-commit <https://pre-commit.com/#installation>`_\nsetup in your development environment.\n\nWe're grateful to all contributors who have helped create and maintain\nthis package. Contributors are listed at the `contributors\n<https://github.com/django-cms/djangocms-versioning/graphs/contributors>`_\nsection.\n\nOne of the easiest contributions you can make is helping to translate this addon on\n`Transifex <https://www.transifex.com/divio/django-cms-versioning/dashboard/>`_.\nTo update transifex translation in this repo you need to download the\n`transifex cli <https://developers.transifex.com/docs/cli>`_ and run\n``tx pull`` from the repo's root directory. After downloading the translations\ndo not forget to run the ``compilemessages`` management command.\n\n.. |PyPiVersion| image:: https://img.shields.io/pypi/v/djangocms-versioning.svg?style=flat-square\n    :target: https://pypi.python.org/pypi/djangocms-versioning\n    :alt: Latest PyPI version\n\n.. |PyVersion| image:: https://img.shields.io/pypi/pyversions/djangocms-versioning.svg?style=flat-square\n    :target: https://pypi.python.org/pypi/djangocms-versioning\n    :alt: Python versions\n\n.. |DjVersion| image:: https://img.shields.io/pypi/frameworkversions/django/djangocms-versioning.svg?style=flat-square\n    :target: https://pypi.python.org/pypi/djangocms-versioning\n    :alt: Django versions\n\n.. |CmsVersion| image:: https://img.shields.io/pypi/frameworkversions/django-cms/djangocms-versioning.svg?style=flat-square\n    :target: https://pypi.python.org/pypi/djangocms-versioning\n    :alt: django CMS versions\n\n.. |Coverage| image:: https://codecov.io/gh/django-cms/djangocms-versioning/graph/badge.svg?token=Jyx7Ilpibf\n :target: https://codecov.io/gh/django-cms/djangocms-versioning\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Divio AG <info@divio.ch>",
+        "maintainer_email": "Django CMS Association and contributors <info@django-cms.org>",
+        "license": "BSD License",
+        "license_file": [
+          "LICENSE.txt"
+        ],
+        "classifier": [
+          "Framework :: Django",
+          "Framework :: Django :: 4.2",
+          "Framework :: Django :: 5.0",
+          "Framework :: Django :: 5.1",
+          "Framework :: Django :: 5.2",
+          "Framework :: Django :: 6.0",
+          "Framework :: Django :: 6.1",
+          "Framework :: Django CMS :: 4.1",
+          "Framework :: Django CMS :: 5.0",
+          "Framework :: Django CMS :: 5.1",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Topic :: Software Development"
+        ],
+        "requires_dist": [
+          "django-cms>=4.1.1",
+          "django-fsm-2",
+          "packaging"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "homepage, https://github.com/django-cms/djangocms-versioning"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/77/f2/adbe0352c6673f7b608724be5f69962c80ba1d06f8ed60fa4bfbec258b08/django-6.1.3-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=a0530e3fdac55d34ccc5893c36f6c57d7a7083064f3d414537e51473648b3290",
+          "hashes": {
+            "sha256": "a0530e3fdac55d34ccc5893c36f6c57d7a7083064f3d414537e51473648b3290"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "Django",
+        "version": "6.1.3",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "A high-level Python web framework that encourages rapid development and clean, pragmatic design.",
+        "description": "======\nDjango\n======\n\nDjango is a high-level Python web framework that encourages rapid development\nand clean, pragmatic design. Thanks for checking it out.\n\nAll documentation is in the \"``docs``\" directory and online at\nhttps://docs.djangoproject.com/en/stable/. If you're just getting started,\nhere's how we recommend you read the docs:\n\n* First, read ``docs/intro/install.txt`` for instructions on installing Django.\n\n* Next, work through the tutorials in order (``docs/intro/tutorial01.txt``,\n  ``docs/intro/tutorial02.txt``, etc.).\n\n* If you want to set up an actual deployment server, read\n  ``docs/howto/deployment/index.txt`` for instructions.\n\n* You'll probably want to read through the topical guides (in ``docs/topics``)\n  next; from there you can jump to the HOWTOs (in ``docs/howto``) for specific\n  problems, and check out the reference (``docs/ref``) for gory details.\n\n* See ``docs/README`` for instructions on building an HTML version of the docs.\n\nDocs are updated rigorously. If you find any problems in the docs, or think\nthey should be clarified in any way, please take 30 seconds to fill out a\nticket here: https://code.djangoproject.com/newticket\n\nTo get more help:\n\n* Join the `Django Discord community <https://chat.djangoproject.com>`_.\n\n* Join the community on the `Django Forum <https://forum.djangoproject.com/>`_.\n\nTo contribute to Django:\n\n* Check out https://docs.djangoproject.com/en/dev/internals/contributing/ for\n  information about getting involved.\n\nTo run Django's test suite:\n\n* Follow the instructions in the \"Unit tests\" section of\n  ``docs/internals/contributing/writing-code/unit-tests.txt``, published online at\n  https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/unit-tests/#running-the-unit-tests\n\nSupporting the Development of Django\n====================================\n\nDjango's development depends on your contributions.\n\nIf you depend on Django, remember to support the Django Software Foundation: https://www.djangoproject.com/fundraising/\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Django Software Foundation <foundation@djangoproject.com>",
+        "license_expression": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE",
+          "LICENSE.python",
+          "AUTHORS"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Web Environment",
+          "Framework :: Django",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Topic :: Internet :: WWW/HTTP",
+          "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+          "Topic :: Internet :: WWW/HTTP :: WSGI",
+          "Topic :: Software Development :: Libraries :: Application Frameworks",
+          "Topic :: Software Development :: Libraries :: Python Modules"
+        ],
+        "requires_dist": [
+          "asgiref>=3.9.1",
+          "sqlparse>=0.5.0",
+          "tzdata; sys_platform == \"win32\"",
+          "argon2-cffi>=23.1.0; extra == \"argon2\"",
+          "bcrypt>=4.1.1; extra == \"bcrypt\""
+        ],
+        "requires_python": ">=3.12",
+        "project_url": [
+          "Homepage, https://www.djangoproject.com/",
+          "Documentation, https://docs.djangoproject.com/",
+          "Release notes, https://docs.djangoproject.com/en/stable/releases/",
+          "Funding, https://www.djangoproject.com/fundraising/",
+          "Source, https://github.com/django/django",
+          "Tracker, https://code.djangoproject.com/"
+        ],
+        "provides_extra": [
+          "argon2",
+          "bcrypt"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/6d/10/13afc12b7d9657ed67f8d49c1cf0585a4331b197ed98ea654e9ed8034e79/django_classy_tags-4.1.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=1c784cf1bac49c20a77b8f7d1541867c64076642a160a847ff449588d4e01e55",
+          "hashes": {
+            "sha256": "1c784cf1bac49c20a77b8f7d1541867c64076642a160a847ff449588d4e01e55"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.1",
+        "name": "django-classy-tags",
+        "version": "4.1.0",
+        "summary": "Class based template tags for Django",
+        "description": "\n==================\nDjango Classy Tags\n==================\n\n|pypi| |build| |coverage|\n\nThe goal of this project is to create a new way of writing Django template tags\nwhich is fully compatible with the current Django templating infrastructure.\nThis new way should be easy, clean and require as little boilerplate code as\npossible while still staying as powerful as possible. Some features:\n\n* Class based template tags.\n* Template tag argument parser.\n* Declarative way to define arguments.\n* Supports (theoretically infinite) parse-until blocks.\n* Extensible!\n\n\n.. note:: \n\n    This project is considered 3rd party (no supervision by the `django CMS Association <https://www.django-cms.org/en/about-us/>`_). Join us on `Slack                 <https://www.django-cms.org/slack/>`_ for more information.\n\n\n*******************************************\nContribute to this project and win rewards\n*******************************************\n\nBecause this is a an open-source project, we welcome everyone to\n`get involved in the project <https://www.django-cms.org/en/contribute/>`_ and\n`receive a reward <https://www.django-cms.org/en/bounty-program/>`_ for their contribution. \nBecome part of a fantastic community and help us make django CMS the best CMS in the world.   \n\nWe'll be delighted to receive your\nfeedback in the form of issues and pull requests. Before submitting your\npull request, please review our `contribution guidelines\n<http://docs.django-cms.org/en/latest/contributing/index.html>`_.\n\nWe're grateful to all contributors who have helped create and maintain this package.\nContributors are listed at the `contributors <https://github.com/django-cms/django-classy-tags/graphs/contributors>`_\nsection.\n\n\nDocumentation\n=============\n\nSee ``REQUIREMENTS`` in the `setup.py <https://github.com/divio/django-classy-tags/blob/master/setup.py>`_\nfile for additional dependencies:\n\n|python| |django|\n\nPlease refer to the documentation in the docs/ directory for more information or visit our\n`online documentation <https://django-classy-tags.readthedocs.io>`_.\n\n\nExample\n-------\n\nThis is how a tag looks like using django-classy-tags:\n\n.. code-block:: python\n\n    from classytags.core import Options\n    from classytags.helpers import AsTag\n    from classytags.arguments import Argument\n    from django import template\n\n    register = template.Library()\n\n    class Hello(AsTag):\n        options = Options(\n            Argument('name', required=False, default='world'),\n            'as',\n            Argument('varname', required=False, resolve=False)\n        )\n\n        def get_value(self, context, name):\n            return 'hello %s' % name\n\n    register.tag(Hello)\n\nThat's your standard *hello world* example. Which can be used like this:\n\n* ``{% hello %}``: Outputs ``hello world``\n* ``{% hello \"classytags\" %}``: Outputs ``hello classytags``\n* ``{% hello as myvar %}``: Outputs nothing but stores ``hello world`` into the\n  template variable ``myvar``.\n* ``{% hello \"my friend\" as othervar %}``: Outputs nothing but stores\n  ``hello my friend`` into the template variable ``othervar``.\n\n\nRunning Tests\n-------------\n\nYou can run tests by executing::\n\n    virtualenv env\n    source env/bin/activate\n    pip install -r tests/requirements.txt\n    python setup.py test\n\n\n.. |pypi| image:: https://badge.fury.io/py/django-classy-tags.svg\n    :target: http://badge.fury.io/py/django-classy-tags\n.. |build| image:: https://travis-ci.org/divio/django-classy-tags.svg?branch=master\n    :target: https://travis-ci.org/divio/django-classy-tags\n.. |coverage| image:: https://codecov.io/gh/divio/django-classy-tags/branch/master/graph/badge.svg\n    :target: https://codecov.io/gh/divio/django-classy-tags\n\n.. |python| image:: https://img.shields.io/badge/python-3.7+-blue.svg\n    :target: https://pypi.org/project/django-classy-tags/\n.. |django| image:: https://img.shields.io/badge/django-3.2,%204.0,%204.0-blue.svg\n    :target: https://www.djangoproject.com/\n",
+        "description_content_type": "text/x-rst",
+        "home_page": "https://github.com/django-cms/django-classy-tags",
+        "author": "Jonas Obrist",
+        "author_email": "ojiidotch@gmail.com",
+        "maintainer": "Django CMS Association and contributors",
+        "maintainer_email": "info@django-cms.org",
+        "license": "BSD",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Web Environment",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Framework :: Django",
+          "Framework :: Django :: 3.2",
+          "Framework :: Django :: 4.0",
+          "Framework :: Django :: 4.1",
+          "Framework :: Django :: 4.2",
+          "Topic :: Internet :: WWW/HTTP",
+          "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+          "Topic :: Software Development",
+          "Topic :: Software Development :: Libraries"
+        ],
+        "requires_dist": [
+          "django (>=3.2)"
+        ],
+        "requires_python": ">=3.8"
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/38/86/9c152b55cd64083bc5450be00a86be70947c88a906aba533f84a184f8288/django_cms-5.1.3-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=acf31919aab389d2bea253efa97a901bf55e96046a252f23a7a742e495848a5e",
+          "hashes": {
+            "sha256": "acf31919aab389d2bea253efa97a901bf55e96046a252f23a7a742e495848a5e"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "django-cms",
+        "version": "5.1.3",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "Lean enterprise content management powered by Django.",
+        "description": "##########\ndjango CMS\n##########\n\n|PyPiVersion| |PyVersion| |DjVersion| |License| |Coverage|\n\nLean, open-source enterprise content management powered by Django.\nBacked by the non-profit django CMS Association (`Sponsor us <https://www.django-cms.org/en/memberships/>`_).\n\nThis repository contains the core package published as ``django-cms`` on PyPI.\n\nStart here\n==========\n\n* Read the docs: `Documentation (stable) <https://docs.django-cms.org/>`_\n* Installing / learning: `Installation <https://docs.django-cms.org/en/latest/introduction/01-install.html>`_ · `Docker quickstart <https://github.com/django-cms/django-cms-quickstart>`_ · `Tutorials <https://docs.django-cms.org/en/latest/introduction/>`_\n* Upgrading: `Release notes / Upgrade guide <https://docs.django-cms.org/en/latest/upgrade/index.html>`_\n* Get help: `Discord <https://discord-support-channel.django-cms.org>`_ or Stackoverflow\n* Contribute safely: `Contributing <CONTRIBUTING.rst>`_ · `Code of Conduct <CODE_OF_CONDUCT.rst>`_ · `Security <SECURITY.md>`_\n* Project info: `Website <https://www.django-cms.org/>`_ · `Changelog <CHANGELOG.rst>`_\n\n\nFeatures\n========\n\nBuild complex publishing workflows with simple, composable parts:\n\n* robust internationalisation (i18n) and multi-site support\n* front-end (inline) editing so editors can work directly on rendered pages\n* a flexible placeholder and plugin system for reusable content components\n* integration with multiple rich-text editors\n* content versioning, editorial workflows, and headless setups via official add-on packages\n* a hierarchical page tree with SEO-friendly URLs\n* extensible navigation and application integration (apphooks)\n\nDeveloping applications that integrate with and take advantage of django CMS features is easy and well-documented.\nMore information on `our website <https://www.django-cms.org>`_.\n\n\nTest django CMS in our demo\n===========================\n\nThe demo platform is kindly provided by Divio, platinum member of the django CMS Association.\n\n.. image:: docs/images/try-with-divio.png\n    :target: https://www.django-cms.org/en/django-cms-demo/\n    :alt: Try demo with Divio Cloud\n\nWant to get a feel for the editing experience before you install anything?\nStart with the demo link above.\n\n\nInstallation & Quickstart\n=========================\n\nCreate a fully configured django CMS project with a single command:\n\n.. code-block:: console\n\n    python -m pip install django-cms\n    djangocms mysite --interactive\n    cd mysite\n    python -m manage runserver\n\nThe ``djangocms`` command clones the official project template, installs the\nrequirements, runs the migrations and creates a superuser for you. Run it\nwithout arguments to be guided through the available options (such as the\nheadless mode) interactively.\n\nAlready have a Django project? Run ``djangocms .`` in its root directory to\nadd django CMS to it.\n\nNext, follow the official installation guide and tutorials:\n`Installation <https://docs.django-cms.org/en/latest/tutorials/00-installing-django-cms.html>`_\n\nUsing Docker? Check out our `django-cms-quickstart project <https://github.com/django-cms/django-cms-quickstart>`_.\n\nDocumentation\n=============\n\nFind tutorials, how-to guides, explanation, and reference material here:\n\n* `Current stable version <https://docs.django-cms.org/>`_ (current release)\n* `Latest development version <https://docs.django-cms.org/en/latest/>`_ (main branch)\n* Sources in this repo: `docs/ <docs/>`_\n\nBranch policy details: `Development policies <https://docs.django-cms.org/en/latest/contributing/development-policies.html>`_.\n\n\nDevelopment\n===========\n\nIf you want to contribute code, start here (you'll be productive quickly):\n\n* `CONTRIBUTING.rst <CONTRIBUTING.rst>`_ (workflow, PR process)\n* `Contributing docs <https://docs.django-cms.org/en/latest/contributing/>`_\n\nGetting Help\n============\n\nNeed help choosing an approach, debugging an issue, or reviewing an implementation idea?\nHead over to our `Discord Server <https://discord-support-channel.django-cms.org>`_ or Stackoverflow.\n\nProfessional support\n====================\n\nChoose from a list of `trusted tech partner <https://www.django-cms.org/en/tech-partners/>`_ of the django CMS Association to get your website project delivered successfully.\n\nChoose a `trusted web host <https://www.django-cms.org/en/hosting-services/>`_ for your django CMS project and get your website online today.\n\n\nThe django CMS Association\n==========================\n\nThe django CMS Association is a non-profit founded in 2020 to drive the success of django CMS by providing guidance,\ninfrastructure and funding for core development and community projects.\n\nIf your business depends on django CMS, consider supporting its long-term health:\n`Join forces with the django CMS Association <https://www.django-cms.org/en/contribute/>`_ or `become a paying member <https://www.django-cms.org/en/memberships/>`_.\n\n\nCredits\n=======\n\nMany thanks to `all the contributors <https://github.com/django-cms/django-cms/graphs/contributors>`_\nto django CMS!\n\nSee `LICENSE <LICENSE>`_ for credits to third-party contributions.\n\n.. |PyPiVersion| image:: https://img.shields.io/pypi/v/django-cms.svg\n    :target: https://pypi.python.org/pypi/django-cms/\n.. |PyVersion| image:: https://img.shields.io/pypi/pyversions/django-cms\n    :target: https://pypi.python.org/pypi/django-cms/\n    :alt: PyPI - Python Version\n.. |DjVersion| image:: https://img.shields.io/pypi/frameworkversions/django/django-cms\n    :alt: PyPI - Versions from Framework Classifiers\n.. |License| image:: https://img.shields.io/badge/License-BSD_3_clause-green\n    :target: https://pypi.python.org/pypi/django-cms/\n    :alt: License\n.. |Coverage| image:: https://codecov.io/gh/django-cms/django-cms/graph/badge.svg?token=Jyx7Ilpibf\n :target: https://codecov.io/gh/django-cms/django-cms\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Django CMS Association and contributors <info@django-cms.org>",
+        "maintainer_email": "Django CMS Association and contributors <info@django-cms.org>",
+        "license": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE",
+          "AUTHORS"
+        ],
+        "classifier": [
+          "Environment :: Web Environment",
+          "Framework :: Django",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Framework :: Django",
+          "Framework :: Django :: 5.2",
+          "Framework :: Django :: 6.0",
+          "Framework :: Django :: 6.1",
+          "Topic :: Internet :: WWW/HTTP",
+          "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+          "Topic :: Software Development",
+          "Topic :: Software Development :: Libraries",
+          "Topic :: Software Development :: Libraries :: Application Frameworks"
+        ],
+        "requires_dist": [
+          "Django>=5.2",
+          "django-classy-tags>=0.7.2",
+          "django-formtools>=2.1",
+          "django-treebeard<6,>=4.3",
+          "django-sekizai>=0.7",
+          "djangocms-simple-admin-style; extra == \"admin-style\""
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Homepage, https://www.django-cms.org/",
+          "Documentation, https://docs.django-cms.org/",
+          "Release notes, https://docs.django-cms.org/en/latest/upgrade/index.html",
+          "Community, https://discord-support-channel.django-cms.org",
+          "Source, https://github.com/django-cms/django-cms"
+        ],
+        "provides_extra": [
+          "admin-style"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/ea/64/724c7402174f928e3d797809c90c0f2daf2d92436c107d84845c36d16366/django_fsm_2-4.3.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=6f578e5dda9738418bef12b94d20bcbde4751f12fbf41f7c4bdf10bff5e616a7",
+          "hashes": {
+            "sha256": "6f578e5dda9738418bef12b94d20bcbde4751f12fbf41f7c4bdf10bff5e616a7"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "django-fsm-2",
+        "version": "4.3.0",
+        "summary": "Django friendly finite state machine support.",
+        "description": "# Django friendly finite state machine support\n\n[![CI tests](https://github.com/django-commons/django-fsm-2/actions/workflows/test.yml/badge.svg)](https://github.com/django-commons/django-fsm-2/actions/workflows/test.yml)\n[![codecov](https://codecov.io/github/django-commons/django-fsm-2/graph/badge.svg?token=gxsNL3cBl3)](https://codecov.io/github/django-commons/django-fsm-2)\n[![Documentation](https://img.shields.io/static/v1?label=Docs&message=READ&color=informational&style=plastic)](https://github.com/django-commons/django-fsm-2#usage)\n[![MIT License](https://img.shields.io/static/v1?label=License&message=MIT&color=informational&style=plastic)](https://github.com/django-commons/anymail-history/LICENSE)\n\nDjango FSM-2 adds simple, declarative state management to Django models.\n\n## Introduction\n\nFSM really helps to structure the code, and centralize the lifecycle of your Models.\n\nInstead of adding a CharField field to a django model and manage its values by hand everywhere, FSMFields offer the ability to declare your transitions once with the decorator. These methods could contain side-effects, permissions, or logic to make the lifecycle management easier.\n\nNice introduction is available here: https://gist.github.com/Nagyman/9502133\n\n> [!IMPORTANT]\n> Django FSM-2 is a maintained fork of [Django FSM](https://github.com/viewflow/django-fsm).\n>\n> Big thanks to Mikhail Podgurskiy for starting this project and maintaining it for so many years.\n>\n> Unfortunately, after 2 years without any releases, the project was brutally archived. Viewflow is presented as an alternative but the transition is not that easy.\n>\n> If what you need is just a simple state machine, tailor-made for Django, Django FSM-2 is the successor of Django FSM, with dependencies updates, typing (planned)\n\n## Quick start\n\n```python\nfrom django.db import models\nimport django_fsm as fsm\n\n\nclass BlogPost(fsm.FSMModelMixin, models.Model):\n    state = fsm.FSMField(default=\"new\")\n\n    @fsm.transition(field=state, source=\"new\", target=\"published\")\n    def publish(self, **kwargs):\n        pass\n```\n\n```python\nimport django_fsm as fsm\n\npost = BlogPost.objects.get(pk=1)\nif fsm.can_proceed(post.publish):\n    post.publish()\n    post.save()\n```\n\n## Installation\n\nInstall the package:\n\n```bash\nuv pip install django-fsm-2\n```\n\nOr install from git:\n\n```bash\nuv pip install -e git://github.com/django-commons/django-fsm-2.git#egg=django-fsm\n```\n\nAdd `django_fsm` to your Django apps (required to [graph transitions](#drawing-transitions) or use [Admin integration](#admin-integration)):\n\n```python\nINSTALLED_APPS = (\n    ...,\n    \"django_fsm\",\n    ...,\n)\n```\n\n> [!IMPORTANT] Migration from django-fsm\n\nDjango FSM-2 is a drop-in replacement. Update your dependency from\n`django-fsm` to `django-fsm-2` and keep your existing code.\n\n```bash\nuv pip install django-fsm-2\n```\n\n## Usage\n\n### Core ideas\n\n- Store a state in an `FSMField` (or `FSMIntegerField`/`FSMKeyField`).\n- Declare transitions once with the `@fsm.transition` decorator.\n- Transition methods can contain business logic and side effects.\n- The in-memory state changes on success; `save()` persists it.\n\n### Adding an FSM field\n\n```python\nimport django_fsm as fsm\n\n\nclass BlogPost(fsm.FSMModelMixin, models.Model):\n    state = fsm.FSMField(default=\"new\")\n```\n\n### Declaring a transition\n\n```python\nimport django_fsm as fsm\n\n\n@fsm.transition(field=state, source=\"new\", target=\"published\")\ndef publish(self, **kwargs):\n    \"\"\"\n    This function may contain side effects,\n    like updating caches, notifying users, etc.\n    The return value will be discarded.\n    \"\"\"\n```\n\nThe `field` parameter accepts a string attribute name or a field instance.\nIf calling `publish()` succeeds without raising an exception, the state\nchanges in memory. **You must call `save()` to persist it**.\n\n```python\nimport django_fsm as fsm\n\n\ndef publish_view(request, post_id, **kwargs):\n    post = get_object_or_404(BlogPost, pk=post_id)\n    if not fsm.can_proceed(post.publish):\n        raise PermissionDenied\n\n    post.publish()\n    post.save()\n    return redirect(\"/\")\n```\n\n### Preconditions (conditions)\n\nUse `conditions` to restrict transitions. Each function receives the\ninstance and must return truthy/falsey. The functions should not have\nside effects.\n\n```python\nimport django_fsm as fsm\n\n\ndef can_publish(instance):\n    # No publishing after 17 hours\n    return datetime.datetime.now().hour <= 17\n\n\nclass XXX(fsm.FSMModelMixin, models.Model):\n    @fsm.transition(field=state, source=\"new\", target=\"published\", conditions=[can_publish])\n    def publish(self, **kwargs):\n        pass\n```\n\nYou can also use model methods:\n\n```python\nimport django_fsm as fsm\n\n\nclass XXX(fsm.FSMModelMixin, models.Model):\n    def can_destroy(self):\n        return self.is_under_investigation()\n\n    @fsm.transition(field=state, source=\"*\", target=\"destroyed\", conditions=[can_destroy])\n    def destroy(self, **kwargs):\n        pass\n```\n\nWhen a transition is blocked by an unmet condition, the raised\n`TransitionConditionsUnmet` exception includes the failing callable in its\n`failed_condition` attribute for programmatic handling:\n\n```python\nfrom django_fsm import TransitionConditionsUnmet\n\ntry:\n    instance.publish()\nexcept TransitionConditionsUnmet as e:\n    print(e.failed_condition)  # e.g. <function can_publish at 0x...>\n```\n\n### Protected state fields\n\nUse `protected=True` to prevent direct assignment. Only transitions may\nchange the state.\n\nBecause `refresh_from_db` assigns to the field, protected fields raise there\nas well unless you use `FSMModelMixin`. Use `FSMModelMixin` by default to\nallow refresh without enabling arbitrary writes elsewhere.\n\n```python\nimport django_fsm as fsm\n\n\nclass BlogPost(fsm.FSMModelMixin, models.Model):\n    state = fsm.FSMField(default=\"new\", protected=True)\n\n\nmodel = BlogPost()\nmodel.state = \"invalid\"  # Raises AttributeError\nmodel.refresh_from_db()  # Works\n```\n\n### Source and target states\n\n`source` accepts a list of states, a single state, or a `django_fsm.State`\nimplementation.\n\n- `source=\"*\"` allows switching to `target` from any state (accessible as ANY_STATE constant).\n- `source=\"+\"` allows switching to `target` from any state except `target`(accessible as ANY_OTHER_STATE constant).\n\n`target` can be a specific state or a `django_fsm.State` implementation.\n\n```python\nimport django_fsm as fsm\n\n\n@fsm.transition(\n    field=state,\n    source=\"*\",\n    target=fsm.RETURN_VALUE(\"for_moderators\", \"published\"),\n)\ndef publish(self, is_public=False, **kwargs):\n    return \"for_moderators\" if is_public else \"published\"\n\n\n@fsm.transition(\n    field=state,\n    source=\"for_moderators\",\n    target=fsm.GET_STATE(\n        lambda self, allowed: \"published\" if allowed else \"rejected\",\n        states=[\"published\", \"rejected\"],\n    ),\n)\ndef moderate(self, allowed, **kwargs):\n    pass\n\n\n@fsm.transition(\n    field=state,\n    source=\"for_moderators\",\n    target=fsm.GET_STATE(\n        lambda self, **kwargs: \"published\" if kwargs.get(\"allowed\", True) else \"rejected\",\n        states=[\"published\", \"rejected\"],\n    ),\n)\ndef moderate(self, allowed=True, **kwargs):\n    pass\n```\n\n### Custom transition metadata\n\nUse `custom` to attach arbitrary data to a transition.\n\n```python\n@fsm.transition(\n    field=state,\n    source=\"*\",\n    target=\"onhold\",\n    custom=dict(verbose=\"Hold for legal reasons\"),\n)\ndef legal_hold(self, **kwargs):\n    pass\n```\n\n### Error target state\n\nIf a transition method raises an exception, you can specify an `on_error`\nstate.\n\n```python\n@fsm.transition(field=state, source=\"new\", target=\"published\", on_error=\"failed\")\ndef publish(self, **kwargs):\n    \"\"\"\n    Some exception could happen here\n    \"\"\"\n```\n\n### Permissions\n\nAttach permissions to transitions with the `permission` argument. It\naccepts a permission string or a callable that receives `(instance, user)`.\n\n```python\n@fsm.transition(\n    field=state,\n    source=\"*\",\n    target=\"published\",\n    permission=lambda instance, user: not user.has_perm(\"myapp.can_make_mistakes\"),\n)\ndef publish(self, **kwargs):\n    pass\n\n\n@fsm.transition(\n    field=state,\n    source=\"*\",\n    target=\"removed\",\n    permission=\"myapp.can_remove_post\",\n)\ndef remove(self, **kwargs):\n    pass\n```\n\nCheck permission with `has_transition_perm`:\n\n```python\nimport django_fsm as fsm\n\n\ndef publish_view(request, post_id):\n    post = get_object_or_404(BlogPost, pk=post_id)\n    if not fsm.has_transition_perm(post.publish, request.user):\n        raise PermissionDenied\n\n    post.publish()\n    post.save()\n    return redirect(\"/\")\n```\n\n### Model helpers\n\nConsidering a model with a state field called \"FIELD\"\n\n- `get_all_FIELD_transitions` enumerates all declared transitions.\n- `get_available_FIELD_transitions` returns transitions available in the\n  current state.\n- `get_available_user_FIELD_transitions` returns transitions available in\n  the current state for a given user.\n\nExample: If your state field is called `status`\n\n```python\nmy_model_instance.get_all_status_transitions()\nmy_model_instance.get_available_status_transitions()\nmy_model_instance.get_available_user_status_transitions()\n```\n\n### FSMKeyField (foreign key support)\n\nUse `FSMKeyField` to store state values in a table and maintain FK\nintegrity.\n\n```python\nimport django_fsm as fsm\n\n\nclass DbState(fsm.FSMModelMixin, models.Model):\n    id = models.CharField(primary_key=True)\n    label = models.CharField()\n\n    def __str__(self):\n        return self.label\n\n\nclass BlogPost(fsm.FSMModelMixin, models.Model):\n    state = fsm.FSMKeyField(DbState, default=\"new\")\n\n    @fsm.transition(field=state, source=\"new\", target=\"published\")\n    def publish(self, **kwargs):\n        pass\n```\n\nIn your fixtures/initial_data.json:\n```json\n[\n    {\n        \"pk\": \"_NEW_\",\n        \"model\": \"myapp.dbstate\",\n        \"fields\": {\n            \"label\": \"New\"\n        }\n    },\n    {\n        \"pk\": \"_PUBLISHED_\",\n        \"model\": \"myapp.dbstate\",\n        \"fields\": {\n            \"label\": \"Published\"\n        }\n    }\n]\n```\n\nNote: `source` and `target` use the PK values of the `DbState` model as\nnames, even if the field is accessed without the `_id` postfix.\n\n### FSMIntegerField (enum-style states)\n\n```python\nimport django_fsm as fsm\n\n\nclass BlogPostStateChoices(models.IntegerChoices):\n    NEW = 10, \"New\"\n    PUBLISHED = 20, \"Published\"\n    HIDDEN = 30, \"Hidden\"\n\n\nclass BlogPostWithIntegerField(fsm.FSMModelMixin, models.Model):\n    state = fsm.FSMIntegerField(default=BlogPostStateChoices.NEW)\n\n    @fsm.transition(\n        field=state,\n        source=BlogPostStateChoices.NEW,\n        target=BlogPostStateChoices.PUBLISHED,\n    )\n    def publish(self, **kwargs):\n        pass\n```\n\n### Signals\n\n`django_fsm.signals.pre_transition` and `django_fsm.signals.post_transition`\nfire before and after an allowed transition. No signals fire for invalid\ntransitions.\n\nArguments sent with these signals:\n\n- `sender` The model class.\n- `instance` The actual instance being processed.\n- `name` Transition name.\n- `source` Source model state.\n- `target` Target model state.\n\n## Optimistic locking\n\nUse `ConcurrentTransitionMixin` to avoid concurrent state changes. If the\nstate changed in the database, `django_fsm.ConcurrentTransition` is raised\non `save()`.\n\n```python\nimport django_fsm as fsm\n\n\nclass BlogPost(fsm.ConcurrentTransitionMixin, models.Model):\n    state = fsm.FSMField(default=\"new\")\n```\n\nFor guaranteed protection against race conditions caused by concurrently\nexecuted transitions, make sure:\n\n- Your transitions do not have side effects except for database changes.\n- You always call `save()` within a `django.db.transaction.atomic()` block.\n\nFollowing these recommendations, `ConcurrentTransitionMixin` will cause a\nrollback of all changes executed in an inconsistent state.\n\n## Admin Integration\n\n> NB: If you're migrating from [django-fsm-admin](https://github.com/gadventures/django-fsm-admin) (or any alternative), make sure it's not installed anymore to avoid installing the old django-fsm.\n\nUpdate import path:\n\n``` python\n- from django_fsm_admin.mixins import FSMTransitionMixin\n+ from django_fsm.admin import FSMAdminMixin\n```\n\n1. In your admin.py file, use FSMAdminMixin to add behaviour to your ModelAdmin. FSMAdminMixin should be before ModelAdmin, the order is important.\n\n``` python\nfrom django_fsm.admin import FSMAdminMixin\n\n\n@admin.register(AdminBlogPost)\nclass MyAdmin(FSMAdminMixin, admin.ModelAdmin):\n    # Declare the fsm fields you want to manage\n    fsm_fields = [\"my_fsm_field\"]\n    ...\n```\n\n2. You can customize the buttons by adding `label` and `help_text` to the `custom` attribute of the transition decorator\n\n``` python\n@fsm.transition(\n    field=\"state\",\n    source=[\"startstate\"],\n    target=\"finalstate\",\n    custom={\n        \"label\": \"My awesome transition\",  # this\n        \"help_text\": \"Rename blog post\",  # and this\n    },\n)\ndef do_something(self, **kwargs): ...\n```\n\nor by overriding some methods in FSMAdminMixin\n\n``` python\nfrom django_fsm.admin import FSMAdminMixin\n\n\n@admin.register(AdminBlogPost)\nclass MyAdmin(FSMAdminMixin, admin.ModelAdmin):\n    ...\n\n    def get_fsm_label(self, transition):  # this method\n        if transition.name == \"do_something\":\n            return \"My awesome transition\"\n        return super().get_fsm_label(transition)\n\n    def get_help_text(self, transition):  # and this method\n        if transition.name == \"do_something\":\n            return \"Rename blog post\"\n        return super().get_help_text(transition)\n```\n\n3. For forms in the admin transition flow, see the Custom Forms section below.\n\n4. Hiding a transition is possible by adding ``custom={\"admin\": False}`` to the transition decorator:\n\n``` python\n    @fsm.transition(\n        field='state',\n        source=['startstate'],\n        target='finalstate',\n        custom={\n            \"admin\": False,  # this\n        },\n    )\n    def do_something(self, **kwargs):\n       # will not add a button \"Do Something\" to your admin model interface\n```\nor from the admin:\n\n``` python\nfrom django_fsm.admin import FSMAdminMixin\n\n\n@admin.register(AdminBlogPost)\nclass MyAdmin(FSMAdminMixin, admin.ModelAdmin):\n    ...\n\n    def is_fsm_transition_visible(self, transition: fsm.Transition) -> bool:\n        if transition.name == \"do_something\":\n            return False\n        return super().is_fsm_transition_visible(transition)\n```\n\nNB: By adding `FSM_ADMIN_FORCE_PERMIT = True` to your configuration settings (or `fsm_default_disallow_transition = False` to your admin), the above restriction becomes the default.\nThen one must explicitly allow that a transition method shows up in the admin interface using `custom={\"admin\": True}`\n\n``` python\nfrom django_fsm.admin import FSMAdminMixin\n\n\n@admin.register(AdminBlogPost)\nclass MyAdmin(FSMAdminMixin, admin.ModelAdmin):\n    fsm_default_disallow_transition = False\n    ...\n```\n\n### Custom Forms\n\nYou can attach a custom form to a transition so the admin prompts for input\nbefore the transition runs. Add a `form` entry to `custom` on the transition,\nor define an admin-level mapping via `fsm_forms`. Both accept a `forms.Form`/\n`forms.ModelForm` class or a dotted import path.\n\n```python\nfrom django import forms\nimport django_fsm as fsm\n\n\nclass RenameForm(forms.Form):\n    new_title = forms.CharField(max_length=255)\n    # it's also possible to declare fsm log description\n    description = forms.CharField(max_length=255)\n\n\nclass BlogPost(fsm.FSMModelMixin, models.Model):\n    title = models.CharField(max_length=255)\n    state = fsm.FSMField(default=\"created\")\n\n    @fsm.transition(\n        field=state,\n        source=\"*\",\n        target=\"created\",\n        custom={\n            \"label\": \"Rename\",\n            \"help_text\": \"Rename blog post\",\n            \"form\": \"path.to.RenameForm\",\n        },\n    )\n    def rename(self, new_title, **kwargs):\n        self.title = new_title\n```\n\nYou can also define forms directly on your `ModelAdmin` without touching the\ntransition definition:\n\n```python\nfrom django_fsm.admin import FSMAdminMixin\n\nfrom .admin_forms import RenameForm\n\n\n@admin.register(AdminBlogPost)\nclass MyAdmin(FSMAdminMixin, admin.ModelAdmin):\n    fsm_fields = [\"state\"]\n    fsm_forms = {\n        \"rename\": \"path.to.RenameForm\",  # use import path\n        \"rename\": RenameForm,  # or FormClass\n    }\n```\n\nBehavior details:\n\n- When `form` is set, the transition button redirects to a form view instead of\n  executing immediately.\n- If both are defined, `fsm_forms` on the admin takes precedence over\n  `custom[\"form\"]` on the transition.\n- On submit, `cleaned_data` is passed to the transition method as keyword\n  arguments and the object is saved.\n- `RenameForm` receives the current instance automatically.\n- You can override the transition form template by setting\n  `fsm_transition_form_template` on your `ModelAdmin` (or override globally `templates/django_fsm/fsm_admin_transition_form.html`).\n\n### Unfold support\n\nIf you use [Django Unfold](https://github.com/unfoldadmin/django-unfold), this package provide a contrib that contains templates tailored to the Unfold admin UI.\n\n```python\nINSTALLED_APPS = (\n    ...,\n    \"unfold\",\n    \"django_fsm.contrib.unfold\",\n    ...,\n)\n```\n\n## Drawing transitions\n\nRender a graphical overview of your model transitions.\n\n1. Install graphviz support:\n\n```bash\nuv pip install django-fsm-2[graphviz]\n```\n\nor\n\n```bash\nuv pip install \"graphviz>=0.4\"\n```\n\n2. Ensure `django_fsm` is in `INSTALLED_APPS`:\n\n```python\nINSTALLED_APPS = (\n    ...,\n    \"django_fsm\",\n    ...,\n)\n```\n\n3. Run the management command:\n\n```bash\n# Create a dot file\n./manage.py graph_transitions > transitions.dot\n\n# Create a PNG image file for a specific model\n./manage.py graph_transitions -o blog_transitions.png myapp.Blog\n\n# Exclude some transitions\n./manage.py graph_transitions -e transition_1,transition_2 myapp.Blog\n```\n\n### Styling the graph\n\n`graph_transitions`'s `Command` is designed to be subclassed, so you can\ncolor or style the exported diagram by overriding a couple of hook methods.\nSubclass the command from an app listed before `django_fsm` in\n`INSTALLED_APPS`:\n\n```python\n# myapp/management/commands/graph_transitions.py\nfrom django_fsm.management.commands.graph_transitions import Command as BaseCommand\n\nSTATE_COLORS = {\"approved\": \"green\", \"rejected\": \"red\"}\n\n\nclass Command(BaseCommand):\n    def get_transition_edge_attrs(self, transition):\n        if transition.name == \"approve\":\n            return {\"color\": \"green\", \"penwidth\": \"2\"}\n        if color := transition.custom.get(\"graph_color\"):\n            return {\"color\": color, \"penwidth\": \"2\"}\n        return super().get_transition_edge_attrs(transition)\n\n    def get_state_node_attrs(self, field, state, label):\n        if color := STATE_COLORS.get(state):\n            return {\"style\": \"filled\", \"fillcolor\": color}\n        return super().get_state_node_attrs(field, state, label)\n```\n\n## Extensions\n\nTransition logging support could be achieved with help of django-fsm-log\npackage : <https://github.com/gizmag/django-fsm-log>\n\n## Contributing\n\nWe welcome contributions. See `CONTRIBUTING.md` for detailed setup\ninstructions.\n\n### Quick Development Setup\n\n```bash\n# Clone and setup\ngit clone https://github.com/django-commons/django-fsm-2.git\ncd django-fsm\nuv sync\n\n# Run tests\nuv run pytest -v\n# or\nuv run tox\n\n# Run linting\nuv run ruff format .\nuv run ruff check .\n```\n",
+        "description_content_type": "text/markdown",
+        "author_email": "Mikhail Podgurskiy <kmmbvnr@gmail.com>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Web Environment",
+          "Framework :: Django",
+          "Framework :: Django :: 5.2",
+          "Framework :: Django :: 6.0",
+          "Framework :: Django :: 6.1",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          "Typing :: Typed"
+        ],
+        "requires_dist": [
+          "django-stubs-ext",
+          "django>=5.2.0",
+          "typing-extensions; python_version < '3.12'",
+          "graphviz; extra == 'graphviz'"
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "Homepage, http://github.com/django-commons/django-fsm-2",
+          "Repository, http://github.com/django-commons/django-fsm-2",
+          "Documentation, http://github.com/django-commons/django-fsm-2"
+        ],
+        "provides_extra": [
+          "graphviz"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+          "hashes": {
+            "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "packaging",
+        "version": "26.3",
+        "summary": "Core utilities for Python packages",
+        "description": "packaging\n=========\n\n.. start-intro\n\nReusable core utilities for various Python Packaging\n`interoperability specifications <https://packaging.python.org/specifications/>`_.\n\nThis library provides utilities that implement the interoperability\nspecifications which have clearly one correct behaviour (eg: :pep:`440`)\nor benefit greatly from having a single shared implementation (eg: :pep:`425`).\n\n.. end-intro\n\nThe ``packaging`` project includes the following: version handling, specifiers,\nmarkers, requirements, tags, metadata, lockfiles, utilities.\n\nDocumentation\n-------------\n\nThe `documentation`_ provides information and the API for the following:\n\n- Version Handling\n- Specifiers\n- Markers\n- Licenses\n- Requirements\n- Metadata\n- Tags\n- Lockfiles (pylock)\n- Direct URL helpers\n- Dependency groups\n- Errors\n- Utilities\n\nInstallation\n------------\n\nUse ``pip`` to install these utilities::\n\n    pip install packaging\n\nThe ``packaging`` library uses calendar-based versioning (``YY.N``).\n\nDiscussion\n----------\n\nIf you run into bugs, you can file them in our `issue tracker`_.\n\nYou can also join discussions on `GitHub Discussions`_ to ask questions or get involved.\n\n.. _`documentation`: https://packaging.pypa.io/\n.. _`issue tracker`: https://github.com/pypa/packaging/issues\n.. _`GitHub Discussions`: https://github.com/pypa/packaging/discussions\n\n\nCode of Conduct\n---------------\n\nEveryone interacting in the packaging project's codebases, issue trackers, chat\nrooms, and mailing lists is expected to follow the `PSF Code of Conduct`_.\n\n.. _PSF Code of Conduct: https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md\n\nContributing\n------------\n\nThe ``CONTRIBUTING.rst`` file outlines how to contribute to this project as\nwell as how to report a potential security issue. The documentation for this\nproject also covers information about `project development`_ and `security`_.\n\n.. _`project development`: https://packaging.pypa.io/en/latest/development/\n.. _`security`: https://packaging.pypa.io/en/latest/security/\n\nProject History\n---------------\n\nPlease review the ``CHANGELOG.rst`` file or the `Changelog documentation`_ for\nrecent changes and project history.\n\n.. _`Changelog documentation`: https://packaging.pypa.io/en/latest/changelog/\n\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Donald Stufft <donald@stufft.io>",
+        "license_expression": "Apache-2.0 OR BSD-2-Clause",
+        "license_file": [
+          "LICENSE",
+          "LICENSE.APACHE",
+          "LICENSE.BSD"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Programming Language :: Python :: Free Threading :: 4 - Resilient",
+          "Typing :: Typed"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Documentation, https://packaging.pypa.io/",
+          "Source, https://github.com/pypa/packaging"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/2e/b0/ec211e1f7966247cb6469158d856bac9aa4c2fe13621bd6a352e4f850453/asgiref-3.13.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=f9596a2434512686473d50f96ff6207fbba49ae1a785dfac614df4aeb085674d",
+          "hashes": {
+            "sha256": "f9596a2434512686473d50f96ff6207fbba49ae1a785dfac614df4aeb085674d"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "asgiref",
+        "version": "3.13.0",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "ASGI specs, helper code, and adapters",
+        "description": "asgiref\n=======\n\n.. image:: https://github.com/django/asgiref/actions/workflows/tests.yml/badge.svg\n    :target: https://github.com/django/asgiref/actions/workflows/tests.yml\n\n.. image:: https://img.shields.io/pypi/v/asgiref.svg\n    :target: https://pypi.python.org/pypi/asgiref\n\nASGI is a standard for Python asynchronous web apps and servers to communicate\nwith each other, and positioned as an asynchronous successor to WSGI. You can\nread more at https://asgi.readthedocs.io/en/latest/\n\nThis package includes ASGI base libraries, such as:\n\n* Sync-to-async and async-to-sync function wrappers, ``asgiref.sync``\n* Server base classes, ``asgiref.server``\n* A WSGI-to-ASGI adapter, in ``asgiref.wsgi``\n\n\nFunction wrappers\n-----------------\n\nThese allow you to wrap or decorate async or sync functions to call them from\nthe other style (so you can call async functions from a synchronous thread,\nor vice-versa).\n\nIn particular:\n\n* AsyncToSync lets a synchronous subthread stop and wait while the async\n  function is called on the main thread's event loop, and then control is\n  returned to the thread when the async function is finished.\n\n* SyncToAsync lets async code call a synchronous function, which is run in\n  a threadpool and control returned to the async coroutine when the synchronous\n  function completes.\n\nThe idea is to make it easier to call synchronous APIs from async code and\nasynchronous APIs from synchronous code so it's easier to transition code from\none style to the other. In the case of Channels, we wrap the (synchronous)\nDjango view system with SyncToAsync to allow it to run inside the (asynchronous)\nASGI server.\n\nNote that exactly what threads things run in is very specific, and aimed to\nkeep maximum compatibility with old synchronous code. See\n\"Synchronous code & Threads\" below for a full explanation. By default,\n``sync_to_async`` will run all synchronous code in the program in the same\nthread for safety reasons; you can disable this for more performance with\n``@sync_to_async(thread_sensitive=False)``, but make sure that your code does\nnot rely on anything bound to threads (like database connections) when you do.\n\n\nThread-sensitive contexts\n-------------------------\n\n``ThreadSensitiveContext`` gives thread-sensitive ``sync_to_async`` calls a\nshared, single-worker executor for an async block. This allows you to group\nthread-sensitive calls, for example, per-request in a web application,\nrather than per-process::\n\n    class ASGIHandler(...):\n        ...\n\n        async def __call__(...):\n            ...\n\n            async with ThreadSensitiveContext():\n                await self.handle(...)\n\nBy default, only the outermost ``ThreadSensitiveContext`` sets the\ncontext. Nested calls are a no-op and reuse it.\n\nNested contexts can be created by passing the explicit ``executor`` keyword\nargument.\n\n* The executor must run one call at a time on one thread, such as\n  ``ThreadPoolExecutor(max_workers=1)``. Recall, it is used for\n  ``sync_to_async(…, thread_sensitive=True)`` calls.\n\n* The calling code is responsible for the executor lifetime:\n  the context does not shut it down. You may use it again for a later block,\n  for example in a pool.\n\n* Do not use one executor for two blocks at the same time.\n\nBy providing an executor, nested work can be run on a separate thread from the\nparent context's, including when the block is reached through ``async_to_sync``::\n\n    from concurrent.futures import ThreadPoolExecutor\n\n    from asgiref.sync import ThreadSensitiveContext, sync_to_async\n\n    worker = ThreadPoolExecutor(max_workers=1)\n\n    async with ThreadSensitiveContext():\n        await sync_to_async(parent_work)()\n        async with ThreadSensitiveContext(executor=worker):\n            await sync_to_async(child_work)()\n            await sync_to_async(more_child_work)()\n        await sync_to_async(parent_work)()\n\nBoth child calls run on the worker's thread. After the child block exits, calls\nuse the parent thread again. Nested ``sync_to_async`` / ``async_to_sync`` calls\nwithin the child block also retain its thread affinity.\n\nTasks created inside a block inherit its context. Wait for those tasks before\nleaving the context. A thread-sensitive call made by such a task after the\ncontext has exited raises ``RuntimeError``. To isolate concurrent tasks, each\nmust enter its own context with its own executor.\n\nA context with an executor can be entered only once: create a new one for each\nblock.\n\nExecutor contexts separate thread-critical ``Local`` storage but do not change\n``ContextVar`` or plain ``Local`` propagation. ``thread_sensitive=False`` calls\nare not affected.\n\nThreadlocal replacement\n-----------------------\n\nThis is a drop-in replacement for ``threading.local`` that works with both\nthreads and asyncio Tasks. Even better, it will proxy values through from a\ntask-local context to a thread-local context when you use ``sync_to_async``\nto run things in a threadpool, and vice-versa for ``async_to_sync``.\n\nIf you instead want true thread- and task-safety, you can set\n``thread_critical`` on the Local object to ensure this instead.\n\n\nServer base classes\n-------------------\n\nIncludes a ``StatelessServer`` class which provides all the hard work of\nwriting a stateless server (as in, does not handle direct incoming sockets\nbut instead consumes external streams or sockets to work out what is happening).\n\nAn example of such a server would be a chatbot server that connects out to\na central chat server and provides a \"connection scope\" per user chatting to\nit. There's only one actual connection, but the server has to separate things\ninto several scopes for easier writing of the code.\n\nYou can see an example of this being used in `frequensgi <https://github.com/andrewgodwin/frequensgi>`_.\n\n\nWSGI-to-ASGI adapter\n--------------------\n\nAllows you to wrap a WSGI application so it appears as a valid ASGI application.\n\nSimply wrap it around your WSGI application like so::\n\n    asgi_application = WsgiToAsgi(wsgi_application)\n\nThe WSGI application will be run in a synchronous threadpool, and the wrapped\nASGI application will be one that accepts ``http`` class messages.\n\nPlease note that not all extended features of WSGI may be supported (such as\nfile handles for incoming POST bodies).\n\n\nDependencies\n------------\n\n``asgiref`` requires Python 3.11 or higher.\n\n\nContributing\n------------\n\nPlease refer to the\n`main Channels contributing docs <https://github.com/django/channels/blob/master/CONTRIBUTING.rst>`_.\n\n\nTesting\n'''''''\n\nTo run tests, make sure you have installed the ``tests`` extra with the package::\n\n    cd asgiref/\n    pip install -e .[tests]\n    pytest\n\nThere is also a micro-benchmark suite for ``asgiref.local`` in\n``tests/test_benchmark_local.py``. It is skipped unless ``pytest-benchmark``\n(or ``pytest-codspeed``) is installed, and is not part of the regular CI run.\nTo run it via tox::\n\n    tox -e benchmark\n\nBenchmark numbers are only meaningful when compared on the same machine, so\nthe typical workflow is to save a baseline and then compare against it::\n\n    tox -e benchmark -- --benchmark-save=before\n    # ... make changes ...\n    tox -e benchmark -- --benchmark-compare\n\n\nBuilding the documentation\n''''''''''''''''''''''''''\n\nThe documentation uses `Sphinx <http://www.sphinx-doc.org>`_::\n\n    cd asgiref/docs/\n    pip install sphinx\n\nTo build the docs, you can use the default tools::\n\n    sphinx-build -b html . _build/html  # or `make html`, if you've got make set up\n    cd _build/html\n    python -m http.server\n\n...or you can use ``sphinx-autobuild`` to run a server and rebuild/reload\nyour documentation changes automatically::\n\n    pip install sphinx-autobuild\n    sphinx-autobuild . _build/html\n\n\nReleasing\n'''''''''\n\nTo release, first add details to CHANGELOG.txt and update the version number in ``asgiref/__init__.py``.\n\nThen, build and push the packages::\n\n    python -m build\n    twine upload dist/*\n    rm -r asgiref.egg-info dist\n\n\nImplementation Details\n----------------------\n\nSynchronous code & threads\n''''''''''''''''''''''''''\n\nThe ``asgiref.sync`` module provides two wrappers that let you go between\nasynchronous and synchronous code at will, while taking care of the rough edges\nfor you.\n\nUnfortunately, the rough edges are numerous, and the code has to work especially\nhard to keep things in the same thread as much as possible. Notably, the\nrestrictions we are working with are:\n\n* All synchronous code called through ``SyncToAsync`` and marked with\n  ``thread_sensitive`` should run in the same thread as each other (and if the\n  outer layer of the program is synchronous, the main thread)\n\n* If a thread already has a running async loop, ``AsyncToSync`` can't run things\n  on that loop if it's blocked on synchronous code that is above you in the\n  call stack.\n\nThe first compromise you get to might be that ``thread_sensitive`` code should\njust run in the same thread and not spawn in a sub-thread, fulfilling the first\nrestriction, but that immediately runs you into the second restriction.\n\nThe only real solution is to essentially have a variant of ThreadPoolExecutor\nthat executes any ``thread_sensitive`` code on the outermost synchronous\nthread - either the main thread, or a single spawned subthread.\n\nThis means you now have two basic states:\n\n* If the outermost layer of your program is synchronous, then all async code\n  run through ``AsyncToSync`` will run in a per-call event loop in arbitrary\n  sub-threads, while all ``thread_sensitive`` code will run in the main thread.\n\n* If the outermost layer of your program is asynchronous, then all async code\n  runs on the main thread's event loop, and all ``thread_sensitive`` synchronous\n  code will run in a single shared sub-thread.\n\nCrucially, this means that in both cases there is a thread which is a shared\nresource that all ``thread_sensitive`` code must run on, and there is a chance\nthat this thread is currently blocked on its own ``AsyncToSync`` call. Thus,\n``AsyncToSync`` needs to act as an executor for thread code while it's blocking.\n\nThe ``CurrentThreadExecutor`` class provides this functionality; rather than\nsimply waiting on a Future, you can call its ``run_until_future`` method and\nit will run submitted code until that Future is done. This means that code\ninside the call can then run code on your thread.\n\n\nMaintenance and Security\n------------------------\n\nTo report security issues, please contact security@djangoproject.com. For GPG\nsignatures and more security process information, see\nhttps://docs.djangoproject.com/en/dev/internals/security/.\n\nTo report bugs or request new features, please open a new GitHub issue.\n\nThis repository is part of the Channels project. For the shepherd and maintenance team, please see the\n`main Channels readme <https://github.com/django/channels/blob/master/README.rst>`_.\n",
+        "home_page": "https://github.com/django/asgiref/",
+        "author": "Django Software Foundation",
+        "author_email": "foundation@djangoproject.com",
+        "license": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Web Environment",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Free Threading :: 2 - Beta",
+          "Topic :: Internet :: WWW/HTTP"
+        ],
+        "requires_dist": [
+          "packaging; extra == \"tests\"",
+          "pytest; extra == \"tests\"",
+          "pytest-asyncio; extra == \"tests\"",
+          "mypy>=1.14.0; extra == \"mypy\""
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "Documentation, https://asgi.readthedocs.io/",
+          "Further Documentation, https://docs.djangoproject.com/en/stable/topics/async/#async-adapter-functions",
+          "Changelog, https://github.com/django/asgiref/blob/master/CHANGELOG.txt"
+        ],
+        "provides_extra": [
+          "tests",
+          "mypy"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/c0/98/ea43bece0395668c88f7a5c80b4c027dc61306911109b6a4446561fcb74d/django_formtools-2.7-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=06e4ab1f9c999f5b2ec6670cb2d51b77117599f4f17c5855f38de158b1c7f247",
+          "hashes": {
+            "sha256": "06e4ab1f9c999f5b2ec6670cb2d51b77117599f4f17c5855f38de158b1c7f247"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.1",
+        "name": "django-formtools",
+        "version": "2.7",
+        "summary": "A set of high-level abstractions for Django forms",
+        "description": "================\ndjango-formtools\n================\n\n.. image:: https://jazzband.co/static/img/badge.svg\n    :alt: Jazzband\n    :target: https://jazzband.co/\n\n.. image:: https://img.shields.io/pypi/v/django-formtools.svg\n    :alt: PyPI version\n    :target: https://pypi.org/project/django-formtools/\n\n.. image:: https://img.shields.io/pypi/pyversions/django-formtools.svg\n    :alt: Supported Python versions\n    :target: https://pypi.org/project/django-formtools/\n\n.. image:: https://github.com/jazzband/django-formtools/workflows/Test/badge.svg\n   :target: https://github.com/jazzband/django-formtools/actions\n   :alt: GitHub Actions\n\n.. image:: https://codecov.io/gh/jazzband/django-formtools/branch/master/graph/badge.svg\n   :target: https://codecov.io/gh/jazzband/django-formtools\n   :alt: Test Coverage\n\nDjango's \"formtools\" is a set of high-level abstractions for Django forms.\nCurrently for form previews and multi-step forms.\n\nThis code used to live in Django proper -- in ``django.contrib.formtools``\n-- but was separated into a standalone package in Django 1.8 to keep the\nframework's core clean.\n\nFor a full list of available formtools, see\nhttps://django-formtools.readthedocs.io/\n\ndjango-formtools can also be found on and installed from the Python\nPackage Index: https://pypi.python.org/pypi/django-formtools\n\nTo get more help, please use the offical Django Forum at\nhttps://forum.djangoproject.com/\n\nContributing to django-formtools\n--------------------------------\n\nSee ``CONTRIBUTING.rst`` for information about contributing patches to\n``django-formtools``.\n\nRunning tests is as simple as `installing Tox`__ and running it in the root\nGit clone directory::\n\n    $ git clone https://github.com/jazzband/django-formtools\n    [..]\n    $ cd django-formtools\n    $ tox\n    [..]\n      congratulations :)\n\nThe previous command will run the tests in different combinations of Python\n(if available) and Django versions. To see the full list of combinations use\nthe ``-l`` option::\n\n    $ tox -l\n    ...\n    py310-djangoAB\n    py310-djangomain\n\nYou can run each environment with the ``-e`` option::\n\n    $ tox -e py310-djangoAB  # runs the tests only on Python 3.10 and Django A.B.x\n\n__ https://tox.readthedocs.io/en/latest/install.html\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Django Software Foundation <foundation@djangoproject.com>",
+        "license": "BSD",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Web Environment",
+          "Framework :: Django",
+          "Framework :: Django :: 5.2",
+          "Framework :: Django :: 6.0",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Topic :: Internet :: WWW/HTTP"
+        ],
+        "requires_dist": [
+          "Django >=5.2"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Homepage, https://django-formtools.readthedocs.io/en/latest/",
+          "Source, https://github.com/jazzband/django-formtools"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/df/ff/2fee788e82e75be8f210c65c5d103bf44c880e3769c884652a4cd911b8ba/sqlparse-0.6.1-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=3be5a72d04c873d690d7c6dedd33d6fae2ef82759881ceec02fc2efd0cba564f",
+          "hashes": {
+            "sha256": "3be5a72d04c873d690d7c6dedd33d6fae2ef82759881ceec02fc2efd0cba564f"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "sqlparse",
+        "version": "0.6.1",
+        "summary": "A non-validating SQL parser.",
+        "description": "# sqlparse\n\n[![Build Status](https://github.com/andialbrecht/sqlparse/actions/workflows/python-app.yml/badge.svg)](https://github.com/andialbrecht/sqlparse/actions/workflows/python-app.yml)\n[![Coverage](https://codecov.io/gh/andialbrecht/sqlparse/branch/master/graph/badge.svg)](https://codecov.io/gh/andialbrecht/sqlparse)\n[![Documentation](https://readthedocs.org/projects/sqlparse/badge/?version=latest)](https://sqlparse.readthedocs.io/en/latest/)\n[![PyPI](https://img.shields.io/pypi/v/sqlparse?color=%2334D058&label=pypi%20package)](https://pypi.org/project/sqlparse)\n[![Python versions](https://img.shields.io/pypi/pyversions/sqlparse)](https://pypi.org/project/sqlparse)\n[![License](https://img.shields.io/badge/license-BSD--3--Clause-blue)](https://opensource.org/licenses/BSD-3-Clause)\n\n> [!IMPORTANT]\n> **Project Status: End of Maintenance**\n>\n> sqlparse is no longer actively maintained. Version 0.6.1 was its final release.\n>\n> No further bug fixes, feature updates, or security fixes are planned. The repository and published packages will remain available, but users should not expect ongoing maintenance or security support.\n>\n> Software Supply Chain Security: To minimize supply chain risks, I will retain control of the sqlparse project on PyPI and this GitHub repository. There are no plans to transfer ownership or grant publishing or commit access to third parties.\n>\n> After many years of maintaining sqlparse as a volunteer, I have decided to bring the project to a close. A more detailed explanation of this decision is available separately.\n>\n> THANKS TO ALL USERS AND CONTRIBUTORS!\n> I would like to thank everyone who has contributed to sqlparse over the years.\n\nA non-validating SQL parser for Python. Split scripts into statements, format\nthem, and walk their token tree.\n\nsqlparse tokenizes SQL text and groups the parts it recognizes into a tree of\nstatements, clauses, identifiers and expressions. It accepts any input without\nvalidating it, and makes no assumptions about a particular SQL dialect, so\nvendor extensions and templated SQL parse too. It is a building block for\nformatters, linters, editors and query analysis tools.\n\nLicensed under the\n[New BSD license](https://opensource.org/licenses/BSD-3-Clause).\n\n## Install\n\n```bash\npip install sqlparse\n```\n\n## Usage\n\nThree module-level functions cover most needs: `split()`, `format()` and\n`parse()`.\n\n### Split a script into statements\n\n```python\nimport sqlparse\n\nsqlparse.split(\"select * from foo; select * from bar;\")\n# ['select * from foo;', 'select * from bar;']\n```\n\n### Format a statement\n\n```python\nprint(sqlparse.format(\"select id,name from users where active=1\",\n                      reindent=True, keyword_case=\"upper\"))\n```\n\n```sql\nSELECT id,\n       name\nFROM users\nWHERE active=1\n```\n\n`format()` accepts the same options as the command line, among them\n`reindent`, `keyword_case`, `strip_comments` and `indent_width`.\n\n### Parse and inspect a statement\n\n```python\nstatement = sqlparse.parse(\"select id, name from users where active = 1\")[0]\n\nprint(statement.get_type())\nfor token in statement.tokens:\n    if not token.is_whitespace:\n        print(f\"{token.ttype or type(token).__name__!s:20} {token!s}\")\n```\n\n```\nSELECT\nToken.Keyword.DML    select\nIdentifierList       id, name\nToken.Keyword        from\nIdentifier           users\nWhere                where active = 1\n```\n\nTokens with a `ttype` are leaves. The others are groups you can descend into,\nwhich is how nested constructs like subqueries and `CASE` expressions are\nrepresented. See\n[Analyzing SQL statements](https://sqlparse.readthedocs.io/en/latest/analyzing.html)\nfor the traversal API.\n\n## Command line\n\nInstalling sqlparse also provides the `sqlformat` command. It reads from stdin\nwhen the filename is `-`, writes to stdout by default, and rewrites files in\nplace with `--in-place`:\n\n```bash\nsqlformat --reindent --keywords upper query.sql\n```\n\nRun `sqlformat --help` for all formatting options.\n\n## Pre-commit hook\n\nFormat SQL files on commit with [pre-commit](https://pre-commit.com/):\n\n```yaml\nrepos:\n  - repo: https://github.com/andialbrecht/sqlparse\n    rev: 0.5.5  # use the latest release\n    hooks:\n      - id: sqlformat\n        args: [--in-place, --reindent, --keywords, upper]\n```\n\nThe hook defaults to `--in-place --reindent`. When overriding `args`, keep\n`--in-place`, or the hook writes to stdout and leaves your files unchanged.\n\n## Links\n\n| | |\n|---|---|\n| Documentation | <https://sqlparse.readthedocs.io/> |\n| Release notes | <https://sqlparse.readthedocs.io/en/latest/changes.html> |\n| Issues | <https://github.com/andialbrecht/sqlparse/issues> |\n| Discussions | <https://github.com/andialbrecht/sqlparse/discussions> |\n| Online demo | <https://sqlformat.org/> |\n\n## Contributing\n\nContributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) to get\nstarted.\n\nsqlparse is maintained in spare time, so it can take a while before an issue or\npull request gets a reply. Thanks for your patience. A pull request that comes\nwith tests for the behavior it changes is usually the quickest to review.\n\nFor security issues, please follow [SECURITY.md](SECURITY.md) rather than\nopening a public issue.\n\n## License\n\nsqlparse is licensed under the New BSD license; see [LICENSE](LICENSE) for the\nfull text. Parts of the code are based on [Pygments](https://pygments.org/),\nwritten by Georg Brandl and others.\n",
+        "description_content_type": "text/markdown",
+        "author_email": "Andi Albrecht <albrecht.andi@gmail.com>",
+        "license_file": [
+          "AUTHORS",
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Database",
+          "Topic :: Software Development"
+        ],
+        "requires_dist": [
+          "build; extra == 'dev'",
+          "furo; extra == 'doc'",
+          "sphinx; extra == 'doc'"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Home, https://github.com/andialbrecht/sqlparse",
+          "Documentation, https://sqlparse.readthedocs.io/",
+          "Release Notes, https://sqlparse.readthedocs.io/en/latest/changes.html",
+          "Source, https://github.com/andialbrecht/sqlparse",
+          "Tracker, https://github.com/andialbrecht/sqlparse/issues"
+        ],
+        "provides_extra": [
+          "dev",
+          "doc"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/21/bb/393c3c1e24aaf37d62918ea50f3ea22e30d5f3162fc62f4c3bf3275e5ed3/django_stubs_ext-6.1.2-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=7334e687ab6dc78a6c3da90ab1ccb0e412efd827ea11de8d3f85adbad948abb1",
+          "hashes": {
+            "sha256": "7334e687ab6dc78a6c3da90ab1ccb0e412efd827ea11de8d3f85adbad948abb1"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "django-stubs-ext",
+        "version": "6.1.2",
+        "summary": "Monkey-patching and extensions for django-stubs",
+        "description": "# Extensions and monkey-patching for django-stubs\n\n[![test](https://github.com/typeddjango/django-stubs/actions/workflows/test.yml/badge.svg?branch=master&event=push)](https://github.com/typeddjango/django-stubs/actions/workflows/test.yml)\n[![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)\n[![StackOverflow](https://shields.io/badge/ask-stackoverflow-orange?logo=stackoverflow)](https://stackoverflow.com/questions/tagged/django-stubs?tab=Active)\n\nThis package contains extensions and monkey-patching functions for the [django-stubs](https://github.com/typeddjango/django-stubs) package. Certain features of django-stubs (i.e. generic django classes that don't define the `__class_getitem__` method) require runtime monkey-patching, which can't be done with type stubs. These extensions were split into a separate package so library consumers don't need `mypy` as a runtime dependency ([#526](https://github.com/typeddjango/django-stubs/pull/526#pullrequestreview-525798031)).\n\n## Installation\n\n```bash\npip install django-stubs-ext\n```\n\n## Usage\n\nIn your Django application, use the following code:\n\n```py\nimport django_stubs_ext\n\ndjango_stubs_ext.monkeypatch()\n```\n\nThis only needs to be called once, so the call to `monkeypatch` should be placed in your top-level settings.\nReal-life example [can be found here](https://github.com/wemake-services/wemake-django-template/blob/5bf1569e2710e11befc6991893f94419136d74bd/%7B%7Bcookiecutter.project_name%7D%7D/server/settings/__init__.py#L14-L19).\n\n## Version compatibility\n\nSince django-stubs supports multiple Django versions, this package takes care to only monkey-patch the features needed by your django version, and decides which features to patch at runtime. This is completely safe, as (currently) we only add a `__class_getitem__` method that does nothing:\n\n```py\n@classmethod\ndef __class_getitem__(cls, *args, **kwargs):\n    return cls\n```\n\n## To get help\n\nFor help with django-stubs, please view the main repository at <https://github.com/typeddjango/django-stubs>\n\n## Contributing\n\nThe django-stubs-ext package is part of the [django-stubs](https://github.com/typeddjango/django-stubs) monorepo. If you would like to contribute, please view the django-stubs [contribution guide](https://github.com/typeddjango/django-stubs/blob/master/CONTRIBUTING.md).\n\nYou can always also reach out in gitter to discuss your contributions!\n",
+        "description_content_type": "text/markdown",
+        "author": "Simula Proxy",
+        "maintainer": "Marti Raudsepp, Nikita Sobolev, Petter Friberg, Adam Johnson",
+        "maintainer_email": "Marti Raudsepp <marti@juffo.org>, Nikita Sobolev <mail@sobolevn.me>, Petter Friberg <petter_friberg@hotmail.com>, Adam Johnson <me@adamj.eu>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE.md"
+        ],
+        "classifier": [
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Typing :: Typed",
+          "Framework :: Django",
+          "Framework :: Django :: 5.2",
+          "Framework :: Django :: 6.0",
+          "Framework :: Django :: 6.1"
+        ],
+        "requires_dist": [
+          "django",
+          "typing-extensions"
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "Homepage, https://github.com/typeddjango/django-stubs",
+          "Funding, https://github.com/sponsors/typeddjango",
+          "Release notes, https://github.com/typeddjango/django-stubs/releases"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+          "hashes": {
+            "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "typing_extensions",
+        "version": "4.16.0",
+        "summary": "Backported and Experimental Type Hints for Python 3.9+",
+        "description": "# Typing Extensions\n\n[![Chat at https://gitter.im/python/typing](https://badges.gitter.im/python/typing.svg)](https://gitter.im/python/typing)\n\n[Documentation](https://typing-extensions.readthedocs.io/en/latest/#) –\n[PyPI](https://pypi.org/project/typing-extensions/)\n\n## Overview\n\nThe `typing_extensions` module serves two related purposes:\n\n- Enable use of new type system features on older Python versions. For example,\n  `typing.TypeGuard` is new in Python 3.10, but `typing_extensions` allows\n  users on previous Python versions to use it too.\n- Enable experimentation with new type system PEPs before they are accepted and\n  added to the `typing` module.\n\n`typing_extensions` is treated specially by static type checkers such as\nmypy and pyright. Objects defined in `typing_extensions` are treated the same\nway as equivalent forms in `typing`.\n\n`typing_extensions` uses\n[Semantic Versioning](https://semver.org/). The\nmajor version will be incremented only for backwards-incompatible changes.\nTherefore, it's safe to depend\non `typing_extensions` like this: `typing_extensions ~=x.y`,\nwhere `x.y` is the first version that includes all features you need.\n[This](https://packaging.python.org/en/latest/specifications/version-specifiers/#compatible-release)\nis equivalent to `typing_extensions >=x.y, <(x+1)`. Do not depend on `~= x.y.z`\nunless you really know what you're doing; that defeats the purpose of\nsemantic versioning.\n\n## Included items\n\nSee [the documentation](https://typing-extensions.readthedocs.io/en/latest/#) for a\ncomplete listing of module contents.\n\n## Contributing\n\nSee [CONTRIBUTING.md](https://github.com/python/typing_extensions/blob/main/CONTRIBUTING.md)\nfor how to contribute to `typing_extensions`.\n\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "annotations",
+          "backport",
+          "checker",
+          "checking",
+          "function",
+          "hinting",
+          "hints",
+          "type",
+          "typechecking",
+          "typehinting",
+          "typehints",
+          "typing"
+        ],
+        "author_email": "\"Guido van Rossum, Jukka Lehtosalo, Łukasz Langa, Michael Lee\" <levkivskyi@gmail.com>",
+        "license_expression": "PSF-2.0",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Topic :: Software Development"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Bug Tracker, https://github.com/python/typing_extensions/issues",
+          "Changes, https://github.com/python/typing_extensions/blob/main/CHANGELOG.md",
+          "Documentation, https://typing-extensions.readthedocs.io/",
+          "Home, https://github.com/python/typing_extensions",
+          "Q & A, https://github.com/python/typing/discussions",
+          "Repository, https://github.com/python/typing_extensions"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "7.0.0-1014-aws",
+    "platform_system": "Linux",
+    "platform_version": "#14~24.04.1-Ubuntu SMP PREEMPT Fri Sep 18 21:24:59 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}
