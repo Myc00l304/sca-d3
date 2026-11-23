@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "packages": 1,
+  "tree": {
+    "org.gradle:gradle-core": "8.14.3"
+  },
+  "jars": [
+    "gradle-core-8.14.3.jar"
+  ]
+}

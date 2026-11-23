@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "python": "python312",
+  "resolution": "full",
+  "f2": true,
+  "packages": 2,
+  "tree": {
+    "bracex": "3.2.4",
+    "wcmatch": "11.1"
+  }
+}

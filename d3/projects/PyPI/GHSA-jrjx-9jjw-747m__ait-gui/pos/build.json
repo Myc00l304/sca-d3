@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "stage": "resolve",
+  "stderr": "ERROR: Cannot install ait-gui because these package versions have conflicting dependencies.\nERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/topics/dependency-resolution/#dealing-with-dependency-conflicts\nWARNING: There was an error checking the latest version of pip.\n"
+}

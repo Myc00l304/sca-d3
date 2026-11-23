@@ -1,0 +1,126 @@
+{
+  "version": "1",
+  "pip_version": "25.0.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/1e/22/c4adda5a3754b7fc9429a544a0673fa6922fdd7808eab09abe18616f6e38/wcmatch-11.1-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=2863afee97a7dd62e64f7feada864848c1a5e31cb331b3aa530fa1300d2d5d3c",
+          "hashes": {
+            "sha256": "2863afee97a7dd62e64f7feada864848c1a5e31cb331b3aa530fa1300d2d5d3c"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "wcmatch",
+        "version": "11.1",
+        "summary": "Wildcard/glob file name matcher.",
+        "description": "[![Donate via PayPal][donate-image]][donate-link]\n[![Coverage Status][codecov-image]][codecov-link]\n[![PyPI Version][pypi-image]][pypi-link]\n[![PyPI Downloads][pypi-down]][pypi-link]\n[![PyPI - Python Version][python-image]][pypi-link]\n[![License][license-image-mit]][license-link]\n# Wildcard Match\n\n> [!warning]\n> **Security Considerations**\n>\n> Wildcard Match translates the more simple, path-centric syntax of glob patterns to regular expression for the purpose\n> of iterating and matching file systems.\n>\n> Regular expression engines like those in JavaScript, Python, Java, etc. choose compatibility and expressiveness over\n> guaranteed performance, accepting the risk of catastrophic backtracking when patterns contain nested quantifiers or\n> overlapping alternations.\n>\n> ReDoS (regular expression Denial of Service) cases are those that specifically target the areas where a regular\n> expression engine does not guarantee optimal performance.\n>\n> Because Wildcard Match builds its matching upon the Python regular expression engine, it can take advantage of the\n> engine's power, but it is also susceptible the engine's weaknesses.\n>\n> Learn more [here](https://github.com/facelessuser/wcmatch/blob/main/docs/src/markdown/index.md#security-considerations),\n> and be thoughtful about what you provide to this library in production systems.\n\n## Overview\n\nWildcard Match translates the more simple, path-centric syntax of glob patterns to regular expression for the purpose of\niterating and matching file systems.\n\nWildcard Match provides an enhanced `fnmatch`, `glob`, and `pathlib` library in order to provide file matching and\nglobbing that more closely follows the features found in Bash. In some ways these libraries are similar to Python's\nbuiltin libraries as they provide a similar interface to match, filter, and glob the file system. But they also include\na number of features found in Bash's globbing such as backslash escaping, brace expansion, extended glob pattern groups,\netc. They also add a number of new useful functions as well, such as `globmatch` which functions like `fnmatch`, but for\npaths.\n\nWildcard Match also adds a file search utility called `wcmatch` that is built on top of `fnmatch` and `globmatch`. It\nwas originally written for [Rummage](https://github.com/facelessuser/Rummage), but split out into this project to be\nused by other projects that may find its approach useful.\n\nBash is used as a guide when making decisions on behavior for `fnmatch` and `glob`. Behavior may differ from Bash\nversion to Bash version, but an attempt is made to keep Wildcard Match up with the latest relevant changes. With all of\nthis said, there may be a few corner cases in which we've intentionally chosen to not *exactly* mirror Bash. If an issue\nis found where Wildcard Match seems to deviate in an illogical way, we'd love to hear about it in the\n[issue tracker](https://github.com/facelessuser/wcmatch/issues).\n\n## Features\n\nA quick overview of Wildcard Match's Features:\n\n-   Provides an interface comparable to Python's builtin in `fnmatch`, `glob`, and `pathlib`.\n-   Allows for a much more configurable experience when matching or globbing with many more features.\n-   Adds support for `**` in glob.\n-   Adds support for Zsh style `***` recursive glob for symlinks.\n-   Adds support for escaping characters with `\\`.\n-   Add support for POSIX style character classes inside sequences: `[[:alnum:]]`, etc. The `C` locale is used.\n-   Adds support for brace expansion: `a{b,{c,d}}` --> `ab ac ad`.\n-   Adds support for expanding `~` or `~username` to the appropriate user path.\n-   Adds support for extended match patterns: `@(...)`, `+(...)`, `*(...)`, `?(...)`, and `!(...)`.\n-   Adds ability to match path names via the path centric `globmatch`.\n-   Provides a `pathlib` variant that uses Wildcard Match's `glob` library instead of Python's default.\n-   Provides an alternative file crawler called `wcmatch`.\n-   And more...\n\n## Installation\n\nInstallation is easy with pip:\n\n```\npip install wcmatch\n```\n\n## Documentation\n\nhttps://facelessuser.github.io/wcmatch/\n\n## License\n\nMIT\n\n[codecov-image]: https://img.shields.io/codecov/c/github/facelessuser/wcmatch/main.svg?logo=codecov&logoColor=aaaaaa&labelColor=333333\n[codecov-link]: https://codecov.io/github/facelessuser/wcmatch\n[pypi-image]: https://img.shields.io/pypi/v/wcmatch.svg?logo=pypi&logoColor=aaaaaa&labelColor=333333\n[pypi-down]: https://img.shields.io/pypi/dm/wcmatch.svg?logo=pypi&logoColor=aaaaaa&labelColor=333333\n[pypi-link]: https://pypi.python.org/pypi/wcmatch\n[python-image]: https://img.shields.io/pypi/pyversions/wcmatch?logo=python&logoColor=aaaaaa&labelColor=333333\n[license-image-mit]: https://img.shields.io/badge/license-MIT-blue.svg?labelColor=333333\n[license-link]: https://github.com/facelessuser/wcmatch/blob/main/LICENSE.md\n[donate-image]: https://img.shields.io/badge/Donate-PayPal-3fabd1?logo=paypal\n[donate-link]: https://www.paypal.me/facelessuser\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "fnmatch",
+          "glob",
+          "search",
+          "wildcard"
+        ],
+        "author_email": "Isaac Muse <Isaac.Muse@gmail.com>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE.md"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          "Typing :: Typed"
+        ],
+        "requires_dist": [
+          "bracex>=3.0"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Homepage, https://github.com/facelessuser/wcmatch"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/a1/5b/7b404360cc0946686cae68ee564d859a7c57379d190c88edec18fcdc9396/bracex-3.2.4-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=82e9e738b63fca213c33211d30b0b1ca330896a1091736e78da2c1bcda93ab30",
+          "hashes": {
+            "sha256": "82e9e738b63fca213c33211d30b0b1ca330896a1091736e78da2c1bcda93ab30"
+          }
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "bracex",
+        "version": "3.2.4",
+        "summary": "Bash style brace expander.",
+        "description": "[![Donate via PayPal][donate-image]][donate-link]\n[![Coverage Status][codecov-image]][codecov-link]\n[![PyPI Version][pypi-image]][pypi-link]\n[![PyPI - Python Version][python-image]][pypi-link]\n[![License][license-image-mit]][license-link]\n# Bracex\n\nBracex is a brace expanding library (à la Bash) for Python. Brace expanding is used to generate arbitrary strings.\n\n```console\n$ echo {{a,b},c}d\nad bd cd\n```\n\nBracex adds this ability to Python:\n\n```python\n>>> bracex.expand(r'file-{{a,b},c}d.txt')\n['file-ad.txt', 'file-bd.txt', 'file-cd.txt']\n```\n\nand as a command:\n\n```console\n$ python3 -m bracex -0 \"base/{a,b}/{1..2}\" | xargs -0 mkdir -p\n$ tree base/\nbase/\n├── a\n│   ├── 1\n│   └── 2\n└── b\n    ├── 1\n    └── 2\n```\n\n- **Why Bracex over other solutions?**\n\n    Bracex actually follows pretty closely to how Bash processes braces. It is not a 1:1 implementation of how Bash\n    handles braces, but generally, it follows very closely. Almost all of the test cases are run through Bash first,\n    then our implementation is compared against the results Bash gives. There are a few cases where we have purposely\n    deviated. For instance, we are not handling Bash's command line inputs, so we are not giving special meaning to back\n    ticks and quotes at this time.\n\n    On the command line Bracex can handle more expansions than Bash itself.\n\n## Install\n\n```console\n$ pip install bracex\n```\n\n## Documentation\n\nDocumentation is found here: https://facelessuser.github.io/bracex/.\n\n## License\n\nMIT License\n\n[codecov-image]: https://img.shields.io/codecov/c/github/facelessuser/bracex/master.svg?logo=codecov&logoColor=aaaaaa&labelColor=333333\n[codecov-link]: https://codecov.io/github/facelessuser/bracex\n[pypi-image]: https://img.shields.io/pypi/v/bracex.svg?logo=pypi&logoColor=aaaaaa&labelColor=333333\n[pypi-link]: https://pypi.python.org/pypi/bracex\n[python-image]: https://img.shields.io/pypi/pyversions/bracex?logo=python&logoColor=aaaaaa&labelColor=333333\n[license-image-mit]: https://img.shields.io/badge/license-MIT-blue.svg?labelColor=333333\n[license-link]: https://github.com/facelessuser/bracex/blob/main/LICENSE.md\n[donate-image]: https://img.shields.io/badge/Donate-PayPal-3fabd1?logo=paypal\n[donate-link]: https://www.paypal.me/facelessuser\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "bash",
+          "brace",
+          "expand"
+        ],
+        "author_email": "Isaac Muse <Isaac.Muse@gmail.com>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE.md"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          "Typing :: Typed"
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "Homepage, https://github.com/facelessuser/bracex"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.15",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "7.0.0-1014-aws",
+    "platform_system": "Linux",
+    "platform_version": "#14~24.04.1-Ubuntu SMP PREEMPT Fri Sep 18 21:24:59 UTC 2026",
+    "python_full_version": "3.12.15",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}
