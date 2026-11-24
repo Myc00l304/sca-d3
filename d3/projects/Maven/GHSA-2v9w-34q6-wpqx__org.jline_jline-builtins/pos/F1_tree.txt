@@ -1,0 +1,6 @@
+pl.thesis.d1:d1-case:jar:1.0.0
+\- org.jline:jline-builtins:jar:4.3.0:compile
+   +- org.jline:jline-reader:jar:4.3.0:compile
+   |  \- org.jline:jline-terminal:jar:4.3.0:compile
+   |     \- org.jline:jline-native:jar:4.3.0:compile
+   \- org.jline:jline-style:jar:4.3.0:compile

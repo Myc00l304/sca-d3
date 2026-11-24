@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "packages": 5,
+  "tree": {
+    "org.jline:jline-builtins": "4.3.0",
+    "org.jline:jline-reader": "4.3.0",
+    "org.jline:jline-terminal": "4.3.0",
+    "org.jline:jline-native": "4.3.0",
+    "org.jline:jline-style": "4.3.0"
+  },
+  "jars": [
+    "jline-builtins-4.3.0.jar",
+    "jline-native-4.3.0.jar",
+    "jline-reader-4.3.0.jar",
+    "jline-style-4.3.0.jar",
+    "jline-terminal-4.3.0.jar"
+  ]
+}

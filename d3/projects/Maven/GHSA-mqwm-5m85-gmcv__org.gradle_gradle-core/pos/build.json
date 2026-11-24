@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "packages": 1,
+  "tree": {
+    "org.gradle:gradle-core": "9.2.1"
+  },
+  "jars": [
+    "gradle-core-9.2.1.jar"
+  ]
+}
