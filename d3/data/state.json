@@ -589,6 +589,12 @@
   "pip-audit": "2026-10-24",
   "trivy": "2026-10-24"
  },
+ "GHSA-859w-52fx-hcm6": {
+  "grype": "2026-11-25",
+  "osv-scanner": "2026-11-25",
+  "pip-audit": "2026-11-25",
+  "trivy": "2026-11-25"
+ },
  "GHSA-85gg-2gfq-q95m": {
   "grype": "2026-11-11",
   "osv-scanner": "2026-11-11",
@@ -724,6 +730,13 @@
   "osv-scanner": "2026-11-01",
   "trivy": "2026-11-01"
  },
+ "GHSA-c4hm-4h84-2cf3": {
+  "dependency-check": "2026-11-25",
+  "grype": "2026-11-25",
+  "npm-audit": "2026-11-25",
+  "osv-scanner": "2026-11-25",
+  "trivy": "2026-11-25"
+ },
  "GHSA-c5q4-97jw-jggh": {
   "grype": "2026-11-18",
   "osv-scanner": "2026-11-18",
@@ -788,6 +801,9 @@
   "osv-scanner": "2026-11-10",
   "pip-audit": "2026-11-10",
   "trivy": "2026-11-10"
+ },
+ "GHSA-crj3-q72p-ggqm": {
+  "osv-scanner": "2026-11-25"
  },
  "GHSA-crwc-vw2r-qr6m": {
   "grype": "2026-10-22",
@@ -1733,5 +1749,5 @@
   "osv-scanner": "2026-11-13",
   "trivy": "2026-11-13"
  },
- "_last_run": "2026-11-24"
+ "_last_run": "2026-11-25"
 }
